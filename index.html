@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DARE TO S-PEAK PRO – Dành cho Chuyên gia | Nam Nguyễn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Anton&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #FF8A35;
+    --red: #FF2B1E;
+    --purple: #8B2FC9;
+    --dark: #0D0D0D;
+    --dark2: #161616;
+    --dark3: #1E1E1E;
+    --offwhite: #F7F5F2;
+    --white: #FFFFFF;
+    --text-muted: #999;
+    --grad: linear-gradient(135deg, var(--orange), var(--red));
+    --grad-h: linear-gradient(135deg, #FF9F55, #FF4535);
+    /* Tweakable */
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    --heading-transform: none;
+    --heading-tracking: -0.025em;
+    --heading-weight: 800;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--dark);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: var(--heading-weight);
+    line-height: 1.05;
+    letter-spacing: var(--heading-tracking);
+    text-transform: var(--heading-transform);
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  /* ── UTILITIES ── */
+  .grad-text {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 16px 36px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255,100,30,0.4); }
+  .btn:active { transform: translateY(0); }
+  .btn-primary { background: var(--grad); color: #fff; }
+  .btn-outline {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.35);
+    color: #fff;
+  }
+  .btn-outline:hover { border-color: var(--orange); box-shadow: 0 8px 32px rgba(255,100,30,0.2); }
+
+  .section-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(13,13,13,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: padding 0.3s;
+  }
+  nav img { height: 44px; width: auto; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.65);
+  }
+  .nav-links a:hover { color: #fff; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    background:
+      radial-gradient(ellipse 60% 50% at 70% 40%, rgba(255,80,20,0.14) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 40% at 20% 80%, rgba(139,47,201,0.1) 0%, transparent 70%),
+      var(--dark);
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .hero-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 80px 32px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 6px 14px;
+    border-radius: 2px;
+    background: rgba(255,138,53,0.15);
+    border: 1px solid rgba(255,138,53,0.3);
+    color: var(--orange);
+    margin-bottom: 20px;
+  }
+  .hero-badge span { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+  .hero-title {
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.95;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .hero-title .line2 {
+    display: block;
+    font-size: clamp(5.5rem, 11vw, 9.5rem);
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 40px rgba(255,80,20,0.4));
+  }
+  .hero-slogan {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero-slogan em {
+    color: var(--orange);
+    font-style: normal;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.65);
+    max-width: 500px;
+    margin-bottom: 36px;
+  }
+  .hero-ctas { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .hero-note {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+    margin-top: 16px;
+  }
+  .hero-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  .hero-logo-wrap {
+    width: 100%;
+    max-width: 360px;
+    background: var(--dark3);
+    border-radius: 12px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,0.07);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-logo-wrap::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,80,20,0.2), transparent 70%);
+    pointer-events: none;
+  }
+  .hero-logo-wrap img { width: 100%; max-width: 260px; position: relative; z-index: 1; }
+  .hero-info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+  }
+  .hero-info-card {
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .hero-info-card .num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 900;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .hero-info-card .lbl {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.45);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .price-card {
+    grid-column: span 2;
+    background: rgba(255,138,53,0.08);
+    border: 1px solid rgba(255,138,53,0.2);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  .price-card .price {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--orange);
+  }
+  .price-card .price-lbl { font-size: 0.78rem; color: rgba(255,255,255,0.45); margin-top: 2px; }
+
+  /* ── SECTION BASE ── */
+  section { padding: 96px 0; }
+  section.light { background: var(--offwhite); color: var(--dark); }
+  section.dark2 { background: var(--dark2); }
+
+  /* ── PAIN SECTION ── */
+  .pain-header { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+  .pain-header h2 { font-size: 3.5rem; color: var(--dark); }
+  .pain-header h2 span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .pain-header p { color: rgba(0,0,0,0.55); margin-top: 14px; line-height: 1.7; }
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .pain-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 22px;
+    border: 1px solid rgba(0,0,0,0.07);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .pain-item:hover { box-shadow: 0 8px 32px rgba(255,80,20,0.1); transform: translateY(-2px); }
+  .pain-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255,43,30,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+  }
+  .pain-item p { font-size: 0.9rem; line-height: 1.6; color: rgba(0,0,0,0.7); font-weight: 500; }
+
+  /* ── WHY SECTION ── */
+  #why { background: var(--dark); position: relative; overflow: hidden; }
+  #why::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 900px; height: 2px;
+    background: var(--grad);
+    opacity: 0.4;
+  }
+  .why-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-quote {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .why-quote em {
+    font-style: normal;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .why-body p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+  }
+  .why-highlight {
+    background: rgba(255,138,53,0.08);
+    border-left: 3px solid var(--orange);
+    padding: 16px 20px;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+  }
+  .why-highlight strong { color: var(--orange); }
+
+  /* ── STATS ── */
+  #stats {
+    padding: 60px 0;
+    background: var(--grad);
+  }
+  .stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 32px;
+  }
+  .stat-item { text-align: center; }
+  .stat-item .num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    line-height: 1;
+    color: #fff;
+    filter: drop-shadow(0 2px 12px rgba(0,0,0,0.3));
+  }
+  .stat-item .unit {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .stat-item .label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    max-width: 160px;
+    margin: 6px auto 0;
+    line-height: 1.4;
+  }
+  .stat-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.25);
+  }
+
+  /* ── BENEFITS ── */
+  .benefits-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+  .benefits-header h2 { font-size: 3.5rem; }
+  .benefits-header h2 span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .benefits-header p { margin-top: 14px; color: rgba(0,0,0,0.55); line-height: 1.7; }
+  .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .benefit-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px 28px;
+    border: 1px solid rgba(0,0,0,0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(255,80,20,0.12); }
+  .benefit-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 10px;
+    background: var(--grad);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 20px rgba(255,60,20,0.3);
+  }
+  .benefit-card h3 {
+    font-size: 1.4rem;
+    color: var(--dark);
+    margin-bottom: 10px;
+    line-height: 1.2;
+  }
+  .benefit-card p { font-size: 0.88rem; line-height: 1.7; color: rgba(0,0,0,0.6); }
+  .benefit-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 16px;
+  }
+  .pill {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    background: rgba(255,80,20,0.08);
+    color: var(--red);
+    border: 1px solid rgba(255,80,20,0.15);
+  }
+
+  /* ── CURRICULUM ── */
+  #curriculum { background: var(--dark2); }
+  .curriculum-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+  .curriculum-header h2 { font-size: 3.5rem; }
+  .curriculum-header p { margin-top: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; }
+  .curriculum-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .day-card {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+  }
+  .day-header {
+    padding: 28px 28px 20px;
+    background: var(--grad);
+    position: relative;
+  }
+  .day-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 6px;
+  }
+  .day-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.7rem;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.1;
+  }
+  .day-body {
+    background: var(--dark3);
+    padding: 24px 28px;
+    flex: 1;
+  }
+  .day-body p { font-size: 0.88rem; line-height: 1.75; color: rgba(255,255,255,0.65); margin-bottom: 20px; }
+  .day-meta { margin-top: 20px; font-size: 0.75rem; font-weight: 700; color: var(--orange); letter-spacing: 0.04em; border-top: 1px solid rgba(0,0,0,0.08); padding-top: 14px; }
+  .day-outcomes { display: flex; flex-direction: column; gap: 10px; }
+  .outcome-item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+  .outcome-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(255,138,53,0.15);
+    border: 1px solid rgba(255,138,53,0.3);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .outcome-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); }
+
+  /* ── TRAINER ── */
+  #trainer { background: var(--offwhite); }
+  .trainer-inner {
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+  .trainer-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+  }
+  .trainer-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: var(--dark3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .trainer-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 50%, #1a1a1a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.2);
+    font-size: 0.75rem;
+    font-family: monospace;
+    padding: 24px;
+    text-align: center;
+  }
+  .trainer-photo-placeholder svg { width: 48px; height: 48px; opacity: 0.3; }
+  .trainer-photo::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 80px;
+    background: linear-gradient(transparent, rgba(255,80,20,0.15));
+  }
+  .trainer-name-card {
+    padding: 24px;
+    text-align: center;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+  .trainer-name-card h3 {
+    font-size: 1.8rem;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .trainer-name-card .trainer-role {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .trainer-socials {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .social-btn {
+    width: 36px; height: 36px;
+    border-radius: 6px;
+    background: var(--offwhite);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: var(--dark);
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: background 0.15s, transform 0.15s;
+  }
+  .social-btn:hover { background: var(--orange); color: #fff; transform: scale(1.1); }
+  .trainer-content h2 { font-size: 3.2rem; color: var(--dark); margin-bottom: 20px; }
+  .trainer-content h2 span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .trainer-content p { font-size: 0.95rem; line-height: 1.8; color: rgba(0,0,0,0.65); margin-bottom: 16px; }
+  .creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 28px; }
+  .cred-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    background: #fff;
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.07);
+  }
+  .cred-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--grad);
+    flex-shrink: 0;
+  }
+  .cred-item span { font-size: 0.82rem; font-weight: 600; color: var(--dark); line-height: 1.4; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials { background: var(--dark); }
+  .testi-header { text-align: center; max-width: 640px; margin: 0 auto 56px; }
+  .testi-header h2 { font-size: 3.5rem; }
+  .testi-header p { margin-top: 14px; color: rgba(255,255,255,0.55); }
+  .testi-featured {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .testi-mini-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .testi-card {
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .testi-card:hover { border-color: rgba(255,138,53,0.3); transform: translateY(-3px); }
+  .testi-card .quote-mark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3rem;
+    color: var(--orange);
+    line-height: 0.8;
+    margin-bottom: 12px;
+    opacity: 0.6;
+  }
+  .testi-card .quote {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  .testi-author { display: flex; gap: 12px; align-items: center; }
+  .testi-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--grad);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: #fff;
+    flex-shrink: 0;
+  }
+  .testi-info .name { font-weight: 700; font-size: 0.9rem; color: #fff; }
+  .testi-info .role { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 1px; }
+  .testi-mini-card {
+    background: var(--dark2);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .testi-mini-card .mini-name { font-weight: 700; font-size: 0.82rem; color: #fff; margin-bottom: 3px; }
+  .testi-mini-card .mini-role { font-size: 0.72rem; color: var(--orange); margin-bottom: 10px; }
+  .testi-mini-card .mini-quote { font-size: 0.78rem; line-height: 1.6; color: rgba(255,255,255,0.55); font-style: italic; }
+
+  /* ── SCHOLARSHIP ── */
+  #scholarship {
+    background: var(--grad);
+    padding: 72px 0;
+    text-align: center;
+  }
+  .scholarship-inner { max-width: 680px; margin: 0 auto; }
+  .scholarship-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 2px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin-bottom: 20px;
+  }
+  #scholarship h2 { font-size: 3.2rem; color: #fff; margin-bottom: 16px; }
+  #scholarship p { color: rgba(255,255,255,0.85); line-height: 1.7; font-size: 1rem; margin-bottom: 28px; }
+  .scholarship-highlight {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 20px 28px;
+    display: inline-block;
+    margin-bottom: 32px;
+  }
+  .scholarship-highlight .val {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fff;
+  }
+  .scholarship-highlight .val-label { font-size: 0.82rem; color: rgba(255,255,255,0.75); }
+
+  /* ── PRICING ── */
+  #pricing { background: var(--dark2); }
+  .pricing-inner { text-align: center; max-width: 560px; margin: 0 auto; }
+  .pricing-inner h2 { font-size: 3.5rem; margin-bottom: 16px; }
+  .pricing-inner > p { color: rgba(255,255,255,0.55); margin-bottom: 40px; line-height: 1.7; }
+  .pricing-card {
+    background: var(--dark3);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 44px 40px;
+    position: relative;
+    overflow: hidden;
+  }
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--grad);
+  }
+  .pricing-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .pricing-program { font-size: 1.8rem; font-weight: 700; margin-bottom: 28px; }
+  .price-big {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 900;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .pricing-perks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 28px 0 36px;
+    text-align: left;
+  }
+  .perk {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+  }
+  .perk-check {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(255,138,53,0.15);
+    border: 1px solid rgba(255,138,53,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    color: var(--orange);
+    margin-top: 1px;
+  }
+  .pricing-card .btn { width: 100%; justify-content: center; font-size: 1.2rem; padding: 18px; }
+  .pricing-note { font-size: 0.75rem; color: rgba(255,255,255,0.3); margin-top: 14px; }
+
+  /* ── FAQ ── */
+  #faq { background: var(--offwhite); }
+  .faq-header { text-align: center; max-width: 560px; margin: 0 auto 56px; }
+  .faq-header h2 { font-size: 3.5rem; color: var(--dark); }
+  .faq-header p { margin-top: 14px; color: rgba(0,0,0,0.55); }
+  .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 960px; margin: 0 auto; }
+  .faq-item {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.07);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+  .faq-item:hover { box-shadow: 0 6px 24px rgba(0,0,0,0.06); }
+  .faq-q {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--dark);
+    gap: 12px;
+    user-select: none;
+  }
+  .faq-q .toggle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--offwhite);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: var(--orange);
+    transition: background 0.15s, transform 0.2s;
+    border: 1px solid rgba(0,0,0,0.07);
+  }
+  .faq-item.open .faq-q .toggle { background: var(--orange); color: #fff; transform: rotate(45deg); }
+  .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s;
+    padding: 0 24px;
+  }
+  .faq-a-inner {
+    font-size: 0.87rem;
+    line-height: 1.75;
+    color: rgba(0,0,0,0.6);
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0,0,0,0.07);
+    padding-top: 16px;
+  }
+  .faq-item.open .faq-a { max-height: 400px; }
+
+  /* ── FINAL CTA ── */
+  #final-cta {
+    background: var(--dark);
+    text-align: center;
+    padding: 96px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  #final-cta::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 400px;
+    background: radial-gradient(ellipse, rgba(255,80,20,0.15), transparent 70%);
+    pointer-events: none;
+  }
+  #final-cta h2 { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 16px; position: relative; }
+  #final-cta > .container > p { color: rgba(255,255,255,0.55); max-width: 500px; margin: 0 auto 40px; line-height: 1.7; position: relative; }
+  #final-cta .cta-group { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0A0A0A;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding: 40px 0;
+  }
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  footer img { height: 36px; }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-social {
+    display: flex;
+    gap: 12px;
+  }
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    transition: background 0.15s, color 0.15s;
+  }
+  .footer-social a:hover { background: var(--orange); color: #fff; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+
+  /* ── RESPONSIVE ── */
+  /* TABLET */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .why-inner { grid-template-columns: 1fr; gap: 40px; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .curriculum-grid { grid-template-columns: 1fr; }
+    .testi-featured { grid-template-columns: 1fr; }
+    .testi-mini-grid { grid-template-columns: repeat(2, 1fr); }
+    .trainer-inner { grid-template-columns: 1fr; }
+    .trainer-card { max-width: 100%; }
+    .trainer-photo { aspect-ratio: 4/3; }
+    .creds-grid { grid-template-columns: 1fr 1fr; }
+    .pain-grid { grid-template-columns: 1fr; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .stats-row { flex-direction: column; gap: 24px; }
+    .stat-divider { width: 60px; height: 1px; }
+    .pain-numbered-grid { grid-template-columns: 1fr; }
+    .pain-num-card:nth-child(2n) { border-right: none; }
+    .pain-num-card:nth-child(3) { border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .pain-num-card:nth-child(4) { border-bottom: none; }
+    .hero-ctas { flex-direction: column; align-items: flex-start; }
+    .hero-ctas .btn { width: 100%; justify-content: center; }
+    .cta-group { flex-direction: column; align-items: center; }
+    .cta-group .btn { width: 100%; max-width: 400px; justify-content: center; }
+  }
+
+  /* MOBILE */
+  @media (max-width: 600px) {
+    section { padding: 56px 0; }
+    .container { padding: 0 18px; }
+    nav { padding: 12px 18px; }
+    nav img { height: 36px; }
+    .nav-links { display: none; }
+    nav .btn { padding: 8px 16px; font-size: 0.8rem; }
+    #hero { padding-top: 70px; }
+    .hero-inner { padding: 56px 18px 48px; }
+    .hero-badge { font-size: 0.7rem; padding: 5px 10px; }
+    .hero-title { font-size: clamp(3rem, 14vw, 4.5rem); }
+    .hero-title .line2 { font-size: clamp(4.5rem, 20vw, 7rem); }
+    .hero-slogan { font-size: 1.1rem; }
+    .hero-desc { font-size: 0.9rem; }
+    .hero-note { font-size: 0.72rem; }
+    .pain-header h2 { font-size: 2.4rem; }
+    .pain-num-card { padding: 28px 22px; }
+    .pain-num-title { font-size: 1.1rem; }
+    .pain-num-desc { font-size: 0.85rem; }
+    .why-quote { font-size: 2rem; }
+    .why-highlight { padding: 14px 16px; font-size: 0.88rem; }
+    #stats { padding: 48px 0; }
+    .stat-item .num { font-size: 3rem; }
+    .stat-item .label { font-size: 0.8rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .benefits-header h2 { font-size: 2.4rem; }
+    .benefit-card { padding: 24px 20px; }
+    .curriculum-header h2 { font-size: 2.4rem; }
+    .day-header { padding: 22px 22px 16px; }
+    .day-title { font-size: 1.3rem; }
+    .day-body { padding: 20px 22px; }
+    .day-meta { font-size: 0.7rem; }
+    .trainer-photo { aspect-ratio: 1; }
+    .trainer-content h2 { font-size: 2.2rem; }
+    .creds-grid { grid-template-columns: 1fr; }
+    .testi-header h2 { font-size: 2.4rem; }
+    .testi-mini-grid { grid-template-columns: 1fr; }
+    .testi-card { padding: 22px; }
+    .pricing-card { padding: 32px 24px; }
+    .price-big { font-size: 3.2rem; }
+    .pricing-inner h2 { font-size: 2.4rem; }
+    .pricing-card .btn { font-size: 1rem; padding: 16px; }
+    .faq-header h2 { font-size: 2.4rem; }
+    .faq-q { font-size: 0.85rem; padding: 16px 18px; }
+    #final-cta h2 { font-size: 2.6rem; }
+    .footer-inner { flex-direction: column; align-items: center; text-align: center; gap: 16px; }
+    .footer-social { justify-content: center; }
+    .footer-copy { font-size: 0.72rem; }
+  }
+
+  /* SMALL MOBILE */
+  @media (max-width: 380px) {
+    .hero-title { font-size: 2.6rem; }
+    .hero-title .line2 { font-size: 4rem; }
+    .container { padding: 0 14px; }
+    .day-header { padding: 18px 16px 12px; }
+    .day-body { padding: 16px; }
+    .pricing-card { padding: 24px 16px; }
+    .benefit-card { padding: 20px 16px; }
+  }
+
+  /* ══════════════════════════════
+     LIGHT PROFESSIONAL THEME
+  ══════════════════════════════ */
+
+  /* Cleaner hero — no noise pattern, subtler glow */
+  #hero::before { display: none; }
+  #hero {
+    background:
+      radial-gradient(ellipse 50% 40% at 60% 50%, rgba(255,100,30,0.06) 0%, transparent 65%),
+      #111111;
+  }
+
+  /* WHY → warm light */
+  #why { background: var(--offwhite); color: #111111; }
+  #why::before { opacity: 0.12; }
+  .why-quote { color: #111111; }
+  .why-quote em {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .why-body p { color: rgba(0,0,0,0.62) !important; }
+  .why-highlight {
+    background: rgba(255,138,53,0.07);
+    border-left-color: var(--orange);
+    color: rgba(0,0,0,0.75) !important;
+  }
+  .why-highlight strong { color: var(--orange) !important; }
+
+  /* STATS → clean white, gradient numbers */
+  #stats {
+    background: #FFFFFF;
+    border-top: 1px solid rgba(0,0,0,0.06);
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .stat-item .num {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: none;
+    color: transparent;
+  }
+  .stat-item .label { color: rgba(0,0,0,0.5) !important; }
+  .stat-divider { background: rgba(0,0,0,0.1) !important; }
+
+  /* CURRICULUM → warm light, white cards */
+  #curriculum { background: var(--offwhite); color: #111111; }
+  .curriculum-header p { color: rgba(0,0,0,0.55) !important; }
+  .day-card {
+    border-color: rgba(0,0,0,0.08) !important;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06) !important;
+  }
+  .day-body { background: #FFFFFF !important; }
+  .day-body p { color: rgba(0,0,0,0.65) !important; }
+  .outcome-item { color: rgba(0,0,0,0.65) !important; }
+  .outcome-dot {
+    background: rgba(255,138,53,0.1) !important;
+    border-color: rgba(255,138,53,0.3) !important;
+  }
+
+  /* TESTIMONIALS → white, clean cards */
+  #testimonials { background: #FFFFFF; color: #111111; }
+  .testi-header p { color: rgba(0,0,0,0.55) !important; }
+  .testi-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06) !important;
+  }
+  .testi-card:hover {
+    border-color: rgba(255,138,53,0.25) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+  }
+  .testi-card .quote { color: rgba(0,0,0,0.68) !important; }
+  .testi-info .name { color: #111111 !important; }
+  .testi-info .role { color: rgba(0,0,0,0.38) !important; }
+  .testi-mini-card {
+    background: var(--offwhite) !important;
+    border-color: rgba(0,0,0,0.07) !important;
+  }
+  .testi-mini-card .mini-name { color: #111111 !important; }
+  .testi-mini-card .mini-quote { color: rgba(0,0,0,0.58) !important; }
+
+  /* PRICING → warm light, white card */
+  #pricing { background: var(--offwhite); color: #111111; }
+  .pricing-inner > p { color: rgba(0,0,0,0.6) !important; }
+  .pricing-card {
+    background: #FFFFFF !important;
+    border-color: rgba(0,0,0,0.08) !important;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.09) !important;
+  }
+  .pricing-program { color: #111111 !important; }
+  .perk { color: rgba(0,0,0,0.68) !important; }
+  .perk-check {
+    background: rgba(255,138,53,0.1) !important;
+    border-color: rgba(255,138,53,0.25) !important;
+    color: var(--orange) !important;
+  }
+  .pricing-note { color: rgba(0,0,0,0.35) !important; }
+
+  /* BENEFIT cards — already white, just ensure clean shadow */
+  .benefit-card { box-shadow: 0 2px 16px rgba(0,0,0,0.06); }
+
+  /* Trainer section already light — ensure clean */
+  .cred-item { background: #FFFFFF; border-color: rgba(0,0,0,0.07); }
+
+  /* FAQ items already light */
+  .faq-a-inner { color: rgba(0,0,0,0.62); }
+
+  /* Smoother pain item shadows */
+  .pain-item { box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+
+  /* Cleaner nav on light page (still dark bg, but a bit more refined) */
+  nav { border-bottom-color: rgba(255,255,255,0.05); }
+
+
+  /* ── PAIN 2x2 NUMBERED CARDS ── */
+  .pain-numbered-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .pain-num-card {
+    padding: 40px 36px;
+    border-right: 1px solid rgba(0,0,0,0.08);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    background: #fff;
+    transition: background 0.2s;
+  }
+  .pain-num-card:nth-child(2n) { border-right: none; }
+  .pain-num-card:nth-child(3),
+  .pain-num-card:nth-child(4) { border-bottom: none; }
+  .pain-num-card:hover { background: #fdf9f6; }
+  .pain-num { 
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: 0.06em;
+    margin-bottom: 12px;
+  }
+  .pain-num-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--dark);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .pain-num-desc {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: rgba(0,0,0,0.6);
+  }
+  @media (max-width: 700px) {
+    .pain-numbered-grid { grid-template-columns: 1fr; }
+    .pain-num-card:nth-child(2n) { border-right: none; }
+    .pain-num-card:nth-child(3) { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  }
+
+
+  /* ── EDITORIAL "ĐỌC ĐIỀU NÀY TRƯỚC" ── */
+  #editorial {
+    background: #fff;
+    text-align: center;
+    padding: 96px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+  .editorial-label {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-bottom: 8px;
+  }
+  .editorial-label::after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 2px;
+    background: var(--orange);
+    margin: 8px auto 0;
+  }
+  .editorial-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+    color: var(--dark);
+    max-width: 800px;
+    margin: 0 auto 24px;
+  }
+  .editorial-title em {
+    font-style: normal;
+    color: var(--orange);
+  }
+  .editorial-body {
+    max-width: 620px;
+    margin: 0 auto;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(0,0,0,0.6);
+  }
+
+  /* ── DARK QUOTE + CTA ── */
+  #quote-cta {
+    background: var(--dark);
+    text-align: center;
+    padding: 96px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  #quote-cta::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 700px; height: 400px;
+    background: radial-gradient(ellipse, rgba(255,138,53,0.12), transparent 70%);
+    pointer-events: none;
+  }
+  .quote-cta-inner { max-width: 780px; margin: 0 auto; position: relative; }
+  .quote-cta-mark {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: rgba(255,255,255,0.2);
+    margin-bottom: 32px;
+  }
+  .quote-cta-mark em {
+    font-style: normal;
+    color: var(--orange);
+  }
+  .quote-cta-body {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.65);
+    max-width: 580px;
+    margin: 0 auto 36px;
+  }
+  .quote-cta-body strong { color: #fff; }
+  .cta-btn-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .cta-btn-date {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.06em;
+  }
+  @media (max-width: 600px) {
+    #editorial { padding: 64px 0; }
+    .editorial-title { font-size: 2rem; }
+    #quote-cta { padding: 64px 0; }
+    .quote-cta-mark { font-size: 1.6rem; }
+    .cta-btn-wrap .btn { width: 100%; justify-content: center; }
+  }
+
+</style>
+<template id="__bundler_thumbnail">
+<svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="80" fill="#0D0D0D"/>
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF8A35"/>
+      <stop offset="100%" stop-color="#FF2B1E"/>
+    </linearGradient>
+  </defs>
+  <text x="60" y="38" font-family="Arial Black,sans-serif" font-size="18" font-weight="900" fill="url(#g)" text-anchor="middle">S-PEAK</text>
+  <text x="60" y="54" font-family="Arial,sans-serif" font-size="7" fill="rgba(255,255,255,0.5)" text-anchor="middle">DARE TO S-PEAK PRO</text>
+</svg>
+</template>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero"><img src="assets/speak-logo.png" alt="S-PEAK with Nam Nguyen"></a>
+  <div class="nav-links">
+    <a href="#pain">Dành cho ai?</a>
+    <a href="#curriculum">Chương trình</a>
+    <a href="#testimonials">Học viên</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary" style="padding:10px 22px;font-size:0.9rem;">Đăng ký ngay</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-badge">DÀNH CHO CHUYÊN GIA · TRAINER · COACH · SOLO-EXPERT</div>
+      <h1 class="hero-title">
+        DARE TO
+        <span class="line2">S-PEAK!</span>
+      </h1>
+      <p class="hero-slogan">Biến chuyên môn — <em>thành tầm ảnh hưởng</em></p>
+      <p class="hero-desc">Chương trình dành riêng cho Trainer, Coach &amp; Solo-Expert: phát triển năng lực nói tạo ảnh hưởng, xác lập vị thế dẫn đầu và chuyển hóa khán giả thành khách hàng.</p>
+      <div class="hero-ctas">
+        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary">ĐĂNG KÝ CHƯƠNG TRÌNH →</a>
+        <a href="#curriculum" class="btn btn-outline">Xem chương trình</a>
+      </div>
+      <p class="hero-note">Khoản đầu tư: 1.000.000 VND · Online qua Zoom · Giới hạn số lượng học viên</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PAIN SECTION -->
+<section id="pain" class="light">
+  <div class="container">
+    <div class="pain-header">
+      <div class="section-label" style="font-size: 25px">Đây có phải là bạn?</div>
+      <h2>CHƯƠNG TRÌNH NÀY<br><span style="color:#ff8a35;">DÀNH CHO BẠN NẾU…</span></h2>
+    </div>
+    <div class="pain-numbered-grid">
+      <div class="pain-num-card">
+        <div class="pain-num">01</div>
+        <div class="pain-num-title">Bạn là chuyên gia giỏi nhưng chưa nổi bật</div>
+        <p class="pain-num-desc">Bạn có chuyên môn sâu nhưng hòa lẫn giữa hàng trăm coach, trainer, chuyên gia khác. Speaking chính là đòn bẩy giúp bạn được nhớ đến và được chọn.</p>
+      </div>
+      <div class="pain-num-card">
+        <div class="pain-num">02</div>
+        <div class="pain-num-title">Bạn chia sẻ nhiều nhưng chưa tạo ra doanh thu</div>
+        <p class="pain-num-desc">Webinar, workshop, livestream của bạn có người xem nhưng không chuyển đổi thành khách hàng. Bạn cần biết cách nói để tạo niềm tin và dẫn dắt hành động.</p>
+      </div>
+      <div class="pain-num-card">
+        <div class="pain-num">03</div>
+        <div class="pain-num-title">Bạn muốn thu hút lead chất lượng</div>
+        <p class="pain-num-desc">Bạn muốn mỗi buổi chia sẻ, webinar hay sự kiện không chỉ tạo giá trị — mà còn thu hút đúng khách hàng tiềm năng, sẵn sàng trả phí cho dịch vụ của bạn.</p>
+      </div>
+      <div class="pain-num-card">
+        <div class="pain-num">04</div>
+        <div class="pain-num-title">Bạn muốn khẳng định vị thế chuyên gia</div>
+        <p class="pain-num-desc">Bạn đã có chuyên môn và kết quả — nhưng chưa được biết đến đúng tầm. Bạn muốn được công nhận là chuyên gia đầu ngành và có tiếng nói định hình thị trường.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SECTION -->
+<section id="why">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-left">
+        <div class="section-label" style="font-size: 18px">Tại sao Speaking quan trọng với chuyên gia?</div>
+        <div class="why-quote" style="font-size: 39px">Với chuyên gia, Speaking không phải kỹ năng phụ. Đó là <span style="color:#ff8a35;">đòn bẩy vị thế.</span></div>
+      </div>
+      <div class="why-body">
+        <p>Sau hơn 14 năm đào tạo cho chuyên gia, lãnh đạo và doanh nhân tại Việt Nam và nhiều quốc gia, tôi nhận ra: người giỏi nhất chưa chắc là người được chọn — người được nhớ và được tin tưởng mới là người dẫn đầu.</p>
+        <div class="why-highlight">
+          <strong>Speaking là đòn bẩy</strong> chuyển bạn từ "người giỏi chuyên môn" thành "người dẫn dắt thị trường". Một bài nói đúng cách giúp bạn xác lập vị thế, tạo niềm tin và biến khán giả thành khách hàng — mà không cần "bán hàng".
+        </div>
+        <p>Điều mọi chuyên gia thật sự cần là khả năng <strong>đóng gói chuyên môn thành thông điệp sắc bén</strong> — để mỗi lần xuất hiện là một lần nâng tầm uy tín.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="num">5,000<span class="unit">+</span></div>
+        <div class="label">Học viên tham dự 
+các chương trình</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="num">10,000<span class="unit">+</span></div>
+        <div class="label">Giờ đào tạo cho
+ cá nhân  và tổ chức</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="num">14<span class="unit">+</span></div>
+        <div class="label">Năm kinh nghiệm đào tạo tại Việt Nam &amp; quốc tế</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EDITORIAL -->
+<section id="editorial">
+  <div class="container">
+    <div class="editorial-label" style="font-size: 25px">Đọc điều này trước</div>
+    <h2 class="editorial-title">Khi bạn hiểu điều này, <em>Speaking</em> sẽ không còn là một kỹ năng mơ hồ.</h2>
+    <p class="editorial-body">Trong 3 ngày của DARE TO S-PEAK!, tôi sẽ giúp bạn hiểu rõ Speaking của chuyên gia thật sự là gì — khác gì với diễn giả thông thường, tại sao một bài nói đúng cách có thể xác lập vị thế, 
+tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits" class="light">
+  <div class="container">
+    <div class="benefits-header">
+      <div class="section-label" style="font-size: 25px">Bạn sẽ đạt được gì?</div>
+      <h2>Ba chuyển hóa <span>cho chuyên gia</span></h2>
+      <p>Sau 3 ngày chuyên sâu, bạn không chỉ nói hay hơn — bạn nâng tầm vị thế, sức ảnh hưởng và khả năng tạo khách hàng.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">🔥</div>
+        <h3>CONFIDENCE | TỰ TIN TUYỆT ĐỐI</h3>
+        <p>Không phải sự tự tin ngắn hạn — đây là sự tự tin dài hạn, tạo ra sự chắc chắn để bạn vững vàng trước bất kỳ ai, trong bất kỳ hoàn cảnh nào.</p>
+        <div class="benefit-pills">
+          <span class="pill">Tự tin bền vững</span>
+          <span class="pill">Vững vàng</span>
+          <span class="pill">Thần thái</span>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">📦</div>
+        <h3>COHERENCE | TRÌNH BÀY MẠCH LẠC</h3>
+        <p>Chuyển kiến thức phức tạp thành bài nói mạch lạc, hấp dẫn và dễ nhớ — một Signature Talk đại diện cho thương hiệu của bạn.</p>
+        <div class="benefit-pills">
+          <span class="pill">Signature Talk</span>
+          <span class="pill">Cấu trúc</span>
+          <span class="pill">Storytelling</span>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">🤝</div>
+        <h3>CONNECTION | KẾT NỐI SÂU SẮC</h3>
+        <p>Tạo kết nối thật sự với khán giả — chạm cảm xúc, xây dựng niềm tin và biến người nghe thành người đồng hành, từ đó tự nhiên trở thành khách hàng.</p>
+        <div class="benefit-pills">
+          <span class="pill">Kết nối cảm xúc</span>
+          <span class="pill">Niềm tin</span>
+          <span class="pill">Chuyển đổi</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CURRICULUM -->
+<section id="curriculum">
+  <div class="container">
+    <div class="curriculum-header">
+      <div class="section-label" style="font-size: 25px">Lịch trình 3 ngày</div>
+      <h2>Lộ trình 3C cho Chuyên gia</h2>
+      <p>Ba ngày chuyên sâu đưa bạn từ chuyên môn đơn thuần đến khả năng nói tạo vị thế,  
+tạo niềm tin và tạo khách hàng.</p>
+    </div>
+    <div class="curriculum-grid">
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num" style="font-size: 15px">Ngày 1</div>
+          <div class="day-title">CONNECTION | KẾT NỐI SÂU SẮC</div>
+        </div>
+        <div class="day-body">
+          <p>Xây dựng nền tảng kết nối và định vị bản thân như một chuyên gia đáng tin — ngay từ lần xuất hiện đầu tiên.</p>
+          <div class="day-outcomes">
+            <div class="outcome-item"><div class="outcome-dot"></div>Nói là Siêu kỹ năng (Meta-Skill)</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Khoa học về Niềm tin</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>2 loại Niềm tin khi nói</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điểm đặc trưng</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Giới thiệu bản thân cùng Công thức V.E.S</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Thực hành: Giới thiệu bản thân cùng V.E.S</div>
+          </div>
+          <div class="day-meta">20g00 – 22g30 · 3/6/2026 · Online Zoom</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num" style="font-size: 15px; color: rgba(255, 255, 255, 0.65)">Ngày 2</div>
+          <div class="day-title">COHERENCE | TRÌNH BÀY MẠCH LẠC</div>
+        </div>
+        <div class="day-body">
+          <p>Đóng gói chuyên môn thành cấu trúc bài nói dễ nhớ, hấp dẫn — ứng dụng ngay vào webinar, workshop và thuyết trình.</p>
+          <div class="day-outcomes">
+            <div class="outcome-item"><div class="outcome-dot"></div>Khoa học Não bộ về sự ghi nhớ</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Nguyên tắc con số 3</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Khung Nội dung</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Ứng dụng Khung nội dung trong Thiết kế bài nói</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Thực hành: Nói cùng Khung nội dung</div>
+          </div>
+          <div class="day-meta">20g00 – 22g30 · 4/6/2026 · Online Zoom</div>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-header">
+          <div class="day-num" style="font-size: 14px; color: rgba(255, 255, 255, 0.647)">Ngày 3</div>
+          <div class="day-title">CONFIDENCE | TỰ TIN TUYỆT ĐỐI</div>
+        </div>
+        <div class="day-body">
+          <p>Xây dựng sự tự tin từ cốt lõi — không phải ngắn hạn mà bền vững, vững vàng trước bất kỳ ai, bất kỳ hoàn cảnh nào.</p>
+          <div class="day-outcomes">
+            <div class="outcome-item"><div class="outcome-dot"></div>Khoa học về Sự tự tin</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>4 điều Kiện xây dựng Sự tự tin từ Cốt lõi</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điều kiện 1: Methodologies</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điều kiện 2: Practice</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điều kiện 3: Mentor</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điều kiện 4: Environment</div>
+          </div>
+          <div class="day-meta">20g00 – 22g30 · 5/6/2026 · Online Zoom</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINER -->
+<section id="trainer">
+  <div class="container">
+    <div class="trainer-inner">
+      <div>
+        <div class="trainer-card">
+          <div class="trainer-photo" style="background:#f0ede8;">
+            <img src="assets/nam-nguyen.png" alt="Nam Nguyễn" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;">
+          </div>
+          <div class="trainer-name-card">
+            <h3>Nam Nguyễn</h3>
+            <div class="trainer-role" >FACILITATOR &amp; COACH</div>
+            <div class="trainer-socials">
+              <a href="https://web.facebook.com/HuHaNa1508/" target="_blank" class="social-btn" title="Facebook">f</a>
+              <a href="https://www.linkedin.com/in/namnguyens-peak" target="_blank" class="social-btn" title="LinkedIn">in</a>
+              <a href="https://www.youtube.com/@NamNguyenFacilitator" target="_blank" class="social-btn" title="YouTube">▶</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="trainer-content">
+        <div class="section-label" style="font-size: 25px">FACILITATOR</div>
+        <h2>Người đồng hành<br>cùng <span>DARE TO S-PEAK!</span></h2>
+        <p>Hơn 14 năm đào tạo cho chuyên gia, lãnh đạo và doanh nhân tại Việt Nam và nhiều quốc gia, tôi đồng hành cùng hàng nghìn người biến chuyên môn của họ thành tầm ảnh hưởng và vị thế thật sự.</p>
+        <p>Với triết lý "Để nói hay, hãy nói thật",  tôi công thức hoá bài nói của mỗi chuyên gia — giúp họ đóng gói chuyên môn thành Signature Talk, xác lập vị thế dẫn đầu và tỏa sáng từ chính bản sắc riêng.</p>
+        <div class="creds-grid">
+          <div class="cred-item"><div class="cred-dot"></div><span>Founder S-PEAK</span></div>
+          <div class="cred-item"><div class="cred-dot"></div><span>1.100+ giờ coach</span></div>
+          <div class="cred-item"><div class="cred-dot"></div><span>Influential Speaking Coach</span></div>
+          <div class="cred-item"><div class="cred-dot"></div><span>10.000+ giờ đào tạo</span></div>
+          <div class="cred-item"><div class="cred-dot"></div><span>International Facilitator</span></div>
+          <div class="cred-item"><div class="cred-dot"></div><span>14+ Năm đào tạo quốc tế</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="testi-header">
+      <div class="section-label" style="font-size: 25px">Học viên nói gì?</div>
+      <h2>Kết quả thật từ <span class="grad-text">người thật</span></h2>
+      <p>Những chuyên gia, lãnh đạo và nhà đào tạo đã nâng tầm vị thế và sức ảnh hưởng của mình cùng S-PEAK.</p>
+    </div>
+    <div class="testi-featured">
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p class="quote">Nhờ S-PEAK, tôi tăng 300% sự tự tin trong việc nói. Từ một người run bần bật khi đứng trước đám đông, nay tôi đã tự tin tuyệt đối và thậm chí có thể dẫn dắt buổi training cho 50 người cùng lúc.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">NT</div>
+          <div class="testi-info">
+            <div class="name">Nguyễn Ngọc Trâm</div>
+            <div class="role">Writing Trainer &amp; Mentor</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p class="quote">S-PEAK giúp bạn quay vào bên trong để hiểu mình — phong cách cá nhân và điểm mạnh của chính mình. Khi nói tự nhiên nhất, tự tin nhất, bạn sẽ truyền cảm hứng mạnh mẽ và để lại ấn tượng khó phai.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">JB</div>
+          <div class="testi-info">
+            <div class="name">Chị Jade Bích Phùng</div>
+            <div class="role">Peak Performance Coach</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="quote-mark">"</div>
+        <p class="quote">S-PEAK là sự kết hợp giữa Logic và Cảm xúc. Nam công thức hoá bài nói, nhưng công thức ấy lại cho người nói sự tự do trong thiết kế bài nói chân thực nhất với bản sắc riêng.</p>
+        <div class="testi-author">
+          <div class="testi-avatar">NB</div>
+          <div class="testi-info">
+            <div class="name">Nguyễn Thanh Bình</div>
+            <div class="role">Professional Sales Trainer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-mini-grid">
+      <div class="testi-mini-card">
+        <div class="mini-name">Chị Hân</div>
+        <div class="mini-role">Chuyên gia Tài Chính Cá nhân</div>
+        <p class="mini-quote">"Lớp học giúp mình có thêm công cụ và định hướng rõ ràng để vững tin hơn trên hành trình thực hiện mục tiêu."</p>
+      </div>
+      <div class="testi-mini-card">
+        <div class="mini-name">Chị Lavie</div>
+        <div class="mini-role">Giám đốc Nhân sự</div>
+        <p class="mini-quote">"Sau S-PEAK, mình tự tin, mạch lạc và kết nối sâu sắc hơn với khán giả. Môi trường học an toàn, nâng đỡ và khích lệ."</p>
+      </div>
+      <div class="testi-mini-card">
+        <div class="mini-name">Anh Toàn</div>
+        <div class="mini-role">Người đi tìm lại chính mình</div>
+        <p class="mini-quote">"S-PEAK đã giúp tôi thực hiện ước mơ và tìm lại con người thật của mình. Nếu bạn đang lạc lối, khóa học này sẽ là điểm khởi đầu."</p>
+      </div>
+      <div class="testi-mini-card">
+        <div class="mini-name">Chị Diễm</div>
+        <div class="mini-role">Chuyên gia Khai vấn</div>
+        <p class="mini-quote">"Sau S-PEAK, mình đã làm chủ được điều đó — biết khi nào kết nối vào trong, khi nào lan tỏa ra ngoài."</p>
+      </div>
+      <div class="testi-mini-card">
+        <div class="mini-name">Chị Thảo Trương</div>
+        <div class="mini-role">Self-Relationship Coach</div>
+        <p class="mini-quote">"Có buổi mình được Coach và bật khóc trong vô thức. Không ngờ nó có thể chạm đến sâu như vậy."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- QUOTE CTA -->
+<section id="quote-cta">
+  <div class="container">
+    <div class="quote-cta-inner">
+      <div class="quote-cta-mark">"Đi cùng tôi… <em>tôi sẽ<br>chỉ cho bạn lối ra."</em></div>
+      <p class="quote-cta-body" style="height:128px;"><strong style="font-size:15px;">Thay đổi cách bạn xuất hiện.<br>Thay đổi cách bạn truyền tải.<br>Thay đổi vị thế của bạn.</strong><br>
+      Khám phá những kỹ năng cốt lõi của Speaking cho chuyên gia và bắt đầu hành trình chuyển hóa từ hôm nay.</p>
+      <div class="cta-btn-wrap">
+        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:18px 44px;">Đăng ký ngay →</a>
+        <span class="cta-btn-date">3–5/6/2026 · 20:00 – 22:30 · Online qua Zoom</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-inner">
+      <div class="section-label" style="text-align: center; font-size: 25px">Đầu tư cho bản thân</div>
+      <h2>Học phí <span class="grad-text">Chương trình</span></h2>
+      <p>Chương trình được thiết kế tinh gọn, tối ưu cho môi trường online với breakout rooms,   
+thực hành trực tiếp và phản hồi ngay lập tức.</p>
+      <div class="pricing-card">
+        <div class="pricing-title" style="font-size: 25px">DARE TO S-PEAK</div>
+        <div class="pricing-program">Chương trình cho Chuyên gia ·  3 ngày</div>
+        <div class="price-big">1.000.000</div>
+        <div style="color:rgba(255,255,255,0.4);font-size:0.9rem;margin-top:4px;">VND / học viên</div>
+        <div class="pricing-perks">
+          <div class="perk"><div class="perk-check">✓</div>3 ngày học chuyên sâu dành cho chuyên gia</div>
+          <div class="perk"><div class="perk-check">✓</div>Xây dựng Signature Talk của riêng bạn</div>
+          <div class="perk"><div class="perk-check">✓</div>Feedback cá nhân trực tiếp từ trainer</div>
+          <div class="perk"><div class="perk-check">✓</div>Tham gia cộng đồng chuyên gia S-PEAK</div>
+          <div class="perk"><div class="perk-check">✓</div>Cơ hội nhận học bổng Special Event 20.000.000 VND</div>
+          <div class="perk"><div class="perk-check">✓</div>Bài tập ứng dụng vào doanh thu thật</div>
+        </div>
+        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary">ĐĂNG KÝ NGAY →</a>
+        <p class="pricing-note">Số lượng học viên có hạn. Liên hệ S-PEAK Team để được tư vấn.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <div class="section-label" style="font-size: 25px">Giải đáp thắc mắc</div>
+      <h2 style="color:var(--dark);">Câu hỏi <span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">thường gặp</span></h2>
+      <p style="color:rgba(0,0,0,0.55);">Mọi điều bạn cần biết trước khi quyết định tham gia.</p>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q">Tôi đã là trainer/coach có kinh nghiệm, chương trình giúp gì thêm? <span class="toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Có. Chương trình không dạy nói cơ bản, mà tập trung giúp bạn đóng gói chuyên môn thành Signature Talk, nâng tầm vị thế và biến khán giả thành khách hàng — những điều ít chương trình speaking nào chạm tới.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Speaking giúp tôi có thêm khách hàng bằng cách nào? <span class="toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Bạn học cách thiết kế bài nói tạo niềm tin và dẫn dắt hành động, biến mỗi buổi chia sẻ, webinar hay workshop thành cơ hội thu hút khách hàng tiềm năng — mà không cần "bán hàng" lộ liễu.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Tôi nói cũng khá ổn rồi, có cần học không? <span class="toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Nói ổn và nói để tạo vị thế, tạo khách hàng là hai cấp độ khác nhau. Chương trình giúp bạn bứt phá từ "nói tốt" lên "nói để dẫn đầu thị trường".</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Chỉ 3 ngày có đủ không? <span class="toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Đủ nếu bạn tham gia trọn vẹn. Chương trình được thiết kế tinh gọn theo 3 buổi, mỗi buổi có thực hành liên tục, feedback ngay lập tức và bài tập ứng dụng giữa các ngày để tạo thay đổi nhanh.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Signature Talk là gì và tôi có xây được không? <span class="toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Signature Talk là bài nói đặc trưng đại diện cho thương hiệu chuyên gia của bạn. Trong chương trình, bạn được hướng dẫn xây dựng và luyện tập chính Signature Talk của mình, sẵn sàng sử dụng ngay.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Nội dung có dùng được cho lĩnh vực của tôi không? <span class="toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Rất phù hợp. Phương pháp áp dụng cho mọi lĩnh vực chuyên môn: coaching, đào tạo, tư vấn, tài chính, sức khỏe, kinh doanh... Bạn mang chính chuyên môn của mình vào để thực hành.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Học online thì hiệu quả thế nào? <span class="toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Rất hiệu quả. Toàn bộ hoạt động được tối ưu cho môi trường online: breakout rooms, thực hành trực tiếp, quay video, phản hồi ngay lập tức. Bạn được tương tác 1-1 và thực hành nhiều hơn học offline truyền thống.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Học xong rồi tiếp theo là gì? <span class="toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Bạn có thể tham gia Cộng đồng chuyên gia S-PEAK để tiếp tục thực hành và phát triển mỗi tuần. Nếu muốn đi sâu hơn, bạn có thể liên hệ S-PEAK Team để được tư vấn lộ trình chuyên sâu phù hợp với mục tiêu kinh doanh của mình.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="final-cta">
+  <div class="container">
+    <div class="section-label" style="text-align: center; font-size: 25px">Đã đến lúc</div>
+    <h2 style="line-height: 1.25">Nâng tầm <span class="grad-text">vị thế</span><br>chuyên gia của bạn</h2>
+    <p>Đã đến lúc chuyên môn của bạn được nói lên đúng tầm. Nâng tầm vị thế, 
+sức ảnh hưởng và doanh thu cùng DARE TO S-PEAK.</p>
+    <div class="cta-group">
+      <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:18px 40px;">ĐĂNG KÝ THAM DỰ →</a>
+      <a href="https://forms.gle/DvWchtaLaEz7Yx447" target="_blank" class="btn btn-outline">Tư vấn trước khi đăng ký</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <a href="#hero"><img src="assets/speak-logo.png" alt="S-PEAK"></a>
+      <span class="footer-copy">© 2026 S-PEAK with Nam Nguyễn · Biến chuyên môn thành tầm ảnh hưởng</span>
+      <div class="footer-social">
+        <a href="https://web.facebook.com/HuHaNa1508/" target="_blank" title="Facebook">f</a>
+        <a href="https://www.linkedin.com/in/namnguyens-peak" target="_blank" title="LinkedIn">in</a>
+        <a href="https://www.youtube.com/@NamNguyenFacilitator" target="_blank" title="YouTube">▶</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Smooth nav shrink on scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) {
+      nav.style.padding = '10px 32px';
+    } else {
+      nav.style.padding = '16px 32px';
+    }
+  });
+
+  // Simple scroll counter animation
+  const counters = document.querySelectorAll('.stat-item .num');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.3 });
+  counters.forEach(c => {
+    c.style.opacity = '0';
+    c.style.transform = 'translateY(20px)';
+    c.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    observer.observe(c);
+  });
+</script>
+
+<!-- React + Babel for Tweaks -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+
+<div id="tweaks-root"></div>
+
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "palette": [
+    "#FF8A35",
+    "#FF2B1E",
+    "#0D0D0D",
+    "#161616",
+    "#1E1E1E",
+    "#F7F5F2"
+  ],
+  "energy": 10,
+  "typeVoice": "Drama"
+}/*EDITMODE-END*/;
+
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `${r},${g},${b}`;
+}
+
+function applyTweaks(t) {
+  const [orange, red, dark, dark2, dark3, offwhite] = t.palette;
+  const e = (t.energy - 1) / 9; // 0 = calm, 1 = intense
+
+  // Section padding: calm=128px, intense=56px
+  const pad = Math.round(128 - e * 72);
+  // Card border-radius: calm=18px, intense=3px
+  const radius = Math.round(18 - e * 15);
+  // Glow opacity: calm=0.06, intense=0.28
+  const glow = (0.06 + e * 0.22).toFixed(2);
+
+  let fontDisplay, headingTransform, headingTracking, headingWeight;
+  if (t.typeVoice === 'Grit') {
+    fontDisplay = "'Barlow Condensed', sans-serif";
+    headingTransform = 'none';
+    headingTracking = '-0.01em';
+    headingWeight = '900';
+  } else if (t.typeVoice === 'Clarity') {
+    fontDisplay = "'Plus Jakarta Sans', sans-serif";
+    headingTransform = 'none';
+    headingTracking = '-0.025em';
+    headingWeight = '700';
+  } else {
+    // Drama
+    fontDisplay = "'Anton', sans-serif";
+    headingTransform = 'uppercase';
+    headingTracking = '0.04em';
+    headingWeight = '400';
+  }
+
+  const darkRgb = hexToRgb(dark);
+  const orangeRgb = hexToRgb(orange);
+  const statPad = Math.round(52 + (1 - e) * 24);
+
+  const css = `
+    :root {
+      --orange: ${orange};
+      --red: ${red};
+      --dark: ${dark};
+      --dark2: ${dark2};
+      --dark3: ${dark3};
+      --offwhite: ${offwhite};
+      --font-display: ${fontDisplay};
+      --heading-transform: ${headingTransform};
+      --heading-tracking: ${headingTracking};
+      --heading-weight: ${headingWeight};
+    }
+    section { padding: ${pad}px 0 !important; }
+    #stats  { padding: ${statPad}px 0 !important; }
+    #scholarship { padding: ${Math.round(pad * 0.72)}px 0 !important; }
+    #final-cta { padding: ${pad}px 0 !important; }
+    nav {
+      background: rgba(${darkRgb}, 0.9) !important;
+    }
+    #hero {
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 40%, rgba(${orangeRgb},${glow}) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(139,47,201,0.1) 0%, transparent 70%),
+        ${dark} !important;
+    }
+    #final-cta::before {
+      background: radial-gradient(ellipse, rgba(${orangeRgb},${(parseFloat(glow)*0.7).toFixed(2)}), transparent 70%) !important;
+    }
+    .benefit-card,
+    .testi-card,
+    .faq-item,
+    .hero-logo-wrap,
+    .hero-info-card,
+    .price-card { border-radius: ${radius}px !important; }
+    .day-card   { border-radius: ${radius}px !important; overflow: hidden !important; }
+    .pricing-card { border-radius: ${Math.round(radius * 1.4)}px !important; }
+    .trainer-card { border-radius: ${Math.round(radius * 1.4)}px !important; }
+    .pain-item  { border-radius: ${radius}px !important; }
+  `;
+
+  let el = document.getElementById('tweak-overrides');
+  if (!el) { el = document.createElement('style'); el.id = 'tweak-overrides'; document.head.appendChild(el); }
+  el.textContent = css;
+}
+
+function SpeakTweaks() {
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+
+  React.useEffect(() => { applyTweaks(t); }, [t.palette, t.energy, t.typeVoice]);
+
+  const PALETTES = [
+    ["#FF8A35","#FF2B1E","#0D0D0D","#161616","#1E1E1E","#F7F5F2"],
+    ["#06B6D4","#6366F1","#030711","#0A1120","#0F1A2E","#EFF6FF"],
+    ["#F59E0B","#B45309","#0C0A05","#181208","#221A0A","#FEFCE8"],
+  ];
+
+  return (
+    <TweaksPanel>
+      <TweakSection label="Palette" />
+      <TweakColor
+        label="Bảng màu"
+        value={t.palette}
+        options={PALETTES}
+        onChange={(v) => setTweak('palette', v)}
+      />
+      <TweakSection label="Energy" />
+      <TweakSlider
+        label="Cường độ"
+        value={t.energy}
+        min={1} max={10} step={1}
+        onChange={(v) => setTweak('energy', v)}
+      />
+      <TweakSection label="Type Voice" />
+      <TweakRadio
+        label="Kiểu chữ"
+        value={t.typeVoice}
+        options={['Grit','Clarity','Drama']}
+        onChange={(v) => setTweak('typeVoice', v)}
+      />
+    </TweaksPanel>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('tweaks-root')).render(<SpeakTweaks />);
+</script>
+</body>
+</html>
