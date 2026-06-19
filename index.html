@@ -200,10 +200,33 @@
     margin-bottom: 36px;
   }
   .hero-ctas { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .hero-event-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 20px;
+    padding: 14px 20px;
+    border-left: 3px solid var(--orange);
+    background: rgba(255,138,53,0.08);
+    border-radius: 0 8px 8px 0;
+  }
+  .hero-event-time {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--orange);
+    letter-spacing: 0.04em;
+  }
+  .hero-event-date {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.02em;
+  }
   .hero-note {
     font-size: 0.78rem;
     color: rgba(255,255,255,0.35);
-    margin-top: 16px;
+    margin-top: 12px;
   }
   .hero-visual {
     display: flex;
@@ -1315,7 +1338,11 @@
         <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary">ĐĂNG KÝ CHƯƠNG TRÌNH →</a>
         <a href="#curriculum" class="btn btn-outline">Xem chương trình</a>
       </div>
-      <p class="hero-note">Khoản đầu tư: 1.000.000 VND · Online qua Zoom · Giới hạn số lượng học viên</p>
+      <div class="hero-event-info">
+        <div class="hero-event-time">🕗 20g00 – 22g30</div>
+        <div class="hero-event-date">📅 30/06 &amp; 1, 2/7/2026 · Online qua Zoom</div>
+      </div>
+      <p class="hero-note">Khoản đầu tư: 1.000.000 VND · Giới hạn số lượng học viên</p>
     </div>
 
   </div>
