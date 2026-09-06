@@ -1855,6 +1855,121 @@
     .mobile-sticky-cta strong { font-size: 0.73rem; white-space: nowrap; }
   }
 
+  /* ── REGISTRATION & PAYMENT MODAL ── */
+  body.registration-modal-open { overflow: hidden; }
+  .registration-modal {
+    position: fixed;
+    z-index: 200;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(13, 13, 13, 0.58);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 180ms ease;
+  }
+  .registration-modal.is-open { opacity: 1; pointer-events: auto; }
+  .registration-dialog {
+    position: relative;
+    width: min(100%, 570px);
+    max-height: min(820px, calc(100vh - 48px));
+    overflow: auto;
+    padding: 38px;
+    border: 1px solid rgba(13, 13, 13, 0.10);
+    border-radius: 20px;
+    background:
+      radial-gradient(circle at 100% 0%, rgba(255, 138, 53, 0.16), transparent 36%),
+      #fff;
+    color: #171717;
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
+  }
+  .registration-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 1px solid rgba(13, 13, 13, 0.10);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.84);
+    color: #171717;
+    cursor: pointer;
+    font: 500 1.6rem/1 Arial, sans-serif;
+  }
+  .registration-dialog .section-label { margin-bottom: 10px; }
+  .registration-dialog h2 { max-width: 430px; font-size: clamp(1.85rem, 4vw, 2.5rem); }
+  .registration-intro { margin: 12px 0 24px; color: #666; font-size: 0.93rem; line-height: 1.65; }
+  .registration-form { display: grid; gap: 15px; }
+  .registration-field { display: grid; gap: 7px; }
+  .registration-field label { color: #303030; font-size: 0.82rem; font-weight: 700; }
+  .registration-field input,
+  .registration-field select {
+    width: 100%;
+    min-height: 48px;
+    padding: 0 13px;
+    border: 1px solid #dedad5;
+    border-radius: 8px;
+    outline: none;
+    background: #fff;
+    color: #1b1b1b;
+    font: inherit;
+    font-size: 0.92rem;
+  }
+  .registration-field input:focus,
+  .registration-field select:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255, 138, 53, 0.16); }
+  .registration-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .registration-error { min-height: 1.25rem; color: #c52920; font-size: 0.82rem; line-height: 1.45; }
+  .registration-submit { width: 100%; justify-content: center; padding: 15px 18px; font-size: 0.95rem; }
+  .registration-submit[disabled] { cursor: wait; opacity: 0.68; }
+  .registration-safe-note { margin-top: -4px; color: #777; font-size: 0.72rem; line-height: 1.5; text-align: center; }
+  .payment-result { display: none; }
+  .payment-result.is-visible { display: block; }
+  .payment-summary {
+    margin: 20px 0;
+    padding: 16px;
+    border: 1px solid rgba(255, 138, 53, 0.25);
+    border-radius: 12px;
+    background: linear-gradient(125deg, #fff8f2, #fff);
+  }
+  .payment-summary p { color: #555; font-size: 0.85rem; line-height: 1.6; }
+  .payment-summary strong { color: #121212; }
+  .payment-amount { margin: 4px 0 10px; color: #f05222; font-size: 1.5rem; font-weight: 800; }
+  .payment-qr-wrap { display: grid; justify-items: center; gap: 12px; }
+  .payment-qr-wrap img { display: block; width: min(100%, 280px); border: 1px solid #e5e1dc; border-radius: 12px; background: #fff; }
+  .payment-code-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+  }
+  .payment-code-row span { color: #555; font-size: 0.8rem; }
+  .payment-code {
+    padding: 7px 9px;
+    border-radius: 6px;
+    background: #171717;
+    color: #fff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.86rem;
+    font-weight: 700;
+  }
+  .copy-payment-code { border: 0; background: transparent; color: #d94b1e; cursor: pointer; font: inherit; font-size: 0.8rem; font-weight: 800; }
+  .payment-confirmation-note { margin-top: 18px; color: #666; font-size: 0.79rem; line-height: 1.6; text-align: center; }
+
+  @media (max-width: 600px) {
+    .registration-modal { align-items: end; padding: 0; }
+    .registration-dialog { width: 100%; max-height: min(88vh, 760px); padding: 30px 20px 24px; border-radius: 20px 20px 0 0; }
+    .registration-close { top: 10px; right: 10px; }
+    .registration-dialog h2 { padding-right: 32px; font-size: 1.7rem; }
+    .registration-intro { margin-bottom: 20px; font-size: 0.86rem; }
+    .payment-qr-wrap img { width: min(100%, 250px); }
+  }
+
 </style>
 <template id="__bundler_thumbnail">
 <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
@@ -2279,6 +2394,73 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
   <strong>1.000.000 VND →</strong>
 </a>
 
+<!-- Custom registration is activated after payment credentials are configured in production. -->
+<div id="registration-modal" class="registration-modal" aria-hidden="true">
+  <section class="registration-dialog" role="dialog" aria-modal="true" aria-labelledby="registration-title">
+    <button type="button" class="registration-close" aria-label="Đóng form đăng ký">×</button>
+
+    <div id="registration-form-view">
+      <div class="section-label">Đăng ký DARE TO S-PEAK K09</div>
+      <h2 id="registration-title">Giữ chỗ trong chương trình</h2>
+      <p class="registration-intro">Điền thông tin trong khoảng một phút. Ngay sau đó, bạn sẽ nhận mã thanh toán và QR chuyển khoản riêng.</p>
+
+      <form id="registration-form" class="registration-form" novalidate>
+        <div class="registration-honeypot" aria-hidden="true">
+          <label for="registration-website">Website</label>
+          <input id="registration-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+        <div class="registration-field">
+          <label for="registration-name">Họ và tên <span aria-hidden="true">*</span></label>
+          <input id="registration-name" name="name" type="text" autocomplete="name" required placeholder="Ví dụ: Nguyễn Minh Anh">
+        </div>
+        <div class="registration-field">
+          <label for="registration-email">Email <span aria-hidden="true">*</span></label>
+          <input id="registration-email" name="email" type="email" autocomplete="email" required placeholder="ban@email.com">
+        </div>
+        <div class="registration-field">
+          <label for="registration-phone">Số điện thoại <span aria-hidden="true">*</span></label>
+          <input id="registration-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="09xx xxx xxx">
+        </div>
+        <div class="registration-field">
+          <label for="registration-role">Bạn đang là <span aria-hidden="true">*</span></label>
+          <select id="registration-role" name="role" required>
+            <option value="">Chọn một vai trò</option>
+            <option>Chuyên gia</option>
+            <option>Coach</option>
+            <option>Trainer</option>
+            <option>Solo-expert</option>
+            <option>Leader</option>
+            <option>Khác</option>
+          </select>
+        </div>
+        <p id="registration-error" class="registration-error" role="alert" aria-live="polite"></p>
+        <button id="registration-submit" class="btn btn-primary registration-submit" type="submit">NHẬN QR THANH TOÁN →</button>
+        <p class="registration-safe-note">Thông tin của bạn chỉ được dùng để xác nhận đăng ký và gửi thông tin chương trình.</p>
+      </form>
+    </div>
+
+    <div id="payment-result" class="payment-result" aria-live="polite">
+      <div class="section-label">Bước cuối</div>
+      <h2>Quét QR để hoàn tất đăng ký</h2>
+      <div class="payment-summary">
+        <p>Khoản đầu tư</p>
+        <div id="payment-amount" class="payment-amount">1.000.000 VND</div>
+        <p>Vui lòng giữ nguyên nội dung chuyển khoản để hệ thống xác nhận tự động.</p>
+      </div>
+      <div class="payment-qr-wrap">
+        <img id="payment-qr" src="" alt="QR thanh toán chương trình DARE TO S-PEAK K09">
+        <div id="payment-account" aria-live="polite"></div>
+        <div class="payment-code-row">
+          <span>Nội dung:</span>
+          <code id="payment-code" class="payment-code"></code>
+          <button id="copy-payment-code" class="copy-payment-code" type="button">Sao chép</button>
+        </div>
+      </div>
+      <p class="payment-confirmation-note">Sau khi giao dịch thành công, hệ thống sẽ xác nhận thanh toán. Thông tin tham dự Zoom sẽ được gửi theo quy trình của chương trình.</p>
+    </div>
+  </section>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -2338,6 +2520,105 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     c.style.transform = 'translateY(20px)';
     c.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(c);
+  });
+
+  // Registration + SePay QR flow. CTA triggers are enabled only after production setup is verified.
+  const registrationModal = document.querySelector('#registration-modal');
+  const registrationForm = document.querySelector('#registration-form');
+  const registrationFormView = document.querySelector('#registration-form-view');
+  const registrationError = document.querySelector('#registration-error');
+  const registrationSubmit = document.querySelector('#registration-submit');
+  const paymentResult = document.querySelector('#payment-result');
+  const paymentAmount = document.querySelector('#payment-amount');
+  const paymentQr = document.querySelector('#payment-qr');
+  const paymentCode = document.querySelector('#payment-code');
+  const paymentAccount = document.querySelector('#payment-account');
+  const copyPaymentCode = document.querySelector('#copy-payment-code');
+  let lastFocusedElement = null;
+
+  const closeRegistrationModal = () => {
+    if (!registrationModal) return;
+    registrationModal.classList.remove('is-open');
+    registrationModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('registration-modal-open');
+    if (lastFocusedElement && typeof lastFocusedElement.focus === 'function') lastFocusedElement.focus();
+  };
+
+  const openRegistrationModal = (trigger) => {
+    if (!registrationModal) return;
+    lastFocusedElement = trigger || document.activeElement;
+    registrationModal.classList.add('is-open');
+    registrationModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('registration-modal-open');
+    const target = paymentResult && paymentResult.classList.contains('is-visible')
+      ? document.querySelector('.registration-close')
+      : document.querySelector('#registration-name');
+    requestAnimationFrame(() => target && target.focus());
+  };
+
+  document.querySelectorAll('[data-registration-trigger]').forEach(trigger => {
+    trigger.addEventListener('click', event => {
+      event.preventDefault();
+      openRegistrationModal(trigger);
+    });
+  });
+
+  registrationModal?.querySelector('.registration-close')?.addEventListener('click', closeRegistrationModal);
+  registrationModal?.addEventListener('click', event => {
+    if (event.target === registrationModal) closeRegistrationModal();
+  });
+  window.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && registrationModal?.classList.contains('is-open')) closeRegistrationModal();
+  });
+
+  registrationForm?.addEventListener('submit', async event => {
+    event.preventDefault();
+    registrationError.textContent = '';
+
+    if (!registrationForm.reportValidity()) return;
+
+    const formData = Object.fromEntries(new FormData(registrationForm).entries());
+    registrationSubmit.disabled = true;
+    registrationSubmit.textContent = 'ĐANG TẠO QR…';
+
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message || 'Không thể tạo mã thanh toán lúc này. Vui lòng thử lại.');
+      }
+
+      const amount = Number(data.amount || 1000000);
+      paymentAmount.textContent = `${new Intl.NumberFormat('vi-VN').format(amount)} VND`;
+      paymentQr.src = data.qrUrl;
+      paymentCode.textContent = data.paymentCode;
+      paymentAccount.textContent = `Chuyển khoản đến ${data.bankName || 'ngân hàng'} · ${data.accountNumber || ''}`;
+      registrationFormView.hidden = true;
+      paymentResult.classList.add('is-visible');
+      document.querySelector('.registration-close')?.focus();
+    } catch (error) {
+      registrationError.textContent = error.message || 'Đã có lỗi xảy ra. Vui lòng thử lại.';
+    } finally {
+      registrationSubmit.disabled = false;
+      registrationSubmit.textContent = 'NHẬN QR THANH TOÁN →';
+    }
+  });
+
+  copyPaymentCode?.addEventListener('click', async () => {
+    const code = paymentCode?.textContent || '';
+    if (!code) return;
+    try {
+      await navigator.clipboard.writeText(code);
+      copyPaymentCode.textContent = 'Đã sao chép';
+      window.setTimeout(() => { copyPaymentCode.textContent = 'Sao chép'; }, 1800);
+    } catch {
+      copyPaymentCode.textContent = 'Hãy chép thủ công';
+    }
   });
 </script>
 

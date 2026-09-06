@@ -1,0 +1,10 @@
+{
+  "name": "dare-to-speak-k09",
+  "private": true,
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}
