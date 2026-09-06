@@ -1617,6 +1617,244 @@
     .hero-authority { font-size: 0.76rem; }
   }
 
+  /* ── CONVERSION-FIRST REFINEMENT ── */
+  /* Keep the page focused: no duplicate argument before the offer. */
+  #why,
+  #stats,
+  #editorial,
+  #quote-cta,
+  .workshop-proof-section { display: none; }
+
+  .btn,
+  .pain-num-title,
+  .benefit-card h3,
+  .day-title,
+  .trainer-name-card h3,
+  .trainer-content h2,
+  .testi-header h2,
+  .pricing-inner h2,
+  .pricing-title,
+  .pricing-program,
+  #final-cta h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-stretch: normal;
+    letter-spacing: -0.035em;
+    text-transform: none;
+  }
+
+  .btn { font-weight: 800; }
+
+  #hero { min-height: 710px; }
+  .hero-inner { padding-top: 94px; padding-bottom: 76px; }
+  .hero-kicker {
+    display: inline-flex;
+    margin-bottom: 18px;
+    padding: 8px 12px;
+    border: 1px solid rgba(217,85,37,0.24);
+    border-radius: 6px;
+    background: rgba(255,255,255,0.72);
+    color: #c94b20;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+  }
+  .hero-title { margin-bottom: 18px; max-width: 680px; }
+  .hero-title .line2 {
+    display: block;
+    margin-top: 0.08em;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-desc { max-width: 600px; margin-bottom: 20px; }
+  .hero-event-info { margin-top: 0; margin-bottom: 20px; padding: 14px 18px; max-width: 600px; }
+  .hero-event-date { font-size: 0.92rem; font-weight: 700; line-height: 1.5; }
+  .hero-event-price { margin-top: 4px; color: rgba(23,23,23,0.64); font-size: 0.84rem; }
+  .hero-event-price strong { color: #171717; }
+  .hero-ctas { margin-top: 0; }
+  .hero-ctas .btn { min-height: 54px; }
+  .hero-program-link {
+    display: inline-block;
+    margin-top: 14px;
+    color: #513224;
+    font-size: 0.88rem;
+    font-weight: 750;
+    text-decoration: underline;
+    text-decoration-color: rgba(217,85,37,0.42);
+    text-underline-offset: 4px;
+  }
+  .hero-form-note { margin-top: 9px; color: rgba(23,23,23,0.52); font-size: 0.75rem; }
+
+  #trust-bar { padding: 26px 0; background: #171513; color: #fff; }
+  .trust-bar-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+  .trust-bar-inner > p { max-width: 310px; color: rgba(255,255,255,0.72); font-size: 0.88rem; font-weight: 650; line-height: 1.55; }
+  .trust-stats { display: grid; grid-template-columns: repeat(3, auto); gap: 0; }
+  .trust-stats > div { min-width: 154px; padding: 0 26px; border-left: 1px solid rgba(255,255,255,0.16); }
+  .trust-stats strong { display: block; color: #ff7a35; font-size: 1.65rem; letter-spacing: -0.05em; }
+  .trust-stats span { color: rgba(255,255,255,0.64); font-size: 0.75rem; }
+
+  #pain { padding: 82px 0; }
+  .pain-numbered-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .pain-num-card,
+  .pain-num-card:nth-child(2),
+  .pain-num-card:nth-child(3) { min-height: 240px; padding: 28px 24px; background: #fff; }
+  .pain-num-card::before { display: none; }
+  .pain-num-card .pain-num { color: var(--orange); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.76rem; font-weight: 800; }
+  .pain-num-title { margin: 30px 0 12px; color: #171717; font-size: 1.08rem; font-weight: 800; line-height: 1.42; }
+  .pain-num-card p { color: rgba(23,23,23,0.62); font-size: 0.91rem; line-height: 1.68; }
+
+  #benefits { padding: 82px 0; }
+  .benefits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .benefit-card { min-height: 300px; padding: 28px 24px; }
+  .benefit-card h3 { font-size: 1.12rem; font-weight: 800; line-height: 1.42; }
+  .benefit-card p { font-size: 0.91rem; line-height: 1.68; }
+  .benefits-scholarship { display: block; margin-top: 20px; padding: 28px; }
+  .benefits-scholarship h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.08rem; line-height: 1.45; }
+  .benefits-scholarship p { max-width: 850px; font-size: 0.92rem; line-height: 1.65; }
+
+  #curriculum { padding: 82px 0; }
+  .curriculum-grid { align-items: start; }
+  .day-card { border: 1px solid rgba(255,255,255,0.14); }
+  .day-card summary { list-style: none; cursor: pointer; }
+  .day-card summary::-webkit-details-marker { display: none; }
+  .day-header { position: relative; padding: 26px 24px 48px; }
+  .day-title { padding-right: 12px; font-size: 1.03rem; font-weight: 800; line-height: 1.4; }
+  .day-summary-meta { position: absolute; bottom: 17px; left: 24px; right: 24px; display: flex; align-items: center; justify-content: space-between; color: rgba(255,255,255,0.74); font-size: 0.73rem; font-weight: 700; }
+  .day-summary-meta span { display: inline-block; color: #fff; font-size: 1.1rem; transition: transform 180ms ease; }
+  .day-card[open] .day-summary-meta span { transform: rotate(180deg); }
+  .day-card:not([open]) .day-body { display: none; }
+
+  #trainer { padding: 82px 0; }
+  .trainer-socials { display: none; }
+  .trainer-content h2 { font-size: clamp(2.1rem, 4vw, 3.6rem); font-weight: 800; }
+  .trainer-content h2 span { font-family: inherit; }
+  .creds-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .cred-item { min-height: 66px; font-size: 0.82rem; }
+
+  #testimonials { padding: 82px 0; }
+  .testi-header h2 { font-size: clamp(2.1rem, 4vw, 3.6rem); font-weight: 800; }
+  .testi-proof-intro { margin-top: 28px; }
+  .testi-proof-intro h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.15rem; font-weight: 800; }
+  .testi-proof-grid { margin-top: 20px; }
+  .testi-proof-grid figure:nth-child(n+4) { display: none; }
+
+  #pricing { padding: 82px 0; }
+  .pricing-inner h2 { font-size: clamp(2.15rem, 4vw, 3.6rem); font-weight: 800; }
+  .pricing-card { max-width: 560px; padding: 36px; }
+  .pricing-perks { gap: 10px; }
+  .perk { font-size: 0.9rem; line-height: 1.55; }
+
+  #faq { padding: 82px 0; }
+  #faq .faq-item:nth-child(n+6) { display: none; }
+  .faq-q { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 750; letter-spacing: -0.02em; text-transform: none; }
+  .faq-a-inner { font-size: 0.9rem; line-height: 1.65; }
+
+  #final-cta { padding: 82px 0; }
+  #final-cta h2 { font-weight: 800; }
+  .mobile-sticky-cta { display: none; }
+
+  @media (max-width: 900px) {
+    .trust-bar-inner { align-items: flex-start; flex-direction: column; gap: 20px; }
+    .trust-bar-inner > p { max-width: none; }
+    .trust-stats { width: 100%; }
+    .trust-stats > div { flex: 1; min-width: 0; }
+    .pain-numbered-grid { grid-template-columns: 1fr; }
+    .pain-num-card,
+    .pain-num-card:nth-child(2),
+    .pain-num-card:nth-child(3) { min-height: 0; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .curriculum-grid { grid-template-columns: 1fr; }
+    .creds-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    #hero { min-height: 0; }
+    #hero::before {
+      background:
+        linear-gradient(180deg,
+          rgba(255,250,245,0) 0%,
+          rgba(255,250,245,0.08) 30%,
+          rgba(255,250,245,0.82) 52%,
+          #fffaf5 65%,
+          #fffaf5 100%),
+        url("assets/hero/hero-nam-speaking-mobile.webp") center top / 100% auto no-repeat;
+    }
+    .hero-inner { padding: 276px 18px 36px; }
+    .hero-kicker { margin-bottom: 14px; padding: 7px 10px; font-size: 0.61rem; }
+    .hero-title { margin-bottom: 14px; font-size: clamp(2.15rem, 10vw, 3rem); line-height: 1.03; }
+    .hero-title .line2 { font-size: clamp(2.35rem, 10.5vw, 3.25rem); letter-spacing: -0.06em; }
+    .hero-desc { margin-bottom: 16px; font-size: 0.9rem; line-height: 1.62; }
+    .hero-event-info { margin-bottom: 16px; padding: 12px 14px; }
+    .hero-event-date { font-size: 0.77rem; }
+    .hero-event-price { font-size: 0.76rem; }
+    .hero-ctas .btn { width: 100%; justify-content: center; padding: 15px 12px; font-size: 0.82rem; }
+    .hero-program-link { margin-top: 12px; font-size: 0.82rem; }
+    .hero-form-note { font-size: 0.71rem; }
+
+    #trust-bar { padding: 22px 0; }
+    .trust-stats > div { padding: 0 8px; }
+    .trust-stats strong { font-size: 1.25rem; }
+    .trust-stats span { display: block; font-size: 0.64rem; line-height: 1.35; }
+    .trust-bar-inner > p { font-size: 0.8rem; }
+
+    #pain, #benefits, #curriculum, #trainer, #testimonials, #pricing, #faq, #final-cta { padding: 56px 0; }
+    .pain-num-card,
+    .pain-num-card:nth-child(2),
+    .pain-num-card:nth-child(3) { padding: 24px 20px; }
+    .pain-num-title { margin-top: 22px; font-size: 1.02rem; }
+    .benefit-card { min-height: 0; padding: 24px 20px; }
+    .benefits-scholarship { padding: 22px 20px; }
+
+    .curriculum-header { margin-bottom: 32px; }
+    .day-header { padding: 22px 20px 46px; }
+    .day-summary-meta { left: 20px; right: 20px; bottom: 15px; }
+    .day-body { padding: 22px 20px; }
+
+    .trainer-photo { aspect-ratio: 4 / 3; }
+    .trainer-name-card { padding: 20px; }
+    .trainer-content { margin-top: 30px; }
+    .trainer-content h2 { font-size: 2.15rem; }
+
+    .testi-proof-intro { display: none; }
+    .testi-proof-grid { display: flex; gap: 14px; overflow-x: auto; margin-right: -18px; padding: 0 18px 10px 0; scroll-snap-type: x mandatory; }
+    .testi-proof-grid figure { min-width: 84%; scroll-snap-align: start; }
+    .testi-proof-grid figcaption { display: none; }
+
+    .pricing-card { padding: 28px 22px; }
+    .pricing-card .btn { width: 100%; justify-content: center; font-size: 0.81rem; }
+    .faq-header { margin-bottom: 28px; }
+    .faq-q { padding: 18px 16px; font-size: 0.88rem; line-height: 1.45; }
+    #final-cta { padding-bottom: 112px; }
+    #final-cta h2 { font-size: 2.25rem; }
+
+    .mobile-sticky-cta {
+      position: fixed;
+      z-index: 40;
+      right: 12px;
+      bottom: 12px;
+      left: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      background: linear-gradient(100deg, #ff8a35, #ff3b2b);
+      box-shadow: 0 14px 30px rgba(188,57,25,0.30);
+      color: #fff;
+      font-size: 0.77rem;
+      font-weight: 800;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(18px);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    .mobile-sticky-cta.is-visible { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .mobile-sticky-cta strong { font-size: 0.73rem; white-space: nowrap; }
+  }
+
 </style>
 <template id="__bundler_thumbnail">
 <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
@@ -1650,29 +1888,35 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-badge">DÀNH CHO CHUYÊN GIA · COACH · TRAINER · SOLO-EXPERT · LEADER</div>
+      <div class="hero-kicker">DARE TO S-PEAK K09 · 3 BUỔI ONLINE QUA ZOOM</div>
       <h1 class="hero-title">
-        DARE TO
-        <span class="line2">S-PEAK!</span>
+        Nói để chuyên môn của bạn
+        <span class="line2">được người khác nhận ra.</span>
       </h1>
-      <p class="hero-slogan">Biến chuyên môn — <em>thành tầm ảnh hưởng</em></p>
-      <p class="hero-desc">Chương trình 3 ngày dành cho chuyên gia, coach, trainer, solo-expert và leader muốn sắp xếp lại thông điệp, xây dựng bài nói Signature, thực hành các tình huống thực tế và nhận phản hồi trực tiếp để nói xuất sắc hơn, tự tin hơn và thu hút đúng khách hàng hơn.</p>
-      <div class="hero-ctas">
-        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" rel="noopener" class="btn btn-primary">ĐĂNG KÝ CHƯƠNG TRÌNH →</a>
-        <a href="#curriculum" class="btn btn-outline">Xem chương trình</a>
-      </div>
+      <p class="hero-desc">3 buổi Zoom dành cho chuyên gia, coach, trainer, solo-expert và leader — để định vị bản thân, xây Signature Talk và xuất hiện tự tin hơn trước khách hàng, học viên hoặc đội ngũ.</p>
       <div class="hero-event-info">
-        <div class="hero-event-time">🕗 20g00 – 22g00</div>
-        <div class="hero-event-date">📅 22, 23 và 24/09/2026 | Online qua Zoom</div>
+        <div class="hero-event-date">22, 23 &amp; 24/09/2026 · 20g00–22g00 · Online qua Zoom</div>
+        <div class="hero-event-price">Khoản đầu tư <strong>1.000.000 VND</strong></div>
       </div>
-      <p class="hero-note">Khoản đầu tư: 1.000.000 VND</p>
-      <p class="hero-scholarship-note">Có cơ hội nhận học bổng Mentoring &amp; Practice Community trị giá 18.000.000 VND.</p>
-      <div class="hero-authority">
-        <strong>Influential speaking coach, expert facilitator, executive coach và nhà sáng lập S-PEAK.</strong>
-        <span>14+ năm kinh nghiệm | 11.000+ giờ đào tạo | 1.200+ giờ khai vấn chuyên nghiệp</span>
+      <div class="hero-ctas">
+        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" rel="noopener" class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
       </div>
+      <a class="hero-program-link" href="#curriculum">Xem lộ trình 3 ngày ↓</a>
+      <p class="hero-form-note">Điền form đăng ký trong khoảng 1 phút.</p>
     </div>
 
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<section id="trust-bar" aria-label="Kinh nghiệm của Nam Nguyễn">
+  <div class="container trust-bar-inner">
+    <p>Nam Nguyễn · Influential speaking coach · Founder S-PEAK</p>
+    <div class="trust-stats">
+      <div><strong>14+</strong><span>Năm kinh nghiệm</span></div>
+      <div><strong>11.000+</strong><span>Giờ đào tạo</span></div>
+      <div><strong>1.200+</strong><span>Giờ khai vấn</span></div>
+    </div>
   </div>
 </section>
 
@@ -1680,34 +1924,24 @@
 <section id="pain" class="light">
   <div class="container">
     <div class="pain-header">
-      <div class="section-label" style="font-size: 25px">Đây có phải là bạn?</div>
-      <h2 style="line-height:1.2">CHƯƠNG TRÌNH NÀY<br><span style="color:#ff8a35;">DÀNH CHO BẠN NẾU…</span></h2>
+      <div class="section-label">CHƯƠNG TRÌNH PHÙ HỢP NẾU</div>
+      <h2>Bạn đang có chuyên môn thật,<br><span>nhưng chưa nói được đúng tầm.</span></h2>
     </div>
     <div class="pain-numbered-grid">
       <div class="pain-num-card">
         <div class="pain-num">01</div>
-        <div class="pain-num-title">Bạn được mời giới thiệu bản thân nhưng không biết bắt đầu từ đâu</div>
-        <p class="pain-num-desc">Bạn nói dài hơn mức cần thiết, hoặc kết thúc phần giới thiệu mà người nghe vẫn chưa hiểu rõ bạn giúp được gì.</p>
+        <div class="pain-num-title">Giới thiệu dài, nhưng người nghe vẫn chưa hiểu bạn giúp được gì.</div>
+        <p class="pain-num-desc">Bạn có kinh nghiệm và giá trị thật, nhưng phần mở đầu chưa làm rõ điều đó.</p>
       </div>
       <div class="pain-num-card">
         <div class="pain-num">02</div>
-        <div class="pain-num-title">Bạn có nhiều điều giá trị để chia sẻ nhưng người nghe không nhớ</div>
-        <p class="pain-num-desc">Chuyên môn của bạn sâu, nhưng thông điệp chưa được sắp xếp thành một cấu trúc rõ ràng và dễ nhớ.</p>
+        <div class="pain-num-title">Chuyên môn sâu, nhưng thông điệp chưa rõ và khó nhớ.</div>
+        <p class="pain-num-desc">Người nghe nhận được nhiều ý, nhưng chưa nắm được thông điệp cốt lõi của bạn.</p>
       </div>
       <div class="pain-num-card">
         <div class="pain-num">03</div>
-        <div class="pain-num-title">Cách bạn nói chưa thể hiện đúng sự tự tin và năng lực thật sự</div>
-        <p class="pain-num-desc">Đặc biệt khi chia sẻ trước khách hàng, học viên hoặc đội ngũ, bạn biết mình có năng lực nhưng chưa truyền tải được điều đó.</p>
-      </div>
-      <div class="pain-num-card">
-        <div class="pain-num">04</div>
-        <div class="pain-num-title">Bạn cố nói thật chuyên nghiệp nhưng cuộc trò chuyện thiếu tự nhiên</div>
-        <p class="pain-num-desc">Càng cố kiểm soát cách thể hiện, bạn càng khó kết nối với người đối diện bằng phong cách thật của mình.</p>
-      </div>
-      <div class="pain-num-card pain-num-card-wide">
-        <div class="pain-num">05</div>
-        <div class="pain-num-title">Sau một lần trình bày, bạn vẫn tự hỏi: Mình đã nói đúng điều cần nói chưa?</div>
-        <p class="pain-num-desc">Vấn đề không phải bạn không có gì để nói. Có thể chuyên môn của bạn chưa được chuyển hóa thành một cách nói rõ ràng, có cấu trúc và đúng với con người bạn.</p>
+        <div class="pain-num-title">Bạn có năng lực, nhưng khi nói chưa thể hiện được sự tự tin.</div>
+        <p class="pain-num-desc">Đặc biệt trước khách hàng, học viên hoặc đội ngũ, cách thể hiện chưa phản ánh đúng năng lực thật.</p>
       </div>
     </div>
   </div>
@@ -1796,20 +2030,10 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       </div>
       <div class="benefit-card">
         <div class="benefit-icon">03</div>
-        <h3>Chủ động tạo trạng thái tự tin khi nói</h3>
-        <p>Bạn thực hành công thức State Mastery để điều chỉnh trạng thái trước những tình huống cần xuất hiện và trình bày.</p>
+        <h3>Chủ động tạo trạng thái tự tin và biết cách điều chỉnh</h3>
+        <p>Bạn thực hành State Mastery trên tình huống gần với công việc thật, nhận phản hồi trực tiếp và có cơ hội thử lại ngay.</p>
         <div class="benefit-pills">
           <span class="pill">State Mastery</span>
-          <span class="pill">Tự tin</span>
-          <span class="pill">Trạng thái</span>
-        </div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">04</div>
-        <h3>Biết mình cần điều chỉnh điều gì</h3>
-        <p>Bạn thực hành với các tình huống gần với công việc thật, nhận phản hồi trực tiếp từ chuyên gia dẫn dắt và có cơ hội thử lại ngay trong quá trình học.</p>
-        <div class="benefit-pills">
-          <span class="pill">Thực hành</span>
           <span class="pill">Phản hồi trực tiếp</span>
           <span class="pill">Thử lại</span>
         </div>
@@ -1821,7 +2045,6 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
         <h3>Học bổng Mentoring &amp; Practice Community trị giá 18.000.000 VND</h3>
         <p>Để đủ điều kiện xét học bổng, bạn cần tham dự đầy đủ cả 3 ngày, bật camera và microphone để tương tác, đồng thời hoàn thành đầy đủ các bài tập thực hành.</p>
       </div>
-      <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" rel="noopener" class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
     </div>
   </div>
 </section>
@@ -1835,11 +2058,12 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       <p>Ba ngày chuyên sâu đưa bạn từ chuyên môn đơn thuần đến khả năng nói rõ ràng, tự tin và có sức ảnh hưởng hơn trong những tình huống bạn thực sự cần xuất hiện.</p>
     </div>
     <div class="curriculum-grid">
-      <div class="day-card">
-        <div class="day-header">
+      <details class="day-card" open>
+        <summary class="day-header">
           <div class="day-num" style="font-size: 15px">Ngày 1</div>
           <div class="day-title">CONNECTION | KẾT NỐI SÂU SẮC</div>
-        </div>
+          <div class="day-summary-meta">22/09 · 20g00–22g00 <span>↓</span></div>
+        </summary>
         <div class="day-body">
           <p>Xây dựng nền tảng kết nối và định vị bản thân như một chuyên gia đáng tin — ngay từ lần xuất hiện đầu tiên.</p>
           <div class="day-outcomes">
@@ -1852,12 +2076,13 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
           </div>
           <div class="day-meta">20g00 – 22g00 · 22/09/2026 · Online Zoom</div>
         </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
+      </details>
+      <details class="day-card">
+        <summary class="day-header">
           <div class="day-num" style="font-size: 15px; color: rgba(255, 255, 255, 0.65)">Ngày 2</div>
           <div class="day-title">COHERENCE | TRÌNH BÀY MẠCH LẠC</div>
-        </div>
+          <div class="day-summary-meta">23/09 · 20g00–22g00 <span>↓</span></div>
+        </summary>
         <div class="day-body">
           <p>Đóng gói chuyên môn thành cấu trúc bài nói dễ nhớ, hấp dẫn — ứng dụng ngay vào webinar, workshop và thuyết trình.</p>
           <div class="day-outcomes">
@@ -1869,12 +2094,13 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
           </div>
           <div class="day-meta">20g00 – 22g00 · 23/09/2026 · Online Zoom</div>
         </div>
-      </div>
-      <div class="day-card">
-        <div class="day-header">
+      </details>
+      <details class="day-card">
+        <summary class="day-header">
           <div class="day-num" style="font-size: 14px; color: rgba(255, 255, 255, 0.647)">Ngày 3</div>
           <div class="day-title">CERTAINTY | SỰ CHẮC CHẮN VỊ THẾ</div>
-        </div>
+          <div class="day-summary-meta">24/09 · 20g00–22g00 <span>↓</span></div>
+        </summary>
         <div class="day-body">
           <p>Xây dựng sự tự tin từ cốt lõi — không phải ngắn hạn mà bền vững, vững vàng trước bất kỳ ai, bất kỳ hoàn cảnh nào.</p>
           <div class="day-outcomes">
@@ -1887,7 +2113,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
           </div>
           <div class="day-meta">20g00 – 22g00 · 24/09/2026 · Online Zoom</div>
         </div>
-      </div>
+      </details>
     </div>
   </div>
 </section>
@@ -1914,16 +2140,13 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       </div>
       <div class="trainer-content">
         <div class="section-label" style="font-size: 25px">FACILITATOR</div>
-        <h2 style="line-height:1.2">Người đồng hành<br>cùng <span>DARE TO S-PEAK!</span></h2>
+        <h2 style="line-height:1.2">Học cùng <span>Nam Nguyễn</span></h2>
         <p>Influential speaking coach, expert facilitator, executive coach và nhà sáng lập S-PEAK.</p>
         <p>Với triết lý "Để nói hay, hãy nói thật", tôi giúp chuyên gia đóng gói chuyên môn thành thông điệp rõ ràng, bài nói Signature và cách xuất hiện đúng với bản sắc riêng.</p>
         <div class="creds-grid">
           <div class="cred-item"><div class="cred-dot"></div><span>Founder S-PEAK</span></div>
           <div class="cred-item"><div class="cred-dot"></div><span>1.200+ giờ khai vấn chuyên nghiệp</span></div>
-          <div class="cred-item"><div class="cred-dot"></div><span>Influential Speaking Coach</span></div>
           <div class="cred-item"><div class="cred-dot"></div><span>11.000+ giờ đào tạo</span></div>
-          <div class="cred-item"><div class="cred-dot"></div><span>International Facilitator</span></div>
-          <div class="cred-item"><div class="cred-dot"></div><span>14+ Năm đào tạo quốc tế</span></div>
         </div>
       </div>
     </div>
@@ -1946,12 +2169,12 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     <div class="testi-header">
       <div class="section-label" style="font-size: 25px">Học viên nói gì?</div>
       <h2>Kết quả thật từ <span class="grad-text">người thật</span></h2>
-      <p>Những chuyên gia, lãnh đạo và nhà đào tạo đã nâng tầm vị thế và sức ảnh hưởng của mình cùng S-PEAK.</p>
+      <p>Chia sẻ nguyên bản của học viên sau khi học và thực hành cùng S-PEAK.</p>
     </div>
     <div class="testi-proof-intro">
       <div class="section-label">Testimonial có hình ảnh thật</div>
       <h3>Những điều học viên ghi nhận sau khi học và thực hành</h3>
-      <p>Phần dưới sử dụng nguyên bản chia sẻ và hình ảnh học viên đã được cung cấp cho S-PEAK.</p>
+      <p>Hình ảnh và nội dung được sử dụng nguyên bản từ học viên.</p>
     </div>
     <div class="testi-proof-grid">
       <figure><img src="assets/testimonials/testimonial-22.webp" alt="Testimonial học viên Lan Hương: nhận được cách định vị, sức mạnh của logic và mạch lạc, cùng sự thấu hiểu"><figcaption>Học viên Lan Hương</figcaption></figure>
@@ -1986,7 +2209,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
   <div class="container">
     <div class="pricing-inner">
       <div class="section-label" style="text-align: center; font-size: 25px">Đầu tư cho bản thân</div>
-      <h2>Học phí <span class="grad-text">Chương trình</span></h2>
+      <h2>Tham gia <span class="grad-text">DARE TO S-PEAK K09</span></h2>
       <p>3 ngày học trực tuyến qua Zoom, với bài tập thực hành ứng dụng tình huống thực tế và phản hồi trực tiếp từ chuyên gia.</p>
       <div class="pricing-card">
         <div class="pricing-title" style="font-size: 25px">DARE TO S-PEAK</div>
@@ -1994,16 +2217,12 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
         <div class="price-big">1.000.000</div>
         <div style="color:rgba(255,255,255,0.4);font-size:0.9rem;margin-top:4px;">VND / học viên</div>
         <div class="pricing-perks">
-          <div class="perk"><div class="perk-check">✓</div>3 ngày học chuyên sâu</div>
-          <div class="perk"><div class="perk-check">✓</div>Bài tập thực hành ứng dụng tình huống thực tế</div>
-          <div class="perk"><div class="perk-check">✓</div>Phản hồi trực tiếp từ chuyên gia</div>
-          <div class="perk"><div class="perk-check">✓</div>Công thức VES giới thiệu bản thân giúp bạn thu hút khách hàng chất lượng</div>
-          <div class="perk"><div class="perk-check">✓</div>Khung nội dung Xây dựng Bài nói Signature</div>
-          <div class="perk"><div class="perk-check">✓</div>Công thức State Mastery để Kích hoạt sự tự tin</div>
-          <div class="perk"><div class="perk-check">✓</div>Bộ 4 điều kiện xây dựng Sự tự tin cốt lõi dài hạn</div>
+          <div class="perk"><div class="perk-check">✓</div>3 buổi Zoom chuyên sâu, có bài tập thực hành</div>
+          <div class="perk"><div class="perk-check">✓</div>Phản hồi trực tiếp trên tình huống công việc thật</div>
+          <div class="perk"><div class="perk-check">✓</div>VES, Signature Talk và State Mastery</div>
           <div class="perk"><div class="perk-check">✓</div>Cơ hội nhận học bổng tham dự Mentoring &amp; Practice Community trị giá 18.000.000 VND</div>
         </div>
-        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary">ĐĂNG KÝ NGAY →</a>
+        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
         <p class="pricing-note">20g00 đến 22g00 · Ngày 22, 23 và 24/09/2026 · Online qua Zoom</p>
       </div>
     </div>
@@ -2036,20 +2255,8 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
         <div class="faq-a"><div class="faq-a-inner">Ba ngày không thay thế cho quá trình rèn luyện dài hạn. Đây là khoảng thời gian chuyên sâu để bạn có công thức, thực hành trên tình huống thực tế và nhận phản hồi trực tiếp để biết mình cần điều chỉnh điều gì.</div></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Signature Talk là gì và tôi có xây được không? <span class="toggle">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Signature Talk là bài nói đặc trưng đại diện cho thương hiệu chuyên gia của bạn. Trong chương trình, bạn được hướng dẫn xây dựng và luyện tập chính Signature Talk của mình, sẵn sàng sử dụng ngay.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Nội dung có dùng được cho lĩnh vực của tôi không? <span class="toggle">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Rất phù hợp. Phương pháp áp dụng cho mọi lĩnh vực chuyên môn: coaching, đào tạo, tư vấn, tài chính, sức khỏe, kinh doanh... Bạn mang chính chuyên môn của mình vào để thực hành.</div></div>
-      </div>
-      <div class="faq-item">
         <div class="faq-q">Học online thì hiệu quả thế nào? <span class="toggle">+</span></div>
         <div class="faq-a"><div class="faq-a-inner">Chương trình diễn ra hoàn toàn qua Zoom, từ 20g00 đến 22g00 trong 3 ngày 22, 23 và 24/09/2026. Bạn cần bật camera và microphone để tương tác, thực hành và nhận phản hồi.</div></div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Học xong rồi tiếp theo là gì? <span class="toggle">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Bạn có cơ hội nhận học bổng tham dự Mentoring &amp; Practice Community trị giá 18.000.000 VND. Điều kiện xét học bổng là tham dự đủ 3 ngày, bật camera và microphone để tương tác, đồng thời hoàn thành đầy đủ các bài tập thực hành.</div></div>
       </div>
     </div>
   </div>
@@ -2059,15 +2266,18 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
 <section id="final-cta">
   <div class="container">
     <div class="section-label" style="text-align: center; font-size: 25px">Đã đến lúc</div>
-    <h2 style="line-height: 1.25">Nâng tầm <span class="grad-text">vị thế</span><br>chuyên gia của bạn</h2>
-    <p>Đã đến lúc chuyên môn của bạn được nói lên đúng tầm. Nâng tầm vị thế, 
-sức ảnh hưởng và doanh thu cùng DARE TO S-PEAK.</p>
+    <h2 style="line-height: 1.25">Để người khác <span class="grad-text">nhận ra</span><br>chuyên môn của bạn</h2>
+    <p>Bắt đầu bằng 3 buổi thực hành để sắp xếp lại thông điệp, bài nói và cách bạn xuất hiện.</p>
     <div class="cta-group">
-      <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:18px 40px;">ĐĂNG KÝ THAM DỰ →</a>
-      <a href="https://forms.gle/DvWchtaLaEz7Yx447" target="_blank" class="btn btn-outline">Tư vấn trước khi đăng ký</a>
+      <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:18px 40px;">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
     </div>
   </div>
 </section>
+
+<a class="mobile-sticky-cta" href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" rel="noopener">
+  <span>Đăng ký chương trình</span>
+  <strong>1.000.000 VND →</strong>
+</a>
 
 <!-- FOOTER -->
 <footer>
@@ -2105,6 +2315,14 @@ sức ảnh hưởng và doanh thu cùng DARE TO S-PEAK.</p>
     }
   });
 
+  // Keep a single, reachable conversion action on mobile after the hero.
+  const mobileStickyCta = document.querySelector('.mobile-sticky-cta');
+  const toggleMobileStickyCta = () => {
+    if (mobileStickyCta) mobileStickyCta.classList.toggle('is-visible', window.scrollY > 300);
+  };
+  window.addEventListener('scroll', toggleMobileStickyCta, { passive: true });
+  toggleMobileStickyCta();
+
   // Simple scroll counter animation
   const counters = document.querySelectorAll('.stat-item .num');
   const observer = new IntersectionObserver(entries => {
@@ -2123,15 +2341,8 @@ sức ảnh hưởng và doanh thu cùng DARE TO S-PEAK.</p>
   });
 </script>
 
-<!-- React + Babel for Tweaks -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-
-<div id="tweaks-root"></div>
-
-<script type="text/babel">
+<!-- Legacy visual-tweaks code is intentionally disabled in production. -->
+<script type="text/plain">
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "palette": [
     "#FF8A35",
