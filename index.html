@@ -1319,6 +1319,154 @@
     .cta-btn-wrap .btn { width: 100%; justify-content: center; }
   }
 
+  /* ── APPROVED REAL-IMAGE + MULTI-LAYER BRAND PASS ── */
+  #hero {
+    min-height: 760px;
+    background:
+      radial-gradient(ellipse 52% 46% at 76% 18%, rgba(255,111,49,0.22), transparent 64%),
+      radial-gradient(ellipse 42% 48% at 8% 88%, rgba(93,42,112,0.22), transparent 70%),
+      #111111;
+  }
+  #hero::before {
+    background:
+      linear-gradient(90deg, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.90) 35%, rgba(13,13,13,0.57) 65%, rgba(13,13,13,0.32) 100%),
+      linear-gradient(180deg, rgba(13,13,13,0.16), rgba(13,13,13,0.72)),
+      url("assets/hero/hero-nam-speaking-desktop.webp") center right / cover no-repeat;
+  }
+  #hero::after {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    right: -8%;
+    bottom: 7%;
+    width: 42%;
+    height: 100px;
+    background: linear-gradient(90deg, transparent, rgba(255,132,53,0.20) 42%, rgba(255,43,30,0.36));
+    clip-path: polygon(22% 20%, 100% 0, 100% 100%, 0 78%);
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 1120px; padding: 110px 32px 76px; }
+  .hero-left { max-width: 660px; position: relative; z-index: 2; }
+  .hero-badge { line-height: 1.35; }
+  .hero-desc { max-width: 610px; }
+  .hero-scholarship-note {
+    margin-top: 12px;
+    color: #ffb076;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+  .hero-authority {
+    display: grid;
+    gap: 5px;
+    margin-top: 24px;
+    padding-left: 14px;
+    border-left: 2px solid rgba(255,138,53,0.72);
+    color: rgba(255,255,255,0.70);
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+  .hero-authority strong { color: #fff; font-weight: 600; }
+  .hero-authority span { color: rgba(255,255,255,0.50); }
+
+  .pain-num-card-wide { grid-column: 1 / -1; }
+
+  .benefits-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .benefit-card .benefit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background: var(--grad);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+  }
+  .benefits-scholarship {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 28px;
+    align-items: center;
+    margin-top: 28px;
+    padding: 26px 30px;
+    border: 1px solid rgba(255,138,53,0.34);
+    border-radius: 10px;
+    background:
+      radial-gradient(circle at 92% 16%, rgba(255,71,43,0.15), transparent 32%),
+      #fff2ea;
+  }
+  .benefits-scholarship h3 { color: #111; margin: 0 0 8px; }
+  .benefits-scholarship p { color: rgba(0,0,0,0.62); }
+  .benefits-scholarship .section-label { margin-bottom: 8px; }
+
+  .workshop-proof-section {
+    padding: 40px 0 0;
+    background: #fff;
+  }
+  .workshop-proof {
+    margin: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f7f5f2;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+  }
+  .workshop-proof img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+  .workshop-proof figcaption { padding: 12px 16px; color: rgba(0,0,0,0.55); font-size: 0.82rem; }
+
+  .testi-featured,
+  .testi-mini-grid { display: none !important; }
+  .testi-proof-intro { margin-top: 56px; text-align: center; }
+  .testi-proof-intro h3 { color: #111; font-size: 1.8rem; margin-bottom: 8px; }
+  .testi-proof-intro p { color: rgba(0,0,0,0.55); }
+  .testi-proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 28px;
+  }
+  .testi-proof-grid figure {
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  }
+  .testi-proof-grid img { display: block; width: 100%; height: auto; }
+  .testi-proof-grid figcaption { padding: 10px 14px 13px; color: #111; font-size: 0.82rem; font-weight: 700; }
+
+  @media (max-width: 900px) {
+    .hero-inner { padding: 92px 24px 60px; }
+    .benefits-grid { grid-template-columns: 1fr 1fr; }
+    .testi-proof-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 600px) {
+    #hero {
+      min-height: 0;
+      background:
+        radial-gradient(ellipse 80% 30% at 70% 5%, rgba(255,111,49,0.24), transparent 70%),
+        #111111;
+    }
+    #hero::before {
+      background:
+        linear-gradient(180deg, rgba(13,13,13,0.26) 0%, rgba(13,13,13,0.18) 22%, rgba(13,13,13,0.90) 64%, #111111 100%),
+        url("assets/hero/hero-nam-speaking-mobile.webp") center top / 100% auto no-repeat;
+    }
+    #hero::after { right: -24%; bottom: 18%; width: 70%; opacity: 0.72; }
+    .hero-inner { padding: 410px 18px 54px; }
+    .hero-left { max-width: none; }
+    .hero-title { font-size: 2.8rem; }
+    .hero-title .line2 { font-size: 4.5rem; }
+    .hero-authority { font-size: 0.76rem; }
+    .benefits-grid { grid-template-columns: 1fr; }
+    .benefits-scholarship { grid-template-columns: 1fr; padding: 22px; }
+    .benefits-scholarship .btn { width: 100%; justify-content: center; }
+    .testi-proof-grid { grid-template-columns: 1fr; }
+    .workshop-proof-section { padding-top: 24px; }
+    .pain-num-card-wide { grid-column: auto; }
+  }
+
 </style>
 <template id="__bundler_thumbnail">
 <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
@@ -1352,22 +1500,27 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-badge">DÀNH CHO CHUYÊN GIA · TRAINER · COACH · SOLO-EXPERT</div>
+      <div class="hero-badge">DÀNH CHO CHUYÊN GIA · COACH · TRAINER · SOLO-EXPERT · LEADER</div>
       <h1 class="hero-title">
         DARE TO
         <span class="line2">S-PEAK!</span>
       </h1>
       <p class="hero-slogan">Biến chuyên môn — <em>thành tầm ảnh hưởng</em></p>
-      <p class="hero-desc">Chương trình dành riêng cho Trainer, Coach &amp; Solo-Expert: phát triển năng lực nói tạo ảnh hưởng, xác lập vị thế dẫn đầu và chuyển hóa khán giả thành khách hàng.</p>
+      <p class="hero-desc">Chương trình 3 ngày dành cho chuyên gia, coach, trainer, solo-expert và leader muốn sắp xếp lại thông điệp, xây dựng bài nói Signature, thực hành các tình huống thực tế và nhận phản hồi trực tiếp để nói xuất sắc hơn, tự tin hơn và thu hút đúng khách hàng hơn.</p>
       <div class="hero-ctas">
-        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary">ĐĂNG KÝ CHƯƠNG TRÌNH →</a>
+        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" rel="noopener" class="btn btn-primary">ĐĂNG KÝ CHƯƠNG TRÌNH →</a>
         <a href="#curriculum" class="btn btn-outline">Xem chương trình</a>
       </div>
       <div class="hero-event-info">
         <div class="hero-event-time">🕗 20g00 – 22g00</div>
-        <div class="hero-event-date">📅 22, 23, 24/09/2026 · Online qua Zoom</div>
+        <div class="hero-event-date">📅 22, 23 và 24/09/2026 | Online qua Zoom</div>
       </div>
-      <p class="hero-note">Khoản đầu tư: 1.000.000 VND · Giới hạn số lượng học viên</p>
+      <p class="hero-note">Khoản đầu tư: 1.000.000 VND</p>
+      <p class="hero-scholarship-note">Có cơ hội nhận học bổng Mentoring &amp; Practice Community trị giá 18.000.000 VND.</p>
+      <div class="hero-authority">
+        <strong>Influential speaking coach, expert facilitator, executive coach và nhà sáng lập S-PEAK.</strong>
+        <span>14+ năm kinh nghiệm | 11.000+ giờ đào tạo | 1.200+ giờ khai vấn chuyên nghiệp</span>
+      </div>
     </div>
 
   </div>
@@ -1383,23 +1536,28 @@
     <div class="pain-numbered-grid">
       <div class="pain-num-card">
         <div class="pain-num">01</div>
-        <div class="pain-num-title">Bạn là Chuyên gia giỏi nhưng chưa nổi bật</div>
-        <p class="pain-num-desc">Bạn có chuyên môn sâu nhưng hòa lẫn giữa hàng trăm chuyên gia khác. Speaking chính là đòn bẩy giúp bạn được nhớ đến, được tin tưởng và được chọn.</p>
+        <div class="pain-num-title">Bạn được mời giới thiệu bản thân nhưng không biết bắt đầu từ đâu</div>
+        <p class="pain-num-desc">Bạn nói dài hơn mức cần thiết, hoặc kết thúc phần giới thiệu mà người nghe vẫn chưa hiểu rõ bạn giúp được gì.</p>
       </div>
       <div class="pain-num-card">
         <div class="pain-num">02</div>
-        <div class="pain-num-title">Bạn là Trainer muốn nâng cấp chất lượng chương trình đào tạo</div>
-        <p class="pain-num-desc">Bạn muốn học viên không chỉ nghe — mà thật sự hiểu, ghi nhớ và ứng dụng. Speaking đúng cách giúp bạn thiết kế bài giảng mạch lạc, truyền tải sâu sắc hơn.</p>
+        <div class="pain-num-title">Bạn có nhiều điều giá trị để chia sẻ nhưng người nghe không nhớ</div>
+        <p class="pain-num-desc">Chuyên môn của bạn sâu, nhưng thông điệp chưa được sắp xếp thành một cấu trúc rõ ràng và dễ nhớ.</p>
       </div>
       <div class="pain-num-card">
         <div class="pain-num">03</div>
-        <div class="pain-num-title">Bạn là Coach muốn nâng cấp chất lượng phiên coach</div>
-        <p class="pain-num-desc">Bạn muốn mỗi phiên coach tạo ra đột phá thật sự cho khách hàng. Kỹ năng nói kết nối và đặt câu hỏi đúng cách sẽ giúp bạn dẫn dắt sâu hơn, hiệu quả hơn.</p>
+        <div class="pain-num-title">Cách bạn nói chưa thể hiện đúng sự tự tin và năng lực thật sự</div>
+        <p class="pain-num-desc">Đặc biệt khi chia sẻ trước khách hàng, học viên hoặc đội ngũ, bạn biết mình có năng lực nhưng chưa truyền tải được điều đó.</p>
       </div>
       <div class="pain-num-card">
         <div class="pain-num">04</div>
-        <div class="pain-num-title">Bạn là Leader muốn nâng cao sức ảnh hưởng cho đội ngũ</div>
-        <p class="pain-num-desc">Bạn muốn đội ngũ không chỉ nghe lệnh — mà thật sự được truyền cảm hứng và đi cùng tầm nhìn. Speaking của người lãnh đạo chính là đòn bẩy văn hóa và hiệu suất.</p>
+        <div class="pain-num-title">Bạn cố nói thật chuyên nghiệp nhưng cuộc trò chuyện thiếu tự nhiên</div>
+        <p class="pain-num-desc">Càng cố kiểm soát cách thể hiện, bạn càng khó kết nối với người đối diện bằng phong cách thật của mình.</p>
+      </div>
+      <div class="pain-num-card pain-num-card-wide">
+        <div class="pain-num">05</div>
+        <div class="pain-num-title">Sau một lần trình bày, bạn vẫn tự hỏi: Mình đã nói đúng điều cần nói chưa?</div>
+        <p class="pain-num-desc">Vấn đề không phải bạn không có gì để nói. Có thể chuyên môn của bạn chưa được chuyển hóa thành một cách nói rõ ràng, có cấu trúc và đúng với con người bạn.</p>
       </div>
     </div>
   </div>
@@ -1429,20 +1587,18 @@
   <div class="container">
     <div class="stats-row">
       <div class="stat-item">
-        <div class="num">5,000<span class="unit">+</span></div>
-        <div class="label">Học viên tham dự 
-các chương trình</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
-        <div class="num">10,000<span class="unit">+</span></div>
-        <div class="label">Giờ đào tạo cho
- cá nhân  và tổ chức</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item">
         <div class="num">14<span class="unit">+</span></div>
-        <div class="label">Năm kinh nghiệm đào tạo tại Việt Nam &amp; quốc tế</div>
+        <div class="label">Năm kinh nghiệm</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="num">11,000<span class="unit">+</span></div>
+        <div class="label">Giờ đào tạo</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="num">1,200<span class="unit">+</span></div>
+        <div class="label">Giờ khai vấn chuyên nghiệp</div>
       </div>
     </div>
   </div>
@@ -1463,41 +1619,59 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
 <section id="benefits" class="light">
   <div class="container">
     <div class="benefits-header">
-      <div class="section-label" style="font-size: 25px">Bạn sẽ đạt được gì?</div>
-      <h2>Ba chuyển hóa <span>cho chuyên gia</span></h2>
-      <p>Sau 3 ngày chuyên sâu, bạn không chỉ nói hay hơn — bạn nâng tầm vị thế, sức ảnh hưởng và khả năng tạo khách hàng.</p>
+      <div class="section-label" style="font-size: 25px">Bạn nhận được gì?</div>
+      <h2>Không chỉ có thêm kiến thức. <span>Bạn có công cụ để thực hành ngay.</span></h2>
+      <p>Trong 3 ngày DARE TO S-PEAK K09, mỗi công thức đều được gắn với một tình huống nói thực tế, bài tập ứng dụng và phản hồi trực tiếp.</p>
     </div>
     <div class="benefits-grid">
       <div class="benefit-card">
-        <div class="benefit-icon">🔥</div>
-        <h3>CERTAINTY | SỰ CHẮC CHẮN VỊ THẾ</h3>
-        <p>Khi bạn nói với sự chắc chắn — khán giả cảm nhận được ngay. Bạn kích hoạt cả tự tin ngắn hạn lẫn dài hạn, để mỗi lần xuất hiện đều thuyết phục được khách hàng rằng bạn chính là người phù hợp nhất với mục tiêu của họ.</p>
+        <div class="benefit-icon">01</div>
+        <h3>Giới thiệu bản thân để đúng người muốn nghe tiếp</h3>
+        <p>Bạn học công thức VES để giới thiệu rõ mình là ai, chuyên môn của mình tạo ra giá trị gì và giúp khách hàng phù hợp nhanh chóng hiểu được điều đó.</p>
         <div class="benefit-pills">
-          <span class="pill">Vị thế chuyên gia</span>
-          <span class="pill">Thuyết phục tự nhiên</span>
-          <span class="pill">Chắc chắn từ trong ra ngoài</span>
+          <span class="pill">VES</span>
+          <span class="pill">Định vị</span>
+          <span class="pill">Khách hàng phù hợp</span>
         </div>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">📦</div>
-        <h3>COHERENCE | TRÌNH BÀY MẠCH LẠC</h3>
-        <p>Chuyển kiến thức phức tạp thành bài nói mạch lạc, hấp dẫn và dễ nhớ — một Signature Talk đại diện cho thương hiệu của bạn.</p>
+        <div class="benefit-icon">02</div>
+        <h3>Biến chuyên môn thành một bài nói mang dấu ấn riêng</h3>
+        <p>Bạn sử dụng khung Signature Talk để chọn thông điệp trọng tâm, tổ chức nội dung và bắt đầu xây dựng một bài nói thể hiện quan điểm cùng phong cách của mình.</p>
         <div class="benefit-pills">
           <span class="pill">Signature Talk</span>
           <span class="pill">Cấu trúc</span>
-          <span class="pill">Storytelling</span>
+          <span class="pill">Quan điểm riêng</span>
         </div>
       </div>
       <div class="benefit-card">
-        <div class="benefit-icon">🤝</div>
-        <h3>CONNECTION | KẾT NỐI SÂU SẮC</h3>
-        <p>Tạo kết nối thật sự với khán giả — chạm cảm xúc, xây dựng niềm tin và biến người nghe thành người đồng hành, từ đó tự nhiên trở thành khách hàng.</p>
+        <div class="benefit-icon">03</div>
+        <h3>Chủ động tạo trạng thái tự tin khi nói</h3>
+        <p>Bạn thực hành công thức State Mastery để điều chỉnh trạng thái trước những tình huống cần xuất hiện và trình bày.</p>
         <div class="benefit-pills">
-          <span class="pill">Kết nối cảm xúc</span>
-          <span class="pill">Niềm tin</span>
-          <span class="pill">Chuyển đổi</span>
+          <span class="pill">State Mastery</span>
+          <span class="pill">Tự tin</span>
+          <span class="pill">Trạng thái</span>
         </div>
       </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">04</div>
+        <h3>Biết mình cần điều chỉnh điều gì</h3>
+        <p>Bạn thực hành với các tình huống gần với công việc thật, nhận phản hồi trực tiếp từ chuyên gia dẫn dắt và có cơ hội thử lại ngay trong quá trình học.</p>
+        <div class="benefit-pills">
+          <span class="pill">Thực hành</span>
+          <span class="pill">Phản hồi trực tiếp</span>
+          <span class="pill">Thử lại</span>
+        </div>
+      </div>
+    </div>
+    <div class="benefits-scholarship">
+      <div>
+        <div class="section-label">Cơ hội tiếp tục thực hành sau chương trình</div>
+        <h3>Học bổng Mentoring &amp; Practice Community trị giá 18.000.000 VND</h3>
+        <p>Để đủ điều kiện xét học bổng, bạn cần tham dự đầy đủ cả 3 ngày, bật camera và microphone để tương tác, đồng thời hoàn thành đầy đủ các bài tập thực hành.</p>
+      </div>
+      <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" rel="noopener" class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
     </div>
   </div>
 </section>
@@ -1508,8 +1682,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     <div class="curriculum-header">
       <div class="section-label" style="font-size: 25px">Lịch trình 3 ngày</div>
       <h2>Lộ trình 3C cho Chuyên gia</h2>
-      <p>Ba ngày chuyên sâu đưa bạn từ chuyên môn đơn thuần đến khả năng nói tạo vị thế,  
-tạo niềm tin và tạo khách hàng.</p>
+      <p>Ba ngày chuyên sâu đưa bạn từ chuyên môn đơn thuần đến khả năng nói rõ ràng, tự tin và có sức ảnh hưởng hơn trong những tình huống bạn thực sự cần xuất hiện.</p>
     </div>
     <div class="curriculum-grid">
       <div class="day-card">
@@ -1576,7 +1749,7 @@ tạo niềm tin và tạo khách hàng.</p>
       <div>
         <div class="trainer-card">
           <div class="trainer-photo" style="background:#f0ede8;">
-            <img src="assets/nam-nguyen.png" alt="Nam Nguyễn" style="width:100%;height:100%;object-fit:cover;object-position:center 10%;">
+            <img src="assets/team/nam-nguyen-facilitator.webp" alt="Nam Nguyễn đang trực tiếp hướng dẫn trong lớp học S-PEAK" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
           </div>
           <div class="trainer-name-card">
             <h3>Nam Nguyễn</h3>
@@ -1592,18 +1765,28 @@ tạo niềm tin và tạo khách hàng.</p>
       <div class="trainer-content">
         <div class="section-label" style="font-size: 25px">FACILITATOR</div>
         <h2 style="line-height:1.2">Người đồng hành<br>cùng <span>DARE TO S-PEAK!</span></h2>
-        <p>Hơn 14 năm đào tạo cho chuyên gia, lãnh đạo và doanh nhân tại Việt Nam và nhiều quốc gia, tôi đồng hành cùng hàng nghìn người biến chuyên môn của họ thành tầm ảnh hưởng và vị thế thật sự.</p>
-        <p>Với triết lý "Để nói hay, hãy nói thật",  tôi công thức hoá bài nói của mỗi chuyên gia — giúp họ đóng gói chuyên môn thành Signature Talk, xác lập vị thế dẫn đầu và tỏa sáng từ chính bản sắc riêng.</p>
+        <p>Influential speaking coach, expert facilitator, executive coach và nhà sáng lập S-PEAK.</p>
+        <p>Với triết lý "Để nói hay, hãy nói thật", tôi giúp chuyên gia đóng gói chuyên môn thành thông điệp rõ ràng, bài nói Signature và cách xuất hiện đúng với bản sắc riêng.</p>
         <div class="creds-grid">
           <div class="cred-item"><div class="cred-dot"></div><span>Founder S-PEAK</span></div>
-          <div class="cred-item"><div class="cred-dot"></div><span>1.100+ giờ coach</span></div>
+          <div class="cred-item"><div class="cred-dot"></div><span>1.200+ giờ khai vấn chuyên nghiệp</span></div>
           <div class="cred-item"><div class="cred-dot"></div><span>Influential Speaking Coach</span></div>
-          <div class="cred-item"><div class="cred-dot"></div><span>10.000+ giờ đào tạo</span></div>
+          <div class="cred-item"><div class="cred-dot"></div><span>11.000+ giờ đào tạo</span></div>
           <div class="cred-item"><div class="cred-dot"></div><span>International Facilitator</span></div>
           <div class="cred-item"><div class="cred-dot"></div><span>14+ Năm đào tạo quốc tế</span></div>
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- REAL WORKSHOP PROOF -->
+<section class="workshop-proof-section" aria-label="Hình ảnh facilitation thực tế">
+  <div class="container">
+    <figure class="workshop-proof">
+      <img src="assets/proof/nam-nguyen-workshop.webp" alt="Nam Nguyễn đang facilitation một chương trình đào tạo doanh nghiệp với học viên tham gia trực tiếp">
+      <figcaption>Hình ảnh facilitation thực tế cùng học viên doanh nghiệp.</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1615,73 +1798,19 @@ tạo niềm tin và tạo khách hàng.</p>
       <h2>Kết quả thật từ <span class="grad-text">người thật</span></h2>
       <p>Những chuyên gia, lãnh đạo và nhà đào tạo đã nâng tầm vị thế và sức ảnh hưởng của mình cùng S-PEAK.</p>
     </div>
-    <div class="testi-featured">
-      <div class="testi-card">
-        <div class="quote-mark">"</div>
-        <p class="quote">Nhờ S-PEAK, tôi tăng 300% sự tự tin trong việc nói. Từ một người run bần bật khi đứng trước đám đông, nay tôi đã tự tin tuyệt đối và thậm chí có thể dẫn dắt buổi training cho 50 người cùng lúc.</p>
-        <div class="testi-author">
-          <div class="testi-avatar has-photo testi-avatar--tram">
-            <img src="assets/nguyen-ngoc-tram.png" alt="Nguyễn Ngọc Trâm">
-          </div>
-          <div class="testi-info">
-            <div class="name">Nguyễn Ngọc Trâm</div>
-            <div class="role">Writing Trainer &amp; Mentor</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="quote-mark">"</div>
-        <p class="quote">S-PEAK giúp bạn quay vào bên trong để hiểu mình — phong cách cá nhân và điểm mạnh của chính mình. Khi nói tự nhiên nhất, tự tin nhất, bạn sẽ truyền cảm hứng mạnh mẽ và để lại ấn tượng khó phai.</p>
-        <div class="testi-author">
-          <div class="testi-avatar has-photo testi-avatar--jade">
-            <img src="assets/jade-bich-phung.png" alt="Chị Jade Bích Phùng">
-          </div>
-          <div class="testi-info">
-            <div class="name">Chị Jade Bích Phùng</div>
-            <div class="role">Peak Performance Coach</div>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="quote-mark">"</div>
-        <p class="quote">S-PEAK là sự kết hợp giữa Logic và Cảm xúc. Nam công thức hoá bài nói, nhưng công thức ấy lại cho người nói sự tự do trong thiết kế bài nói chân thực nhất với bản sắc riêng.</p>
-        <div class="testi-author">
-          <div class="testi-avatar has-photo testi-avatar--binh">
-            <img src="assets/nguyen-thanh-binh.png" alt="Nguyễn Thanh Bình">
-          </div>
-          <div class="testi-info">
-            <div class="name">Nguyễn Thanh Bình</div>
-            <div class="role">Professional Sales Trainer</div>
-          </div>
-        </div>
-      </div>
+    <div class="testi-proof-intro">
+      <div class="section-label">Testimonial có hình ảnh thật</div>
+      <h3>Những điều học viên ghi nhận sau khi học và thực hành</h3>
+      <p>Phần dưới sử dụng nguyên bản chia sẻ và hình ảnh học viên đã được cung cấp cho S-PEAK.</p>
     </div>
-    <div class="testi-mini-grid">
-      <div class="testi-mini-card">
-        <div class="mini-name">Chị Hân</div>
-        <div class="mini-role">Chuyên gia Tài Chính Cá nhân</div>
-        <p class="mini-quote">"Lớp học giúp mình có thêm công cụ và định hướng rõ ràng để vững tin hơn trên hành trình thực hiện mục tiêu."</p>
-      </div>
-      <div class="testi-mini-card">
-        <div class="mini-name">Chị Lavie</div>
-        <div class="mini-role">Giám đốc Nhân sự</div>
-        <p class="mini-quote">"Sau S-PEAK, mình tự tin, mạch lạc và kết nối sâu sắc hơn với khán giả. Môi trường học an toàn, nâng đỡ và khích lệ."</p>
-      </div>
-      <div class="testi-mini-card">
-        <div class="mini-name">Anh Toàn</div>
-        <div class="mini-role">Người đi tìm lại chính mình</div>
-        <p class="mini-quote">"S-PEAK đã giúp tôi thực hiện ước mơ và tìm lại con người thật của mình. Nếu bạn đang lạc lối, khóa học này sẽ là điểm khởi đầu."</p>
-      </div>
-      <div class="testi-mini-card">
-        <div class="mini-name">Chị Diễm</div>
-        <div class="mini-role">Chuyên gia Khai vấn</div>
-        <p class="mini-quote">"Sau S-PEAK, mình đã làm chủ được điều đó — biết khi nào kết nối vào trong, khi nào lan tỏa ra ngoài."</p>
-      </div>
-      <div class="testi-mini-card">
-        <div class="mini-name">Chị Thảo Trương</div>
-        <div class="mini-role">Self-Relationship Coach</div>
-        <p class="mini-quote">"Có buổi mình được Coach và bật khóc trong vô thức. Không ngờ nó có thể chạm đến sâu như vậy."</p>
-      </div>
+    <div class="testi-proof-grid">
+      <figure><img src="assets/testimonials/testimonial-22.webp" alt="Testimonial học viên Lan Hương: nhận được cách định vị, sức mạnh của logic và mạch lạc, cùng sự thấu hiểu"><figcaption>Học viên Lan Hương</figcaption></figure>
+      <figure><img src="assets/testimonials/testimonial-27.webp" alt="Testimonial học viên Anh Bùi: nói ít mà chất, chương trình đáng để đầu tư trải nghiệm"><figcaption>Học viên Anh Bùi</figcaption></figure>
+      <figure><img src="assets/testimonials/testimonial-24.webp" alt="Testimonial học viên Thu Diễm: thực hành kiến thức ngay trong cuộc họp và có công thức luyện tập khoa học"><figcaption>Học viên Thu Diễm</figcaption></figure>
+      <figure><img src="assets/testimonials/testimonial-23.webp" alt="Testimonial học viên Tuyết Trinh: có công thức thực chiến để chuẩn bị bài nói dễ dàng và tự tin hơn"><figcaption>Học viên Tuyết Trinh</figcaption></figure>
+      <figure><img src="assets/testimonials/testimonial-28.webp" alt="Testimonial học viên Queenny Ngô: hiểu cần cải thiện cấu trúc, kỹ năng và sự chau chuốt trong từng câu chữ"><figcaption>Học viên Queenny Ngô</figcaption></figure>
+      <figure><img src="assets/testimonials/testimonial-26.webp" alt="Testimonial học viên Thiên Ý: ứng dụng public speaking trong thiết kế sản phẩm, làm content, đào tạo và công việc hiệu suất hơn"><figcaption>Học viên Thiên Ý</figcaption></figure>
+      <figure><img src="assets/testimonials/testimonial-25.webp" alt="Testimonial học viên Hoàng Duyên: nhận diện nỗi sợ, xây dựng sự vững vàng và có cấu trúc trình bày dễ ứng dụng"><figcaption>Học viên Hoàng Duyên</figcaption></figure>
     </div>
   </div>
 </section>
@@ -1691,12 +1820,12 @@ tạo niềm tin và tạo khách hàng.</p>
 <section id="quote-cta">
   <div class="container">
     <div class="quote-cta-inner">
-      <div class="quote-cta-mark">"Đi cùng tôi… <em>tôi sẽ chỉ cho bạn lối ra."</em></div>
-      <p class="quote-cta-body"><strong style="font-size:15px;">Thay đổi cách bạn xuất hiện.<br>Thay đổi cách bạn truyền tải.<br>Thay đổi vị thế của bạn.</strong><br>
-      Khám phá những kỹ năng cốt lõi của Speaking cho chuyên gia và bắt đầu hành trình chuyển hóa từ hôm nay.</p>
+      <div class="quote-cta-mark">Bạn có chuyên môn thật. <em>Hãy học cách nói để người khác nhận ra điều đó.</em></div>
+      <p class="quote-cta-body"><strong style="font-size:15px;">3 ngày học chuyên sâu.<br>Thực hành trên tình huống thực tế.<br>Phản hồi trực tiếp từ chuyên gia.</strong><br>
+      Bắt đầu bằng việc sắp xếp lại thông điệp và cách bạn xuất hiện trước khách hàng, học viên hoặc đội ngũ.</p>
       <div class="cta-btn-wrap">
         <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:18px 44px;">Đăng ký ngay →</a>
-        <span class="cta-btn-date">22, 23, 24/09/2026 · 20:00 – 22:00 · Online qua Zoom</span>
+        <span class="cta-btn-date">22, 23 và 24/09/2026 · 20g00 – 22g00 · Online qua Zoom</span>
       </div>
     </div>
   </div>
@@ -1708,11 +1837,10 @@ tạo niềm tin và tạo khách hàng.</p>
     <div class="pricing-inner">
       <div class="section-label" style="text-align: center; font-size: 25px">Đầu tư cho bản thân</div>
       <h2>Học phí <span class="grad-text">Chương trình</span></h2>
-      <p>Chương trình được thiết kế tinh gọn, tối ưu cho môi trường online với breakout rooms,   
-thực hành trực tiếp và phản hồi ngay lập tức.</p>
+      <p>3 ngày học trực tuyến qua Zoom, với bài tập thực hành ứng dụng tình huống thực tế và phản hồi trực tiếp từ chuyên gia.</p>
       <div class="pricing-card">
         <div class="pricing-title" style="font-size: 25px">DARE TO S-PEAK</div>
-        <div class="pricing-program">Chương trình cho Chuyên gia ·  3 ngày</div>
+        <div class="pricing-program">DARE TO S-PEAK K09 · 3 ngày</div>
         <div class="price-big">1.000.000</div>
         <div style="color:rgba(255,255,255,0.4);font-size:0.9rem;margin-top:4px;">VND / học viên</div>
         <div class="pricing-perks">
@@ -1726,7 +1854,7 @@ thực hành trực tiếp và phản hồi ngay lập tức.</p>
           <div class="perk"><div class="perk-check">✓</div>Cơ hội nhận học bổng tham dự Mentoring &amp; Practice Community trị giá 18.000.000 VND</div>
         </div>
         <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary">ĐĂNG KÝ NGAY →</a>
-        <p class="pricing-note">Số lượng học viên có hạn. Liên hệ S-PEAK Team để được tư vấn.</p>
+        <p class="pricing-note">20g00 đến 22g00 · Ngày 22, 23 và 24/09/2026 · Online qua Zoom</p>
       </div>
     </div>
   </div>
@@ -1751,11 +1879,11 @@ thực hành trực tiếp và phản hồi ngay lập tức.</p>
       </div>
       <div class="faq-item">
         <div class="faq-q">Tôi nói cũng khá ổn rồi, có cần học không? <span class="toggle">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Nói ổn và nói để tạo vị thế, tạo khách hàng là hai cấp độ khác nhau. Chương trình giúp bạn bứt phá từ "nói tốt" lên "nói để dẫn đầu thị trường".</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Nếu bạn đã nói khá ổn, chương trình giúp bạn nhìn rõ hơn cấu trúc thông điệp, cách đóng gói chuyên môn thành bài nói Signature và cách điều chỉnh trạng thái khi xuất hiện.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Chỉ 3 ngày có đủ không? <span class="toggle">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Đủ nếu bạn tham gia trọn vẹn. Chương trình được thiết kế tinh gọn theo 3 buổi, mỗi buổi có thực hành liên tục, feedback ngay lập tức và bài tập ứng dụng giữa các ngày để tạo thay đổi nhanh.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Ba ngày không thay thế cho quá trình rèn luyện dài hạn. Đây là khoảng thời gian chuyên sâu để bạn có công thức, thực hành trên tình huống thực tế và nhận phản hồi trực tiếp để biết mình cần điều chỉnh điều gì.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Signature Talk là gì và tôi có xây được không? <span class="toggle">+</span></div>
@@ -1767,11 +1895,11 @@ thực hành trực tiếp và phản hồi ngay lập tức.</p>
       </div>
       <div class="faq-item">
         <div class="faq-q">Học online thì hiệu quả thế nào? <span class="toggle">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Rất hiệu quả. Toàn bộ hoạt động được tối ưu cho môi trường online: breakout rooms, thực hành trực tiếp, quay video, phản hồi ngay lập tức. Bạn được tương tác 1-1 và thực hành nhiều hơn học offline truyền thống.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Chương trình diễn ra hoàn toàn qua Zoom, từ 20g00 đến 22g00 trong 3 ngày 22, 23 và 24/09/2026. Bạn cần bật camera và microphone để tương tác, thực hành và nhận phản hồi.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Học xong rồi tiếp theo là gì? <span class="toggle">+</span></div>
-        <div class="faq-a"><div class="faq-a-inner">Bạn có thể tham gia Cộng đồng chuyên gia S-PEAK để tiếp tục thực hành và phát triển mỗi tuần. Nếu muốn đi sâu hơn, bạn có thể liên hệ S-PEAK Team để được tư vấn lộ trình chuyên sâu phù hợp với mục tiêu kinh doanh của mình.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Bạn có cơ hội nhận học bổng tham dự Mentoring &amp; Practice Community trị giá 18.000.000 VND. Điều kiện xét học bổng là tham dự đủ 3 ngày, bật camera và microphone để tương tác, đồng thời hoàn thành đầy đủ các bài tập thực hành.</div></div>
       </div>
     </div>
   </div>
