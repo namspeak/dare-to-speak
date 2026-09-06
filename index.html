@@ -688,6 +688,8 @@
     height: 40px;
     border-radius: 50%;
     background: var(--grad);
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -697,6 +699,16 @@
     color: #fff;
     flex-shrink: 0;
   }
+  .testi-avatar.has-photo img {
+    position: absolute;
+    width: 230%;
+    max-width: none;
+    height: auto;
+    left: -68%;
+    top: -36%;
+  }
+  .testi-avatar--tram img { top: -31%; }
+  .testi-avatar--jade img { top: -37%; }
   .testi-info .name { font-weight: 700; font-size: 0.9rem; color: #fff; }
   .testi-info .role { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 1px; }
   .testi-mini-card {
@@ -1595,7 +1607,9 @@ tạo niềm tin và tạo khách hàng.</p>
         <div class="quote-mark">"</div>
         <p class="quote">Nhờ S-PEAK, tôi tăng 300% sự tự tin trong việc nói. Từ một người run bần bật khi đứng trước đám đông, nay tôi đã tự tin tuyệt đối và thậm chí có thể dẫn dắt buổi training cho 50 người cùng lúc.</p>
         <div class="testi-author">
-          <div class="testi-avatar">NT</div>
+          <div class="testi-avatar has-photo testi-avatar--tram">
+            <img src="assets/nguyen-ngoc-tram.png" alt="Nguyễn Ngọc Trâm">
+          </div>
           <div class="testi-info">
             <div class="name">Nguyễn Ngọc Trâm</div>
             <div class="role">Writing Trainer &amp; Mentor</div>
@@ -1606,7 +1620,9 @@ tạo niềm tin và tạo khách hàng.</p>
         <div class="quote-mark">"</div>
         <p class="quote">S-PEAK giúp bạn quay vào bên trong để hiểu mình — phong cách cá nhân và điểm mạnh của chính mình. Khi nói tự nhiên nhất, tự tin nhất, bạn sẽ truyền cảm hứng mạnh mẽ và để lại ấn tượng khó phai.</p>
         <div class="testi-author">
-          <div class="testi-avatar">JB</div>
+          <div class="testi-avatar has-photo testi-avatar--jade">
+            <img src="assets/jade-bich-phung.png" alt="Chị Jade Bích Phùng">
+          </div>
           <div class="testi-info">
             <div class="name">Chị Jade Bích Phùng</div>
             <div class="role">Peak Performance Coach</div>
