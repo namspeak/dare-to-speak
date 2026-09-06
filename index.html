@@ -664,6 +664,8 @@
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 12px;
     padding: 28px;
+    display: flex;
+    flex-direction: column;
     transition: border-color 0.2s, transform 0.2s;
   }
   .testi-card:hover { border-color: rgba(255,138,53,0.3); transform: translateY(-3px); }
@@ -682,6 +684,7 @@
     margin-bottom: 20px;
     font-style: italic;
   }
+  .testi-card .testi-author { margin-top: auto; }
   .testi-author { display: flex; gap: 12px; align-items: center; }
   .testi-avatar {
     width: 40px;
@@ -1050,6 +1053,15 @@
       radial-gradient(ellipse 50% 40% at 60% 50%, rgba(255,100,30,0.06) 0%, transparent 65%),
       #111111;
   }
+  #hero::before {
+    display: block;
+    background:
+      linear-gradient(90deg, rgba(13,13,13,0.96) 0%, rgba(13,13,13,0.88) 34%, rgba(13,13,13,0.58) 62%, rgba(13,13,13,0.42) 100%),
+      linear-gradient(180deg, rgba(13,13,13,0.35), rgba(13,13,13,0.52)),
+      url("assets/tcm-90.jpg") center center / cover no-repeat;
+    opacity: 1;
+  }
+  .hero-inner { position: relative; z-index: 1; }
 
   /* WHY → warm light */
   #why { background: var(--offwhite); color: #111111; }
