@@ -1803,7 +1803,7 @@
   .day-card { border: 1px solid rgba(255,255,255,0.14); }
   .day-card summary { list-style: none; cursor: pointer; }
   .day-card summary::-webkit-details-marker { display: none; }
-  #curriculum .curriculum-grid { gap: 28px; }
+  #curriculum .curriculum-grid { align-items: stretch; gap: 28px; }
   #curriculum .day-card {
     overflow: hidden;
     border: 1px solid rgba(23,23,23,0.10) !important;
@@ -1812,7 +1812,8 @@
     box-shadow: 0 8px 24px rgba(23,23,23,0.08) !important;
   }
   #curriculum .day-header {
-    min-height: 130px;
+    height: 130px;
+    box-sizing: border-box;
     padding: 24px 26px 52px;
     background: linear-gradient(118deg, #ff8a35 0%, #ff2e20 100%);
   }
@@ -1840,7 +1841,7 @@
   #curriculum .day-summary-meta span { color: #fff; }
   #curriculum .day-body {
     display: flex;
-    min-height: 248px;
+    min-height: 224px;
     flex-direction: column;
     padding: 26px 28px 22px;
     background: #fff !important;
@@ -1852,7 +1853,7 @@
     font-size: 0.88rem;
     line-height: 1.7;
   }
-  #curriculum .day-outcomes { gap: 12px; }
+  #curriculum .day-outcomes { gap: 12px; margin-top: auto; padding-top: 24px; }
   #curriculum .outcome-item {
     color: rgba(23,23,23,0.68) !important;
     font-size: 0.82rem;
@@ -1865,13 +1866,6 @@
     border-color: rgba(255,138,53,0.36) !important;
   }
   #curriculum .outcome-dot::after { width: 6px; height: 6px; }
-  #curriculum .day-meta {
-    margin-top: auto;
-    padding-top: 16px;
-    color: var(--orange);
-    font-size: 0.75rem;
-    line-height: 1.45;
-  }
   .day-header { position: relative; padding: 26px 24px 48px; }
   .day-title { padding-right: 12px; font-size: 1.03rem; font-weight: 800; line-height: 1.4; }
   .day-summary-meta { position: absolute; bottom: 17px; left: 24px; right: 24px; display: flex; align-items: center; justify-content: space-between; color: rgba(255,255,255,0.74); font-size: 0.73rem; font-weight: 700; }
@@ -1985,7 +1979,7 @@
     .curriculum-header p { margin-top: 14px; font-size: 0.92rem; line-height: 1.58; }
     .curriculum-cta { width: 100%; justify-content: center; }
     #curriculum .curriculum-grid { gap: 14px; }
-    #curriculum .day-header { min-height: 124px; padding: 20px 18px 48px; }
+    #curriculum .day-header { height: 124px; padding: 20px 18px 48px; }
     #curriculum .day-title { max-width: none; font-size: 0.96rem; }
     #curriculum .day-summary-meta { left: 18px; right: 18px; bottom: 14px; }
     #curriculum .day-body { min-height: 0; padding: 22px 20px 18px; }
@@ -2647,7 +2641,6 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
             <div class="outcome-item"><div class="outcome-dot"></div>Định vị điểm mạnh có liên quan</div>
             <div class="outcome-item"><div class="outcome-dot"></div>Xây bản giới thiệu ngắn, có chủ đích</div>
           </div>
-          <div class="day-meta">20g00 – 22g00 · 22/09/2026 · Online Zoom</div>
         </div>
       </details>
       <details class="day-card" open>
@@ -2662,7 +2655,6 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
             <div class="outcome-item"><div class="outcome-dot"></div>Cấu trúc thông điệp</div>
             <div class="outcome-item"><div class="outcome-dot"></div>Bài tập áp dụng tình huống thật</div>
           </div>
-          <div class="day-meta">20g00 – 22g00 · 23/09/2026 · Online Zoom</div>
         </div>
       </details>
       <details class="day-card" open>
@@ -2677,7 +2669,6 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
             <div class="outcome-item"><div class="outcome-dot"></div>Điều chỉnh trạng thái trước khi nói</div>
             <div class="outcome-item"><div class="outcome-dot"></div>Phản hồi trực tiếp từ chuyên gia</div>
           </div>
-          <div class="day-meta">20g00 – 22g00 · 24/09/2026 · Online Zoom</div>
         </div>
       </details>
     </div>
