@@ -2559,6 +2559,107 @@
     .testi-slider-controls button { width: 34px; height: 34px; }
   }
 
+  /* ── S-PEAK ACTIVITY MARQUEE ── */
+  #activity-gallery {
+    position: relative;
+    overflow: hidden;
+    padding: 92px 0 100px;
+    background:
+      radial-gradient(circle at 12% 28%, rgba(255,138,53,0.14), transparent 30%),
+      radial-gradient(circle at 88% 72%, rgba(255,43,30,0.10), transparent 30%),
+      #fffaf5;
+    color: #171717;
+  }
+  #activity-gallery::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, rgba(255,250,245,0.92), transparent 14%, transparent 86%, rgba(255,250,245,0.92));
+    z-index: 2;
+  }
+  .activity-gallery-header {
+    position: relative;
+    z-index: 3;
+    max-width: 760px;
+    margin: 0 auto 42px;
+    padding: 0 32px;
+    text-align: center;
+  }
+  .activity-gallery-header h2 {
+    margin-bottom: 12px;
+    color: #171717;
+    font-size: clamp(2.3rem, 4.5vw, 4.25rem);
+    line-height: 1;
+    letter-spacing: -0.055em;
+  }
+  .activity-gallery-header p {
+    max-width: 580px;
+    margin: 0 auto;
+    color: rgba(23,23,23,0.58);
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+  .activity-marquee {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    gap: 18px;
+    overflow: hidden;
+    padding: 4px 0 8px;
+  }
+  .activity-track {
+    display: flex;
+    width: max-content;
+    gap: 18px;
+    animation: activity-scroll 52s linear infinite;
+    will-change: transform;
+  }
+  .activity-row--reverse .activity-track {
+    animation-name: activity-scroll-reverse;
+    animation-duration: 58s;
+  }
+  .activity-card {
+    flex: 0 0 clamp(250px, 27vw, 370px);
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    margin: 0;
+    border: 1px solid rgba(23,23,23,0.10);
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 12px 28px rgba(68,39,23,0.12);
+  }
+  .activity-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 360ms ease;
+  }
+  .activity-card:hover img { transform: scale(1.04); }
+  @keyframes activity-scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 9px)); }
+  }
+  @keyframes activity-scroll-reverse {
+    from { transform: translateX(calc(-50% - 9px)); }
+    to { transform: translateX(0); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .activity-track,
+    .activity-row--reverse .activity-track { animation: none; }
+  }
+  @media (max-width: 600px) {
+    #activity-gallery { padding: 72px 0 78px; }
+    .activity-gallery-header { margin-bottom: 30px; padding: 0 18px; }
+    .activity-gallery-header h2 { font-size: clamp(2rem, 10vw, 2.8rem); }
+    .activity-gallery-header p { font-size: 0.96rem; line-height: 1.55; }
+    .activity-marquee { gap: 12px; }
+    .activity-track { gap: 12px; animation-duration: 42s; }
+    .activity-row--reverse .activity-track { animation-duration: 46s; }
+    .activity-card { flex-basis: min(76vw, 300px); border-radius: 12px; }
+  }
+
   /* ── HERO TYPOGRAPHY PASS ── */
   .hero-kicker {
     padding: 10px 14px;
@@ -3147,6 +3248,59 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       <div class="faq-item">
         <div class="faq-q">Học online thì hiệu quả thế nào? <span class="toggle">+</span></div>
         <div class="faq-a"><div class="faq-a-inner">Chương trình diễn ra hoàn toàn qua Zoom, từ 20g00 đến 22g00 trong 3 ngày 22, 23 và 24/09/2026. Bạn cần bật camera và microphone để tương tác, thực hành và nhận phản hồi.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S-PEAK ACTIVITIES -->
+<section id="activity-gallery" aria-labelledby="activity-gallery-title">
+  <div class="activity-gallery-header">
+    <div class="section-label">HỌC · THỰC HÀNH · KẾT NỐI</div>
+    <h2 id="activity-gallery-title">Những hoạt động của <span class="grad-text">S-PEAK</span></h2>
+    <p>Mỗi buổi học là một không gian để quan sát, thực hành, nhận phản hồi và cùng nhau tiến bộ.</p>
+  </div>
+  <div class="activity-marquee" aria-label="Hình ảnh hoạt động của S-PEAK">
+    <div class="activity-row activity-row--forward">
+      <div class="activity-track">
+        <figure class="activity-card"><img src="assets/activity/activity-01.jpg" alt="Học viên thực hành trong hoạt động S-PEAK" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-02.jpg" alt="Nam Nguyễn hướng dẫn trong một buổi đào tạo" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-03.jpg" alt="Học viên quan sát phần trình bày trong lớp học" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-04.jpg" alt="Học viên thực hành nói trước nhóm" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-05.jpg" alt="Nam Nguyễn chia sẻ cùng người học" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-06.jpg" alt="Học viên trình bày trong hoạt động S-PEAK" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-07.jpg" alt="Hoạt động chia sẻ trong nhóm học viên" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-08.jpg" alt="Nhóm học viên cùng hoàn thành hoạt động" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-09.jpg" alt="Nam Nguyễn trao đổi cùng học viên" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-01.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-02.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-03.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-04.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-05.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-06.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-07.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-08.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-09.jpg" alt="" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+    <div class="activity-row activity-row--reverse">
+      <div class="activity-track">
+        <figure class="activity-card"><img src="assets/activity/activity-10.jpg" alt="Học viên thực hành viết và phản hồi" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-11.jpg" alt="Nam Nguyễn hướng dẫn tại bảng trình bày" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-12.jpg" alt="Học viên trao đổi trong nhóm nhỏ" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-13.jpg" alt="Học viên thảo luận trong hoạt động nhóm" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-14.jpg" alt="Học viên kết nối trong lớp học" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-15.jpg" alt="Hoạt động thực hành trong không gian S-PEAK" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-16.jpg" alt="Học viên làm bài tập cùng nhau" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card"><img src="assets/activity/activity-17.jpg" alt="Học viên nhận chứng nhận sau chương trình" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-10.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-11.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-12.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-13.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-14.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-15.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-16.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="activity-card" aria-hidden="true"><img src="assets/activity/activity-17.jpg" alt="" loading="lazy" decoding="async"></figure>
       </div>
     </div>
   </div>
