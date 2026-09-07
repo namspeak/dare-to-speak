@@ -2172,6 +2172,31 @@
       max-width: 100%;
       overflow-x: hidden;
     }
+    #trainer .trainer-content {
+      display: block !important;
+      padding: 30px 18px 28px;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
+    #trainer .trainer-content > .section-label,
+    #trainer .trainer-content > h2,
+    #trainer .trainer-content > .trainer-roleline,
+    #trainer .trainer-content > p {
+      display: block;
+      position: static;
+      float: none;
+      clear: both;
+      flex: none;
+    }
+    #trainer .trainer-content > .section-label {
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+    #trainer .trainer-content > h2 {
+      margin: 0;
+      font-size: clamp(2.35rem, 11vw, 3.1rem);
+      line-height: 1.02 !important;
+    }
     #pain .pain-header {
       display: flex;
       flex-direction: column;
@@ -2223,14 +2248,30 @@
       line-height: 1.45;
     }
     #trainer .trainer-content > p { overflow-wrap: anywhere; }
+    #trainer .trainer-content > p:first-of-type { margin-top: 22px; }
+    #trainer .trainer-content > p:nth-of-type(2) { margin-top: 16px; }
+    #trainer .trainer-content > p:nth-of-type(3) {
+      margin-top: 18px;
+      margin-bottom: 20px;
+      padding: 10px 0 10px 14px;
+      border-left-width: 5px;
+      font-size: 0.96rem;
+      line-height: 1.5;
+    }
     #trainer .creds-grid {
+      display: grid !important;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
+      width: 100%;
+      margin-top: 0;
     }
     #trainer .cred-item {
+      display: flex;
+      width: 100%;
       min-height: 102px;
       padding: 14px 8px;
       gap: 6px;
+      overflow: hidden;
     }
     #trainer .cred-item strong {
       font-size: clamp(1.15rem, 5.2vw, 1.55rem);
