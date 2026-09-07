@@ -2194,7 +2194,12 @@
 
     #trainer .trainer-inner,
     #trainer .trainer-content,
-    #trainer .trainer-content > * { min-width: 0; max-width: 100%; }
+    #trainer .trainer-content > *,
+    #trainer .creds-grid,
+    #trainer .cred-item { min-width: 0; max-width: 100%; }
+    #trainer .trainer-content > p,
+    #trainer .trainer-roleline,
+    #trainer .cred-item span { width: 100%; }
     #trainer .trainer-roleline {
       margin-top: 12px;
       font-size: 0.72rem;
@@ -2212,7 +2217,10 @@
       gap: 6px;
     }
     #trainer .cred-item strong {
-      font-size: clamp(1.25rem, 5.7vw, 1.7rem);
+      max-width: 100%;
+      font-size: clamp(1.15rem, 5.2vw, 1.55rem);
+      letter-spacing: -0.08em;
+      white-space: nowrap;
     }
     #trainer .cred-item span {
       font-size: 0.68rem;
