@@ -2164,6 +2164,14 @@
 
   /* ── MOBILE READABILITY PASS ── */
   @media (max-width: 600px) {
+    #trainer,
+    #trainer .container,
+    #trainer .trainer-inner,
+    #trainer .trainer-content {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     #pain .pain-header {
       display: flex;
       flex-direction: column;
@@ -2199,7 +2207,15 @@
     #trainer .cred-item { min-width: 0; max-width: 100%; }
     #trainer .trainer-content > p,
     #trainer .trainer-roleline,
-    #trainer .cred-item span { width: 100%; }
+    #trainer .cred-item span,
+    #trainer .trainer-content .section-label,
+    #trainer .cred-item strong {
+      width: 100%;
+      max-width: 100%;
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
     #trainer .trainer-roleline {
       margin-top: 12px;
       font-size: 0.72rem;
@@ -2217,7 +2233,6 @@
       gap: 6px;
     }
     #trainer .cred-item strong {
-      max-width: 100%;
       font-size: clamp(1.15rem, 5.2vw, 1.55rem);
       letter-spacing: -0.08em;
       white-space: nowrap;
