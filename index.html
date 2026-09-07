@@ -2039,6 +2039,85 @@
     .client-logo img { max-width: 104px; max-height: 34px; }
   }
 
+  /* ── TESTIMONIAL SLIDER ── */
+  #testimonials { background: #fffaf5; }
+  .testi-proof-intro { margin-top: 30px; }
+  .testi-slider-shell { position: relative; margin-top: 26px; }
+  .testi-proof-grid.testi-slider {
+    display: flex !important;
+    gap: 22px;
+    margin: 0;
+    padding: 4px 4px 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(13,39,91,0.38) transparent;
+  }
+  .testi-proof-grid.testi-slider figure,
+  .testi-proof-grid.testi-slider figure:nth-child(n+4) {
+    display: block;
+    flex: 0 0 min(900px, calc(100vw - 64px));
+    scroll-snap-align: center;
+    margin: 0;
+    border: 0;
+    border-radius: 18px;
+    background: #0b2458;
+    box-shadow: 0 16px 36px rgba(13,39,91,0.14);
+  }
+  .testi-proof-grid.testi-slider img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+  }
+  .testi-proof-grid.testi-slider figcaption { display: none; }
+  .testi-slider-hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 12px;
+    color: rgba(23,23,23,0.56);
+    font-size: 0.82rem;
+  }
+  .testi-slider-hint strong { color: #c94b20; font-weight: 800; }
+  .testi-slider-controls { display: flex; gap: 8px; }
+  .testi-slider-controls button {
+    display: inline-flex;
+    width: 38px;
+    height: 38px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(13,39,91,0.18);
+    border-radius: 50%;
+    background: #fff;
+    color: #0b2458;
+    cursor: pointer;
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+  }
+  .testi-slider-controls button:hover { background: #0b2458; color: #fff; transform: translateY(-1px); }
+  @media (max-width: 600px) {
+    .testi-proof-intro { margin-top: 22px; }
+    .testi-slider-shell { margin-top: 20px; }
+    .testi-proof-grid.testi-slider {
+      gap: 14px;
+      margin-right: -18px;
+      padding: 2px 18px 14px 0;
+      scroll-snap-type: x mandatory;
+    }
+    .testi-proof-grid.testi-slider figure,
+    .testi-proof-grid.testi-slider figure:nth-child(n+4) {
+      flex-basis: calc(100vw - 36px);
+      border-radius: 14px;
+    }
+    .testi-proof-grid.testi-slider img { border-radius: 14px; }
+    .testi-slider-hint { font-size: 0.74rem; }
+    .testi-slider-controls button { width: 34px; height: 34px; }
+  }
+
   /* ── HERO TYPOGRAPHY PASS ── */
   .hero-kicker {
     padding: 10px 14px;
@@ -2505,7 +2584,15 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       <h3>Những điều học viên ghi nhận sau khi học và thực hành</h3>
       <p>Hình ảnh và nội dung được sử dụng nguyên bản từ học viên.</p>
     </div>
-    <div class="testi-proof-grid">
+    <div class="testi-slider-shell">
+      <div class="testi-slider-hint">
+        <span><strong>Vuốt hoặc kéo ngang</strong> để xem từng chia sẻ</span>
+        <div class="testi-slider-controls" aria-label="Điều khiển testimonials">
+          <button type="button" data-testimonial-prev aria-label="Xem testimonial trước">‹</button>
+          <button type="button" data-testimonial-next aria-label="Xem testimonial tiếp theo">›</button>
+        </div>
+      </div>
+      <div class="testi-proof-grid testi-slider" data-testimonial-slider>
       <figure><img src="assets/testimonials/testimonial-22.webp" alt="Testimonial học viên Lan Hương: nhận được cách định vị, sức mạnh của logic và mạch lạc, cùng sự thấu hiểu"><figcaption>Học viên Lan Hương</figcaption></figure>
       <figure><img src="assets/testimonials/testimonial-27.webp" alt="Testimonial học viên Anh Bùi: nói ít mà chất, chương trình đáng để đầu tư trải nghiệm"><figcaption>Học viên Anh Bùi</figcaption></figure>
       <figure><img src="assets/testimonials/testimonial-24.webp" alt="Testimonial học viên Thu Diễm: thực hành kiến thức ngay trong cuộc họp và có công thức luyện tập khoa học"><figcaption>Học viên Thu Diễm</figcaption></figure>
@@ -2513,6 +2600,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       <figure><img src="assets/testimonials/testimonial-28.webp" alt="Testimonial học viên Queenny Ngô: hiểu cần cải thiện cấu trúc, kỹ năng và sự chau chuốt trong từng câu chữ"><figcaption>Học viên Queenny Ngô</figcaption></figure>
       <figure><img src="assets/testimonials/testimonial-26.webp" alt="Testimonial học viên Thiên Ý: ứng dụng public speaking trong thiết kế sản phẩm, làm content, đào tạo và công việc hiệu suất hơn"><figcaption>Học viên Thiên Ý</figcaption></figure>
       <figure><img src="assets/testimonials/testimonial-25.webp" alt="Testimonial học viên Hoàng Duyên: nhận diện nỗi sợ, xây dựng sự vững vàng và có cấu trúc trình bày dễ ứng dụng"><figcaption>Học viên Hoàng Duyên</figcaption></figure>
+      </div>
     </div>
   </div>
 </section>
@@ -2705,6 +2793,27 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // Testimonial slider: native drag/swipe plus keyboard-friendly controls.
+  const testimonialSlider = document.querySelector('[data-testimonial-slider]');
+  const testimonialSlides = testimonialSlider ? Array.from(testimonialSlider.children) : [];
+  const testimonialPrev = document.querySelector('[data-testimonial-prev]');
+  const testimonialNext = document.querySelector('[data-testimonial-next]');
+  const scrollToTestimonial = direction => {
+    if (!testimonialSlider || !testimonialSlides.length) return;
+    const currentIndex = testimonialSlides.reduce((closest, slide, index) => {
+      const currentDistance = Math.abs(slide.offsetLeft - testimonialSlider.scrollLeft);
+      const closestDistance = Math.abs(testimonialSlides[closest].offsetLeft - testimonialSlider.scrollLeft);
+      return currentDistance < closestDistance ? index : closest;
+    }, 0);
+    const nextIndex = Math.max(0, Math.min(testimonialSlides.length - 1, currentIndex + direction));
+    testimonialSlider.scrollTo({
+      left: testimonialSlides[nextIndex].offsetLeft - testimonialSlider.offsetLeft,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+    });
+  };
+  testimonialPrev?.addEventListener('click', () => scrollToTestimonial(-1));
+  testimonialNext?.addEventListener('click', () => scrollToTestimonial(1));
 
   // Smooth nav shrink on scroll
   const nav = document.querySelector('nav');
