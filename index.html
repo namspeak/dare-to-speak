@@ -1880,6 +1880,122 @@
   .creds-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .cred-item { min-height: 66px; font-size: 0.82rem; }
 
+  /* TRAINER PROFILE — editorial two-column profile */
+  #trainer { padding: 72px 0 78px; }
+  #trainer .trainer-inner {
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    gap: 0;
+    align-items: stretch;
+    overflow: hidden;
+    border: 1px solid rgba(23,23,23,0.12);
+    border-radius: 24px;
+    background: #fff;
+    box-shadow: 0 14px 44px rgba(23,23,23,0.08);
+  }
+  #trainer .trainer-card {
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  #trainer .trainer-photo {
+    height: 100%;
+    min-height: 620px;
+    aspect-ratio: auto;
+  }
+  #trainer .trainer-photo::after { display: none; }
+  #trainer .trainer-name-card { display: none; }
+  #trainer .trainer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(42px, 5vw, 70px) clamp(28px, 5vw, 72px);
+    background: #fff;
+  }
+  #trainer .trainer-content > .section-label {
+    margin-bottom: 18px;
+    color: #116b58;
+    font-size: 0.86rem !important;
+    letter-spacing: 0.16em;
+  }
+  #trainer .trainer-content h2 {
+    margin: 0;
+    color: #24262b;
+    font-size: clamp(2.6rem, 4.4vw, 4.2rem);
+    line-height: 1.03 !important;
+    letter-spacing: -0.055em;
+  }
+  #trainer .trainer-content h2 span {
+    color: inherit;
+    background: none;
+    -webkit-text-fill-color: currentColor;
+  }
+  #trainer .trainer-content::before {
+    content: 'INFLUENTIAL SPEAKING COACH  |  FACILITATOR  |  FOUNDER S-PEAK';
+    display: block;
+    order: 1;
+    margin-top: 14px;
+    color: #078a6d;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+  }
+  #trainer .trainer-content > p {
+    order: 2;
+    max-width: 700px;
+    color: rgba(23,23,23,0.62);
+    font-size: 1rem;
+    line-height: 1.78;
+  }
+  #trainer .trainer-content > p:first-of-type { margin-top: 34px; }
+  #trainer .trainer-content > p:nth-of-type(2) { margin-top: 2px; }
+  #trainer .trainer-content > p:nth-of-type(3) { margin-top: 2px; }
+  #trainer .trainer-content > p:nth-of-type(3) {
+    margin-top: 24px;
+    margin-bottom: 28px;
+    padding: 10px 0 10px 24px;
+    border-left: 8px solid #f6ad2f;
+    color: #116b58;
+    font-size: 1.18rem;
+    font-weight: 800;
+    line-height: 1.6;
+  }
+  #trainer .creds-grid {
+    order: 3;
+    gap: 14px;
+    margin-top: 0;
+  }
+  #trainer .cred-item {
+    display: flex;
+    min-height: 132px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 8px;
+    padding: 20px;
+    border: 1px solid rgba(17,107,88,0.16);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(17,107,88,0.08);
+  }
+  #trainer .cred-dot { display: none; }
+  #trainer .cred-item strong {
+    color: #078a6d;
+    font-size: clamp(1.9rem, 3.2vw, 2.8rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+  }
+  #trainer .cred-item span {
+    color: rgba(23,23,23,0.58);
+    font-size: 0.86rem;
+    font-weight: 600;
+    line-height: 1.42;
+  }
+  @media (max-width: 900px) {
+    #trainer .trainer-inner { grid-template-columns: 1fr; }
+  }
+
   #testimonials { padding: 82px 0; }
   .testi-header h2 { font-size: clamp(2.1rem, 4vw, 3.6rem); font-weight: 800; }
   .testi-proof-intro { margin-top: 28px; }
@@ -1987,10 +2103,19 @@
     .day-summary-meta { left: 20px; right: 20px; bottom: 15px; }
     .day-body { padding: 22px 20px; }
 
-    .trainer-photo { aspect-ratio: 4 / 3; }
+    #trainer .trainer-photo { min-height: 360px; aspect-ratio: 4 / 3; }
     .trainer-name-card { padding: 20px; }
-    .trainer-content { margin-top: 30px; }
-    .trainer-content h2 { font-size: 2.15rem; }
+    #trainer .trainer-content { padding: 34px 22px 38px; }
+    #trainer .trainer-content > .section-label { margin-bottom: 14px; font-size: 0.75rem !important; letter-spacing: 0.11em; }
+    #trainer .trainer-content h2 { font-size: clamp(2.5rem, 12vw, 3.5rem); }
+    #trainer .trainer-content::before { margin-top: 12px; font-size: 0.74rem; letter-spacing: 0.02em; }
+    #trainer .trainer-content > p { font-size: 0.92rem; line-height: 1.68; }
+    #trainer .trainer-content > p:first-of-type { margin-top: 24px; }
+    #trainer .trainer-content > p:nth-of-type(3) { margin-top: 18px; margin-bottom: 22px; padding-left: 16px; border-left-width: 5px; font-size: 1rem; line-height: 1.55; }
+    #trainer .creds-grid { gap: 10px; }
+    #trainer .cred-item { min-height: 110px; padding: 16px 12px; }
+    #trainer .cred-item strong { font-size: 1.8rem; }
+    #trainer .cred-item span { font-size: 0.72rem; }
 
     .testi-proof-intro { display: none; }
     .testi-proof-grid { display: flex; gap: 14px; overflow-x: auto; margin-right: -18px; padding: 0 18px 10px 0; scroll-snap-type: x mandatory; }
@@ -2684,27 +2809,18 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
           <div class="trainer-photo" style="background:#f0ede8;">
             <img src="assets/team/nam-nguyen-tcm64.jpg" alt="Nam Nguyễn trong một buổi đào tạo S-PEAK" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
           </div>
-          <div class="trainer-name-card">
-            <h3>Nam Nguyễn</h3>
-            <div class="trainer-role" >FACILITATOR &amp; COACH</div>
-            <div class="trainer-socials">
-              <a href="https://web.facebook.com/HuHaNa1508/" target="_blank" class="social-btn" title="Facebook">f</a>
-              <a href="https://www.linkedin.com/in/namnguyens-peak" target="_blank" class="social-btn" title="LinkedIn">in</a>
-              <a href="https://www.youtube.com/@NamNguyenFacilitator" target="_blank" class="social-btn" title="YouTube">▶</a>
-            </div>
-          </div>
         </div>
       </div>
       <div class="trainer-content">
-        <div class="section-label" style="font-size: 25px">FACILITATOR</div>
-        <h2 style="line-height:1.2">Học cùng <span>Nam Nguyễn</span></h2>
-        <p>Influential speaking coach, expert facilitator, executive coach và nhà sáng lập S-PEAK.</p>
-        <p>Nam thiết kế các trải nghiệm học tập giúp chuyên gia, leader và đội ngũ đưa điều họ biết thành điều người khác có thể hiểu, ghi nhớ và hành động theo.</p>
-        <p>Trong DARE TO S-PEAK, bạn không được yêu cầu nói theo một khuôn mẫu. Bạn được dẫn dắt để tìm ra cấu trúc, ngôn ngữ và trạng thái phù hợp với chính mình.</p>
+        <div class="section-label" style="font-size: 25px">NGƯỜI THIẾT KẾ VÀ TRỰC TIẾP HƯỚNG DẪN</div>
+        <h2 style="line-height:1.2">Nam Nguyễn</h2>
+        <p>DARE TO S-PEAK được thiết kế để bạn không chỉ biết mình cần nói gì, mà còn biết cách biến chuyên môn thành một thông điệp rõ ràng, một bài nói có cấu trúc và một cách xuất hiện đúng với bản sắc riêng.</p>
+        <p>Chương trình được xây dựng từ hơn 14 năm đào tạo chuyên gia, leader và đội ngũ — với hơn 11.000 giờ đào tạo và 1.200 giờ khai vấn. Mỗi nội dung đều đi cùng tình huống thật, thực hành trực tiếp và phản hồi để bạn có thể tinh chỉnh ngay trong quá trình học.</p>
+        <p>“Một chương trình chất lượng không chỉ cho bạn thêm kiến thức. Nó giúp bạn nói rõ hơn điều mình biết và tự tin hơn khi đưa điều đó ra trước người khác.”</p>
         <div class="creds-grid">
-          <div class="cred-item"><div class="cred-dot"></div><span>Founder S-PEAK</span></div>
-          <div class="cred-item"><div class="cred-dot"></div><span>1.200+ giờ khai vấn chuyên nghiệp</span></div>
-          <div class="cred-item"><div class="cred-dot"></div><span>11.000+ giờ đào tạo</span></div>
+          <div class="cred-item"><strong>14+</strong><span>Năm kinh nghiệm</span></div>
+          <div class="cred-item"><strong>11.000+</strong><span>Giờ đào tạo</span></div>
+          <div class="cred-item"><strong>1.200+</strong><span>Giờ khai vấn</span></div>
         </div>
       </div>
     </div>
