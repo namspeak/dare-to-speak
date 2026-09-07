@@ -2021,7 +2021,7 @@
   .perk { font-size: 0.9rem; line-height: 1.55; }
 
   #faq { padding: 82px 0; }
-  #faq .faq-item:nth-child(n+6) { display: none; }
+  #faq .faq-item:nth-child(n+7) { display: none; }
   .faq-q { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.95rem; font-weight: 750; letter-spacing: -0.02em; text-transform: none; }
   .faq-a-inner { font-size: 0.9rem; line-height: 1.65; }
 
@@ -2422,10 +2422,17 @@
     text-transform: uppercase;
   }
   .client-logos-viewport {
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
     mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
   }
+  .client-logos-viewport::-webkit-scrollbar { display: none; }
+  .client-logos-viewport.is-dragging { cursor: grabbing; }
   .client-logos-track {
     display: flex;
     width: max-content;
@@ -2458,10 +2465,11 @@
     max-height: 42px;
     object-fit: contain;
     filter: saturate(0.86);
+    pointer-events: none;
   }
   .client-logo[data-tone="dark"] {
-    background: #080808;
-    border-color: #080808;
+    background: #fff;
+    border-color: rgba(23,23,23,0.08);
   }
   @keyframes client-logo-marquee {
     from { transform: translateX(0); }
@@ -2593,6 +2601,10 @@
     line-height: 1;
     letter-spacing: -0.055em;
   }
+  .activity-gallery-header h2 .grad-text {
+    display: inline-block;
+    white-space: nowrap;
+  }
   .activity-gallery-header p {
     max-width: 580px;
     margin: 0 auto;
@@ -2608,6 +2620,16 @@
     overflow: hidden;
     padding: 4px 0 8px;
   }
+  .activity-row {
+    overflow-x: auto;
+    overflow-y: hidden;
+    cursor: grab;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+  .activity-row::-webkit-scrollbar { display: none; }
+  .activity-row.is-dragging { cursor: grabbing; }
   .activity-track {
     display: flex;
     width: max-content;
@@ -2634,6 +2656,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    pointer-events: none;
     transition: transform 360ms ease;
   }
   .activity-card:hover img { transform: scale(1.04); }
@@ -2903,7 +2926,7 @@
         <div class="client-logo"><img src="assets/logos/clients/efl.png" alt="EFL"></div>
         <div class="client-logo"><img src="assets/logos/clients/manabie.png" alt="Manabie"></div>
         <div class="client-logo"><img src="assets/logos/clients/geocomply.png" alt="GeoComply"></div>
-        <div class="client-logo" data-tone="dark"><img src="assets/logos/clients/fgt.png" alt="FGT"></div>
+        <div class="client-logo" data-tone="dark"><img src="assets/logos/clients/fgt-white.png" alt="FGL"></div>
         <div class="client-logo"><img src="assets/logos/clients/vsip.png" alt="VSIP"></div>
       </div>
       <div class="client-logo-group" aria-hidden="true">
@@ -2925,7 +2948,7 @@
         <div class="client-logo"><img src="assets/logos/clients/efl.png" alt=""></div>
         <div class="client-logo"><img src="assets/logos/clients/manabie.png" alt=""></div>
         <div class="client-logo"><img src="assets/logos/clients/geocomply.png" alt=""></div>
-        <div class="client-logo" data-tone="dark"><img src="assets/logos/clients/fgt.png" alt=""></div>
+        <div class="client-logo" data-tone="dark"><img src="assets/logos/clients/fgt-white.png" alt=""></div>
         <div class="client-logo"><img src="assets/logos/clients/vsip.png" alt=""></div>
       </div>
     </div>
@@ -3249,6 +3272,10 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
         <div class="faq-q">Học online thì hiệu quả thế nào? <span class="toggle">+</span></div>
         <div class="faq-a"><div class="faq-a-inner">Chương trình diễn ra hoàn toàn qua Zoom, từ 20g00 đến 22g00 trong 3 ngày 22, 23 và 24/09/2026. Bạn cần bật camera và microphone để tương tác, thực hành và nhận phản hồi.</div></div>
       </div>
+      <div class="faq-item">
+        <div class="faq-q">Tôi cần chuẩn bị gì trước khi tham gia? <span class="toggle">+</span></div>
+        <div class="faq-a"><div class="faq-a-inner">Bạn chỉ cần một không gian yên tĩnh, kết nối internet ổn định, camera và microphone. Nếu có thể, hãy chuẩn bị một chủ đề chuyên môn hoặc tình huống thật để đưa vào phần thực hành.</div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -3437,6 +3464,81 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
   };
   testimonialPrev?.addEventListener('click', () => scrollToTestimonial(-1));
   testimonialNext?.addEventListener('click', () => scrollToTestimonial(1));
+
+  // Client logos: pause the marquee while the viewer drags or swipes.
+  const clientLogoViewport = document.querySelector('.client-logos-viewport');
+  const clientLogoTrack = document.querySelector('.client-logos-track');
+  let isDraggingClientLogos = false;
+  let clientLogoDragStartX = 0;
+  let clientLogoScrollStart = 0;
+  clientLogoViewport?.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    isDraggingClientLogos = true;
+    clientLogoDragStartX = event.clientX;
+    clientLogoScrollStart = clientLogoViewport.scrollLeft;
+    clientLogoViewport.classList.add('is-dragging');
+    clientLogoTrack?.style.setProperty('animation-play-state', 'paused');
+    clientLogoViewport.setPointerCapture?.(event.pointerId);
+  });
+  clientLogoViewport?.addEventListener('pointermove', event => {
+    if (!isDraggingClientLogos) return;
+    clientLogoViewport.scrollLeft = clientLogoScrollStart - (event.clientX - clientLogoDragStartX);
+  });
+  const stopDraggingClientLogos = event => {
+    if (!isDraggingClientLogos) return;
+    isDraggingClientLogos = false;
+    clientLogoViewport.classList.remove('is-dragging');
+    clientLogoTrack?.style.setProperty('animation-play-state', 'running');
+    clientLogoViewport.releasePointerCapture?.(event.pointerId);
+  };
+  clientLogoViewport?.addEventListener('pointerup', stopDraggingClientLogos);
+  clientLogoViewport?.addEventListener('pointercancel', stopDraggingClientLogos);
+
+  // Activity gallery: match the logo strip's drag/swipe interaction on both rows.
+  document.querySelectorAll('.activity-row').forEach(activityViewport => {
+    const activityTrack = activityViewport.querySelector('.activity-track');
+    let isDraggingActivity = false;
+    let activityDragStartX = 0;
+    let activityScrollStart = 0;
+    activityViewport.addEventListener('pointerdown', event => {
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+      isDraggingActivity = true;
+      activityDragStartX = event.clientX;
+      activityScrollStart = activityViewport.scrollLeft;
+      activityViewport.classList.add('is-dragging');
+      activityTrack?.style.setProperty('animation-play-state', 'paused');
+      activityViewport.setPointerCapture?.(event.pointerId);
+    });
+    activityViewport.addEventListener('pointermove', event => {
+      if (!isDraggingActivity) return;
+      activityViewport.scrollLeft = activityScrollStart - (event.clientX - activityDragStartX);
+    });
+    const stopDraggingActivity = event => {
+      if (!isDraggingActivity) return;
+      isDraggingActivity = false;
+      activityViewport.classList.remove('is-dragging');
+      activityTrack?.style.setProperty('animation-play-state', 'running');
+      activityViewport.releasePointerCapture?.(event.pointerId);
+    };
+    activityViewport.addEventListener('pointerup', stopDraggingActivity);
+    activityViewport.addEventListener('pointercancel', stopDraggingActivity);
+  });
+
+  // Use the smaller 640px image set on mobile before the gallery enters view.
+  const activityMobileQuery = window.matchMedia('(max-width: 600px)');
+  const activityImages = document.querySelectorAll('#activity-gallery img');
+  const updateActivityImageSources = () => {
+    activityImages.forEach(image => {
+      const desktopSource = image.dataset.desktopSource || image.getAttribute('src');
+      if (!desktopSource) return;
+      image.dataset.desktopSource = desktopSource;
+      image.src = activityMobileQuery.matches
+        ? desktopSource.replace('assets/activity/', 'assets/activity/mobile/')
+        : desktopSource;
+    });
+  };
+  updateActivityImageSources();
+  activityMobileQuery.addEventListener?.('change', updateActivityImageSources);
 
   // Smooth nav shrink on scroll
   const nav = document.querySelector('nav');
