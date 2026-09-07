@@ -1961,6 +1961,38 @@
   .copy-payment-code { border: 0; background: transparent; color: #d94b1e; cursor: pointer; font: inherit; font-size: 0.8rem; font-weight: 800; }
   .payment-confirmation-note { margin-top: 18px; color: #666; font-size: 0.79rem; line-height: 1.6; text-align: center; }
 
+  /* ── HERO IMAGE VISIBILITY PASS ──
+     Keep the left reading area calm while restoring contrast and detail
+     around Nam on the right side of the hero image. */
+  #hero::before {
+    background:
+      linear-gradient(90deg,
+        rgba(255,250,245,0.98) 0%,
+        rgba(255,250,245,0.91) 27%,
+        rgba(255,250,245,0.58) 44%,
+        rgba(255,250,245,0.18) 60%,
+        rgba(18,38,52,0.08) 76%,
+        rgba(18,38,52,0.16) 100%),
+      linear-gradient(180deg, rgba(255,255,255,0.02), rgba(18,38,52,0.14)),
+      url("assets/hero/hero-nam-speaking-desktop.webp") center center / cover no-repeat;
+    filter: saturate(1.08) contrast(1.08);
+  }
+
+  @media (max-width: 600px) {
+    #hero::before {
+      background:
+        linear-gradient(180deg,
+          rgba(255,250,245,0.02) 0%,
+          rgba(255,250,245,0.06) 35%,
+          rgba(255,250,245,0.60) 56%,
+          rgba(255,250,245,0.94) 68%,
+          #fffaf5 78%,
+          #fffaf5 100%),
+        url("assets/hero/hero-nam-speaking-mobile.webp") center top / 100% auto no-repeat;
+      filter: saturate(1.08) contrast(1.06);
+    }
+  }
+
   @media (max-width: 600px) {
     .registration-modal { align-items: end; padding: 0; }
     .registration-dialog { width: 100%; max-height: min(88vh, 760px); padding: 30px 20px 24px; border-radius: 20px 20px 0 0; }
