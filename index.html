@@ -1515,6 +1515,10 @@
     line-height: 0.98;
     letter-spacing: -0.055em;
   }
+  .hero-title .line1 {
+    display: block;
+    white-space: nowrap;
+  }
   .hero-title .line2 {
     font-size: clamp(4.3rem, 7.8vw, 7.4rem);
     font-weight: 800;
@@ -2640,6 +2644,7 @@
   @media (max-width: 600px) {
     .hero-kicker { padding: 8px 10px; font-size: 0.66rem; letter-spacing: 0.045em; }
     .hero-title { font-size: clamp(2.35rem, 11.5vw, 3.35rem); line-height: 1.04; }
+    .hero-title .line1 { white-space: normal; }
     .hero-title .line2 { font-size: clamp(2.75rem, 13.5vw, 4.1rem); line-height: 1; }
     .hero-desc { margin-bottom: 18px; font-size: 1rem; line-height: 1.58; }
     .hero-event-info { padding: 14px 16px; }
@@ -2732,7 +2737,7 @@
     <div class="hero-left">
       <div class="hero-kicker">DARE TO S-PEAK K09 · 3 BUỔI ONLINE QUA ZOOM</div>
       <h1 class="hero-title">
-        Chuyên môn chỉ tạo
+        <span class="line1">Chuyên môn chỉ tạo</span>
         <span class="line2">ảnh hưởng khi người khác hiểu và nhớ.</span>
       </h1>
       <p class="hero-desc">DARE TO S-PEAK giúp bạn sắp xếp thông điệp, luyện cách nói và xây sự tự tin để xuất hiện rõ ràng trước khách hàng, học viên và đội ngũ.</p>
