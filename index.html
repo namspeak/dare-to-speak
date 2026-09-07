@@ -1735,7 +1735,70 @@
   .benefits-scholarship h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.08rem; line-height: 1.45; }
   .benefits-scholarship p { max-width: 850px; font-size: 0.92rem; line-height: 1.65; }
 
+  .benefits-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+    gap: clamp(36px, 7vw, 96px);
+    align-items: start;
+  }
+  .benefits-lead .section-label { margin-bottom: 18px; }
+  .benefits-lead h2 {
+    max-width: 680px;
+    margin: 0;
+    color: #171717;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    line-height: 0.99;
+    letter-spacing: -0.06em;
+  }
+  .benefits-lead p {
+    max-width: 650px;
+    margin: 26px 0 0;
+    color: rgba(23,23,23,0.68);
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+  .benefits-takeaways {
+    border-top: 1px solid rgba(23,23,23,0.24);
+  }
+  .benefit-row {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    padding: 26px 0 28px;
+    border-bottom: 1px solid rgba(23,23,23,0.24);
+  }
+  .benefit-row-number {
+    color: var(--orange);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+  .benefit-row h3 {
+    margin: 0;
+    color: #171717;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+  }
+
   #curriculum { padding: 82px 0; }
+  .curriculum-header { max-width: 980px; margin-bottom: 42px; text-align: left; }
+  .curriculum-header h2 { max-width: 850px; font-size: clamp(2.8rem, 5.1vw, 5.2rem); line-height: 0.99; letter-spacing: -0.06em; }
+  .curriculum-header p { max-width: 690px; margin-top: 18px; color: rgba(0,0,0,0.62) !important; font-size: 1rem; line-height: 1.65; }
+  .curriculum-cta {
+    margin-top: 24px;
+    border-color: rgba(23,23,23,0.42);
+    color: #171717;
+  }
+  .curriculum-cta:hover {
+    border-color: #171717;
+    background: rgba(255,255,255,0.72);
+    color: #171717;
+  }
   .curriculum-grid { align-items: start; }
   .day-card { border: 1px solid rgba(255,255,255,0.14); }
   .day-card summary { list-style: none; cursor: pointer; }
@@ -1841,8 +1904,17 @@
     .pain-num-title { margin-top: 22px; font-size: 1.02rem; }
     .benefit-card { min-height: 0; padding: 24px 20px; }
     .benefits-scholarship { padding: 22px 20px; }
+    .benefits-layout { display: block; }
+    .benefits-lead h2 { font-size: clamp(2.45rem, 11vw, 3.35rem); line-height: 1.02; }
+    .benefits-lead p { margin-top: 18px; font-size: 0.94rem; line-height: 1.58; }
+    .benefits-takeaways { margin-top: 28px; }
+    .benefit-row { grid-template-columns: 42px minmax(0, 1fr); gap: 12px; padding: 18px 0 20px; }
+    .benefit-row h3 { font-size: 1rem; line-height: 1.48; }
 
     .curriculum-header { margin-bottom: 32px; }
+    .curriculum-header h2 { font-size: clamp(2.45rem, 11vw, 3.4rem); line-height: 1.02; }
+    .curriculum-header p { margin-top: 14px; font-size: 0.92rem; line-height: 1.58; }
+    .curriculum-cta { width: 100%; justify-content: center; }
     .day-header { padding: 22px 20px 46px; }
     .day-summary-meta { left: 20px; right: 20px; bottom: 15px; }
     .day-body { padding: 22px 20px; }
@@ -2448,40 +2520,24 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
 <!-- BENEFITS -->
 <section id="benefits" class="light">
   <div class="container">
-    <div class="benefits-header">
-      <div class="section-label" style="font-size: 25px">Bạn nhận được gì?</div>
-      <h2>Không chỉ có thêm kiến thức. <span>Bạn có công cụ để thực hành ngay.</span></h2>
-      <p>Trong 3 ngày DARE TO S-PEAK K09, mỗi công thức đều được gắn với một tình huống nói thực tế, bài tập ứng dụng và phản hồi trực tiếp.</p>
-    </div>
-    <div class="benefits-grid">
-      <div class="benefit-card">
-        <div class="benefit-icon">01</div>
-        <h3>Giới thiệu bản thân để đúng người muốn nghe tiếp</h3>
-        <p>Bạn học công thức VES để giới thiệu rõ mình là ai, chuyên môn của mình tạo ra giá trị gì và giúp khách hàng phù hợp nhanh chóng hiểu được điều đó.</p>
-        <div class="benefit-pills">
-          <span class="pill">VES</span>
-          <span class="pill">Định vị</span>
-          <span class="pill">Khách hàng phù hợp</span>
-        </div>
+    <div class="benefits-layout">
+      <div class="benefits-lead">
+        <div class="section-label" style="font-size: 25px">ĐIỀU BẠN MANG VỀ</div>
+        <h2>Một hệ thống để nói tự nhiên hơn về giá trị bạn đang tạo ra.</h2>
+        <p>DARE TO S-PEAK không phải lớp “mẹo nói hay”. Bạn làm việc trực tiếp trên thông điệp, nội dung và tình huống giao tiếp của chính mình.</p>
       </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">02</div>
-        <h3>Biến chuyên môn thành một bài nói mang dấu ấn riêng</h3>
-        <p>Bạn sử dụng khung Signature Talk để chọn thông điệp trọng tâm, tổ chức nội dung và bắt đầu xây dựng một bài nói thể hiện quan điểm cùng phong cách của mình.</p>
-        <div class="benefit-pills">
-          <span class="pill">Signature Talk</span>
-          <span class="pill">Cấu trúc</span>
-          <span class="pill">Quan điểm riêng</span>
+      <div class="benefits-takeaways">
+        <div class="benefit-row">
+          <div class="benefit-row-number">01</div>
+          <h3>Bản giới thiệu bản thân theo công thức VES để tạo điểm nhớ rõ hơn.</h3>
         </div>
-      </div>
-      <div class="benefit-card">
-        <div class="benefit-icon">03</div>
-        <h3>Chủ động tạo trạng thái tự tin và biết cách điều chỉnh</h3>
-        <p>Bạn thực hành State Mastery trên tình huống gần với công việc thật, nhận phản hồi trực tiếp và có cơ hội thử lại ngay.</p>
-        <div class="benefit-pills">
-          <span class="pill">State Mastery</span>
-          <span class="pill">Phản hồi trực tiếp</span>
-          <span class="pill">Thử lại</span>
+        <div class="benefit-row">
+          <div class="benefit-row-number">02</div>
+          <h3>Khung nội dung cho một bài nói Signature có thể phát triển tiếp sau chương trình.</h3>
+        </div>
+        <div class="benefit-row">
+          <div class="benefit-row-number">03</div>
+          <h3>Cách kích hoạt sự tự tin trước khi nói bằng công thức State Mastery.</h3>
         </div>
       </div>
     </div>
@@ -2499,63 +2555,53 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
 <section id="curriculum">
   <div class="container">
     <div class="curriculum-header">
-      <div class="section-label" style="font-size: 25px">Lịch trình 3 ngày</div>
-      <h2>Lộ trình 3C cho Chuyên gia</h2>
-      <p>Ba ngày chuyên sâu đưa bạn từ chuyên môn đơn thuần đến khả năng nói rõ ràng, tự tin và có sức ảnh hưởng hơn trong những tình huống bạn thực sự cần xuất hiện.</p>
+      <div class="section-label" style="font-size: 25px">03 BUỔI · 06 GIỜ LÀM VIỆC SÂU</div>
+      <h2>Không chỉ nghe. Bạn sẽ làm, nhận phản hồi và tinh chỉnh.</h2>
+      <p>Mỗi buổi là một lần bạn đưa chuyên môn của mình vào thực hành, nhận phản hồi trực tiếp và chỉnh lại để có thể ứng dụng ngay sau chương trình.</p>
+      <a href="#registration-modal" data-registration-trigger class="btn btn-outline curriculum-cta">GIỮ CHỖ VỚI 1.000.000 VND →</a>
     </div>
     <div class="curriculum-grid">
       <details class="day-card" open>
         <summary class="day-header">
-          <div class="day-num" style="font-size: 15px">Ngày 1</div>
-          <div class="day-title">CONNECTION | KẾT NỐI SÂU SẮC</div>
+          <div class="day-num" style="font-size: 15px">Ngày 01</div>
+          <div class="day-title">ĐƯỢC NHỚ ĐẾN VÌ ĐIỀU GÌ?</div>
           <div class="day-summary-meta">22/09 · 20g00–22g00 <span>↓</span></div>
         </summary>
         <div class="day-body">
-          <p>Xây dựng nền tảng kết nối và định vị bản thân như một chuyên gia đáng tin — ngay từ lần xuất hiện đầu tiên.</p>
+          <p>Thực hành công thức VES để giới thiệu bản thân theo cách giúp đúng người nhận ra bạn.</p>
           <div class="day-outcomes">
-            <div class="outcome-item"><div class="outcome-dot"></div>Nói là Siêu kỹ năng (Meta-Skill)</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Khoa học về Niềm tin</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>2 loại Niềm tin khi nói</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điểm đặc trưng</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Giới thiệu bản thân cùng Công thức V.E.S</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Thực hành: Giới thiệu bản thân cùng V.E.S</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Định vị điểm mạnh có liên quan</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Xây bản giới thiệu ngắn, có chủ đích</div>
           </div>
           <div class="day-meta">20g00 – 22g00 · 22/09/2026 · Online Zoom</div>
         </div>
       </details>
       <details class="day-card">
         <summary class="day-header">
-          <div class="day-num" style="font-size: 15px; color: rgba(255, 255, 255, 0.65)">Ngày 2</div>
-          <div class="day-title">COHERENCE | TRÌNH BÀY MẠCH LẠC</div>
+          <div class="day-num" style="font-size: 15px; color: rgba(255, 255, 255, 0.65)">Ngày 02</div>
+          <div class="day-title">BIẾN CHUYÊN MÔN THÀNH BÀI NÓI SIGNATURE</div>
           <div class="day-summary-meta">23/09 · 20g00–22g00 <span>↓</span></div>
         </summary>
         <div class="day-body">
-          <p>Đóng gói chuyên môn thành cấu trúc bài nói dễ nhớ, hấp dẫn — ứng dụng ngay vào webinar, workshop và thuyết trình.</p>
+          <p>Dùng khung nội dung để sắp xếp một chủ đề bạn muốn đưa vào workshop, coaching hay tư vấn.</p>
           <div class="day-outcomes">
-            <div class="outcome-item"><div class="outcome-dot"></div>Khoa học Não bộ về sự ghi nhớ</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Nguyên tắc con số 3</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Khung Nội dung</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Ứng dụng Khung nội dung trong Thiết kế bài nói</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Thực hành: Nói cùng Khung nội dung</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Cấu trúc thông điệp</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Bài tập áp dụng tình huống thật</div>
           </div>
           <div class="day-meta">20g00 – 22g00 · 23/09/2026 · Online Zoom</div>
         </div>
       </details>
       <details class="day-card">
         <summary class="day-header">
-          <div class="day-num" style="font-size: 14px; color: rgba(255, 255, 255, 0.647)">Ngày 3</div>
-          <div class="day-title">CERTAINTY | SỰ CHẮC CHẮN VỊ THẾ</div>
+          <div class="day-num" style="font-size: 14px; color: rgba(255, 255, 255, 0.647)">Ngày 03</div>
+          <div class="day-title">LÀM CHỦ TRẠNG THÁI KHI ĐẾN LƯỢT BẠN NÓI</div>
           <div class="day-summary-meta">24/09 · 20g00–22g00 <span>↓</span></div>
         </summary>
         <div class="day-body">
-          <p>Xây dựng sự tự tin từ cốt lõi — không phải ngắn hạn mà bền vững, vững vàng trước bất kỳ ai, bất kỳ hoàn cảnh nào.</p>
+          <p>Áp dụng State Mastery và bộ 4 điều kiện để nuôi sự tự tin cốt lõi trong dài hạn.</p>
           <div class="day-outcomes">
-            <div class="outcome-item"><div class="outcome-dot"></div>Khoa học về Sự tự tin</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>4 điều Kiện xây dựng Sự tự tin từ Cốt lõi</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điều kiện 1: Methodologies</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điều kiện 2: Practice</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điều kiện 3: Mentor</div>
-            <div class="outcome-item"><div class="outcome-dot"></div>Khám phá Điều kiện 4: Environment</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Điều chỉnh trạng thái trước khi nói</div>
+            <div class="outcome-item"><div class="outcome-dot"></div>Phản hồi trực tiếp từ chuyên gia</div>
           </div>
           <div class="day-meta">20g00 – 22g00 · 24/09/2026 · Online Zoom</div>
         </div>
