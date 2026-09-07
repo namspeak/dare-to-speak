@@ -314,6 +314,8 @@
   .pain-header h2 { font-size: 3.5rem; color: var(--dark); }
   .pain-header h2 span { background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .pain-header p { color: rgba(0,0,0,0.55); margin-top: 14px; line-height: 1.7; }
+  .pain-header-aside { display: flex; flex-direction: column; gap: 18px; }
+  .pain-intro { max-width: 310px; margin: 0; font-size: 1rem; line-height: 1.65; }
   .pain-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -1705,6 +1707,25 @@
   .pain-num-title { margin: 30px 0 12px; color: #171717; font-size: 1.08rem; font-weight: 800; line-height: 1.42; }
   .pain-num-card p { color: rgba(23,23,23,0.62); font-size: 0.91rem; line-height: 1.68; }
 
+  #pain { padding: 72px 0 76px; }
+  #pain .pain-header {
+    display: grid;
+    grid-template-columns: minmax(180px, 0.7fr) minmax(0, 2fr);
+    align-items: start;
+    gap: 32px;
+    max-width: none;
+    margin: 0 0 34px;
+    text-align: left;
+  }
+  #pain .pain-header .section-label { padding-top: 8px; }
+  #pain .pain-header h2 {
+    max-width: 820px;
+    margin: 0;
+    font-size: clamp(2.8rem, 5.4vw, 5.25rem);
+    line-height: 0.99;
+    letter-spacing: -0.055em;
+  }
+
   #benefits { padding: 82px 0; }
   .benefits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
   .benefit-card { min-height: 300px; padding: 28px 24px; }
@@ -1800,6 +1821,20 @@
     .trust-bar-inner > p { font-size: 0.8rem; }
 
     #pain, #benefits, #curriculum, #trainer, #testimonials, #pricing, #faq, #final-cta { padding: 56px 0; }
+    #pain { padding: 42px 0 48px; }
+    #pain .pain-header {
+      display: block;
+      margin-bottom: 22px;
+      text-align: left;
+    }
+    #pain .pain-header-aside { gap: 10px; }
+    #pain .pain-header .section-label { padding-top: 0; }
+    #pain .pain-header h2 {
+      margin-top: 16px;
+      font-size: clamp(2.35rem, 11vw, 3.35rem);
+      line-height: 1.02;
+    }
+    .pain-intro { max-width: none; font-size: 0.95rem; line-height: 1.55; }
     .pain-num-card,
     .pain-num-card:nth-child(2),
     .pain-num-card:nth-child(3) { padding: 24px 20px; }
@@ -2332,24 +2367,27 @@
 <section id="pain" class="light">
   <div class="container">
     <div class="pain-header">
-      <div class="section-label">CHƯƠNG TRÌNH PHÙ HỢP NẾU</div>
-      <h2>Bạn đang có chuyên môn thật,<br><span>nhưng chưa nói được đúng tầm.</span></h2>
+      <div class="pain-header-aside">
+        <div class="section-label">VẤN ĐỀ THƯỜNG GẶP</div>
+        <p class="pain-intro">Với coach và trainer, sự mơ hồ trong cách diễn đạt khiến khách hàng khó nhận ra bạn phù hợp với họ ngay từ lần đầu nghe.</p>
+      </div>
+      <h2>Vấn đề không phải là<br><span>bạn thiếu chuyên môn.</span></h2>
     </div>
     <div class="pain-numbered-grid">
       <div class="pain-num-card">
         <div class="pain-num">01</div>
-        <div class="pain-num-title">Giới thiệu dài, nhưng người nghe vẫn chưa hiểu bạn giúp được gì.</div>
-        <p class="pain-num-desc">Bạn có kinh nghiệm và giá trị thật, nhưng phần mở đầu chưa làm rõ điều đó.</p>
+        <div class="pain-num-title">Giới thiệu bản thân nghe “đủ ý” nhưng chưa có điểm nhớ.</div>
+        <p class="pain-num-desc">Người nghe biết bạn làm gì, nhưng chưa hiểu vì sao họ nên chọn bạn.</p>
       </div>
       <div class="pain-num-card">
         <div class="pain-num">02</div>
-        <div class="pain-num-title">Chuyên môn sâu, nhưng thông điệp chưa rõ và khó nhớ.</div>
-        <p class="pain-num-desc">Người nghe nhận được nhiều ý, nhưng chưa nắm được thông điệp cốt lõi của bạn.</p>
+        <div class="pain-num-title">Mỗi lần lên workshop, call tư vấn hay video đều phải nghĩ lại từ đầu.</div>
+        <p class="pain-num-desc">Chuyên môn có, nhưng chưa có một khung nội dung để triển khai nhất quán.</p>
       </div>
       <div class="pain-num-card">
         <div class="pain-num">03</div>
-        <div class="pain-num-title">Bạn có năng lực, nhưng khi nói chưa thể hiện được sự tự tin.</div>
-        <p class="pain-num-desc">Đặc biệt trước khách hàng, học viên hoặc đội ngũ, cách thể hiện chưa phản ánh đúng năng lực thật.</p>
+        <div class="pain-num-title">Bạn biết mình cần nói, nhưng vào lúc quan trọng lại thiếu sự chủ động.</div>
+        <p class="pain-num-desc">Sự tự tin không đến từ cố “nói hay”; nó cần một cách chuẩn bị và điều chỉnh trạng thái.</p>
       </div>
     </div>
   </div>
@@ -2550,7 +2588,8 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
         <div class="section-label" style="font-size: 25px">FACILITATOR</div>
         <h2 style="line-height:1.2">Học cùng <span>Nam Nguyễn</span></h2>
         <p>Influential speaking coach, expert facilitator, executive coach và nhà sáng lập S-PEAK.</p>
-        <p>Với triết lý "Để nói hay, hãy nói thật", tôi giúp chuyên gia đóng gói chuyên môn thành thông điệp rõ ràng, bài nói Signature và cách xuất hiện đúng với bản sắc riêng.</p>
+        <p>Nam thiết kế các trải nghiệm học tập giúp chuyên gia, leader và đội ngũ đưa điều họ biết thành điều người khác có thể hiểu, ghi nhớ và hành động theo.</p>
+        <p>Trong DARE TO S-PEAK, bạn không được yêu cầu nói theo một khuôn mẫu. Bạn được dẫn dắt để tìm ra cấu trúc, ngôn ngữ và trạng thái phù hợp với chính mình.</p>
         <div class="creds-grid">
           <div class="cred-item"><div class="cred-dot"></div><span>Founder S-PEAK</span></div>
           <div class="cred-item"><div class="cred-dot"></div><span>1.200+ giờ khai vấn chuyên nghiệp</span></div>
