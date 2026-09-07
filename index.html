@@ -2556,101 +2556,6 @@
   }
 
   @media (max-width: 600px) {
-    #hero { min-height: 0; }
-    #hero::before { display: none; }
-    #hero::after { opacity: 0.28; bottom: 4%; }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 34px;
-      padding: 72px 18px 48px;
-    }
-    .hero-left { max-width: none; }
-    .hero-title-row { display: block; }
-    .hero-visual { order: 2; display: flex; }
-    .hero-portrait-frame { max-width: 360px; }
-    .hero-countdown { margin-top: 18px; }
-  }
-
-  /* ── HERO FRAMED PORTRAIT PASS ── */
-  #hero {
-    min-height: 0;
-    background:
-      radial-gradient(ellipse 44% 52% at 86% 20%, rgba(255,138,53,0.17), transparent 70%),
-      linear-gradient(135deg, #fffaf5 0%, #f7f1eb 100%);
-  }
-  #hero::before { display: none; }
-  #hero::after { opacity: 0.34; }
-  #hero .hero-inner {
-    display: grid;
-    grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
-    gap: clamp(30px, 5vw, 72px);
-    align-items: center;
-    max-width: 1200px;
-    padding: 76px 32px 70px;
-  }
-  #hero .hero-left { max-width: none; }
-  .hero-title-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(210px, 0.48fr);
-    gap: 22px;
-    align-items: center;
-  }
-  .hero-title-row .hero-title { max-width: none; margin-bottom: 0; }
-  .hero-title-row .hero-countdown { margin: 0; }
-  .hero-visual {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 0;
-  }
-  .hero-portrait-frame {
-    position: relative;
-    width: 100%;
-    max-width: 430px;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-    border: 1px solid rgba(23,23,23,0.16);
-    border-radius: 24px;
-    background: #e8dfd6;
-    box-shadow: 0 18px 44px rgba(67,42,27,0.16);
-  }
-  .hero-portrait-frame::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(180deg, transparent 64%, rgba(23,23,23,0.16) 100%);
-  }
-  .hero-portrait-frame img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-  }
-  @media (max-width: 900px) {
-    #hero .hero-inner {
-      grid-template-columns: 1fr;
-      gap: 38px;
-      padding: 72px 24px 58px;
-    }
-    .hero-title-row {
-      grid-template-columns: 1fr;
-      gap: 18px;
-    }
-    .hero-title-row .hero-countdown { max-width: 700px; }
-    .hero-visual { order: 2; }
-  }
-
-  @media (max-width: 600px) {
-    #hero .hero-inner { padding: 66px 18px 46px; gap: 30px; }
-    .hero-title-row { gap: 0; }
-    .hero-title-row .hero-countdown { margin-top: 18px; }
-    .hero-portrait-frame { max-width: 360px; border-radius: 18px; }
-  }
-
-  @media (max-width: 600px) {
     .registration-modal { align-items: end; padding: 0; }
     .registration-dialog { width: 100%; max-height: min(88vh, 760px); padding: 30px 20px 24px; border-radius: 20px 20px 0 0; }
     .registration-close { top: 10px; right: 10px; }
@@ -2693,25 +2598,23 @@
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-kicker">DARE TO S-PEAK K09 · 3 BUỔI ONLINE QUA ZOOM</div>
-      <div class="hero-title-row">
-        <h1 class="hero-title">
-          Chuyên môn chỉ tạo
-          <span class="line2">ảnh hưởng khi người khác hiểu và nhớ.</span>
-        </h1>
-        <div class="hero-countdown" data-countdown data-countdown-target="2026-09-22T20:00:00+07:00" aria-label="Đếm ngược đến buổi học đầu tiên">
-          <div class="hero-countdown-label">ĐẾM NGƯỢC ĐẾN BUỔI HỌC ĐẦU TIÊN</div>
-          <div class="hero-countdown-grid">
-            <div class="hero-countdown-unit"><strong data-countdown-days>00</strong><span>NGÀY</span></div>
-            <div class="hero-countdown-unit"><strong data-countdown-hours>00</strong><span>GIỜ</span></div>
-            <div class="hero-countdown-unit"><strong data-countdown-minutes>00</strong><span>PHÚT</span></div>
-            <div class="hero-countdown-unit"><strong data-countdown-seconds>00</strong><span>GIÂY</span></div>
-          </div>
-        </div>
-      </div>
+      <h1 class="hero-title">
+        Chuyên môn chỉ tạo
+        <span class="line2">ảnh hưởng khi người khác hiểu và nhớ.</span>
+      </h1>
       <p class="hero-desc">DARE TO S-PEAK giúp bạn sắp xếp thông điệp, luyện cách nói và xây sự tự tin để xuất hiện rõ ràng trước khách hàng, học viên và đội ngũ.</p>
       <div class="hero-event-info">
         <div class="hero-event-date">22, 23 &amp; 24/09/2026 · 20g00–22g00 · Online qua Zoom</div>
         <div class="hero-event-price">Khoản đầu tư <strong>1.000.000 VND</strong></div>
+      </div>
+      <div class="hero-countdown" data-countdown data-countdown-target="2026-09-22T20:00:00+07:00" aria-label="Đếm ngược đến buổi học đầu tiên">
+        <div class="hero-countdown-label">ĐẾM NGƯỢC ĐẾN BUỔI HỌC ĐẦU TIÊN</div>
+        <div class="hero-countdown-grid">
+          <div class="hero-countdown-unit"><strong data-countdown-days>00</strong><span>NGÀY</span></div>
+          <div class="hero-countdown-unit"><strong data-countdown-hours>00</strong><span>GIỜ</span></div>
+          <div class="hero-countdown-unit"><strong data-countdown-minutes>00</strong><span>PHÚT</span></div>
+          <div class="hero-countdown-unit"><strong data-countdown-seconds>00</strong><span>GIÂY</span></div>
+        </div>
       </div>
       <div class="hero-ctas">
         <a href="#registration-modal" data-registration-trigger class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
@@ -2719,11 +2622,7 @@
       <a class="hero-program-link" href="#curriculum">Xem lộ trình 3 ngày ↓</a>
       <p class="hero-form-note">Điền form đăng ký trong khoảng 1 phút.</p>
     </div>
-    <div class="hero-visual" aria-label="Nam Nguyễn trong một buổi đào tạo">
-      <div class="hero-portrait-frame">
-        <img src="assets/hero/hero-nam-speaking-desktop.webp" alt="Nam Nguyễn đang chia sẻ trong một buổi đào tạo S-PEAK">
-      </div>
-    </div>
+
   </div>
 </section>
 
