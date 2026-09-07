@@ -1803,6 +1803,75 @@
   .day-card { border: 1px solid rgba(255,255,255,0.14); }
   .day-card summary { list-style: none; cursor: pointer; }
   .day-card summary::-webkit-details-marker { display: none; }
+  #curriculum .curriculum-grid { gap: 28px; }
+  #curriculum .day-card {
+    overflow: hidden;
+    border: 1px solid rgba(23,23,23,0.10) !important;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(23,23,23,0.08) !important;
+  }
+  #curriculum .day-header {
+    min-height: 130px;
+    padding: 24px 26px 52px;
+    background: linear-gradient(118deg, #ff8a35 0%, #ff2e20 100%);
+  }
+  #curriculum .day-num {
+    margin-bottom: 8px;
+    color: rgba(255,255,255,0.82) !important;
+    font-size: 0.78rem !important;
+    letter-spacing: 0.13em;
+  }
+  #curriculum .day-title {
+    max-width: 310px;
+    padding-right: 0;
+    color: #fff;
+    font-size: 1.02rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+  #curriculum .day-summary-meta {
+    bottom: 16px;
+    left: 26px;
+    right: 26px;
+    color: rgba(255,255,255,0.94);
+    font-size: 0.76rem;
+  }
+  #curriculum .day-summary-meta span { color: #fff; }
+  #curriculum .day-body {
+    display: flex;
+    min-height: 248px;
+    flex-direction: column;
+    padding: 26px 28px 22px;
+    background: #fff !important;
+  }
+  #curriculum .day-card:not([open]) .day-body { display: none; }
+  #curriculum .day-body p {
+    margin-bottom: 24px;
+    color: rgba(23,23,23,0.66) !important;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+  #curriculum .day-outcomes { gap: 12px; }
+  #curriculum .outcome-item {
+    color: rgba(23,23,23,0.68) !important;
+    font-size: 0.82rem;
+    line-height: 1.45;
+  }
+  #curriculum .outcome-dot {
+    width: 20px;
+    height: 20px;
+    background: #fff4ed !important;
+    border-color: rgba(255,138,53,0.36) !important;
+  }
+  #curriculum .outcome-dot::after { width: 6px; height: 6px; }
+  #curriculum .day-meta {
+    margin-top: auto;
+    padding-top: 16px;
+    color: var(--orange);
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
   .day-header { position: relative; padding: 26px 24px 48px; }
   .day-title { padding-right: 12px; font-size: 1.03rem; font-weight: 800; line-height: 1.4; }
   .day-summary-meta { position: absolute; bottom: 17px; left: 24px; right: 24px; display: flex; align-items: center; justify-content: space-between; color: rgba(255,255,255,0.74); font-size: 0.73rem; font-weight: 700; }
@@ -1915,6 +1984,11 @@
     .curriculum-header h2 { font-size: clamp(2.45rem, 11vw, 3.4rem); line-height: 1.02; }
     .curriculum-header p { margin-top: 14px; font-size: 0.92rem; line-height: 1.58; }
     .curriculum-cta { width: 100%; justify-content: center; }
+    #curriculum .curriculum-grid { gap: 14px; }
+    #curriculum .day-header { min-height: 124px; padding: 20px 18px 48px; }
+    #curriculum .day-title { max-width: none; font-size: 0.96rem; }
+    #curriculum .day-summary-meta { left: 18px; right: 18px; bottom: 14px; }
+    #curriculum .day-body { min-height: 0; padding: 22px 20px 18px; }
     .day-header { padding: 22px 20px 46px; }
     .day-summary-meta { left: 20px; right: 20px; bottom: 15px; }
     .day-body { padding: 22px 20px; }
@@ -2576,7 +2650,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
           <div class="day-meta">20g00 – 22g00 · 22/09/2026 · Online Zoom</div>
         </div>
       </details>
-      <details class="day-card">
+      <details class="day-card" open>
         <summary class="day-header">
           <div class="day-num" style="font-size: 15px; color: rgba(255, 255, 255, 0.65)">Ngày 02</div>
           <div class="day-title">BIẾN CHUYÊN MÔN THÀNH BÀI NÓI SIGNATURE</div>
@@ -2591,7 +2665,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
           <div class="day-meta">20g00 – 22g00 · 23/09/2026 · Online Zoom</div>
         </div>
       </details>
-      <details class="day-card">
+      <details class="day-card" open>
         <summary class="day-header">
           <div class="day-num" style="font-size: 14px; color: rgba(255, 255, 255, 0.647)">Ngày 03</div>
           <div class="day-title">LÀM CHỦ TRẠNG THÁI KHI ĐẾN LƯỢT BẠN NÓI</div>
