@@ -1996,7 +1996,7 @@
     <a href="#testimonials">Học viên</a>
     <a href="#faq">FAQ</a>
   </div>
-  <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary" style="padding:10px 22px;font-size:0.9rem;">Đăng ký ngay</a>
+  <a href="#registration-modal" data-registration-trigger class="btn btn-primary" style="padding:10px 22px;font-size:0.9rem;">Đăng ký ngay</a>
 </nav>
 
 <!-- HERO -->
@@ -2014,7 +2014,7 @@
         <div class="hero-event-price">Khoản đầu tư <strong>1.000.000 VND</strong></div>
       </div>
       <div class="hero-ctas">
-        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" rel="noopener" class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
+        <a href="#registration-modal" data-registration-trigger class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
       </div>
       <a class="hero-program-link" href="#curriculum">Xem lộ trình 3 ngày ↓</a>
       <p class="hero-form-note">Điền form đăng ký trong khoảng 1 phút.</p>
@@ -2312,7 +2312,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       <p class="quote-cta-body"><strong style="font-size:15px;">3 ngày học chuyên sâu.<br>Thực hành trên tình huống thực tế.<br>Phản hồi trực tiếp từ chuyên gia.</strong><br>
       Bắt đầu bằng việc sắp xếp lại thông điệp và cách bạn xuất hiện trước khách hàng, học viên hoặc đội ngũ.</p>
       <div class="cta-btn-wrap">
-        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:18px 44px;">Đăng ký ngay →</a>
+        <a href="#registration-modal" data-registration-trigger class="btn btn-primary" style="font-size:1.15rem;padding:18px 44px;">Đăng ký ngay →</a>
         <span class="cta-btn-date">22, 23 và 24/09/2026 · 20g00 – 22g00 · Online qua Zoom</span>
       </div>
     </div>
@@ -2337,7 +2337,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
           <div class="perk"><div class="perk-check">✓</div>VES, Signature Talk và State Mastery</div>
           <div class="perk"><div class="perk-check">✓</div>Cơ hội nhận học bổng tham dự Mentoring &amp; Practice Community trị giá 18.000.000 VND</div>
         </div>
-        <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
+        <a href="#registration-modal" data-registration-trigger class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
         <p class="pricing-note">20g00 đến 22g00 · Ngày 22, 23 và 24/09/2026 · Online qua Zoom</p>
       </div>
     </div>
@@ -2384,12 +2384,12 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     <h2 style="line-height: 1.25">Để người khác <span class="grad-text">nhận ra</span><br>chuyên môn của bạn</h2>
     <p>Bắt đầu bằng 3 buổi thực hành để sắp xếp lại thông điệp, bài nói và cách bạn xuất hiện.</p>
     <div class="cta-group">
-      <a href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" class="btn btn-primary" style="font-size:1.15rem;padding:18px 40px;">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
+      <a href="#registration-modal" data-registration-trigger class="btn btn-primary" style="font-size:1.15rem;padding:18px 40px;">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
     </div>
   </div>
 </section>
 
-<a class="mobile-sticky-cta" href="https://forms.gle/xAV9dwpHUot9mhrN8" target="_blank" rel="noopener">
+<a class="mobile-sticky-cta" href="#registration-modal" data-registration-trigger>
   <span>Đăng ký chương trình</span>
   <strong>1.000.000 VND →</strong>
 </a>
@@ -2404,7 +2404,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       <h2 id="registration-title">Giữ chỗ trong chương trình</h2>
       <p class="registration-intro">Điền thông tin trong khoảng một phút. Ngay sau đó, bạn sẽ nhận mã thanh toán và QR chuyển khoản riêng.</p>
 
-      <form id="registration-form" class="registration-form" novalidate>
+      <form id="registration-form" class="registration-form" action="https://script.google.com/macros/s/AKfycby8AB_KUr9iI7muyNMy61GB0iJscc6UhElTOHnFM-wZCsLNB1K5sJeT7cHQEx_1Igo/exec" method="POST" novalidate>
         <div class="registration-honeypot" aria-hidden="true">
           <label for="registration-website">Website</label>
           <input id="registration-website" name="website" tabindex="-1" autocomplete="off">
@@ -2433,6 +2433,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
             <option>Khác</option>
           </select>
         </div>
+        <input id="registration-offer" name="offer" type="hidden" value="DARE TO S-PEAK K09">
         <p id="registration-error" class="registration-error" role="alert" aria-live="polite"></p>
         <button id="registration-submit" class="btn btn-primary registration-submit" type="submit">NHẬN QR THANH TOÁN →</button>
         <p class="registration-safe-note">Thông tin của bạn chỉ được dùng để xác nhận đăng ký và gửi thông tin chương trình.</p>
@@ -2522,12 +2523,14 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     observer.observe(c);
   });
 
-  // Registration + SePay QR flow. CTA triggers are enabled only after production setup is verified.
+  // Registration + SePay QR flow through the Google Apps Script web app.
   const registrationModal = document.querySelector('#registration-modal');
   const registrationForm = document.querySelector('#registration-form');
   const registrationFormView = document.querySelector('#registration-form-view');
   const registrationError = document.querySelector('#registration-error');
   const registrationSubmit = document.querySelector('#registration-submit');
+  const registrationRole = document.querySelector('#registration-role');
+  const registrationOffer = document.querySelector('#registration-offer');
   const paymentResult = document.querySelector('#payment-result');
   const paymentAmount = document.querySelector('#payment-amount');
   const paymentQr = document.querySelector('#payment-qr');
@@ -2571,42 +2574,21 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     if (event.key === 'Escape' && registrationModal?.classList.contains('is-open')) closeRegistrationModal();
   });
 
-  registrationForm?.addEventListener('submit', async event => {
-    event.preventDefault();
+  registrationForm?.addEventListener('submit', event => {
     registrationError.textContent = '';
 
-    if (!registrationForm.reportValidity()) return;
+    if (!registrationForm.reportValidity()) {
+      event.preventDefault();
+      return;
+    }
 
-    const formData = Object.fromEntries(new FormData(registrationForm).entries());
+    if (registrationOffer) {
+      const role = registrationRole?.value || '';
+      registrationOffer.value = role ? `DARE TO S-PEAK K09 · ${role}` : 'DARE TO S-PEAK K09';
+    }
+
     registrationSubmit.disabled = true;
     registrationSubmit.textContent = 'ĐANG TẠO QR…';
-
-    try {
-      const response = await fetch('/api/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      const data = await response.json().catch(() => ({}));
-
-      if (!response.ok || !data.success) {
-        throw new Error(data.message || 'Không thể tạo mã thanh toán lúc này. Vui lòng thử lại.');
-      }
-
-      const amount = Number(data.amount || 1000000);
-      paymentAmount.textContent = `${new Intl.NumberFormat('vi-VN').format(amount)} VND`;
-      paymentQr.src = data.qrUrl;
-      paymentCode.textContent = data.paymentCode;
-      paymentAccount.textContent = `Chuyển khoản đến ${data.bankName || 'ngân hàng'} · ${data.accountNumber || ''}`;
-      registrationFormView.hidden = true;
-      paymentResult.classList.add('is-visible');
-      document.querySelector('.registration-close')?.focus();
-    } catch (error) {
-      registrationError.textContent = error.message || 'Đã có lỗi xảy ra. Vui lòng thử lại.';
-    } finally {
-      registrationSubmit.disabled = false;
-      registrationSubmit.textContent = 'NHẬN QR THANH TOÁN →';
-    }
   });
 
   copyPaymentCode?.addEventListener('click', async () => {
