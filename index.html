@@ -1961,6 +1961,55 @@
   .copy-payment-code { border: 0; background: transparent; color: #d94b1e; cursor: pointer; font: inherit; font-size: 0.8rem; font-weight: 800; }
   .payment-confirmation-note { margin-top: 18px; color: #666; font-size: 0.79rem; line-height: 1.6; text-align: center; }
 
+  /* ── HERO TYPOGRAPHY PASS ── */
+  .hero-kicker {
+    padding: 10px 14px;
+    font-size: 0.80rem;
+    letter-spacing: 0.065em;
+  }
+  .hero-title {
+    max-width: 720px;
+    font-size: clamp(3.9rem, 6.8vw, 6.7rem);
+    line-height: 1.01;
+    letter-spacing: -0.048em;
+  }
+  .hero-title .line2 {
+    font-size: clamp(4.7rem, 8.4vw, 8rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+  }
+  .hero-desc {
+    max-width: 720px;
+    margin-bottom: 24px;
+    font-size: 1.16rem;
+    line-height: 1.62;
+  }
+  .hero-event-info { max-width: 700px; padding: 16px 20px; }
+  .hero-event-date { font-size: 1rem; }
+  .hero-event-price { font-size: 0.92rem; }
+  .hero-ctas .btn { min-height: 58px; padding: 16px 24px; font-size: 1rem; }
+  .hero-program-link { font-size: 0.98rem; }
+  .hero-form-note { font-size: 0.84rem; }
+
+  @media (max-width: 900px) {
+    .hero-title { font-size: clamp(3.35rem, 8.2vw, 5.6rem); }
+    .hero-title .line2 { font-size: clamp(4rem, 10.4vw, 6.8rem); }
+    .hero-desc { font-size: 1.06rem; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-kicker { padding: 8px 10px; font-size: 0.66rem; letter-spacing: 0.045em; }
+    .hero-title { font-size: clamp(2.35rem, 11.5vw, 3.35rem); line-height: 1.04; }
+    .hero-title .line2 { font-size: clamp(2.75rem, 13.5vw, 4.1rem); line-height: 1; }
+    .hero-desc { margin-bottom: 18px; font-size: 1rem; line-height: 1.58; }
+    .hero-event-info { padding: 14px 16px; }
+    .hero-event-date { font-size: 0.86rem; }
+    .hero-event-price { font-size: 0.84rem; }
+    .hero-ctas .btn { min-height: 54px; padding: 15px 14px; font-size: 0.9rem; }
+    .hero-program-link { font-size: 0.9rem; }
+    .hero-form-note { font-size: 0.78rem; }
+  }
+
   /* ── HERO IMAGE VISIBILITY PASS ──
      Keep the left reading area calm while restoring contrast and detail
      around Nam on the right side of the hero image. */
@@ -2040,7 +2089,7 @@
         Nói để chuyên môn của bạn
         <span class="line2">được người khác nhận ra.</span>
       </h1>
-      <p class="hero-desc">3 buổi Zoom dành cho chuyên gia, coach, trainer, solo-expert và leader — để định vị bản thân, xây Signature Talk và xuất hiện tự tin hơn trước khách hàng, học viên hoặc đội ngũ.</p>
+      <p class="hero-desc">Đừng để chuyên môn của bạn bị bỏ qua. Trong 3 buổi, hãy biến điều bạn biết thành thông điệp rõ ràng, bài nói Signature và cách xuất hiện khiến đúng khách hàng muốn nghe tiếp.</p>
       <div class="hero-event-info">
         <div class="hero-event-date">22, 23 &amp; 24/09/2026 · 20g00–22g00 · Online qua Zoom</div>
         <div class="hero-event-price">Khoản đầu tư <strong>1.000.000 VND</strong></div>
