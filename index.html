@@ -2452,6 +2452,52 @@
   .hero-program-link { font-size: 0.98rem; }
   .hero-form-note { font-size: 0.84rem; }
 
+  .hero-countdown {
+    max-width: 700px;
+    margin: 0 0 20px;
+    padding: 16px 18px 18px;
+    border: 1px solid rgba(217,85,37,0.22);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.64);
+    box-shadow: 0 10px 28px rgba(58,36,25,0.07);
+  }
+  .hero-countdown-label {
+    margin-bottom: 12px;
+    color: #c94b20;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    text-align: center;
+  }
+  .hero-countdown-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .hero-countdown-unit {
+    display: grid;
+    justify-items: center;
+    gap: 4px;
+    padding: 10px 8px 9px;
+    border: 1px solid rgba(23,23,23,0.09);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.76);
+  }
+  .hero-countdown-unit strong {
+    color: #171717;
+    font-size: clamp(2rem, 4.1vw, 3.25rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.07em;
+  }
+  .hero-countdown-unit span {
+    color: rgba(23,23,23,0.52);
+    font-size: 0.64rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+  }
+  .hero-countdown.is-complete .hero-countdown-label { color: #c52920; }
+
   @media (max-width: 900px) {
     .hero-title { font-size: clamp(3.35rem, 8.2vw, 5.6rem); }
     .hero-title .line2 { font-size: clamp(4rem, 10.4vw, 6.8rem); }
@@ -2466,6 +2512,12 @@
     .hero-event-info { padding: 14px 16px; }
     .hero-event-date { font-size: 0.86rem; }
     .hero-event-price { font-size: 0.84rem; }
+    .hero-countdown { margin-bottom: 16px; padding: 13px 12px 14px; }
+    .hero-countdown-label { margin-bottom: 9px; font-size: 0.62rem; letter-spacing: 0.07em; }
+    .hero-countdown-grid { gap: 6px; }
+    .hero-countdown-unit { padding: 9px 4px 8px; }
+    .hero-countdown-unit strong { font-size: clamp(1.75rem, 9vw, 2.45rem); }
+    .hero-countdown-unit span { font-size: 0.54rem; letter-spacing: 0.08em; }
     .hero-ctas .btn { min-height: 54px; padding: 15px 14px; font-size: 0.9rem; }
     .hero-program-link { font-size: 0.9rem; }
     .hero-form-note { font-size: 0.78rem; }
@@ -2547,13 +2599,22 @@
     <div class="hero-left">
       <div class="hero-kicker">DARE TO S-PEAK K09 · 3 BUỔI ONLINE QUA ZOOM</div>
       <h1 class="hero-title">
-        Nói để chuyên môn của bạn
-        <span class="line2">được người khác nhận ra.</span>
+        Chuyên môn chỉ tạo
+        <span class="line2">ảnh hưởng khi người khác hiểu và nhớ.</span>
       </h1>
-      <p class="hero-desc">Đừng để chuyên môn của bạn bị bỏ qua. Trong 3 buổi, hãy biến điều bạn biết thành thông điệp rõ ràng, bài nói Signature và cách xuất hiện khiến đúng khách hàng muốn nghe tiếp.</p>
+      <p class="hero-desc">DARE TO S-PEAK giúp bạn sắp xếp thông điệp, luyện cách nói và xây sự tự tin để xuất hiện rõ ràng trước khách hàng, học viên và đội ngũ.</p>
       <div class="hero-event-info">
         <div class="hero-event-date">22, 23 &amp; 24/09/2026 · 20g00–22g00 · Online qua Zoom</div>
         <div class="hero-event-price">Khoản đầu tư <strong>1.000.000 VND</strong></div>
+      </div>
+      <div class="hero-countdown" data-countdown data-countdown-target="2026-09-22T20:00:00+07:00" aria-label="Đếm ngược đến buổi học đầu tiên">
+        <div class="hero-countdown-label">ĐẾM NGƯỢC ĐẾN BUỔI HỌC ĐẦU TIÊN</div>
+        <div class="hero-countdown-grid">
+          <div class="hero-countdown-unit"><strong data-countdown-days>00</strong><span>NGÀY</span></div>
+          <div class="hero-countdown-unit"><strong data-countdown-hours>00</strong><span>GIỜ</span></div>
+          <div class="hero-countdown-unit"><strong data-countdown-minutes>00</strong><span>PHÚT</span></div>
+          <div class="hero-countdown-unit"><strong data-countdown-seconds>00</strong><span>GIÂY</span></div>
+        </div>
       </div>
       <div class="hero-ctas">
         <a href="#registration-modal" data-registration-trigger class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
@@ -3115,6 +3176,38 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     c.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     observer.observe(c);
   });
+
+  // Hero countdown to the first live session.
+  const heroCountdown = document.querySelector('[data-countdown]');
+  if (heroCountdown) {
+    const countdownTarget = new Date(heroCountdown.dataset.countdownTarget).getTime();
+    const countdownLabel = heroCountdown.querySelector('.hero-countdown-label');
+    const countdownUnits = {
+      days: heroCountdown.querySelector('[data-countdown-days]'),
+      hours: heroCountdown.querySelector('[data-countdown-hours]'),
+      minutes: heroCountdown.querySelector('[data-countdown-minutes]'),
+      seconds: heroCountdown.querySelector('[data-countdown-seconds]')
+    };
+    const padCountdown = value => String(value).padStart(2, '0');
+    const updateHeroCountdown = () => {
+      const remaining = Math.max(0, countdownTarget - Date.now());
+      const totalSeconds = Math.floor(remaining / 1000);
+      const days = Math.floor(totalSeconds / 86400);
+      const hours = Math.floor((totalSeconds % 86400) / 3600);
+      const minutes = Math.floor((totalSeconds % 3600) / 60);
+      const seconds = totalSeconds % 60;
+      countdownUnits.days.textContent = padCountdown(days);
+      countdownUnits.hours.textContent = padCountdown(hours);
+      countdownUnits.minutes.textContent = padCountdown(minutes);
+      countdownUnits.seconds.textContent = padCountdown(seconds);
+      if (remaining === 0) {
+        heroCountdown.classList.add('is-complete');
+        if (countdownLabel) countdownLabel.textContent = 'CHƯƠNG TRÌNH ĐÃ BẮT ĐẦU';
+      }
+    };
+    updateHeroCountdown();
+    window.setInterval(updateHeroCountdown, 1000);
+  }
 
   // Registration + SePay QR flow through the Google Apps Script web app.
   const registrationModal = document.querySelector('#registration-modal');
