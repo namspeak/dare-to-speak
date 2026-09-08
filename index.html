@@ -3358,7 +3358,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     <div id="registration-form-view">
       <div class="section-label">Đăng ký DARE TO S-PEAK K09</div>
       <h2 id="registration-title">Giữ chỗ trong chương trình</h2>
-      <p class="registration-intro">Điền thông tin trong khoảng một phút để giữ chỗ trong chương trình.</p>
+      <p class="registration-intro">Điền thông tin trong khoảng một phút để giữ chỗ. Nếu có mã ưu đãi, nhập mã ở ô cuối để nhận mức phí tương ứng.</p>
 
       <form id="registration-form" class="registration-form" action="https://script.google.com/macros/s/AKfycby8AB_KUr9iI7muyNMy61GB0iJscc6UhElTOHnFM-wZCsLNB1K5sJeT7cHQEx_1Igo/exec" method="POST" novalidate>
         <div class="registration-honeypot" aria-hidden="true">
@@ -3388,6 +3388,10 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
             <option>Leader</option>
             <option>Khác</option>
           </select>
+        </div>
+        <div class="registration-field">
+          <label for="registration-promo">Mã ưu đãi <span style="font-weight:500;color:#888;">(nếu có)</span></label>
+          <input id="registration-promo" name="promoCode" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="Ví dụ: DTS50">
         </div>
         <input id="registration-offer" name="offer" type="hidden" value="DARE TO S-PEAK K09">
         <p id="registration-error" class="registration-error" role="alert" aria-live="polite"></p>
