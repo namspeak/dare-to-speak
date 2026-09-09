@@ -2016,6 +2016,10 @@
 
   #pricing { padding: 82px 0; }
   .pricing-inner h2 { font-size: clamp(2.15rem, 4vw, 3.6rem); font-weight: 800; }
+  .pricing-inner h2 .grad-text {
+    display: inline-block;
+    white-space: nowrap;
+  }
   .pricing-card { max-width: 560px; padding: 36px; }
   .pricing-perks { gap: 10px; }
   .perk { font-size: 0.9rem; line-height: 1.55; }
@@ -2027,6 +2031,29 @@
 
   #final-cta { padding: 82px 0; }
   #final-cta h2 { font-weight: 800; }
+  #pain h2,
+  #benefits h2,
+  #benefits h3,
+  #curriculum h2,
+  #curriculum h3,
+  #trainer h2,
+  #trainer h3,
+  #testimonials h2,
+  #pricing h2,
+  #faq h2,
+  #final-cta h2,
+  #activity-gallery h2 {
+    text-wrap: balance;
+  }
+  #trainer .trainer-roleline {
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+  #faq h2 .grad-text,
+  #final-cta h2 .grad-text {
+    display: inline-block;
+    white-space: nowrap;
+  }
   .mobile-sticky-cta { display: none; }
 
   @media (max-width: 900px) {
@@ -2044,6 +2071,18 @@
   }
 
   @media (max-width: 600px) {
+    .section-label {
+      font-size: 0.72rem !important;
+      line-height: 1.35;
+      letter-spacing: 0.12em;
+      text-wrap: balance;
+    }
+    .benefits-scholarship .section-label { font-size: 0.72rem !important; }
+    #pricing .pricing-program {
+      font-size: 1.05rem;
+      line-height: 1.35;
+      text-wrap: balance;
+    }
     #hero { min-height: 0; }
     #hero::before {
       background:
@@ -2134,6 +2173,7 @@
     .testi-proof-grid figcaption { display: none; }
 
     .pricing-card { padding: 28px 22px; }
+    .pricing-inner h2 { font-size: clamp(1.78rem, 8.2vw, 2.25rem); }
     .pricing-card .btn { width: 100%; justify-content: center; font-size: 0.81rem; }
     .faq-header { margin-bottom: 28px; }
     .faq-q { padding: 18px 16px; font-size: 0.88rem; line-height: 1.45; }
@@ -2179,7 +2219,7 @@
     #trainer .trainer-content {
       display: block !important;
       padding: 30px 18px 28px;
-      overflow-wrap: anywhere;
+      overflow-wrap: normal;
       word-break: normal;
     }
     #trainer .trainer-content > .section-label,
@@ -2242,7 +2282,7 @@
       width: 100%;
       max-width: 100%;
       white-space: normal;
-      overflow-wrap: anywhere;
+      overflow-wrap: normal;
       word-break: normal;
     }
     #trainer .trainer-roleline {
@@ -2251,7 +2291,7 @@
       letter-spacing: 0.035em;
       line-height: 1.45;
     }
-    #trainer .trainer-content > p { overflow-wrap: anywhere; }
+    #trainer .trainer-content > p { overflow-wrap: normal; }
     #trainer .trainer-content > p:first-of-type { margin-top: 22px; }
     #trainer .trainer-content > p:nth-of-type(2) { margin-top: 16px; }
     #trainer .trainer-content > p:nth-of-type(3) {
