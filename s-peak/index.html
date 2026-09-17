@@ -186,20 +186,37 @@
   .mech-close{max-width:680px;margin:48px auto 0;font-size:16px;color:var(--body-on-paper);text-align:center;font-weight:500;}
 
   /* ============ OFFER ============ */
-  .offer{background:var(--navy);color:var(--ink-on-navy);}
-  .offer-head{max-width:760px;margin:0 auto 16px;text-align:center;}
-  .offer-head h2{font-size:26px;color:#fff;}
-  @media(min-width:640px){.offer-head h2{font-size:32px;}}
+  .offer{background:var(--navy);color:var(--ink-on-navy);padding-block:0 64px;}
+  @media(min-width:900px){.offer{padding-block:0 112px;}}
+  .offer-hero-banner{
+    position:relative;
+    width:100%;
+    min-height:400px;
+    display:flex;
+    align-items:flex-end;
+    overflow:hidden;
+    margin-bottom:56px;
+  }
+  @media(min-width:640px){.offer-hero-banner{min-height:480px;}}
+  @media(min-width:1024px){.offer-hero-banner{min-height:560px;}}
+  .offer-hero-banner img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;object-position:center 22%;
+  }
+  .offer-hero-banner::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(30,41,59,.05) 0%, rgba(30,41,59,.45) 55%, rgba(30,41,59,.95) 100%);
+  }
+  .offer-hero-banner-text{position:relative;z-index:1;padding-bottom:36px;text-align:center;width:100%;}
+  .offer-hero-banner-text h2{color:#fff;font-size:26px;}
+  @media(min-width:640px){.offer-hero-banner-text h2{font-size:34px;}}
   .offer-path{
     text-align:center;
     color:var(--muted-on-navy);
     font-size:15px;
-    margin-bottom:48px;
+    margin-top:14px;
   }
-  .offer-hero-img{
-    max-width:880px;margin:0 auto 48px;border-radius:8px;overflow:hidden;
-  }
-  .offer-hero-img img{width:100%;height:auto;}
   .cards{display:grid;gap:24px;margin-bottom:56px;}
   @media(min-width:820px){.cards{grid-template-columns:repeat(3,1fr);}}
   .card{
@@ -286,12 +303,11 @@
     border-radius:8px;overflow:hidden;
   }
   @media(min-width:760px){.testi-main{grid-template-columns:1fr 1fr;}}
-  .testi-video{
-    background:#0f172a;aspect-ratio:16/9;
-    display:flex;align-items:center;justify-content:center;
-    color:var(--muted-on-navy);font-size:14px;position:relative;
+  .testi-photo{
+    background:#0f172a;aspect-ratio:4/5;overflow:hidden;
   }
-  @media(min-width:760px){.testi-video{aspect-ratio:auto;}}
+  .testi-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+  @media(min-width:760px){.testi-photo{aspect-ratio:auto;}}
   .play-badge{
     width:56px;height:56px;border-radius:50%;
     border:1.5px solid var(--muted-on-navy);
@@ -413,9 +429,24 @@
     max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #334155;
     font-size:12.5px;color:#64748B;
   }
+
+  /* ============ STICKY TOP BAR ============ */
+  .sticky-bar{
+    position:sticky;top:0;z-index:50;
+    background:var(--amber);color:#fff;
+    text-align:center;
+    padding:10px 16px;
+    font-size:13.5px;font-weight:600;
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    text-decoration:none;
+  }
+  .sticky-bar:hover{background:var(--amber-hover);}
+  .sticky-bar .arrow{font-size:15px;line-height:1;}
 </style>
 </head>
 <body>
+
+<a href="#form" class="sticky-bar">Đăng ký tư vấn ngay <span class="arrow">→</span></a>
 
 <!-- ============ 1. HERO ============ -->
 <section class="hero">
@@ -499,17 +530,15 @@
 
 <!-- ============ 5. OFFER & DELIVERABLES ============ -->
 <section class="section offer" id="offer">
-  <div class="container">
-    <div class="offer-head">
+  <div class="offer-hero-banner">
+    <img src="images/offer-training-qa.jpg" alt="Buổi live training S-PEAK" loading="lazy">
+    <div class="offer-hero-banner-text container">
       <p class="eyebrow">S-PEAK Keynote Masterclass</p>
       <h2>Thiết kế bài nói định vị và thu hút khách hàng chất lượng</h2>
+      <p class="offer-path">Lộ trình: 3 ngày offline &nbsp;→&nbsp; 3 tuần thực hành có feedback &nbsp;→&nbsp; 2 ngày offline hoàn thiện</p>
     </div>
-    <p class="offer-path">Lộ trình: 3 ngày offline &nbsp;→&nbsp; 3 tuần thực hành có feedback &nbsp;→&nbsp; 2 ngày offline hoàn thiện</p>
-
-    <div class="offer-hero-img">
-      <img src="images/offer-training-qa.jpg" alt="Buổi live training S-PEAK" loading="lazy">
-    </div>
-
+  </div>
+  <div class="container">
     <div class="cards">
       <div class="card">
         <h3>Nội dung &amp; Framework</h3>
@@ -604,20 +633,24 @@
     </div>
 
     <div class="testi-main">
-      <div class="testi-video">
-        <div style="display:flex;flex-direction:column;align-items:center;">
-          <div class="play-badge">▶</div>
-          <span>Video testimonial đầy đủ — đang cập nhật</span>
-        </div>
+      <div class="testi-photo">
+        <img src="images/queenny.jpg" alt="Queenny Ngô, học viên S-PEAK K04" loading="lazy">
       </div>
       <div class="testi-copy">
-        <span class="name">Nguyễn Ngọc Trâm</span>
-        <span class="role">Creative Director, Umedia</span>
-        <p class="quote">"Tháng 4/2025: <b>tăng 30% thu nhập và thăng chức.</b> Tháng 8/2025: từ 'ú ớ' khi nói, <b>hoàn thành xuất sắc việc training cho 50 người</b> — và đang trong hành trình viết quyển sách đầu tay."</p>
+        <span class="name">Queenny Ngô</span>
+        <span class="role">Founder &amp; CEO, MLS · Founder, Chạm Media</span>
+        <p class="quote">"Sau S-PEAK K04, tôi xây được bài nói showcase riêng cho BNI — và chỉ <b>sau 5 phút trình bày, tôi có ngay 8 kết nối kinh doanh chất lượng.</b>"</p>
       </div>
     </div>
 
     <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-thumb">▶</div>
+        <div class="meta">
+          <div class="name">Nguyễn Ngọc Trâm</div>
+          <div class="role">Creative Director, Umedia</div>
+        </div>
+      </div>
       <div class="testi-card">
         <div class="testi-thumb">▶</div>
         <div class="meta">
