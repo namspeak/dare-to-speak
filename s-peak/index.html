@@ -190,8 +190,13 @@
 
   /* ============ PROBLEM (dark, editorial) ============ */
   .problem{background:var(--navy);color:var(--ink-on-navy);}
-  .problem-media{margin-bottom:40px;border-radius:4px;overflow:hidden;max-width:720px;margin-inline:auto;}
-  .problem-media img{width:100%;height:auto;filter:saturate(.85) brightness(.92);}
+  .problem-media{margin-bottom:16px;border-radius:8px;overflow:hidden;max-width:720px;margin-inline:auto;aspect-ratio:3/2;}
+  .problem-media img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.85) brightness(.92);}
+  .media-caption{
+    max-width:720px;margin:0 auto 40px;text-align:center;
+    font-family:'Montserrat',sans-serif;font-style:italic;font-weight:500;
+    font-size:13px;letter-spacing:.01em;color:var(--slate);
+  }
   .prose{
     max-width:680px;
     margin-inline:auto;
@@ -223,8 +228,9 @@
   .outcome .prose h2{color:var(--ink);}
   .outcome .prose p{color:var(--body-on-paper);}
   .outcome .pull-quote{color:var(--ink);}
-  .outcome-media{margin-bottom:40px;border-radius:4px;overflow:hidden;max-width:720px;margin-inline:auto;}
-  .outcome-media img{width:100%;height:auto;}
+  .outcome-media{margin-bottom:16px;border-radius:8px;overflow:hidden;max-width:720px;margin-inline:auto;aspect-ratio:3/2;}
+  .outcome-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
+  .outcome .media-caption{color:var(--body-on-paper);}
 
   /* ============ MECHANISM ============ */
   .mechanism{background:var(--paper);}
@@ -544,6 +550,7 @@
     <div class="problem-media">
       <img src="images/problem-backstage.jpg" alt="Khoảnh khắc lặng lẽ trước khi bước lên sân khấu" loading="lazy">
     </div>
+    <p class="media-caption">Sau tràng vỗ tay, khán phòng vẫn im lặng — không ai chủ động tìm đến bạn.</p>
     <div class="prose reveal">
       <h2>Bạn đã đứng trên bao nhiêu sân khấu rồi —<span class="accent">mà vẫn chưa có thêm một khách hàng nào?</span></h2>
       <p>Bạn được mời chia sẻ ở một chương trình, được giới thiệu là chuyên gia trong lĩnh vực của mình. Bạn chuẩn bị cả tuần, thức khuya chỉnh slide, viết đi viết lại phần mở đầu. Sau khi nói, bạn bước xuống sân khấu với một tràng vỗ tay giòn giã. Bạn nghĩ mình đã là tất cả mọi thứ cần thiết nhưng không có bất kỳ một ai liên lạc với bạn sau chương trình.</p>
@@ -560,6 +567,7 @@
     <div class="outcome-media">
       <img src="images/outcome-onstage.jpg" alt="Nam Nguyễn làm chủ sân khấu, năng lượng cao" loading="lazy">
     </div>
+    <p class="media-caption">Nam Nguyễn dẫn dắt một buổi đào tạo doanh nghiệp với cấu trúc bài nói rõ ràng.</p>
     <div class="prose reveal">
       <h2>Hãy tưởng tượng bước xuống sân khấu —<span class="accent">và điện thoại bắt đầu reo.</span></h2>
       <p>Lần tiếp theo, bạn đi chia sẻ trong một chương trình với một bài nói đã được thiết kế có chủ đích — không "khủng bố" người nghe với tất cả những gì bạn biết, mà dẫn dắt họ một cách khéo léo: từ nghi ngờ, đến việc họ tự hỏi phải làm thế nào để có cơ hội được làm việc với bạn.</p>
