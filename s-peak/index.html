@@ -54,6 +54,16 @@
   .section{padding-block:64px;}
   @media(min-width:900px){.section{padding-block:112px;}}
 
+  .reveal{
+    opacity:0;
+    transform:translateY(22px);
+    transition:opacity .7s ease, transform .7s ease;
+  }
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media(prefers-reduced-motion: reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
   .btn{
     display:inline-flex;
     align-items:center;
@@ -192,6 +202,10 @@
   .prose h2{font-size:26px;color:#fff;font-weight:700;}
   @media(min-width:640px){.prose h2{font-size:32px;}}
   .prose p{color:var(--body-on-navy);font-size:17px;}
+  .prose h2 .accent{
+    display:block;color:var(--amber);font-weight:900;
+    font-size:1.25em;line-height:1.05;letter-spacing:-0.5px;margin-top:4px;
+  }
   .pull-quote{
     font-family:'Montserrat',sans-serif;
     font-style:italic;
@@ -305,8 +319,8 @@
     display:flex;flex-direction:column;gap:18px;
   }
   .pricing .label{font-size:14px;color:var(--slate);text-transform:uppercase;letter-spacing:.06em;font-weight:600;}
-  .pricing .amount{font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;}
-  @media(min-width:640px){.pricing .amount{font-size:40px;}}
+  .pricing .amount{font-family:'Montserrat',sans-serif;font-weight:900;font-size:44px;color:var(--amber);letter-spacing:-1px;}
+  @media(min-width:640px){.pricing .amount{font-size:56px;}}
   .pricing .options{
     display:flex;flex-direction:column;gap:8px;
     font-size:15px;color:var(--body-on-paper);
@@ -325,22 +339,22 @@
     position:relative;
   }
   .proc-item{
-    display:grid;grid-template-columns:56px 1fr;gap:20px;
+    display:grid;grid-template-columns:72px 1fr;gap:20px;
     padding-block:28px;position:relative;
+    border-top:1px solid var(--line);
   }
-  .proc-item::before{
-    content:"";position:absolute;left:27px;top:0;bottom:0;width:1px;background:var(--line);
-  }
-  .proc-item:first-child::before{top:28px;}
-  .proc-item:last-child::before{bottom:calc(100% - 28px);}
+  .proc-item:first-child{border-top:none;}
+  @media(min-width:640px){.proc-item{grid-template-columns:96px 1fr;gap:28px;padding-block:32px;}}
   .proc-num{
-    font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;
-    color:#fff;background:var(--amber);
-    width:56px;height:56px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    position:relative;z-index:1;flex-shrink:0;
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:52px;
+    color:var(--amber);
+    line-height:0.9;letter-spacing:-1px;
+    display:block;
   }
-  .proc-body h3{font-size:18px;margin-bottom:6px;}
+  @media(min-width:640px){.proc-num{font-size:68px;}}
+  .proc-body{padding-top:4px;}
+  .proc-body h3{font-size:19px;margin-bottom:8px;font-weight:700;}
+  @media(min-width:640px){.proc-body h3{font-size:22px;}}
   .proc-body p{color:var(--body-on-paper);font-size:15px;}
   .proc-media{
     max-width:760px;margin:40px auto 0;
@@ -530,8 +544,8 @@
     <div class="problem-media">
       <img src="images/problem-backstage.jpg" alt="Khoảnh khắc lặng lẽ trước khi bước lên sân khấu" loading="lazy">
     </div>
-    <div class="prose">
-      <h2>Bạn đã đứng trên bao nhiêu sân khấu rồi — mà vẫn chưa có thêm một khách hàng nào?</h2>
+    <div class="prose reveal">
+      <h2>Bạn đã đứng trên bao nhiêu sân khấu rồi —<span class="accent">mà vẫn chưa có thêm một khách hàng nào?</span></h2>
       <p>Bạn được mời chia sẻ ở một chương trình, được giới thiệu là chuyên gia trong lĩnh vực của mình. Bạn chuẩn bị cả tuần, thức khuya chỉnh slide, viết đi viết lại phần mở đầu. Sau khi nói, bạn bước xuống sân khấu với một tràng vỗ tay giòn giã. Bạn nghĩ mình đã là tất cả mọi thứ cần thiết nhưng không có bất kỳ một ai liên lạc với bạn sau chương trình.</p>
       <p>Không phải vì bạn thiếu chuyên môn. Vấn đề nằm ở chỗ khác: nội dung bạn nói ra quá nhiều, quá dàn trải, không có một điểm neo đủ sắc bén để người nghe nhớ và tìm đến bạn sau đó.</p>
       <p>Và không chỉ là chuyện sân khấu lớn. Có thể là buổi họp quan trọng với một khách hàng tiềm năng, nơi bạn biết mình hiểu vấn đề của họ hơn ai hết — nhưng lại không truyền tải được điều đó trong vài phút đầu, và nhìn thấy cơ hội trôi qua tay người khác dù chuyên môn có thể không tốt như bạn nhưng biết cách trình bày xuất sắc hơn.</p>
@@ -546,8 +560,8 @@
     <div class="outcome-media">
       <img src="images/outcome-onstage.jpg" alt="Nam Nguyễn làm chủ sân khấu, năng lượng cao" loading="lazy">
     </div>
-    <div class="prose">
-      <h2>Hãy tưởng tượng bước xuống sân khấu — và điện thoại bắt đầu reo.</h2>
+    <div class="prose reveal">
+      <h2>Hãy tưởng tượng bước xuống sân khấu —<span class="accent">và điện thoại bắt đầu reo.</span></h2>
       <p>Lần tiếp theo, bạn đi chia sẻ trong một chương trình với một bài nói đã được thiết kế có chủ đích — không "khủng bố" người nghe với tất cả những gì bạn biết, mà dẫn dắt họ một cách khéo léo: từ nghi ngờ, đến việc họ tự hỏi phải làm thế nào để có cơ hội được làm việc với bạn.</p>
       <p>Bạn không còn phải soạn lại từ đầu mỗi lần được mời chia sẻ. Signature Talk, Speaking Canvas, các công thức đã thuộc nằm lòng — chuẩn bị mất vài giờ, thậm chí là chỉ vài phút, không còn cảnh áp lực phải thức trắng cả tuần chuẩn bị.</p>
       <p>Và khi đứng trước bất kỳ tình huống nào, dù là hội thảo lớn hay phòng họp với một khách hàng quan trọng, bạn không còn tim đập chân run. Năng lượng ở đúng chỗ nó cần — vì bạn đã thật sự làm chủ được nó.</p>
@@ -559,7 +573,7 @@
 <!-- ============ 4. CƠ CHẾ ============ -->
 <section class="section mechanism">
   <div class="container">
-    <div class="mech-intro">
+    <div class="mech-intro reveal">
       <p class="eyebrow">Cơ chế S-PEAK</p>
       <h2>Nói tạo ảnh hưởng không phải năng khiếu. Đó là một quy trình — và quy trình thì có thể học được.</h2>
       <p>Hầu hết mọi người tiếp cận việc học public speaking theo cách sai ngay từ đầu: cố gắng nói lưu loát hơn, trôi chảy hơn, tự tin hơn. Nhưng sự tự tin thật sự không đến từ việc cố tỏ ra tự tin — nó đến từ việc biết chính xác mình sẽ nói gì, có cấu trúc rõ ràng, và quản trị được trạng thái cảm xúc khi nói.</p>
@@ -640,34 +654,34 @@
 <!-- ============ 6. QUY TRÌNH ============ -->
 <section class="section process">
   <div class="container">
-    <div class="process-head">
+    <div class="process-head reveal">
       <p class="eyebrow">Quy trình</p>
       <h2>Từ buổi tư vấn đầu tiên đến Signature Talk hoàn chỉnh — một lộ trình rõ ràng, không mơ hồ.</h2>
     </div>
     <div class="proc-list">
       <div class="proc-item">
-        <span class="proc-num">1</span>
+        <span class="proc-num">01</span>
         <div class="proc-body">
           <h3>Tư vấn lộ trình</h3>
           <p>Trao đổi 1-1 để hiểu đúng bối cảnh kinh doanh và mục tiêu bài nói của bạn, xác nhận chương trình phù hợp trước khi bắt đầu.</p>
         </div>
       </div>
       <div class="proc-item">
-        <span class="proc-num">2</span>
+        <span class="proc-num">02</span>
         <div class="proc-body">
           <h3>3 ngày offline: Xây nền tảng</h3>
           <p>Học và áp dụng trực tiếp framework cốt lõi (VES, DTR, Hooks) để đóng gói chuyên môn thành cấu trúc bài nói mạch lạc.</p>
         </div>
       </div>
       <div class="proc-item">
-        <span class="proc-num">3</span>
+        <span class="proc-num">03</span>
         <div class="proc-body">
           <h3>3 tuần thực hành có feedback</h3>
           <p>Luyện tập với sự đồng hành liên tục trong nhóm hỗ trợ kín, nhận feedback 1-1.</p>
         </div>
       </div>
       <div class="proc-item">
-        <span class="proc-num">4</span>
+        <span class="proc-num">04</span>
         <div class="proc-body">
           <h3>2 ngày offline: Hoàn thiện</h3>
           <p>Diễn tập trực tiếp trên sân khấu, nhận phản hồi sát sao để hoàn chỉnh Signature Talk.</p>
@@ -684,7 +698,7 @@
 <!-- ============ 7. PROOF ============ -->
 <section class="section proof">
   <div class="container">
-    <div class="proof-head">
+    <div class="proof-head reveal">
       <p class="eyebrow">Kết quả thật</p>
       <h2>Không chỉ là lý thuyết — đây là những gì đã thật sự thay đổi với học viên.</h2>
     </div>
@@ -748,7 +762,7 @@
 <!-- ============ 8. FAQ ============ -->
 <section class="section faq">
   <div class="container">
-    <div class="faq-head">
+    <div class="faq-head reveal">
       <p class="eyebrow">Hỏi thật, đáp thật</p>
       <h2>Trước khi bạn quyết định, đây là những câu hỏi thật lòng nhất</h2>
     </div>
@@ -927,6 +941,25 @@ window.SPEAK_CONFIG = {
       submitBtn.textContent = 'Tư vấn lộ trình phù hợp với tôi';
     });
   });
+})();
+</script>
+<script>
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!els.length) return;
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function (el) { el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(function (el) { io.observe(el); });
 })();
 </script>
 </body>
