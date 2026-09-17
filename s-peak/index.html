@@ -87,39 +87,96 @@
 
   /* ============ HERO ============ */
   .hero{
-    background:var(--navy);
-    color:var(--ink-on-navy);
+    background:var(--paper);
+    color:var(--ink);
   }
-  .hero-grid{
-    display:grid;
-    gap:0;
-  }
-  @media(min-width:960px){
-    .hero-grid{grid-template-columns:44% 56%;align-items:stretch;min-height:88vh;}
-  }
-  .hero-copy{
-    padding:56px 24px 40px;
+  .hero-bg{
+    position:relative;
     display:flex;
     flex-direction:column;
-    gap:22px;
-    max-width:560px;
   }
-  @media(min-width:640px){.hero-copy{padding:64px 40px 48px;}}
-  @media(min-width:960px){.hero-copy{padding:0 56px;justify-content:center;max-width:none;}}
-  .hero-copy h1{font-size:30px;font-weight:800;color:#fff;}
-  @media(min-width:640px){.hero-copy h1{font-size:38px;}}
-  @media(min-width:960px){.hero-copy h1{font-size:44px;}}
-  .hero-copy .sub{font-size:17px;color:var(--body-on-navy);max-width:46ch;}
+  @media(min-width:960px){
+    .hero-bg{min-height:88vh;display:block;overflow:hidden;}
+  }
+  .hero-bg > img{
+    order:2;
+    width:100%;height:300px;
+    object-fit:cover;object-position:center 22%;
+  }
+  @media(min-width:480px){.hero-bg > img{height:380px;}}
+  @media(min-width:960px){
+    .hero-bg > img{
+      order:initial;
+      position:absolute;inset:0;width:100%;height:100%;
+      object-fit:cover;object-position:center 15%;
+    }
+  }
+  .hero-overlay{display:none;}
+  @media(min-width:960px){
+    .hero-overlay{
+      display:block;
+      position:absolute;inset:0;
+      background:linear-gradient(90deg,
+        rgba(248,250,252,.98) 0%,
+        rgba(248,250,252,.95) 32%,
+        rgba(248,250,252,.6) 52%,
+        rgba(248,250,252,.08) 70%,
+        rgba(248,250,252,0) 100%);
+    }
+  }
+  .hero-copy{
+    order:1;
+    position:relative;z-index:1;
+    padding:40px 24px 32px;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    max-width:620px;
+  }
+  @media(min-width:640px){.hero-copy{padding:56px 40px 32px;}}
+  @media(min-width:960px){
+    .hero-copy{
+      padding:0 40px 0 56px;
+      min-height:88vh;
+      justify-content:center;
+    }
+  }
+  .hero-badge{
+    display:inline-flex;align-self:flex-start;
+    background:rgba(255,255,255,.92);
+    border:1.5px solid var(--amber);
+    color:var(--amber);
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:11.5px;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    padding:8px 16px;
+    border-radius:999px;
+  }
+  .hero-copy h1{margin:0;}
+  .hero-line1{
+    display:block;
+    font-size:24px;font-weight:800;color:var(--ink);
+    line-height:1.2;letter-spacing:-0.3px;
+  }
+  @media(min-width:640px){.hero-line1{font-size:30px;}}
+  @media(min-width:960px){.hero-line1{font-size:32px;}}
+  .hero-line2{
+    display:block;
+    font-size:34px;font-weight:900;color:var(--amber);
+    line-height:1.05;letter-spacing:-0.8px;margin-top:6px;
+  }
+  @media(min-width:640px){.hero-line2{font-size:46px;}}
+  @media(min-width:960px){.hero-line2{font-size:54px;}}
+  .hero-copy .sub{font-size:17px;color:var(--body-on-paper);max-width:46ch;}
   .trust{
     font-size:13px;
-    color:var(--muted-on-navy);
+    color:var(--slate);
     display:flex;
     flex-wrap:wrap;
     gap:8px 14px;
   }
-  .hero-media{position:relative;overflow:hidden;background:#0f172a;}
-  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:top center;min-height:340px;}
-  @media(min-width:960px){.hero-media img{min-height:100%;}}
 
   /* ============ PROBLEM (dark, editorial) ============ */
   .problem{background:var(--navy);color:var(--ink-on-navy);}
@@ -450,9 +507,12 @@
 
 <!-- ============ 1. HERO ============ -->
 <section class="hero">
-  <div class="hero-grid">
+  <div class="hero-bg">
+    <img src="images/hero3.jpg" alt="Nam Nguyễn đang training học viên S-PEAK" loading="eager">
+    <div class="hero-overlay"></div>
     <div class="hero-copy">
-      <h1>Ngừng làm speaker miễn phí. Bắt đầu biến bài nói thành khách hàng trả phí cao.</h1>
+      <span class="hero-badge">S-PEAK Keynote Masterclass</span>
+      <h1><span class="hero-line1">Ngừng làm speaker miễn phí.</span><span class="hero-line2">Bắt đầu biến bài nói thành khách hàng trả phí cao.</span></h1>
       <p class="sub">S-PEAK Keynote Masterclass giúp bạn đóng gói chuyên môn thành một bài nói sắc bén, logic — thu hút đúng khách hàng sẵn sàng trả giá cao, thay vì tiếp tục chia sẻ miễn phí mà không thu về gì.</p>
       <a href="#form" class="btn">Tư vấn lộ trình phù hợp với tôi</a>
       <p class="trust">
@@ -460,9 +520,6 @@
         <span>11.000+ giờ đào tạo</span><span>·</span>
         <span>1.200+ giờ coaching</span>
       </p>
-    </div>
-    <div class="hero-media">
-      <img src="images/hero.jpg" alt="Nam Nguyễn, nhà sáng lập S-PEAK" loading="eager">
     </div>
   </div>
 </section>
