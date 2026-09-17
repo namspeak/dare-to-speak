@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#1E293B;
-    --navy-2:#28374f;
+    --navy:#0B2759;
+    --navy-2:#123B7A;
     --ink-on-navy:#F8FAFC;
     --body-on-navy:#CBD5E1;
     --muted-on-navy:#94A3B8;
@@ -262,6 +262,23 @@
   .step p{color:var(--body-on-paper);font-size:15px;max-width:40ch;}
   .mech-close{max-width:680px;margin:48px auto 0;font-size:16px;color:var(--body-on-paper);text-align:center;font-weight:500;}
 
+  /* ============ MOMENTS GALLERY ============ */
+  .moments{background:var(--navy);}
+  .moments-head{max-width:680px;margin:0 auto 48px;text-align:center;}
+  .moments-head h2{color:#fff;font-size:26px;}
+  @media(min-width:640px){.moments-head h2{font-size:32px;}}
+  .moments-grid{display:grid;gap:24px;}
+  @media(min-width:800px){.moments-grid{grid-template-columns:repeat(3,1fr);}}
+  .moment-card{border-radius:8px;overflow:hidden;background:var(--navy-2);}
+  .moment-card img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .moment-label{padding:20px;}
+  .moment-eyebrow{
+    font-family:'Arial',sans-serif;font-weight:600;font-size:12px;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--amber);
+    margin-bottom:8px;display:block;
+  }
+  .moment-card h3{color:#fff;font-size:16px;font-weight:700;line-height:1.35;}
+
   /* ============ OFFER ============ */
   .offer{background:var(--navy);color:var(--ink-on-navy);padding-block:0 64px;}
   @media(min-width:900px){.offer{padding-block:0 112px;}}
@@ -298,7 +315,7 @@
   @media(min-width:820px){.cards{grid-template-columns:repeat(3,1fr);}}
   .card{
     background:var(--navy-2);
-    border:1px solid #334155;
+    border:1px solid #26407d;
     border-radius:8px;
     padding:32px;
     display:flex;
@@ -484,7 +501,7 @@
   .form-status.err{color:#b91c1c;}
 
   /* ============ FOOTER ============ */
-  footer{background:var(--navy);color:var(--muted-on-navy);border-top:1px solid #334155;}
+  footer{background:var(--navy);color:var(--muted-on-navy);border-top:1px solid #26407d;}
   .footer-grid{
     display:grid;gap:32px;
     font-size:14px;
@@ -503,7 +520,7 @@
   .footer-col p, .footer-col a{color:var(--muted-on-navy);text-decoration:none;display:block;margin-bottom:6px;}
   .footer-col a:hover{color:#fff;}
   .footer-bottom{
-    max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #334155;
+    max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #26407d;
     font-size:12.5px;color:#64748B;
   }
 
@@ -604,6 +621,39 @@
       </div>
     </div>
     <p class="mech-close">S-PEAK không dạy bạn nói cho hay. Đây là hệ thống được thiết kế riêng để xây dựng một bài nói ứng dụng năng lực nói tạo ảnh hưởng, trở thành đòn bẩy cho việc kinh doanh tri thức của bạn — đúc kết từ 15 năm huấn luyện chuyên gia và hơn 11.000 giờ đào tạo thực chiến.</p>
+  </div>
+</section>
+
+<!-- ============ MOMENTS GALLERY ============ -->
+<section class="section moments">
+  <div class="container">
+    <div class="moments-head reveal">
+      <p class="eyebrow">Khoảnh khắc S-PEAK</p>
+      <h2>Học thật, luyện thật — không chỉ là lý thuyết trên slide.</h2>
+    </div>
+    <div class="moments-grid">
+      <div class="moment-card reveal">
+        <img src="images/offer-coaching.jpg" alt="Coaching trực tiếp cùng học viên" loading="lazy">
+        <div class="moment-label">
+          <span class="moment-eyebrow">Live Coaching</span>
+          <h3>Feedback 1-1 ngay tại chỗ, không lý thuyết suông</h3>
+        </div>
+      </div>
+      <div class="moment-card reveal">
+        <img src="images/process-session.jpg" alt="Buổi thực hành nhóm nhỏ" loading="lazy">
+        <div class="moment-label">
+          <span class="moment-eyebrow">Thực hành nhóm nhỏ</span>
+          <h3>Luyện tập liên tục đến khi cấu trúc trở thành bản năng</h3>
+        </div>
+      </div>
+      <div class="moment-card reveal">
+        <img src="images/offer-1on1.jpg" alt="Trao đổi 1-1 cùng học viên" loading="lazy">
+        <div class="moment-label">
+          <span class="moment-eyebrow">Đồng hành sát sao</span>
+          <h3>Mỗi học viên được lắng nghe và điều chỉnh riêng</h3>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
