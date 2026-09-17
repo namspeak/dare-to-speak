@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>S-PEAK Keynote Masterclass</title>
+<meta name="description" content="Ngừng làm speaker miễn phí. Bắt đầu biến bài nói thành khách hàng trả phí cao — S-PEAK Keynote Masterclass với Nam Nguyễn.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E293B;
+    --navy-2:#28374f;
+    --ink-on-navy:#F8FAFC;
+    --body-on-navy:#CBD5E1;
+    --muted-on-navy:#94A3B8;
+    --amber:#D97706;
+    --amber-hover:#B45309;
+    --slate:#64748B;
+    --paper:#F8FAFC;
+    --ink:#1E293B;
+    --body-on-paper:#475569;
+    --line:#E2E8F0;
+    --white:#FFFFFF;
+    --shadow: 0 24px 48px -24px rgba(30,41,59,.35);
+    color-scheme: light;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  h1,h2,h3{
+    font-family:'Montserrat',-apple-system,sans-serif;
+    line-height:1.2;
+    text-wrap:balance;
+    margin:0;
+  }
+  p{margin:0;}
+  .container{max-width:1200px;margin:0 auto;padding-inline:24px;}
+  @media(min-width:640px){.container{padding-inline:40px;}}
+  @media(min-width:1024px){.container{padding-inline:64px;}}
+
+  .section{padding-block:64px;}
+  @media(min-width:900px){.section{padding-block:112px;}}
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    background:var(--amber);
+    color:#fff;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:16px;
+    padding:16px 32px;
+    border:none;
+    border-radius:4px;
+    text-decoration:none;
+    cursor:pointer;
+    transition:background .2s ease, transform .15s ease;
+    width:100%;
+  }
+  .btn:hover{background:var(--amber-hover);}
+  .btn:focus-visible{outline:2px solid #fff;outline-offset:3px;}
+  @media(min-width:640px){.btn{width:auto;}}
+
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    background:var(--navy);
+    color:var(--ink-on-navy);
+  }
+  .hero-grid{
+    display:grid;
+    gap:0;
+  }
+  @media(min-width:960px){
+    .hero-grid{grid-template-columns:44% 56%;align-items:stretch;min-height:88vh;}
+  }
+  .hero-copy{
+    padding:56px 24px 40px;
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+    max-width:560px;
+  }
+  @media(min-width:640px){.hero-copy{padding:64px 40px 48px;}}
+  @media(min-width:960px){.hero-copy{padding:0 56px;justify-content:center;max-width:none;}}
+  .hero-copy h1{font-size:30px;font-weight:800;color:#fff;}
+  @media(min-width:640px){.hero-copy h1{font-size:38px;}}
+  @media(min-width:960px){.hero-copy h1{font-size:44px;}}
+  .hero-copy .sub{font-size:17px;color:var(--body-on-navy);max-width:46ch;}
+  .trust{
+    font-size:13px;
+    color:var(--muted-on-navy);
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 14px;
+  }
+  .hero-media{position:relative;overflow:hidden;background:#0f172a;}
+  .hero-media img{width:100%;height:100%;object-fit:cover;object-position:top center;min-height:340px;}
+  @media(min-width:960px){.hero-media img{min-height:100%;}}
+
+  /* ============ PROBLEM (dark, editorial) ============ */
+  .problem{background:var(--navy);color:var(--ink-on-navy);}
+  .problem-media{margin-bottom:40px;border-radius:4px;overflow:hidden;max-width:720px;margin-inline:auto;}
+  .problem-media img{width:100%;height:auto;filter:saturate(.85) brightness(.92);}
+  .prose{
+    max-width:680px;
+    margin-inline:auto;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .prose h2{font-size:26px;color:#fff;font-weight:700;}
+  @media(min-width:640px){.prose h2{font-size:32px;}}
+  .prose p{color:var(--body-on-navy);font-size:17px;}
+  .pull-quote{
+    font-family:'Montserrat',sans-serif;
+    font-style:italic;
+    font-weight:600;
+    font-size:22px;
+    color:#fff;
+    border-left:4px solid var(--amber);
+    padding:8px 0 8px 24px;
+    margin-block:8px;
+  }
+  @media(min-width:640px){.pull-quote{font-size:25px;}}
+
+  /* ============ OUTCOME (light) ============ */
+  .outcome{background:var(--paper);}
+  .outcome .prose h2{color:var(--ink);}
+  .outcome .prose p{color:var(--body-on-paper);}
+  .outcome .pull-quote{color:var(--ink);}
+  .outcome-media{margin-bottom:40px;border-radius:4px;overflow:hidden;max-width:720px;margin-inline:auto;}
+  .outcome-media img{width:100%;height:auto;}
+
+  /* ============ MECHANISM ============ */
+  .mechanism{background:var(--paper);}
+  .mech-intro{max-width:680px;margin:0 auto 56px;text-align:center;}
+  .mech-intro p{color:var(--body-on-paper);font-size:17px;}
+  .mech-intro h2{font-size:26px;margin-bottom:16px;}
+  @media(min-width:640px){.mech-intro h2{font-size:32px;}}
+  .timeline{
+    display:grid;
+    gap:40px;
+    position:relative;
+  }
+  @media(min-width:860px){
+    .timeline{grid-template-columns:repeat(3,1fr);gap:32px;}
+    .timeline::before{
+      content:"";
+      position:absolute;
+      top:34px;left:calc(16.66% + 8px);right:calc(16.66% + 8px);
+      height:1px;background:var(--line);
+    }
+  }
+  .step{position:relative;z-index:1;}
+  .step-num{
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    font-size:44px;
+    color:var(--amber);
+    line-height:1;
+    background:var(--paper);
+    display:inline-block;
+    padding-right:8px;
+  }
+  .step h3{font-size:19px;margin-block:14px 8px;}
+  .step p{color:var(--body-on-paper);font-size:15px;}
+  .mech-close{max-width:680px;margin:48px auto 0;font-size:16px;color:var(--body-on-paper);text-align:center;font-weight:500;}
+
+  /* ============ OFFER ============ */
+  .offer{background:var(--navy);color:var(--ink-on-navy);}
+  .offer-head{max-width:760px;margin:0 auto 16px;text-align:center;}
+  .offer-head h2{font-size:26px;color:#fff;}
+  @media(min-width:640px){.offer-head h2{font-size:32px;}}
+  .offer-path{
+    text-align:center;
+    color:var(--muted-on-navy);
+    font-size:15px;
+    margin-bottom:48px;
+  }
+  .offer-hero-img{
+    max-width:880px;margin:0 auto 48px;border-radius:8px;overflow:hidden;
+  }
+  .offer-hero-img img{width:100%;height:auto;}
+  .cards{display:grid;gap:24px;margin-bottom:56px;}
+  @media(min-width:820px){.cards{grid-template-columns:repeat(3,1fr);}}
+  .card{
+    background:var(--navy-2);
+    border:1px solid #334155;
+    border-radius:8px;
+    padding:32px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+  .card h3{font-size:18px;color:#fff;}
+  .card img{border-radius:4px;margin-bottom:4px;}
+  .card ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;}
+  .card li{
+    font-size:14.5px;color:var(--body-on-navy);
+    padding-left:18px;position:relative;
+  }
+  .card li::before{
+    content:"—";position:absolute;left:0;color:var(--amber);
+  }
+  .pricing{
+    max-width:640px;margin:0 auto;
+    background:#fff;color:var(--ink);
+    border:2px solid var(--amber);
+    border-radius:8px;
+    padding:40px 32px;
+    text-align:center;
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .pricing .label{font-size:14px;color:var(--slate);text-transform:uppercase;letter-spacing:.06em;font-weight:600;}
+  .pricing .amount{font-family:'Montserrat',sans-serif;font-weight:800;font-size:34px;}
+  @media(min-width:640px){.pricing .amount{font-size:40px;}}
+  .pricing .options{
+    display:flex;flex-direction:column;gap:8px;
+    font-size:15px;color:var(--body-on-paper);
+    border-top:1px solid var(--line);padding-top:18px;
+  }
+  .pricing .btn{margin-top:6px;}
+
+  /* ============ PROCESS ============ */
+  .process{background:var(--paper);}
+  .process-head{max-width:680px;margin:0 auto 56px;text-align:center;}
+  .process-head h2{font-size:26px;}
+  @media(min-width:640px){.process-head h2{font-size:32px;}}
+  .proc-list{
+    max-width:760px;margin:0 auto;
+    display:flex;flex-direction:column;gap:0;
+    position:relative;
+  }
+  .proc-item{
+    display:grid;grid-template-columns:56px 1fr;gap:20px;
+    padding-block:28px;position:relative;
+  }
+  .proc-item::before{
+    content:"";position:absolute;left:27px;top:0;bottom:0;width:1px;background:var(--line);
+  }
+  .proc-item:first-child::before{top:28px;}
+  .proc-item:last-child::before{bottom:calc(100% - 28px);}
+  .proc-num{
+    font-family:'Montserrat',sans-serif;font-weight:800;font-size:22px;
+    color:#fff;background:var(--amber);
+    width:56px;height:56px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;z-index:1;flex-shrink:0;
+  }
+  .proc-body h3{font-size:18px;margin-bottom:6px;}
+  .proc-body p{color:var(--body-on-paper);font-size:15px;}
+  .proc-media{
+    max-width:760px;margin:40px auto 0;
+    display:grid;gap:16px;grid-template-columns:1fr 1fr;
+  }
+  .proc-media img{border-radius:4px;height:100%;object-fit:cover;aspect-ratio:4/3;}
+
+  /* ============ PROOF ============ */
+  .proof{background:var(--paper);}
+  .proof-head{max-width:680px;margin:0 auto 48px;text-align:center;}
+  .proof-head h2{font-size:26px;}
+  @media(min-width:640px){.proof-head h2{font-size:32px;}}
+  .testi-main{
+    max-width:960px;margin:0 auto 56px;
+    display:grid;gap:0;
+    background:var(--navy);color:#fff;
+    border-radius:8px;overflow:hidden;
+  }
+  @media(min-width:760px){.testi-main{grid-template-columns:1fr 1fr;}}
+  .testi-video{
+    background:#0f172a;aspect-ratio:16/9;
+    display:flex;align-items:center;justify-content:center;
+    color:var(--muted-on-navy);font-size:14px;position:relative;
+  }
+  @media(min-width:760px){.testi-video{aspect-ratio:auto;}}
+  .play-badge{
+    width:56px;height:56px;border-radius:50%;
+    border:1.5px solid var(--muted-on-navy);
+    display:flex;align-items:center;justify-content:center;
+    margin-bottom:10px;
+  }
+  .testi-copy{padding:32px;display:flex;flex-direction:column;gap:14px;justify-content:center;}
+  .testi-copy .name{font-weight:700;font-size:17px;}
+  .testi-copy .role{color:var(--muted-on-navy);font-size:14px;}
+  .testi-copy .quote{color:var(--body-on-navy);font-size:16px;font-style:italic;}
+  .testi-copy .quote b{color:#fff;font-style:normal;}
+  .testi-grid{
+    max-width:960px;margin:0 auto 56px;
+    display:flex;gap:16px;overflow-x:auto;padding-bottom:8px;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+  }
+  .testi-grid::-webkit-scrollbar{height:6px;}
+  .testi-grid::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px;}
+  @media(min-width:760px){
+    .testi-grid{display:grid;grid-template-columns:repeat(4,1fr);overflow:visible;}
+  }
+  .testi-card{
+    flex:0 0 78%;scroll-snap-align:start;
+    background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  }
+  @media(min-width:760px){.testi-card{flex:auto;}}
+  .testi-thumb{
+    aspect-ratio:4/3;background:var(--navy);
+    display:flex;align-items:center;justify-content:center;color:var(--muted-on-navy);
+  }
+  .testi-card .meta{padding:14px 16px;}
+  .testi-card .name{font-weight:600;font-size:14.5px;color:var(--ink);}
+  .testi-card .role{font-size:12.5px;color:var(--slate);margin-top:2px;}
+  .org-row{
+    display:flex;flex-wrap:wrap;gap:28px 40px;justify-content:center;align-items:center;
+    max-width:820px;margin:0 auto 24px;
+    padding-top:32px;border-top:1px solid var(--line);
+  }
+  .org-row span{
+    font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;
+    color:var(--slate);letter-spacing:.02em;
+  }
+  .credentials{text-align:center;font-size:13.5px;color:var(--slate);max-width:760px;margin:0 auto;}
+
+  /* ============ FAQ ============ */
+  .faq{background:#fff;}
+  .faq-head{max-width:680px;margin:0 auto 40px;text-align:center;}
+  .faq-head h2{font-size:26px;}
+  @media(min-width:640px){.faq-head h2{font-size:32px;}}
+  .faq-list{max-width:800px;margin:0 auto;}
+  details{border-bottom:1px solid var(--line);}
+  details summary{
+    list-style:none;cursor:pointer;
+    padding-block:20px;
+    display:flex;align-items:center;justify-content:space-between;gap:16px;
+    font-weight:600;font-size:16px;color:var(--ink);
+  }
+  details summary::-webkit-details-marker{display:none;}
+  details summary .chev{
+    flex-shrink:0;width:20px;height:20px;position:relative;transition:transform .2s ease;
+  }
+  details summary .chev::before,
+  details summary .chev::after{
+    content:"";position:absolute;background:var(--slate);
+  }
+  details summary .chev::before{width:100%;height:2px;top:9px;left:0;}
+  details summary .chev::after{width:2px;height:100%;top:0;left:9px;transition:opacity .2s ease;}
+  details[open] summary .chev::after{opacity:0;}
+  details .answer{padding-bottom:22px;padding-right:36px;color:var(--body-on-paper);font-size:15.5px;}
+  .faq-cta{margin-top:40px;max-width:340px;margin-inline:auto;}
+
+  /* ============ FORM ============ */
+  .cta-final{background:var(--navy);color:#fff;}
+  .form-wrap{display:grid;gap:40px;max-width:1000px;margin:0 auto;}
+  @media(min-width:860px){.form-wrap{grid-template-columns:1fr 1fr;align-items:center;}}
+  .form-wrap h2{font-size:26px;color:#fff;}
+  @media(min-width:640px){.form-wrap h2{font-size:30px;}}
+  .form-wrap .lead{color:var(--body-on-navy);font-size:16px;margin-top:16px;}
+  .form-card{
+    background:#fff;color:var(--ink);border-radius:8px;padding:32px;
+    box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .field{display:flex;flex-direction:column;gap:6px;}
+  .field label{font-size:13.5px;font-weight:600;color:var(--ink);}
+  .field input,.field textarea{
+    border:1px solid var(--line);border-radius:4px;padding:13px 14px;
+    font-family:'Inter',sans-serif;font-size:15px;color:var(--ink);
+    background:#fff;
+  }
+  .field input:focus,.field textarea:focus{outline:2px solid var(--amber);outline-offset:1px;}
+  .field textarea{resize:vertical;min-height:80px;}
+  .form-note{font-size:13px;color:var(--slate);}
+  .form-status{font-size:14px;font-weight:600;min-height:20px;}
+  .form-status.ok{color:#15803d;}
+  .form-status.err{color:#b91c1c;}
+
+  /* ============ FOOTER ============ */
+  footer{background:var(--navy);color:var(--muted-on-navy);border-top:1px solid #334155;}
+  .footer-grid{
+    display:grid;gap:32px;
+    font-size:14px;
+  }
+  @media(min-width:760px){.footer-grid{grid-template-columns:1.3fr 1fr 1fr;}}
+  .wordmark{
+    font-family:'Montserrat',sans-serif;font-weight:800;font-size:20px;color:#fff;
+    letter-spacing:.01em;
+  }
+  .wordmark span{color:var(--amber);}
+  .footer-tagline{margin-top:10px;max-width:32ch;}
+  .footer-col h4{
+    font-family:'Inter',sans-serif;font-size:13px;font-weight:600;color:var(--body-on-navy);
+    text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px;
+  }
+  .footer-col p, .footer-col a{color:var(--muted-on-navy);text-decoration:none;display:block;margin-bottom:6px;}
+  .footer-col a:hover{color:#fff;}
+  .footer-bottom{
+    max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #334155;
+    font-size:12.5px;color:#64748B;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 1. HERO ============ -->
+<section class="hero">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <h1>Ngừng làm speaker miễn phí. Bắt đầu biến bài nói thành khách hàng trả phí cao.</h1>
+      <p class="sub">S-PEAK Keynote Masterclass giúp bạn đóng gói chuyên môn thành một bài nói sắc bén, logic — thu hút đúng khách hàng sẵn sàng trả giá cao, thay vì tiếp tục chia sẻ miễn phí mà không thu về gì.</p>
+      <a href="#form" class="btn">Tư vấn lộ trình phù hợp với tôi</a>
+      <p class="trust">
+        <span>15 năm kinh nghiệm</span><span>·</span>
+        <span>11.000+ giờ đào tạo</span><span>·</span>
+        <span>1.200+ giờ coaching</span>
+      </p>
+    </div>
+    <div class="hero-media">
+      <img src="images/hero.jpg" alt="Nam Nguyễn, nhà sáng lập S-PEAK" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. VẤN ĐỀ ============ -->
+<section class="section problem">
+  <div class="container">
+    <div class="problem-media">
+      <img src="images/problem-backstage.jpg" alt="Khoảnh khắc lặng lẽ trước khi bước lên sân khấu" loading="lazy">
+    </div>
+    <div class="prose">
+      <h2>Bạn đã đứng trên bao nhiêu sân khấu rồi — mà vẫn chưa có thêm một khách hàng nào?</h2>
+      <p>Bạn được mời chia sẻ ở một chương trình, được giới thiệu là chuyên gia trong lĩnh vực của mình. Bạn chuẩn bị cả tuần, thức khuya chỉnh slide, viết đi viết lại phần mở đầu. Sau khi nói, bạn bước xuống sân khấu với một tràng vỗ tay giòn giã. Bạn nghĩ mình đã là tất cả mọi thứ cần thiết nhưng không có bất kỳ một ai liên lạc với bạn sau chương trình.</p>
+      <p>Không phải vì bạn thiếu chuyên môn. Vấn đề nằm ở chỗ khác: nội dung bạn nói ra quá nhiều, quá dàn trải, không có một điểm neo đủ sắc bén để người nghe nhớ và tìm đến bạn sau đó.</p>
+      <p>Và không chỉ là chuyện sân khấu lớn. Có thể là buổi họp quan trọng với một khách hàng tiềm năng, nơi bạn biết mình hiểu vấn đề của họ hơn ai hết — nhưng lại không truyền tải được điều đó trong vài phút đầu, và nhìn thấy cơ hội trôi qua tay người khác dù chuyên môn có thể không tốt như bạn nhưng biết cách trình bày xuất sắc hơn.</p>
+      <p class="pull-quote">Nếu bạn từng nghĩ "chắc do thị trường khó khăn" hoặc "chắc do hôm đó mình chưa đủ tự tin" — thật ra, đây là điều bạn chưa dám thừa nhận: bạn đang thiếu một cấu trúc phù hợp để nói, không phải thiếu năng lực để làm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. KẾT QUẢ MONG MUỐN ============ -->
+<section class="section outcome">
+  <div class="container">
+    <div class="outcome-media">
+      <img src="images/outcome-onstage.jpg" alt="Nam Nguyễn làm chủ sân khấu, năng lượng cao" loading="lazy">
+    </div>
+    <div class="prose">
+      <h2>Hãy tưởng tượng bước xuống sân khấu — và điện thoại bắt đầu reo.</h2>
+      <p>Lần tiếp theo, bạn đi chia sẻ trong một chương trình với một bài nói đã được thiết kế có chủ đích — không "khủng bố" người nghe với tất cả những gì bạn biết, mà dẫn dắt họ một cách khéo léo: từ nghi ngờ, đến việc họ tự hỏi phải làm thế nào để có cơ hội được làm việc với bạn.</p>
+      <p>Bạn không còn phải soạn lại từ đầu mỗi lần được mời chia sẻ. Signature Talk, Speaking Canvas, các công thức đã thuộc nằm lòng — chuẩn bị mất vài giờ, thậm chí là chỉ vài phút, không còn cảnh áp lực phải thức trắng cả tuần chuẩn bị.</p>
+      <p>Và khi đứng trước bất kỳ tình huống nào, dù là hội thảo lớn hay phòng họp với một khách hàng quan trọng, bạn không còn tim đập chân run. Năng lượng ở đúng chỗ nó cần — vì bạn đã thật sự làm chủ được nó.</p>
+      <p class="pull-quote">Những buổi chia sẻ từng miễn phí giờ trở thành nơi khách hàng chất lượng chủ động tìm đến bạn — vị thế chuyên gia được thể hiện đúng tầm nó xứng đáng.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. CƠ CHẾ ============ -->
+<section class="section mechanism">
+  <div class="container">
+    <div class="mech-intro">
+      <p class="eyebrow">Cơ chế S-PEAK</p>
+      <h2>Nói tạo ảnh hưởng không phải năng khiếu. Đó là một quy trình — và quy trình thì có thể học được.</h2>
+      <p>Hầu hết mọi người tiếp cận việc học public speaking theo cách sai ngay từ đầu: cố gắng nói lưu loát hơn, trôi chảy hơn, tự tin hơn. Nhưng sự tự tin thật sự không đến từ việc cố tỏ ra tự tin — nó đến từ việc biết chính xác mình sẽ nói gì, có cấu trúc rõ ràng, và quản trị được trạng thái cảm xúc khi nói.</p>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Đóng gói nội dung</h3>
+        <p>Dùng framework để chuyển chuyên môn "vũ trụ" trong đầu bạn thành một cấu trúc bài nói mạch lạc, có điểm neo, dễ nhớ.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Làm chủ tâm lý và năng lượng</h3>
+        <p>Không né tránh nỗi sợ sân khấu, mà có công thức để kiểm soát nó mỗi khi cần.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Thực hành đến khi thành năng lực thật sự</h3>
+        <p>Không chỉ học lý thuyết một lần, mà luyện lại nhiều lần với feedback trực tiếp, đến khi cấu trúc trở thành bản năng.</p>
+      </div>
+    </div>
+    <p class="mech-close">S-PEAK không dạy bạn nói cho hay. Đây là hệ thống được thiết kế riêng để xây dựng một bài nói ứng dụng năng lực nói tạo ảnh hưởng, trở thành đòn bẩy cho việc kinh doanh tri thức của bạn — đúc kết từ 15 năm huấn luyện chuyên gia và hơn 11.000 giờ đào tạo thực chiến.</p>
+  </div>
+</section>
+
+<!-- ============ 5. OFFER & DELIVERABLES ============ -->
+<section class="section offer" id="offer">
+  <div class="container">
+    <div class="offer-head">
+      <p class="eyebrow">S-PEAK Keynote Masterclass</p>
+      <h2>Thiết kế bài nói định vị và thu hút khách hàng chất lượng</h2>
+    </div>
+    <p class="offer-path">Lộ trình: 3 ngày offline &nbsp;→&nbsp; 3 tuần thực hành có feedback &nbsp;→&nbsp; 2 ngày offline hoàn thiện</p>
+
+    <div class="offer-hero-img">
+      <img src="images/offer-training-qa.jpg" alt="Buổi live training S-PEAK" loading="lazy">
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Nội dung &amp; Framework</h3>
+        <ul>
+          <li>Bộ workbook và hệ thống template, khung cấu trúc bài nói để tự điền và áp dụng ngay</li>
+          <li>Speaking Canvas để tối ưu nội dung bài nói, tiết kiệm thời gian chuẩn bị</li>
+          <li>Công thức VES để giới thiệu bản thân thu hút, ấn tượng</li>
+          <li>Công thức DTR để chia sẻ câu chuyện súc tích</li>
+          <li>Bộ 5 cách tạo Hooks để tăng độ gắn kết của bài nói</li>
+          <li>Công thức kích hoạt sự tự tin khi bước lên sân khấu</li>
+        </ul>
+      </div>
+      <div class="card">
+        <img src="images/offer-coaching.jpg" alt="Live coaching 1-1 cùng học viên" loading="lazy">
+        <h3>Đồng hành &amp; Feedback</h3>
+        <ul>
+          <li>Live coaching, live training trực tiếp kèm feedback 1-1 từ Nam Nguyễn</li>
+          <li>Nhóm hỗ trợ kín (Zalo/Telegram) để giải đáp thắc mắc và feedback liên tục</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Tài sản mang về</h3>
+        <ul>
+          <li>1 Signature Talk hoàn chỉnh, dùng được trong nhiều bối cảnh khác nhau</li>
+          <li>Một hệ thống bạn dùng lại suốt sự nghiệp: keynote, pitch khách hàng, gọi vốn</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <span class="label">Học phí</span>
+      <span class="amount">36.000.000 VND</span>
+      <div class="options">
+        <span>Thanh toán 1 lần: <strong>30.000.000 VND</strong></span>
+        <span>Hoặc trả góp: <strong>12.000.000 VND / tháng</strong> trong 3 tháng</span>
+      </div>
+      <a href="#form" class="btn">Tư vấn lộ trình phù hợp với tôi</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. QUY TRÌNH ============ -->
+<section class="section process">
+  <div class="container">
+    <div class="process-head">
+      <p class="eyebrow">Quy trình</p>
+      <h2>Từ buổi tư vấn đầu tiên đến Signature Talk hoàn chỉnh — một lộ trình rõ ràng, không mơ hồ.</h2>
+    </div>
+    <div class="proc-list">
+      <div class="proc-item">
+        <span class="proc-num">1</span>
+        <div class="proc-body">
+          <h3>Tư vấn lộ trình</h3>
+          <p>Trao đổi 1-1 để hiểu đúng bối cảnh kinh doanh và mục tiêu bài nói của bạn, xác nhận chương trình phù hợp trước khi bắt đầu.</p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <span class="proc-num">2</span>
+        <div class="proc-body">
+          <h3>3 ngày offline: Xây nền tảng</h3>
+          <p>Học và áp dụng trực tiếp framework cốt lõi (VES, DTR, Hooks) để đóng gói chuyên môn thành cấu trúc bài nói mạch lạc.</p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <span class="proc-num">3</span>
+        <div class="proc-body">
+          <h3>3 tuần thực hành có feedback</h3>
+          <p>Luyện tập với sự đồng hành liên tục trong nhóm hỗ trợ kín, nhận feedback 1-1.</p>
+        </div>
+      </div>
+      <div class="proc-item">
+        <span class="proc-num">4</span>
+        <div class="proc-body">
+          <h3>2 ngày offline: Hoàn thiện</h3>
+          <p>Diễn tập trực tiếp trên sân khấu, nhận phản hồi sát sao để hoàn chỉnh Signature Talk.</p>
+        </div>
+      </div>
+    </div>
+    <div class="proc-media">
+      <img src="images/process-session.jpg" alt="Buổi đồng hành thực hành cùng học viên" loading="lazy">
+      <img src="images/offer-1on1.jpg" alt="Feedback 1-1 trong quá trình thực hành" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. PROOF ============ -->
+<section class="section proof">
+  <div class="container">
+    <div class="proof-head">
+      <p class="eyebrow">Kết quả thật</p>
+      <h2>Không chỉ là lý thuyết — đây là những gì đã thật sự thay đổi với học viên.</h2>
+    </div>
+
+    <div class="testi-main">
+      <div class="testi-video">
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div class="play-badge">▶</div>
+          <span>Video testimonial đầy đủ — đang cập nhật</span>
+        </div>
+      </div>
+      <div class="testi-copy">
+        <span class="name">Nguyễn Ngọc Trâm</span>
+        <span class="role">Creative Director, Umedia</span>
+        <p class="quote">"Tháng 4/2025: <b>tăng 30% thu nhập và thăng chức.</b> Tháng 8/2025: từ 'ú ớ' khi nói, <b>hoàn thành xuất sắc việc training cho 50 người</b> — và đang trong hành trình viết quyển sách đầu tay."</p>
+      </div>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-thumb">▶</div>
+        <div class="meta">
+          <div class="name">Trần Diệu Linh</div>
+          <div class="role">Founder &amp; CEO, 3AMD Spa &amp; Skin Coaching Academy</div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-thumb">▶</div>
+        <div class="meta">
+          <div class="name">Nguyễn Vũ Thùy Linh</div>
+          <div class="role">CEO, Lumia Academy</div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-thumb">▶</div>
+        <div class="meta">
+          <div class="name">Phan Tuyết Trinh</div>
+          <div class="role">Financial Coach, GĐ Tài chính Khối KD, Ngân hàng ACB</div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-thumb">▶</div>
+        <div class="meta">
+          <div class="name">Hoàng Phương Trang</div>
+          <div class="role">Quản lý cấp cao, Trường Quốc tế BVIS Hà Nội</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="org-row">
+      <span>DDI World</span><span>Cegos APAC</span><span>Talentvis</span><span>OCB</span><span>LSP</span>
+    </div>
+    <p class="credentials">CoachVille Professional Certified Coach · CCA Certified Coach · 1.200+ giờ coaching · DDI World Certified Professional Facilitator — 11.000+ giờ điều phối</p>
+  </div>
+</section>
+
+<!-- ============ 8. FAQ ============ -->
+<section class="section faq">
+  <div class="container">
+    <div class="faq-head">
+      <p class="eyebrow">Hỏi thật, đáp thật</p>
+      <h2>Trước khi bạn quyết định, đây là những câu hỏi thật lòng nhất</h2>
+    </div>
+    <div class="faq-list">
+      <details>
+        <summary>Học phí 36 triệu có đáng không?<span class="chev"></span></summary>
+        <div class="answer">Đây không phải một khóa học kỹ năng mềm ngắn hạn — đó là một khoản đầu tư vào hệ thống bạn sẽ dùng lại trong suốt sự nghiệp: từ bài keynote, đến buổi pitch khách hàng, đến vòng gọi vốn. Được đồng hành trực tiếp 1-1 với Nam Nguyễn trong suốt hành trình.</div>
+      </details>
+      <details>
+        <summary>Các công thức VES, DTR, Hooks có cứng nhắc, có hợp với phong cách nói của riêng tôi không?<span class="chev"></span></summary>
+        <div class="answer">Đây là khung cấu trúc, không phải kịch bản để học thuộc lòng. Framework giúp bạn sắp xếp đúng thứ tự và trọng tâm — giọng nói, câu chuyện, cách diễn đạt vẫn hoàn toàn là của bạn.</div>
+      </details>
+      <details>
+        <summary>Tôi từng học một khóa thuyết trình trước đây mà không hiệu quả, sao tin lần này sẽ khác?<span class="chev"></span></summary>
+        <div class="answer">Khác biệt lớn nhất là mức độ đồng hành: 3 ngày offline, 3 tuần thực hành có feedback 1-1, và 2 ngày hoàn thiện — đủ thời gian để một kỹ năng mới trở thành phản xạ.</div>
+      </details>
+      <details>
+        <summary>Tôi khá bận, liệu có đủ thời gian tham gia trọn vẹn không?<span class="chev"></span></summary>
+        <div class="answer">Lịch trình có mốc rõ ràng, không phải cam kết mơ hồ kéo dài. Đây cũng là câu hỏi nên trao đổi trực tiếp trong buổi tư vấn.</div>
+      </details>
+      <details>
+        <summary>Tôi khá hướng nội, chương trình này có quá sức không?<span class="chev"></span></summary>
+        <div class="answer">Một phần cốt lõi là làm chủ tâm lý và năng lượng — được thiết kế riêng cho người chưa quen với cảm giác đó, không chỉ dành cho người đã tự tin sẵn.</div>
+      </details>
+      <details>
+        <summary>Tôi đã có chuyên môn vững, việc học thêm cấu trúc thuyết trình có thực sự tạo khác biệt không?<span class="chev"></span></summary>
+        <div class="answer">Chuyên môn vững là điều kiện cần, nhưng không tự động chuyển thành khách hàng trả phí cao nếu người nghe không thấy rõ giá trị đó trong vài phút đầu tiên.</div>
+      </details>
+    </div>
+    <div class="faq-cta">
+      <a href="#form" class="btn">Tư vấn lộ trình phù hợp với tôi</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. FORM / CTA CUỐI ============ -->
+<section class="section cta-final" id="form">
+  <div class="container">
+    <div class="form-wrap">
+      <div>
+        <h2>Bạn không thiếu chuyên môn. Bạn chỉ đang thiếu một hệ thống biến nó thành đòn bẩy kinh doanh tri thức</h2>
+        <p class="lead">Để lại thông tin, đội ngũ S-PEAK sẽ liên hệ trao đổi trực tiếp về hiện trạng và lộ trình phù hợp với bạn — trước khi bạn quyết định bất cứ điều gì.</p>
+      </div>
+      <form class="form-card" id="leadForm" novalidate>
+        <div class="field">
+          <label for="f-name">Họ tên</label>
+          <input type="text" id="f-name" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="f-phone">Số điện thoại / Zalo</label>
+          <input type="tel" id="f-phone" name="phone" required autocomplete="tel">
+        </div>
+        <div class="field">
+          <label for="f-note">Bạn đang gặp khó khăn gì nhất khi thuyết trình, pitch hoặc chia sẻ trước đám đông? <span style="font-weight:400;color:var(--slate);">(không bắt buộc)</span></label>
+          <textarea id="f-note" name="note"></textarea>
+        </div>
+        <button type="submit" class="btn" id="f-submit">Tư vấn lộ trình phù hợp với tôi</button>
+        <p class="form-status" id="f-status" role="status" aria-live="polite"></p>
+        <p class="form-note">Thông tin của bạn chỉ dùng để liên hệ tư vấn, không chia sẻ cho bên thứ ba.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. FOOTER ============ -->
+<footer class="section">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="wordmark">S-PEAK<span>!</span></div>
+        <p class="footer-tagline">Biến năng lực nói thành đòn bẩy tạo ảnh hưởng và tăng trưởng kinh doanh.</p>
+        <p class="footer-tagline" style="margin-top:16px;font-size:12.5px;">CoachVille Professional Certified Coach · DDI World Certified Professional Facilitator · 15+ năm kinh nghiệm đào tạo</p>
+      </div>
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <a href="tel:0912081802">0912 08 18 02</a>
+        <a href="mailto:coachnamnguyen@gmail.com">coachnamnguyen@gmail.com</a>
+      </div>
+      <div class="footer-col">
+        <h4>Hệ sinh thái S-PEAK</h4>
+        <p style="margin-bottom:0;">Ngoài Keynote Masterclass, S-PEAK còn có chương trình nền tảng Dare to S-PEAK và các lộ trình đồng hành chuyên sâu hơn cho hành trình phát triển năng lực nói và kinh doanh tri thức dài hạn.</p>
+      </div>
+    </div>
+    <div class="footer-bottom container" style="padding-inline:0;">
+      © 2026 S-PEAK by Nam Nguyễn. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+/* =========================================================================
+   CẤU HÌNH — điền các giá trị dưới đây trước khi đưa trang lên daretospeak.vn/s-peak
+   ========================================================================= */
+window.SPEAK_CONFIG = {
+  // URL Web App của Google Apps Script (Extensions > Apps Script > Deploy > Web app)
+  // dùng để form gửi dữ liệu thẳng vào Google Sheet. Để trống thì form sẽ báo lỗi thân thiện.
+  GOOGLE_APPS_SCRIPT_URL: "",
+
+  // Facebook Pixel ID (dạng chuỗi số, ví dụ "1234567890123456"). Để trống nếu chưa có.
+  FACEBOOK_PIXEL_ID: "",
+
+  // Google Tag Manager Container ID (dạng "GTM-XXXXXXX"). Để trống nếu chưa có.
+  GTM_ID: ""
+};
+
+(function () {
+  var cfg = window.SPEAK_CONFIG;
+
+  // ---- Google Tag Manager (chỉ chèn nếu đã điền GTM_ID) ----
+  if (cfg.GTM_ID) {
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', cfg.GTM_ID);
+  }
+
+  // ---- Facebook Pixel (chỉ chèn nếu đã điền FACEBOOK_PIXEL_ID) ----
+  if (cfg.FACEBOOK_PIXEL_ID) {
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments) };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0'; n.queue = [];
+      t = b.createElement(e); t.async = !0; t.src = v;
+      s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+    }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', cfg.FACEBOOK_PIXEL_ID);
+    fbq('track', 'PageView');
+  }
+
+  // ---- Form submit -> Google Sheet qua Apps Script ----
+  var form = document.getElementById('leadForm');
+  var statusEl = document.getElementById('f-status');
+  var submitBtn = document.getElementById('f-submit');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    statusEl.className = 'form-status';
+    statusEl.textContent = '';
+
+    var name = document.getElementById('f-name').value.trim();
+    var phone = document.getElementById('f-phone').value.trim();
+    var note = document.getElementById('f-note').value.trim();
+
+    if (!name || !phone) {
+      statusEl.className = 'form-status err';
+      statusEl.textContent = 'Vui lòng điền Họ tên và Số điện thoại/Zalo.';
+      return;
+    }
+
+    if (!cfg.GOOGLE_APPS_SCRIPT_URL) {
+      statusEl.className = 'form-status err';
+      statusEl.textContent = 'Form chưa được kết nối tới nơi nhận dữ liệu. (Dev: điền GOOGLE_APPS_SCRIPT_URL trong file cấu hình.)';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Đang gửi...';
+
+    fetch(cfg.GOOGLE_APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name: name, phone: phone, note: note, source: 'daretospeak.vn/s-peak', ts: new Date().toISOString() })
+    }).then(function () {
+      statusEl.className = 'form-status ok';
+      statusEl.textContent = 'Cảm ơn bạn! Đội ngũ S-PEAK sẽ liên hệ trong thời gian sớm nhất.';
+      form.reset();
+      if (cfg.FACEBOOK_PIXEL_ID && window.fbq) { fbq('track', 'Lead'); }
+      if (cfg.GTM_ID && window.dataLayer) { window.dataLayer.push({ event: 'speak_lead_submit' }); }
+    }).catch(function () {
+      statusEl.className = 'form-status err';
+      statusEl.textContent = 'Có lỗi khi gửi, vui lòng thử lại hoặc liên hệ trực tiếp 0912 08 18 02.';
+    }).finally(function () {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Tư vấn lộ trình phù hợp với tôi';
+    });
+  });
+})();
+</script>
+</body>
+</html>
