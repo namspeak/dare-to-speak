@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>S-PEAK Keynote Masterclass</title>
-<meta name="description" content="Ngừng làm speaker miễn phí. Bắt đầu biến bài nói thành khách hàng trả phí cao — S-PEAK Keynote Masterclass với Nam Nguyễn.">
+<meta name="description" content="Ngừng làm speaker miễn phí. Bắt đầu biến bài nói thành khách hàng trả phí cao cùng S-PEAK Keynote Masterclass với Nam Nguyễn.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --navy:#0B2759;
-    --navy-2:#123B7A;
+    --navy:#0A0A0A;
+    --navy-2:#1C1C1C;
+    --navy-gradient: radial-gradient(140% 140% at 18% -10%, #2a1d10 0%, #140f0a 32%, #0a0a0a 58%, #000000 100%);
+    --card-border:rgba(255,255,255,.08);
     --ink-on-navy:#F8FAFC;
     --body-on-navy:#CBD5E1;
     --muted-on-navy:#94A3B8;
@@ -189,7 +191,7 @@
   }
 
   /* ============ PROBLEM (dark, editorial) ============ */
-  .problem{background:var(--navy);color:var(--ink-on-navy);}
+  .problem{background:var(--navy-gradient);color:var(--ink-on-navy);}
   .problem-media{margin-bottom:16px;border-radius:8px;overflow:hidden;max-width:720px;margin-inline:auto;aspect-ratio:3/2;}
   .problem-media img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:saturate(.85) brightness(.92);}
   .media-caption{
@@ -263,13 +265,13 @@
   .mech-close{max-width:680px;margin:48px auto 0;font-size:16px;color:var(--body-on-paper);text-align:center;font-weight:500;}
 
   /* ============ MOMENTS GALLERY ============ */
-  .moments{background:var(--navy);}
+  .moments{background:var(--navy-gradient);}
   .moments-head{max-width:680px;margin:0 auto 48px;text-align:center;}
   .moments-head h2{color:#fff;font-size:26px;}
   @media(min-width:640px){.moments-head h2{font-size:32px;}}
   .moments-grid{display:grid;gap:24px;}
   @media(min-width:800px){.moments-grid{grid-template-columns:repeat(3,1fr);}}
-  .moment-card{border-radius:8px;overflow:hidden;background:var(--navy-2);}
+  .moment-card{border-radius:8px;overflow:hidden;background:linear-gradient(160deg, #1f1f1f 0%, #141414 100%);border:1px solid var(--card-border);}
   .moment-card img{width:100%;aspect-ratio:4/3;object-fit:cover;}
   .moment-label{padding:20px;}
   .moment-eyebrow{
@@ -280,7 +282,7 @@
   .moment-card h3{color:#fff;font-size:16px;font-weight:700;line-height:1.35;}
 
   /* ============ OFFER ============ */
-  .offer{background:var(--navy);color:var(--ink-on-navy);padding-block:0 64px;}
+  .offer{background:var(--navy-gradient);color:var(--ink-on-navy);padding-block:0 64px;}
   @media(min-width:900px){.offer{padding-block:0 112px;}}
   .offer-hero-banner{
     position:relative;
@@ -300,7 +302,7 @@
   .offer-hero-banner::after{
     content:"";
     position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(30,41,59,.05) 0%, rgba(30,41,59,.45) 55%, rgba(30,41,59,.95) 100%);
+    background:linear-gradient(180deg, rgba(10,10,10,.05) 0%, rgba(10,10,10,.5) 55%, rgba(10,10,10,.97) 100%);
   }
   .offer-hero-banner-text{position:relative;z-index:1;padding-bottom:36px;text-align:center;width:100%;}
   .offer-hero-banner-text h2{color:#fff;font-size:26px;}
@@ -314,8 +316,8 @@
   .cards{display:grid;gap:24px;margin-bottom:56px;}
   @media(min-width:820px){.cards{grid-template-columns:repeat(3,1fr);}}
   .card{
-    background:var(--navy-2);
-    border:1px solid #26407d;
+    background:linear-gradient(160deg, #1f1f1f 0%, #151515 100%);
+    border:1px solid var(--card-border);
     border-radius:8px;
     padding:32px;
     display:flex;
@@ -475,7 +477,7 @@
   .faq-cta{margin-top:40px;max-width:340px;margin-inline:auto;}
 
   /* ============ FORM ============ */
-  .cta-final{background:var(--navy);color:#fff;}
+  .cta-final{background:var(--navy-gradient);color:#fff;}
   .form-wrap{display:grid;gap:40px;max-width:1000px;margin:0 auto;}
   @media(min-width:860px){.form-wrap{grid-template-columns:1fr 1fr;align-items:center;}}
   .form-wrap h2{font-size:26px;color:#fff;}
@@ -501,7 +503,7 @@
   .form-status.err{color:#b91c1c;}
 
   /* ============ FOOTER ============ */
-  footer{background:var(--navy);color:var(--muted-on-navy);border-top:1px solid #26407d;}
+  footer{background:var(--navy);color:var(--muted-on-navy);border-top:1px solid rgba(255,255,255,.1);}
   .footer-grid{
     display:grid;gap:32px;
     font-size:14px;
@@ -520,7 +522,7 @@
   .footer-col p, .footer-col a{color:var(--muted-on-navy);text-decoration:none;display:block;margin-bottom:6px;}
   .footer-col a:hover{color:#fff;}
   .footer-bottom{
-    max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #26407d;
+    max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
     font-size:12.5px;color:#64748B;
   }
 
@@ -549,8 +551,8 @@
     <div class="hero-overlay"></div>
     <div class="hero-copy">
       <span class="hero-badge">S-PEAK Keynote Masterclass</span>
-      <h1><span class="hero-line1">Ngừng làm speaker miễn phí.</span><span class="hero-line2">Bắt đầu biến bài nói thành khách hàng trả phí cao.</span></h1>
-      <p class="sub">S-PEAK Keynote Masterclass giúp bạn đóng gói chuyên môn thành một bài nói sắc bén, logic — thu hút đúng khách hàng sẵn sàng trả giá cao, thay vì tiếp tục chia sẻ miễn phí mà không thu về gì.</p>
+      <h1><span class="hero-line1">Ngừng làm speaker miễn phí</span><span class="hero-line2">Bắt đầu biến bài nói thành khách hàng trả phí cao</span></h1>
+      <p class="sub">S-PEAK Keynote Masterclass giúp bạn đóng gói chuyên môn thành một bài nói sắc bén, logic, thu hút đúng khách hàng sẵn sàng trả giá cao, thay vì tiếp tục chia sẻ miễn phí mà không thu về gì.</p>
       <a href="#form" class="btn">Tư vấn lộ trình phù hợp với tôi</a>
       <p class="trust">
         <span>15 năm kinh nghiệm</span><span>·</span>
@@ -567,13 +569,13 @@
     <div class="problem-media">
       <img src="images/problem-backstage.jpg" alt="Khoảnh khắc lặng lẽ trước khi bước lên sân khấu" loading="lazy">
     </div>
-    <p class="media-caption">Sau tràng vỗ tay, khán phòng vẫn im lặng — không ai chủ động tìm đến bạn.</p>
+    <p class="media-caption">Sau tràng vỗ tay, khán phòng vẫn im lặng. Không ai chủ động tìm đến bạn.</p>
     <div class="prose reveal">
-      <h2>Bạn đã đứng trên bao nhiêu sân khấu rồi —<span class="accent">mà vẫn chưa có thêm một khách hàng nào?</span></h2>
+      <h2>Bạn đã đứng trên bao nhiêu sân khấu rồi,<span class="accent">mà vẫn chưa có thêm một khách hàng nào?</span></h2>
       <p>Bạn được mời chia sẻ ở một chương trình, được giới thiệu là chuyên gia trong lĩnh vực của mình. Bạn chuẩn bị cả tuần, thức khuya chỉnh slide, viết đi viết lại phần mở đầu. Sau khi nói, bạn bước xuống sân khấu với một tràng vỗ tay giòn giã. Bạn nghĩ mình đã là tất cả mọi thứ cần thiết nhưng không có bất kỳ một ai liên lạc với bạn sau chương trình.</p>
       <p>Không phải vì bạn thiếu chuyên môn. Vấn đề nằm ở chỗ khác: nội dung bạn nói ra quá nhiều, quá dàn trải, không có một điểm neo đủ sắc bén để người nghe nhớ và tìm đến bạn sau đó.</p>
-      <p>Và không chỉ là chuyện sân khấu lớn. Có thể là buổi họp quan trọng với một khách hàng tiềm năng, nơi bạn biết mình hiểu vấn đề của họ hơn ai hết — nhưng lại không truyền tải được điều đó trong vài phút đầu, và nhìn thấy cơ hội trôi qua tay người khác dù chuyên môn có thể không tốt như bạn nhưng biết cách trình bày xuất sắc hơn.</p>
-      <p class="pull-quote">Nếu bạn từng nghĩ "chắc do thị trường khó khăn" hoặc "chắc do hôm đó mình chưa đủ tự tin" — thật ra, đây là điều bạn chưa dám thừa nhận: bạn đang thiếu một cấu trúc phù hợp để nói, không phải thiếu năng lực để làm.</p>
+      <p>Và không chỉ là chuyện sân khấu lớn. Có thể là buổi họp quan trọng với một khách hàng tiềm năng, nơi bạn biết mình hiểu vấn đề của họ hơn ai hết, nhưng lại không truyền tải được điều đó trong vài phút đầu, và nhìn thấy cơ hội trôi qua tay người khác dù chuyên môn có thể không tốt như bạn nhưng biết cách trình bày xuất sắc hơn.</p>
+      <p class="pull-quote">Nếu bạn từng nghĩ "chắc do thị trường khó khăn" hoặc "chắc do hôm đó mình chưa đủ tự tin", thật ra đây là điều bạn chưa dám thừa nhận: bạn đang thiếu một cấu trúc phù hợp để nói, không phải thiếu năng lực để làm.</p>
     </div>
   </div>
 </section>
@@ -586,11 +588,11 @@
     </div>
     <p class="media-caption">Nam Nguyễn dẫn dắt một buổi đào tạo doanh nghiệp với cấu trúc bài nói rõ ràng.</p>
     <div class="prose reveal">
-      <h2>Hãy tưởng tượng bước xuống sân khấu —<span class="accent">và điện thoại bắt đầu reo.</span></h2>
-      <p>Lần tiếp theo, bạn đi chia sẻ trong một chương trình với một bài nói đã được thiết kế có chủ đích — không "khủng bố" người nghe với tất cả những gì bạn biết, mà dẫn dắt họ một cách khéo léo: từ nghi ngờ, đến việc họ tự hỏi phải làm thế nào để có cơ hội được làm việc với bạn.</p>
-      <p>Bạn không còn phải soạn lại từ đầu mỗi lần được mời chia sẻ. Signature Talk, Speaking Canvas, các công thức đã thuộc nằm lòng — chuẩn bị mất vài giờ, thậm chí là chỉ vài phút, không còn cảnh áp lực phải thức trắng cả tuần chuẩn bị.</p>
-      <p>Và khi đứng trước bất kỳ tình huống nào, dù là hội thảo lớn hay phòng họp với một khách hàng quan trọng, bạn không còn tim đập chân run. Năng lượng ở đúng chỗ nó cần — vì bạn đã thật sự làm chủ được nó.</p>
-      <p class="pull-quote">Những buổi chia sẻ từng miễn phí giờ trở thành nơi khách hàng chất lượng chủ động tìm đến bạn — vị thế chuyên gia được thể hiện đúng tầm nó xứng đáng.</p>
+      <h2>Hãy tưởng tượng bước xuống sân khấu,<span class="accent">và điện thoại bắt đầu reo</span></h2>
+      <p>Lần tiếp theo, bạn đi chia sẻ trong một chương trình với một bài nói đã được thiết kế có chủ đích, không "khủng bố" người nghe với tất cả những gì bạn biết, mà dẫn dắt họ một cách khéo léo: từ nghi ngờ, đến việc họ tự hỏi phải làm thế nào để có cơ hội được làm việc với bạn.</p>
+      <p>Bạn không còn phải soạn lại từ đầu mỗi lần được mời chia sẻ. Signature Talk, Speaking Canvas, các công thức đã thuộc nằm lòng. Chuẩn bị mất vài giờ, thậm chí là chỉ vài phút, không còn cảnh áp lực phải thức trắng cả tuần chuẩn bị.</p>
+      <p>Và khi đứng trước bất kỳ tình huống nào, dù là hội thảo lớn hay phòng họp với một khách hàng quan trọng, bạn không còn tim đập chân run. Năng lượng ở đúng chỗ nó cần, vì bạn đã thật sự làm chủ được nó.</p>
+      <p class="pull-quote">Những buổi chia sẻ từng miễn phí giờ trở thành nơi khách hàng chất lượng chủ động tìm đến bạn, vị thế chuyên gia được thể hiện đúng tầm nó xứng đáng.</p>
     </div>
   </div>
 </section>
@@ -600,8 +602,8 @@
   <div class="container">
     <div class="mech-intro reveal">
       <p class="eyebrow">Cơ chế S-PEAK</p>
-      <h2>Nói tạo ảnh hưởng không phải năng khiếu. Đó là một quy trình — và quy trình thì có thể học được.</h2>
-      <p>Hầu hết mọi người tiếp cận việc học public speaking theo cách sai ngay từ đầu: cố gắng nói lưu loát hơn, trôi chảy hơn, tự tin hơn. Nhưng sự tự tin thật sự không đến từ việc cố tỏ ra tự tin — nó đến từ việc biết chính xác mình sẽ nói gì, có cấu trúc rõ ràng, và quản trị được trạng thái cảm xúc khi nói.</p>
+      <h2>Nói tạo ảnh hưởng không phải năng khiếu. Đó là một quy trình, và quy trình thì có thể học được</h2>
+      <p>Hầu hết mọi người tiếp cận việc học public speaking theo cách sai ngay từ đầu: cố gắng nói lưu loát hơn, trôi chảy hơn, tự tin hơn. Nhưng sự tự tin thật sự không đến từ việc cố tỏ ra tự tin. Nó đến từ việc biết chính xác mình sẽ nói gì, có cấu trúc rõ ràng, và quản trị được trạng thái cảm xúc khi nói.</p>
     </div>
     <div class="timeline">
       <div class="step">
@@ -620,7 +622,7 @@
         <p>Không chỉ học lý thuyết một lần, mà luyện lại nhiều lần với feedback trực tiếp, đến khi cấu trúc trở thành bản năng.</p>
       </div>
     </div>
-    <p class="mech-close">S-PEAK không dạy bạn nói cho hay. Đây là hệ thống được thiết kế riêng để xây dựng một bài nói ứng dụng năng lực nói tạo ảnh hưởng, trở thành đòn bẩy cho việc kinh doanh tri thức của bạn — đúc kết từ 15 năm huấn luyện chuyên gia và hơn 11.000 giờ đào tạo thực chiến.</p>
+    <p class="mech-close">S-PEAK không dạy bạn nói cho hay. Đây là hệ thống được thiết kế riêng để xây dựng một bài nói ứng dụng năng lực nói tạo ảnh hưởng, trở thành đòn bẩy cho việc kinh doanh tri thức của bạn, đúc kết từ 15 năm huấn luyện chuyên gia và hơn 11.000 giờ đào tạo thực chiến.</p>
   </div>
 </section>
 
@@ -629,7 +631,7 @@
   <div class="container">
     <div class="moments-head reveal">
       <p class="eyebrow">Khoảnh khắc S-PEAK</p>
-      <h2>Học thật, luyện thật — không chỉ là lý thuyết trên slide.</h2>
+      <h2>Học thật, luyện thật, không chỉ là lý thuyết trên slide</h2>
     </div>
     <div class="moments-grid">
       <div class="moment-card reveal">
@@ -714,7 +716,7 @@
   <div class="container">
     <div class="process-head reveal">
       <p class="eyebrow">Quy trình</p>
-      <h2>Từ buổi tư vấn đầu tiên đến Signature Talk hoàn chỉnh — một lộ trình rõ ràng, không mơ hồ.</h2>
+      <h2>Từ buổi tư vấn đầu tiên đến Signature Talk hoàn chỉnh, một lộ trình rõ ràng, không mơ hồ</h2>
     </div>
     <div class="proc-list">
       <div class="proc-item">
@@ -758,7 +760,7 @@
   <div class="container">
     <div class="proof-head reveal">
       <p class="eyebrow">Kết quả thật</p>
-      <h2>Không chỉ là lý thuyết — đây là những gì đã thật sự thay đổi với học viên.</h2>
+      <h2>Không chỉ là lý thuyết, đây là những gì đã thật sự thay đổi với học viên</h2>
     </div>
 
     <div class="testi-main">
@@ -768,7 +770,7 @@
       <div class="testi-copy">
         <span class="name">Queenny Ngô</span>
         <span class="role">Founder &amp; CEO, MLS · Founder, Chạm Media</span>
-        <p class="quote">"Sau S-PEAK K04, tôi xây được bài nói showcase riêng cho BNI — và chỉ <b>sau 5 phút trình bày, tôi có ngay 8 kết nối kinh doanh chất lượng.</b>"</p>
+        <p class="quote">"Sau S-PEAK K04, tôi xây được bài nói showcase riêng cho BNI, và chỉ <b>sau 5 phút trình bày, tôi có ngay 8 kết nối kinh doanh chất lượng.</b>"</p>
       </div>
     </div>
 
@@ -813,7 +815,7 @@
     <div class="org-row">
       <span>DDI World</span><span>Cegos APAC</span><span>Talentvis</span><span>OCB</span><span>LSP</span>
     </div>
-    <p class="credentials">CoachVille Professional Certified Coach · CCA Certified Coach · 1.200+ giờ coaching · DDI World Certified Professional Facilitator — 11.000+ giờ điều phối</p>
+    <p class="credentials">CoachVille Professional Certified Coach · CCA Certified Coach · 1.200+ giờ coaching · DDI World Certified Professional Facilitator · 11.000+ giờ điều phối</p>
   </div>
 </section>
 
@@ -827,15 +829,15 @@
     <div class="faq-list">
       <details>
         <summary>Học phí 36 triệu có đáng không?<span class="chev"></span></summary>
-        <div class="answer">Đây không phải một khóa học kỹ năng mềm ngắn hạn — đó là một khoản đầu tư vào hệ thống bạn sẽ dùng lại trong suốt sự nghiệp: từ bài keynote, đến buổi pitch khách hàng, đến vòng gọi vốn. Được đồng hành trực tiếp 1-1 với Nam Nguyễn trong suốt hành trình.</div>
+        <div class="answer">Đây không phải một khóa học kỹ năng mềm ngắn hạn. Đó là một khoản đầu tư vào hệ thống bạn sẽ dùng lại trong suốt sự nghiệp: từ bài keynote, đến buổi pitch khách hàng, đến vòng gọi vốn. Được đồng hành trực tiếp 1-1 với Nam Nguyễn trong suốt hành trình.</div>
       </details>
       <details>
         <summary>Các công thức VES, DTR, Hooks có cứng nhắc, có hợp với phong cách nói của riêng tôi không?<span class="chev"></span></summary>
-        <div class="answer">Đây là khung cấu trúc, không phải kịch bản để học thuộc lòng. Framework giúp bạn sắp xếp đúng thứ tự và trọng tâm — giọng nói, câu chuyện, cách diễn đạt vẫn hoàn toàn là của bạn.</div>
+        <div class="answer">Đây là khung cấu trúc, không phải kịch bản để học thuộc lòng. Framework giúp bạn sắp xếp đúng thứ tự và trọng tâm: giọng nói, câu chuyện, cách diễn đạt vẫn hoàn toàn là của bạn.</div>
       </details>
       <details>
         <summary>Tôi từng học một khóa thuyết trình trước đây mà không hiệu quả, sao tin lần này sẽ khác?<span class="chev"></span></summary>
-        <div class="answer">Khác biệt lớn nhất là mức độ đồng hành: 3 ngày offline, 3 tuần thực hành có feedback 1-1, và 2 ngày hoàn thiện — đủ thời gian để một kỹ năng mới trở thành phản xạ.</div>
+        <div class="answer">Khác biệt lớn nhất là mức độ đồng hành: 3 ngày offline, 3 tuần thực hành có feedback 1-1, và 2 ngày hoàn thiện, đủ thời gian để một kỹ năng mới trở thành phản xạ.</div>
       </details>
       <details>
         <summary>Tôi khá bận, liệu có đủ thời gian tham gia trọn vẹn không?<span class="chev"></span></summary>
@@ -843,7 +845,7 @@
       </details>
       <details>
         <summary>Tôi khá hướng nội, chương trình này có quá sức không?<span class="chev"></span></summary>
-        <div class="answer">Một phần cốt lõi là làm chủ tâm lý và năng lượng — được thiết kế riêng cho người chưa quen với cảm giác đó, không chỉ dành cho người đã tự tin sẵn.</div>
+        <div class="answer">Một phần cốt lõi là làm chủ tâm lý và năng lượng. Được thiết kế riêng cho người chưa quen với cảm giác đó, không chỉ dành cho người đã tự tin sẵn.</div>
       </details>
       <details>
         <summary>Tôi đã có chuyên môn vững, việc học thêm cấu trúc thuyết trình có thực sự tạo khác biệt không?<span class="chev"></span></summary>
@@ -862,7 +864,7 @@
     <div class="form-wrap">
       <div>
         <h2>Bạn không thiếu chuyên môn. Bạn chỉ đang thiếu một hệ thống biến nó thành đòn bẩy kinh doanh tri thức</h2>
-        <p class="lead">Để lại thông tin, đội ngũ S-PEAK sẽ liên hệ trao đổi trực tiếp về hiện trạng và lộ trình phù hợp với bạn — trước khi bạn quyết định bất cứ điều gì.</p>
+        <p class="lead">Để lại thông tin, đội ngũ S-PEAK sẽ liên hệ trao đổi trực tiếp về hiện trạng và lộ trình phù hợp với bạn, trước khi bạn quyết định bất cứ điều gì.</p>
       </div>
       <form class="form-card" id="leadForm" novalidate>
         <div class="field">
