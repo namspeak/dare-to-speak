@@ -382,33 +382,28 @@
   .proc-body h3{font-size:19px;margin-bottom:8px;font-weight:700;}
   @media(min-width:640px){.proc-body h3{font-size:22px;}}
   .proc-body p{color:var(--body-on-paper);font-size:15px;}
-  .proc-media{
-    max-width:760px;margin:40px auto 0;
-    display:grid;gap:16px;grid-template-columns:1fr 1fr;
-  }
-  .proc-media img{border-radius:4px;height:100%;object-fit:cover;aspect-ratio:4/3;}
-
-  /* ============ MOMENTS SLIDER (auto-play) ============ */
+  /* ============ MOMENTS SLIDER (2 rows, draggable) ============ */
   .moments-slider{
     margin-top:40px;
-    overflow:hidden;
+    display:flex;flex-direction:column;gap:16px;
+  }
+  .moments-row{
+    overflow:hidden;position:relative;
+    cursor:grab;touch-action:pan-y;user-select:none;
     -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
     mask-image:linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
   }
+  .moments-row.dragging{cursor:grabbing;}
   .moments-track{
     display:flex;gap:16px;width:max-content;
-    animation:moments-scroll 45s linear infinite;
+    will-change:transform;
   }
-  .moments-slider:hover .moments-track{animation-play-state:paused;}
   .moments-track img{
-    height:200px;width:auto;aspect-ratio:4/3;object-fit:cover;
+    height:150px;width:auto;aspect-ratio:4/3;object-fit:cover;
     border-radius:6px;flex-shrink:0;
+    pointer-events:none;-webkit-user-drag:none;
   }
-  @media(min-width:640px){.moments-track img{height:260px;}}
-  @keyframes moments-scroll{
-    from{transform:translateX(0);}
-    to{transform:translateX(-50%);}
-  }
+  @media(min-width:640px){.moments-track img{height:220px;}}
 
   /* ============ PROOF ============ */
   .proof{background:var(--paper);}
@@ -763,42 +758,74 @@
         </div>
       </div>
     </div>
-    <div class="proc-media">
-      <img src="images/process-session.jpg" alt="Buổi đồng hành thực hành cùng học viên" loading="lazy">
-      <img src="images/offer-1on1.jpg" alt="Feedback 1-1 trong quá trình thực hành" loading="lazy">
-    </div>
     <div class="moments-slider">
-      <div class="moments-track">
-        <img src="images/gallery-01.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-02.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-03.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-04.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-05.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-06.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-07.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-08.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-09.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-10.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-11.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-12.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-13.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-14.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-15.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
-        <img src="images/gallery-01.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-02.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-03.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-04.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-05.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-06.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-07.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-08.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-09.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-10.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-11.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-12.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-13.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-14.jpg" alt="" loading="lazy" aria-hidden="true">
-        <img src="images/gallery-15.jpg" alt="" loading="lazy" aria-hidden="true">
+      <div class="moments-row" id="momentsRow1">
+        <div class="moments-track" id="momentsTrack1">
+          <img src="images/gallery-01.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-02.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-03.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-04.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-05.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-06.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-07.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-08.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-09.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-10.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-11.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-12.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-13.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-14.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-15.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery-01.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-02.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-03.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-04.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-05.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-06.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-07.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-08.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-09.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-10.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-11.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-12.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-13.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-14.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery-15.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
+      </div>
+      <div class="moments-row" id="momentsRow2">
+        <div class="moments-track" id="momentsTrack2">
+          <img src="images/gallery2-01.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-02.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-03.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-04.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-05.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-06.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-07.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-08.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-09.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-10.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-11.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-12.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-13.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-14.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-15.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+          <img src="images/gallery2-01.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-02.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-03.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-04.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-05.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-06.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-07.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-08.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-09.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-10.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-11.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-12.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-13.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-14.jpg" alt="" loading="lazy" aria-hidden="true">
+          <img src="images/gallery2-15.jpg" alt="" loading="lazy" aria-hidden="true">
+        </div>
       </div>
     </div>
   </div>
@@ -1068,6 +1095,83 @@ window.SPEAK_CONFIG = {
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<script>
+(function () {
+  function setupRow(rowId, trackId, direction, baseSpeed) {
+    var row = document.getElementById(rowId);
+    var track = document.getElementById(trackId);
+    if (!row || !track) return;
+
+    var offset = 0;
+    var baseSpeedSigned = baseSpeed * direction;
+    var speed = baseSpeedSigned;
+    var dragging = false;
+    var startX = 0, startOffset = 0;
+    var lastX = 0, lastT = 0, velocity = 0;
+    var halfWidth = track.scrollWidth / 2;
+
+    function recalc() { halfWidth = track.scrollWidth / 2; }
+    window.addEventListener('resize', recalc);
+    window.addEventListener('load', recalc);
+
+    function apply() { track.style.transform = 'translateX(' + offset + 'px)'; }
+
+    function frame() {
+      if (!dragging) {
+        speed += (baseSpeedSigned - speed) * 0.02;
+        offset += speed;
+      }
+      if (halfWidth > 0) {
+        if (offset <= -halfWidth) offset += halfWidth;
+        if (offset > 0) offset -= halfWidth;
+      }
+      apply();
+      requestAnimationFrame(frame);
+    }
+
+    function pointerDown(e) {
+      dragging = true;
+      row.classList.add('dragging');
+      startX = e.clientX;
+      startOffset = offset;
+      lastX = e.clientX;
+      lastT = performance.now();
+      velocity = 0;
+      try { row.setPointerCapture(e.pointerId); } catch (err) {}
+    }
+    function pointerMove(e) {
+      if (!dragging) return;
+      var dx = e.clientX - startX;
+      offset = startOffset + dx;
+      var now = performance.now();
+      var dt = now - lastT;
+      if (dt > 0) velocity = (e.clientX - lastX) / dt;
+      lastX = e.clientX;
+      lastT = now;
+    }
+    function pointerUp() {
+      if (!dragging) return;
+      dragging = false;
+      row.classList.remove('dragging');
+      speed = velocity * 16.7;
+      var maxSpeed = Math.abs(baseSpeedSigned) * 10 + 8;
+      if (speed > maxSpeed) speed = maxSpeed;
+      if (speed < -maxSpeed) speed = -maxSpeed;
+    }
+
+    row.addEventListener('pointerdown', pointerDown);
+    row.addEventListener('pointermove', pointerMove);
+    row.addEventListener('pointerup', pointerUp);
+    row.addEventListener('pointercancel', pointerUp);
+    row.addEventListener('pointerleave', function (e) { if (dragging) pointerUp(e); });
+
+    requestAnimationFrame(frame);
+  }
+
+  setupRow('momentsRow1', 'momentsTrack1', -1, 0.55);
+  setupRow('momentsRow2', 'momentsTrack2', 1, 0.55);
 })();
 </script>
 </body>
