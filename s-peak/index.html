@@ -388,6 +388,28 @@
   }
   .proc-media img{border-radius:4px;height:100%;object-fit:cover;aspect-ratio:4/3;}
 
+  /* ============ MOMENTS SLIDER (auto-play) ============ */
+  .moments-slider{
+    margin-top:40px;
+    overflow:hidden;
+    -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+    mask-image:linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+  }
+  .moments-track{
+    display:flex;gap:16px;width:max-content;
+    animation:moments-scroll 45s linear infinite;
+  }
+  .moments-slider:hover .moments-track{animation-play-state:paused;}
+  .moments-track img{
+    height:200px;width:auto;aspect-ratio:4/3;object-fit:cover;
+    border-radius:6px;flex-shrink:0;
+  }
+  @media(min-width:640px){.moments-track img{height:260px;}}
+  @keyframes moments-scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+
   /* ============ PROOF ============ */
   .proof{background:var(--paper);}
   .proof-head{max-width:680px;margin:0 auto 48px;text-align:center;}
@@ -744,6 +766,40 @@
     <div class="proc-media">
       <img src="images/process-session.jpg" alt="Buổi đồng hành thực hành cùng học viên" loading="lazy">
       <img src="images/offer-1on1.jpg" alt="Feedback 1-1 trong quá trình thực hành" loading="lazy">
+    </div>
+    <div class="moments-slider">
+      <div class="moments-track">
+        <img src="images/gallery-01.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-02.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-03.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-04.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-05.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-06.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-07.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-08.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-09.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-10.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-11.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-12.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-13.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-14.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-15.jpg" alt="Khoảnh khắc hoạt động S-PEAK" loading="lazy">
+        <img src="images/gallery-01.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-02.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-03.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-04.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-05.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-06.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-07.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-08.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-09.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-10.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-11.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-12.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-13.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-14.jpg" alt="" loading="lazy" aria-hidden="true">
+        <img src="images/gallery-15.jpg" alt="" loading="lazy" aria-hidden="true">
+      </div>
     </div>
   </div>
 </section>
