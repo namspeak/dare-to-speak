@@ -12,7 +12,15 @@
   :root{
     --navy:#0A0A0A;
     --navy-2:#1C1C1C;
-    --navy-gradient: radial-gradient(140% 140% at 18% -10%, #2a1d10 0%, #140f0a 32%, #0a0a0a 58%, #000000 100%);
+    --navy-gradient:
+      radial-gradient(60% 50% at 85% 8%, rgba(217,119,6,.16) 0%, rgba(217,119,6,0) 60%),
+      radial-gradient(55% 45% at 8% 95%, rgba(180,83,9,.10) 0%, rgba(180,83,9,0) 60%),
+      radial-gradient(140% 140% at 18% -10%, #2a1d10 0%, #140f0a 32%, #0a0a0a 58%, #000000 100%);
+    --paper-gradient:
+      radial-gradient(55% 45% at 92% -5%, rgba(217,119,6,.07) 0%, rgba(217,119,6,0) 60%),
+      radial-gradient(60% 50% at -5% 100%, rgba(100,116,139,.08) 0%, rgba(100,116,139,0) 60%),
+      radial-gradient(80% 60% at 50% 0%, rgba(217,119,6,.04) 0%, rgba(217,119,6,0) 70%),
+      var(--paper);
     --card-border:rgba(255,255,255,.08);
     --ink-on-navy:#F8FAFC;
     --body-on-navy:#CBD5E1;
@@ -32,7 +40,8 @@
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--paper);
+    background:var(--paper-gradient);
+    background-attachment:fixed;
     color:var(--ink);
     font-family:'Arial',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
     font-size:16px;
@@ -230,7 +239,7 @@
   @media(min-width:640px){.pull-quote{font-size:25px;}}
 
   /* ============ OUTCOME (light) ============ */
-  .outcome{background:var(--paper);}
+  .outcome{background:var(--paper-gradient);}
   .outcome .prose h2{color:var(--ink);}
   .outcome .prose p{color:var(--body-on-paper);}
   .outcome .pull-quote{color:var(--ink);}
@@ -241,57 +250,70 @@
   /* ============ CLIENT LOGOS MARQUEE ============ */
   #client-logos{
     overflow:hidden;
-    padding:36px 0 38px;
-    background:#FFFFFF;
+    padding:44px 0 48px;
+    position:relative;
+    background:
+      radial-gradient(60% 140% at 100% 0%, rgba(217,119,6,.09) 0%, rgba(217,119,6,0) 60%),
+      radial-gradient(60% 140% at 0% 100%, rgba(100,116,139,.07) 0%, rgba(100,116,139,0) 60%),
+      #FFFFFF;
     border-top:1px solid var(--line);
     border-bottom:1px solid var(--line);
   }
-  .client-logos-header{margin-bottom:20px;text-align:center;padding-inline:20px;}
+  .client-logos-header{margin-bottom:26px;text-align:center;padding-inline:20px;position:relative;}
   .client-logos-label{
-    margin:0;color:var(--amber);font-size:13px;font-weight:800;
+    margin:0 0 8px;color:var(--amber);font-size:13px;font-weight:800;
     letter-spacing:.12em;text-transform:uppercase;
   }
-  .client-logos-viewport{
-    overflow-x:auto;overflow-y:hidden;cursor:grab;
-    scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;
+  .client-logos-rule{
+    width:56px;height:3px;margin:0 auto;border-radius:99px;
+    background:linear-gradient(90deg, var(--amber), #F59E0B);
+  }
+  .client-logos-rows{display:flex;flex-direction:column;gap:16px;}
+  .client-logos-row{
+    overflow:hidden;position:relative;cursor:grab;touch-action:pan-y;user-select:none;
     mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
     -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
   }
-  .client-logos-viewport::-webkit-scrollbar{display:none;}
-  .client-logos-viewport.is-dragging{cursor:grabbing;}
+  .client-logos-row.dragging{cursor:grabbing;}
   .client-logos-track{
     display:flex;width:max-content;gap:14px;
-    animation:client-logo-marquee 48s linear infinite;
     will-change:transform;
   }
   .client-logo-group{display:flex;flex-shrink:0;gap:14px;}
   .client-logo{
     display:flex;width:150px;height:64px;align-items:center;justify-content:center;
-    padding:10px 16px;background:var(--paper);
+    padding:10px 16px;background:#FFFFFF;
     border:1px solid var(--line);border-radius:10px;
     box-shadow:0 8px 22px -14px rgba(30,41,59,.25);
+    pointer-events:none;
+    transition:transform .25s ease, box-shadow .25s ease;
   }
   .client-logo img{
     display:block;width:auto;max-width:118px;height:auto;max-height:38px;
-    object-fit:contain;filter:saturate(.9);pointer-events:none;
+    object-fit:contain;filter:saturate(.95);pointer-events:none;
+    -webkit-user-drag:none;
   }
-  .client-logo[data-tone="dark"]{background:#0A0A0A;border-color:rgba(255,255,255,.08);}
+  .client-logo[data-tone="flush"]{padding:0;overflow:hidden;}
+  .client-logo[data-tone="flush"] img{
+    width:100%;height:100%;max-width:none;max-height:none;object-fit:cover;
+  }
   @keyframes client-logo-marquee{
     from{transform:translateX(0);}
     to{transform:translateX(calc(-50% - 7px));}
   }
-  @media(prefers-reduced-motion:reduce){.client-logos-track{animation:none;}}
+  @media(prefers-reduced-motion:reduce){.client-logos-track{animation:none !important;}}
   @media(max-width:600px){
-    #client-logos{padding:28px 0 30px;}
-    .client-logos-header{margin-bottom:14px;}
+    #client-logos{padding:32px 0 36px;}
+    .client-logos-header{margin-bottom:18px;}
     .client-logos-label{font-size:11px;letter-spacing:.09em;}
+    .client-logos-rows{gap:10px;}
     .client-logos-track,.client-logo-group{gap:10px;}
     .client-logo{width:122px;height:54px;padding:8px 12px;border-radius:9px;}
     .client-logo img{max-width:96px;max-height:32px;}
   }
 
   /* ============ MECHANISM ============ */
-  .mechanism{background:var(--paper);}
+  .mechanism{background:var(--paper-gradient);}
   .mech-intro{max-width:680px;margin:0 auto 56px;text-align:center;}
   .mech-intro p{color:var(--body-on-paper);font-size:17px;}
   .mech-intro h2{font-size:26px;margin-bottom:16px;}
@@ -411,7 +433,7 @@
   .pricing .btn{margin-top:6px;}
 
   /* ============ PROCESS ============ */
-  .process{background:var(--paper);}
+  .process{background:var(--paper-gradient);}
   .process-head{max-width:680px;margin:0 auto 56px;text-align:center;}
   .process-head h2{font-size:26px;}
   @media(min-width:640px){.process-head h2{font-size:32px;}}
@@ -462,7 +484,7 @@
   @media(min-width:640px){.moments-track img{height:220px;}}
 
   /* ============ PROOF ============ */
-  .proof{background:var(--paper);}
+  .proof{background:var(--paper-gradient);}
   .proof-head{max-width:680px;margin:0 auto 48px;text-align:center;}
   .proof-head h2{font-size:26px;}
   @media(min-width:640px){.proof-head h2{font-size:32px;}}
@@ -513,7 +535,7 @@
   .credentials{text-align:center;font-size:13.5px;color:var(--slate);max-width:760px;margin:0 auto;}
 
   /* ============ FAQ ============ */
-  .faq{background:#fff;}
+  .faq{background:var(--paper-gradient);}
   .faq-head{max-width:680px;margin:0 auto 40px;text-align:center;}
   .faq-head h2{font-size:26px;}
   @media(min-width:640px){.faq-head h2{font-size:32px;}}
@@ -664,52 +686,63 @@
 <section id="client-logos" aria-label="Các tổ chức Nam Nguyễn từng đào tạo">
   <div class="client-logos-header">
     <p class="client-logos-label">Các tổ chức Nam Nguyễn từng đào tạo</p>
+    <div class="client-logos-rule"></div>
   </div>
-  <div class="client-logos-viewport" id="clientLogosViewport">
-    <div class="client-logos-track" id="clientLogosTrack">
-      <div class="client-logo-group">
-        <div class="client-logo"><img src="images/logos/hsbc.png" alt="HSBC" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/vietinbank.png" alt="VietinBank" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/hitachi.png" alt="Hitachi" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/lsp.png" alt="LSP" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/cegos.png" alt="Cegos" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/sunlife.png" alt="Sun Life" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/siemens-energy.png" alt="Siemens Energy" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/fit.png" alt="FIT Wealth for Life" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/hoanmy.png" alt="Hoan My" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/abbott.png" alt="Abbott" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/ocb.png" alt="OCB" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/aeon-mall.png" alt="AEON MALL" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/fpt-software.png" alt="FPT Software" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/ila.png" alt="ILA Education for Life" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/ninjavan.png" alt="Ninja Van" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/efl.png" alt="EFL" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/manabie.png" alt="Manabie" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/geocomply.png" alt="GeoComply" loading="lazy"></div>
-        <div class="client-logo" data-tone="dark"><img src="images/logos/fgt-white.png" alt="FGL" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/vsip.png" alt="VSIP" loading="lazy"></div>
+  <div class="client-logos-rows">
+    <div class="client-logos-row" id="logosRow1">
+      <div class="client-logos-track" id="logosTrack1">
+        <div class="client-logo-group">
+          <div class="client-logo"><img src="images/logos/hsbc.png" alt="HSBC" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/vietinbank.png" alt="VietinBank" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/hitachi.png" alt="Hitachi" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/lsp.png" alt="LSP" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/cegos.png" alt="Cegos" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/sunlife.png" alt="Sun Life" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/siemens-energy.png" alt="Siemens Energy" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/fit.png" alt="FIT Wealth for Life" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/hoanmy.png" alt="Hoan My" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/abbott.png" alt="Abbott" loading="lazy"></div>
+        </div>
+        <div class="client-logo-group" aria-hidden="true">
+          <div class="client-logo"><img src="images/logos/hsbc.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/vietinbank.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/hitachi.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/lsp.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/cegos.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/sunlife.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/siemens-energy.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/fit.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/hoanmy.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/abbott.png" alt="" loading="lazy"></div>
+        </div>
       </div>
-      <div class="client-logo-group" aria-hidden="true">
-        <div class="client-logo"><img src="images/logos/hsbc.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/vietinbank.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/hitachi.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/lsp.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/cegos.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/sunlife.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/siemens-energy.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/fit.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/hoanmy.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/abbott.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/ocb.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/aeon-mall.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/fpt-software.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/ila.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/ninjavan.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/efl.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/manabie.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/geocomply.png" alt="" loading="lazy"></div>
-        <div class="client-logo" data-tone="dark"><img src="images/logos/fgt-white.png" alt="" loading="lazy"></div>
-        <div class="client-logo"><img src="images/logos/vsip.png" alt="" loading="lazy"></div>
+    </div>
+    <div class="client-logos-row" id="logosRow2">
+      <div class="client-logos-track" id="logosTrack2">
+        <div class="client-logo-group">
+          <div class="client-logo"><img src="images/logos/ocb.png" alt="OCB" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/aeon-mall.png" alt="AEON MALL" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/fpt-software.png" alt="FPT Software" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/ila.png" alt="ILA Education for Life" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/ninjavan.png" alt="Ninja Van" loading="lazy"></div>
+          <div class="client-logo" data-tone="flush"><img src="images/logos/efl.png" alt="EFL" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/manabie.png" alt="Manabie" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/geocomply.png" alt="GeoComply" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/fgt.png" alt="FGL" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/vsip.png" alt="VSIP" loading="lazy"></div>
+        </div>
+        <div class="client-logo-group" aria-hidden="true">
+          <div class="client-logo"><img src="images/logos/ocb.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/aeon-mall.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/fpt-software.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/ila.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/ninjavan.png" alt="" loading="lazy"></div>
+          <div class="client-logo" data-tone="flush"><img src="images/logos/efl.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/manabie.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/geocomply.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/fgt.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/vsip.png" alt="" loading="lazy"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -1283,37 +1316,9 @@ window.SPEAK_CONFIG = {
 
   setupRow('momentsRow1', 'momentsTrack1', -1, 0.55);
   setupRow('momentsRow2', 'momentsTrack2', 1, 0.55);
+  setupRow('logosRow1', 'logosTrack1', -1, 0.4);
+  setupRow('logosRow2', 'logosTrack2', 1, 0.4);
 })();
-</script>
-
-<script>
-  (function () {
-    var viewport = document.getElementById('clientLogosViewport');
-    if (!viewport) return;
-    var isDown = false, startX = 0, scrollLeft = 0, moved = false;
-
-    viewport.addEventListener('pointerdown', function (e) {
-      isDown = true; moved = false;
-      viewport.classList.add('is-dragging');
-      startX = e.clientX;
-      scrollLeft = viewport.scrollLeft;
-      viewport.setPointerCapture(e.pointerId);
-    });
-    viewport.addEventListener('pointermove', function (e) {
-      if (!isDown) return;
-      var dx = e.clientX - startX;
-      if (Math.abs(dx) > 3) moved = true;
-      viewport.scrollLeft = scrollLeft - dx;
-    });
-    function endDrag(e) {
-      isDown = false;
-      viewport.classList.remove('is-dragging');
-    }
-    viewport.addEventListener('pointerup', endDrag);
-    viewport.addEventListener('pointercancel', endDrag);
-    viewport.addEventListener('pointerleave', function (e) { if (isDown) endDrag(e); });
-    viewport.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
-  })();
 </script>
 </body>
 </html>
