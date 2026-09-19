@@ -99,8 +99,8 @@
 
   /* ============ HERO ============ */
   .hero{
-    background:var(--paper);
-    color:var(--ink);
+    background:var(--navy-gradient);
+    color:var(--ink-on-navy);
   }
   .hero-bg{
     position:relative;
@@ -123,17 +123,21 @@
       object-fit:cover;object-position:center 15%;
     }
   }
-  .hero-overlay{display:none;}
+  .hero-overlay{
+    display:block;
+    position:absolute;inset:0;
+    background:linear-gradient(180deg,
+      rgba(10,10,10,.55) 0%,
+      rgba(10,10,10,.72) 100%);
+  }
   @media(min-width:960px){
     .hero-overlay{
-      display:block;
-      position:absolute;inset:0;
       background:linear-gradient(90deg,
-        rgba(248,250,252,.98) 0%,
-        rgba(248,250,252,.95) 32%,
-        rgba(248,250,252,.6) 52%,
-        rgba(248,250,252,.08) 70%,
-        rgba(248,250,252,0) 100%);
+        rgba(10,10,10,.97) 0%,
+        rgba(10,10,10,.93) 32%,
+        rgba(10,10,10,.6) 52%,
+        rgba(10,10,10,.1) 70%,
+        rgba(10,10,10,0) 100%);
     }
   }
   .hero-copy{
@@ -155,7 +159,7 @@
   }
   .hero-badge{
     display:inline-flex;align-self:flex-start;
-    background:rgba(255,255,255,.92);
+    background:rgba(255,255,255,.06);
     border:1.5px solid var(--amber);
     color:var(--amber);
     font-family:'Montserrat',sans-serif;
@@ -169,7 +173,7 @@
   .hero-copy h1{margin:0;}
   .hero-line1{
     display:block;
-    font-size:24px;font-weight:800;color:var(--ink);
+    font-size:24px;font-weight:800;color:var(--ink-on-navy);
     line-height:1.2;letter-spacing:-0.3px;
   }
   @media(min-width:640px){.hero-line1{font-size:30px;}}
@@ -181,10 +185,10 @@
   }
   @media(min-width:640px){.hero-line2{font-size:46px;}}
   @media(min-width:960px){.hero-line2{font-size:54px;}}
-  .hero-copy .sub{font-size:17px;color:var(--body-on-paper);max-width:46ch;}
+  .hero-copy .sub{font-size:17px;color:var(--body-on-navy);max-width:46ch;}
   .trust{
     font-size:13px;
-    color:var(--slate);
+    color:var(--body-on-navy);
     display:flex;
     flex-wrap:wrap;
     gap:8px 14px;
