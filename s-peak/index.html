@@ -238,6 +238,58 @@
   .outcome-media img{width:100%;height:100%;object-fit:cover;object-position:center 30%;}
   .outcome .media-caption{color:var(--body-on-paper);}
 
+  /* ============ CLIENT LOGOS MARQUEE ============ */
+  #client-logos{
+    overflow:hidden;
+    padding:36px 0 38px;
+    background:#FFFFFF;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .client-logos-header{margin-bottom:20px;text-align:center;padding-inline:20px;}
+  .client-logos-label{
+    margin:0;color:var(--amber);font-size:13px;font-weight:800;
+    letter-spacing:.12em;text-transform:uppercase;
+  }
+  .client-logos-viewport{
+    overflow-x:auto;overflow-y:hidden;cursor:grab;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-y;
+    mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+    -webkit-mask-image:linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+  .client-logos-viewport::-webkit-scrollbar{display:none;}
+  .client-logos-viewport.is-dragging{cursor:grabbing;}
+  .client-logos-track{
+    display:flex;width:max-content;gap:14px;
+    animation:client-logo-marquee 48s linear infinite;
+    will-change:transform;
+  }
+  .client-logo-group{display:flex;flex-shrink:0;gap:14px;}
+  .client-logo{
+    display:flex;width:150px;height:64px;align-items:center;justify-content:center;
+    padding:10px 16px;background:var(--paper);
+    border:1px solid var(--line);border-radius:10px;
+    box-shadow:0 8px 22px -14px rgba(30,41,59,.25);
+  }
+  .client-logo img{
+    display:block;width:auto;max-width:118px;height:auto;max-height:38px;
+    object-fit:contain;filter:saturate(.9);pointer-events:none;
+  }
+  .client-logo[data-tone="dark"]{background:#0A0A0A;border-color:rgba(255,255,255,.08);}
+  @keyframes client-logo-marquee{
+    from{transform:translateX(0);}
+    to{transform:translateX(calc(-50% - 7px));}
+  }
+  @media(prefers-reduced-motion:reduce){.client-logos-track{animation:none;}}
+  @media(max-width:600px){
+    #client-logos{padding:28px 0 30px;}
+    .client-logos-header{margin-bottom:14px;}
+    .client-logos-label{font-size:11px;letter-spacing:.09em;}
+    .client-logos-track,.client-logo-group{gap:10px;}
+    .client-logo{width:122px;height:54px;padding:8px 12px;border-radius:9px;}
+    .client-logo img{max-width:96px;max-height:32px;}
+  }
+
   /* ============ MECHANISM ============ */
   .mechanism{background:var(--paper);}
   .mech-intro{max-width:680px;margin:0 auto 56px;text-align:center;}
@@ -604,6 +656,61 @@
       <p>Bạn không còn phải soạn lại từ đầu mỗi lần được mời chia sẻ. Signature Talk, Speaking Canvas, các công thức đã thuộc nằm lòng. Chuẩn bị mất vài giờ, thậm chí là chỉ vài phút, không còn cảnh áp lực phải thức trắng cả tuần chuẩn bị.</p>
       <p>Và khi đứng trước bất kỳ tình huống nào, dù là hội thảo lớn hay phòng họp với một khách hàng quan trọng, bạn không còn tim đập chân run. Năng lượng ở đúng chỗ nó cần, vì bạn đã thật sự làm chủ được nó.</p>
       <p class="pull-quote">Những buổi chia sẻ từng miễn phí giờ trở thành nơi khách hàng chất lượng chủ động tìm đến bạn, vị thế chuyên gia được thể hiện đúng tầm nó xứng đáng.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<section id="client-logos" aria-label="Các tổ chức Nam Nguyễn từng đào tạo">
+  <div class="client-logos-header">
+    <p class="client-logos-label">Các tổ chức Nam Nguyễn từng đào tạo</p>
+  </div>
+  <div class="client-logos-viewport" id="clientLogosViewport">
+    <div class="client-logos-track" id="clientLogosTrack">
+      <div class="client-logo-group">
+        <div class="client-logo"><img src="images/logos/hsbc.png" alt="HSBC" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/vietinbank.png" alt="VietinBank" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/hitachi.png" alt="Hitachi" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/lsp.png" alt="LSP" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/cegos.png" alt="Cegos" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/sunlife.png" alt="Sun Life" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/siemens-energy.png" alt="Siemens Energy" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/fit.png" alt="FIT Wealth for Life" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/hoanmy.png" alt="Hoan My" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/abbott.png" alt="Abbott" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/ocb.png" alt="OCB" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/aeon-mall.png" alt="AEON MALL" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/fpt-software.png" alt="FPT Software" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/ila.png" alt="ILA Education for Life" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/ninjavan.png" alt="Ninja Van" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/efl.png" alt="EFL" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/manabie.png" alt="Manabie" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/geocomply.png" alt="GeoComply" loading="lazy"></div>
+        <div class="client-logo" data-tone="dark"><img src="images/logos/fgt-white.png" alt="FGL" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/vsip.png" alt="VSIP" loading="lazy"></div>
+      </div>
+      <div class="client-logo-group" aria-hidden="true">
+        <div class="client-logo"><img src="images/logos/hsbc.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/vietinbank.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/hitachi.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/lsp.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/cegos.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/sunlife.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/siemens-energy.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/fit.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/hoanmy.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/abbott.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/ocb.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/aeon-mall.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/fpt-software.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/ila.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/ninjavan.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/efl.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/manabie.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/geocomply.png" alt="" loading="lazy"></div>
+        <div class="client-logo" data-tone="dark"><img src="images/logos/fgt-white.png" alt="" loading="lazy"></div>
+        <div class="client-logo"><img src="images/logos/vsip.png" alt="" loading="lazy"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -1177,6 +1284,36 @@ window.SPEAK_CONFIG = {
   setupRow('momentsRow1', 'momentsTrack1', -1, 0.55);
   setupRow('momentsRow2', 'momentsTrack2', 1, 0.55);
 })();
+</script>
+
+<script>
+  (function () {
+    var viewport = document.getElementById('clientLogosViewport');
+    if (!viewport) return;
+    var isDown = false, startX = 0, scrollLeft = 0, moved = false;
+
+    viewport.addEventListener('pointerdown', function (e) {
+      isDown = true; moved = false;
+      viewport.classList.add('is-dragging');
+      startX = e.clientX;
+      scrollLeft = viewport.scrollLeft;
+      viewport.setPointerCapture(e.pointerId);
+    });
+    viewport.addEventListener('pointermove', function (e) {
+      if (!isDown) return;
+      var dx = e.clientX - startX;
+      if (Math.abs(dx) > 3) moved = true;
+      viewport.scrollLeft = scrollLeft - dx;
+    });
+    function endDrag(e) {
+      isDown = false;
+      viewport.classList.remove('is-dragging');
+    }
+    viewport.addEventListener('pointerup', endDrag);
+    viewport.addEventListener('pointercancel', endDrag);
+    viewport.addEventListener('pointerleave', function (e) { if (isDown) endDrag(e); });
+    viewport.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+  })();
 </script>
 </body>
 </html>
