@@ -252,12 +252,17 @@
     overflow:hidden;
     padding:44px 0 48px;
     position:relative;
-    background:
-      radial-gradient(60% 140% at 100% 0%, rgba(217,119,6,.09) 0%, rgba(217,119,6,0) 60%),
-      radial-gradient(60% 140% at 0% 100%, rgba(100,116,139,.07) 0%, rgba(100,116,139,0) 60%),
-      #FFFFFF;
-    border-top:1px solid var(--line);
-    border-bottom:1px solid var(--line);
+    background:var(--navy-gradient);
+  }
+  #client-logos::before,
+  #client-logos::after{
+    content:'';position:absolute;left:0;right:0;height:56px;
+    pointer-events:none;z-index:2;
+  }
+  #client-logos::before{top:0;background:linear-gradient(to bottom, var(--paper), rgba(248,250,252,0));}
+  #client-logos::after{bottom:0;background:linear-gradient(to top, var(--paper), rgba(248,250,252,0));}
+  @media(max-width:600px){
+    #client-logos::before,#client-logos::after{height:36px;}
   }
   .client-logos-header{margin-bottom:26px;text-align:center;padding-inline:20px;position:relative;}
   .client-logos-label{
@@ -283,8 +288,8 @@
   .client-logo{
     display:flex;width:150px;height:64px;align-items:center;justify-content:center;
     padding:10px 16px;background:#FFFFFF;
-    border:1px solid var(--line);border-radius:10px;
-    box-shadow:0 8px 22px -14px rgba(30,41,59,.25);
+    border:1px solid var(--card-border);border-radius:10px;
+    box-shadow:0 10px 26px -14px rgba(0,0,0,.45);
     pointer-events:none;
     transition:transform .25s ease, box-shadow .25s ease;
   }
@@ -962,7 +967,7 @@
           <div class="client-logo"><img src="images/logos/fpt-software.png" alt="FPT Software" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/ila.png" alt="ILA Education for Life" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/ninjavan.png" alt="Ninja Van" loading="lazy"></div>
-          <div class="client-logo" data-tone="flush"><img src="images/logos/efl.png" alt="EFL" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/efl.png" alt="EFL" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/manabie.png" alt="Manabie" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/geocomply.png" alt="GeoComply" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/fgt.png" alt="FGL" loading="lazy"></div>
@@ -974,7 +979,7 @@
           <div class="client-logo"><img src="images/logos/fpt-software.png" alt="" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/ila.png" alt="" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/ninjavan.png" alt="" loading="lazy"></div>
-          <div class="client-logo" data-tone="flush"><img src="images/logos/efl.png" alt="" loading="lazy"></div>
+          <div class="client-logo"><img src="images/logos/efl.png" alt="" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/manabie.png" alt="" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/geocomply.png" alt="" loading="lazy"></div>
           <div class="client-logo"><img src="images/logos/fgt.png" alt="" loading="lazy"></div>
