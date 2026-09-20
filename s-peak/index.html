@@ -660,6 +660,7 @@
     padding:4px 4px 6px;margin:0 -4px;
     scrollbar-width:none;-ms-overflow-style:none;
     cursor:grab;user-select:none;
+    touch-action:pan-x;
   }
   .testi-track::-webkit-scrollbar{display:none;}
   .testi-track.dragging{cursor:grabbing;scroll-snap-type:none;}
@@ -1848,9 +1849,12 @@ window.SPEAK_CONFIG = {
   if (prevBtn) prevBtn.addEventListener('click', function () { goTo(-1); });
   if (nextBtn) nextBtn.addEventListener('click', function () { goTo(1); });
 
-  // pointer drag-to-scroll
+  // pointer drag-to-scroll (mouse only — touch gets native, smoother scroll/snap
+  // and stays free of the click-blocking logic below, which was intercepting
+  // "Xem thêm" taps on mobile)
   var isDown = false, startX = 0, startScroll = 0, moved = false;
   track.addEventListener('pointerdown', function (e) {
+    if (e.pointerType !== 'mouse') return;
     if (e.target.closest('.testi-toggle')) return;
     isDown = true; moved = false;
     startX = e.clientX;
