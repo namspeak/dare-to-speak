@@ -573,44 +573,100 @@
 
   /* ============ PROOF ============ */
   .proof{background:var(--paper-gradient);}
-  .proof-head{max-width:680px;margin:0 auto 48px;text-align:center;}
+  .proof-head{max-width:680px;margin:0 auto 40px;text-align:center;}
   .proof-head h2{font-size:26px;}
   @media(min-width:640px){.proof-head h2{font-size:32px;}}
-  .testi-grid{
-    max-width:1080px;margin:0 auto 56px;
-    display:grid;gap:20px;
-    grid-template-columns:1fr;
+
+  /* --- text testimonials: draggable snap-scroll slider --- */
+  .testi-slider{position:relative;max-width:960px;margin:0 auto;padding:0 4px;}
+  .testi-track{
+    display:flex;gap:14px;overflow-x:auto;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+    padding:4px 4px 6px;margin:0 -4px;
+    scrollbar-width:none;-ms-overflow-style:none;
+    cursor:grab;user-select:none;
   }
-  @media(min-width:640px){.testi-grid{grid-template-columns:repeat(2,1fr);}}
-  @media(min-width:980px){.testi-grid{grid-template-columns:repeat(3,1fr);}}
-  .testi-card{
-    background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;
-    display:flex;flex-direction:column;
+  .testi-track::-webkit-scrollbar{display:none;}
+  .testi-track.dragging{cursor:grabbing;scroll-snap-type:none;}
+  .testi-slide{
+    flex:0 0 auto;width:240px;
+    scroll-snap-align:start;
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:18px 16px;display:flex;flex-direction:column;
+    box-shadow:0 14px 30px -24px rgba(30,41,59,.16);
   }
-  .testi-thumb{
-    aspect-ratio:4/3;background:var(--navy-gradient);overflow:hidden;
-    display:flex;align-items:center;justify-content:center;color:var(--muted-on-navy);
+  @media(min-width:640px){.testi-slide{width:270px;padding:20px 18px;}}
+  .testi-slide-head{display:flex;align-items:center;gap:11px;margin-bottom:10px;}
+  .testi-avatar{
+    width:46px;height:46px;border-radius:50%;object-fit:cover;flex-shrink:0;
+    border:2px solid rgba(217,119,6,.2);pointer-events:none;-webkit-user-drag:none;
   }
-  .testi-thumb img{width:100%;height:100%;object-fit:cover;object-position:top center;}
-  .play-badge{
-    width:52px;height:52px;border-radius:50%;
-    border:1.5px solid rgba(255,255,255,.4);color:#fff;
-    display:flex;align-items:center;justify-content:center;font-size:16px;
-  }
-  .testi-card .meta{
-    padding:18px 20px;display:flex;flex-direction:column;gap:4px;
-    min-height:136px;flex:1;
-  }
-  .testi-card .name{font-weight:700;font-size:15px;color:var(--ink);}
-  .testi-card .role{
-    font-size:12.5px;color:var(--slate);margin-top:1px;
+  .testi-slide-name{font-weight:700;font-size:13.5px;color:var(--ink);line-height:1.3;}
+  .testi-slide-role{
+    font-size:11px;color:var(--slate);margin-top:1px;
     display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
   }
-  .testi-card .quote{
-    margin-top:8px;font-size:13.5px;font-style:italic;color:var(--body-on-paper);
-    display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
+  .testi-slide-quote{
+    font-size:12.5px;font-style:italic;color:var(--body-on-paper);line-height:1.55;flex:1;
+    display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden;
+    max-height:7.85em;
   }
-  .testi-card .quote b{color:var(--ink);font-style:normal;}
+  .testi-slide-quote b{color:var(--ink);font-style:normal;}
+  .testi-slide.expanded .testi-slide-quote{-webkit-line-clamp:unset;max-height:none;}
+  .testi-toggle{
+    margin-top:8px;background:none;border:none;padding:0;
+    font-family:'Arial',sans-serif;font-size:11.5px;font-weight:700;
+    color:var(--amber-hover);cursor:pointer;align-self:flex-start;
+  }
+  .testi-toggle:hover{color:var(--amber);text-decoration:underline;}
+  .testi-nav{
+    position:absolute;top:82px;transform:translateY(-50%);
+    width:34px;height:34px;border-radius:50%;
+    background:#fff;border:1px solid var(--line);box-shadow:0 10px 22px -14px rgba(30,41,59,.35);
+    display:flex;align-items:center;justify-content:center;font-size:16px;line-height:1;color:var(--ink);
+    cursor:pointer;z-index:2;
+  }
+  .testi-nav svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2;}
+  .testi-nav.prev{left:-14px;}
+  .testi-nav.next{right:-14px;}
+  @media(min-width:1020px){.testi-nav.prev{left:-40px;}.testi-nav.next{right:-40px;}}
+  .testi-nav:hover{background:var(--amber);color:#fff;border-color:var(--amber);}
+  @media(max-width:479px){.testi-nav{display:none;}}
+  .testi-dots{display:flex;justify-content:center;gap:7px;margin:14px 0 44px;}
+  .testi-dot{
+    width:6px;height:6px;border-radius:50%;background:var(--line);border:none;padding:0;
+    cursor:pointer;transition:background .2s ease, width .2s ease;
+  }
+  .testi-dot.active{background:var(--amber);width:18px;border-radius:4px;}
+
+  /* --- video testimonials: compact placeholder grid (redesigned separately later) --- */
+  .testi-video-label{
+    text-align:center;font-family:'Arial',sans-serif;font-weight:700;font-size:11.5px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--slate);margin:0 0 16px;
+  }
+  .testi-video-grid{
+    max-width:820px;margin:0 auto 40px;
+    display:grid;gap:14px;grid-template-columns:repeat(2,1fr);
+  }
+  @media(min-width:640px){.testi-video-grid{grid-template-columns:repeat(4,1fr);}}
+  .testi-video-card{
+    background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;
+  }
+  .testi-video-thumb{
+    aspect-ratio:4/3;background:var(--navy-gradient);
+    display:flex;align-items:center;justify-content:center;color:var(--muted-on-navy);
+  }
+  .play-badge{
+    width:38px;height:38px;border-radius:50%;
+    border:1.5px solid rgba(255,255,255,.4);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:13px;
+  }
+  .testi-video-card .meta{padding:11px 12px;}
+  .testi-video-card .name{font-weight:700;font-size:12px;color:var(--ink);}
+  .testi-video-card .role{
+    font-size:10.5px;color:var(--slate);margin-top:2px;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
   .org-row{
     display:flex;flex-wrap:wrap;gap:28px 40px;justify-content:center;align-items:center;
     max-width:820px;margin:0 auto 24px;
@@ -662,6 +718,8 @@
     display:flex;flex-direction:column;gap:18px;
   }
   .field{display:flex;flex-direction:column;gap:6px;}
+  .field-row{display:grid;grid-template-columns:1fr;gap:18px;}
+  @media(min-width:480px){.field-row{grid-template-columns:1fr 1fr;}}
   .field label{font-size:13.5px;font-weight:600;color:var(--ink);}
   .field input,.field textarea{
     border:1px solid var(--line);border-radius:4px;padding:13px 14px;
@@ -1103,47 +1161,174 @@
       <h2>Không chỉ là lý thuyết, đây là những gì đã thật sự thay đổi với học viên</h2>
     </div>
 
-    <div class="testi-grid">
-      <div class="testi-card">
-        <div class="testi-thumb">
-          <img src="images/queenny.jpg" alt="Queenny Ngô, học viên S-PEAK K04" loading="lazy">
+    <div class="testi-slider reveal">
+      <div class="testi-track" id="testiTrack">
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/queenny.jpg" alt="Queenny Ngô">
+            <div>
+              <div class="testi-slide-name">Queenny Ngô</div>
+              <div class="testi-slide-role">Founder &amp; CEO, MLS · Founder, Chạm Media</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Sau S-PEAK K04, tôi xây được bài nói showcase riêng cho BNI, và chỉ <b>sau 5 phút trình bày, tôi có ngay 8 kết nối kinh doanh chất lượng.</b>"</p>
         </div>
-        <div class="meta">
-          <div class="name">Queenny Ngô</div>
-          <div class="role">Founder &amp; CEO, MLS · Founder, Chạm Media</div>
-          <p class="quote">"Sau S-PEAK K04, tôi xây được bài nói showcase riêng cho BNI, và chỉ <b>sau 5 phút trình bày, tôi có ngay 8 kết nối kinh doanh chất lượng.</b>"</p>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/ngoc-tram.jpg" alt="Nguyễn Ngọc Trâm">
+            <div>
+              <div class="testi-slide-name">Nguyễn Ngọc Trâm</div>
+              <div class="testi-slide-role">Tác giả · Creative Manager, Umedia</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Từ một người run bần bật khi đứng trước đám đông, nay tôi đã có sự tự tin tuyệt đối trong việc giới thiệu bản thân trước mọi người và thậm chí là còn có thể dẫn dắt buổi training cho 50 người cùng lúc. Thầy Nam có khả năng giảng dạy, huấn luyện và đào tạo học viên để có sự chuyển hóa thật sự. Tôi chắc chắn sẽ giới thiệu khóa học S-PEAK đến với nhiều người hơn nữa, bởi tôi tin vào triết lý giảng dạy của thầy Nam: <b>để nói hay, hãy nói thật.</b> Và nhờ nói thật, tôi không hề sử dụng bất kỳ một kĩ thuật nói phức tạp nào. Tất cả đều chỉ cần xuất phát từ trái tim. Tôi rất biết ơn thầy Nam và khóa học S-PEAK đã cho tôi những trải nghiệm trên cả tuyệt vời."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/thanh-binh.jpg" alt="Nguyễn Thanh Bình">
+            <div>
+              <div class="testi-slide-name">Nguyễn Thanh Bình</div>
+              <div class="testi-slide-role">Professional Trainer</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Với chương trình của Nam, điều tôi ấn tượng là cách Nam công thức hoá bài nói của mỗi người. S-PEAK giúp mỗi cá nhân có <b>công thức của riêng mình</b>, biết mình sẽ nói gì, nói như thế nào thông qua việc điều chỉnh từng phần của công thức ấy. Điều thú vị nữa là công thức ấy lại không hề khô khan, gò bó, mà trái lại trao cho người nói sự tự do, chủ động trong việc thiết kế bài nói chuyện chân thực nhất, gần gũi nhất với bản sắc riêng của họ. Nam cũng xây dựng một bối cảnh học rất tự nhiên, an toàn và vui vẻ. Vậy nên, dù bạn là người hướng nội, hướng ngoại hay hướng cả hai, học lớp Nam về sẽ rất tự tin trong phương hướng/ bản sắc nói riêng của mình."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/loan-nguyen.jpg" alt="Chị Loan Nguyễn">
+            <div>
+              <div class="testi-slide-name">Chị Loan Nguyễn</div>
+              <div class="testi-slide-role">Coach</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Tôi rất thích slogan <b>“Để nói hay hãy nói thật”</b> với S-PEAK của Thầy Nam, ngắn gọn nhưng truyền tải đầy đủ thông điệp đến các học trò trong việc cải thiện kỹ năng giao tiếp. Đến với S-PEAK bạn không chỉ được chia sẻ các kỹ thuật từ nhiều năm kinh nghiệm thực tế của Thầy mà bạn còn được trải nghiệm môi trường học tập an toàn để dám là chính mình, khám phá bản thân, nhận diện những điểm mạnh, phong cách cá nhân từ đó giúp bạn nói chuyện tự nhiên và tự tin hơn. Với tôi đó là hành trình khám phá bản sắc riêng có của mình, biết tận dụng thế mạnh để kết nối với khách hàng, truyền cảm hứng cho đội ngũ."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/lily-le.jpg" alt="Lily Lê">
+            <div>
+              <div class="testi-slide-name">Lily Lê</div>
+              <div class="testi-slide-role">Voice Talent</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Sau khi tham gia chương trình chuyên sâu S-PEAK của anh Nam, mình từ một người tự ti thể hiện bản thân đã có thể <b>dám nói lên ý tưởng, ý kiến của cá nhân.</b> Đặc biệt mình mạnh dạn chia sẻ hơn bằng việc nói thật, nói bằng cảm xúc thật. Anh Nam dạy rất dễ hiểu và cuốn hút, truyền cảm hứng rất lớn cho mình. Cảm ơn lớp học ý nghĩa của anh, đã giúp mình có một phiên bản tốt hơn."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/quang-nguyen.jpg" alt="Quang Nguyễn">
+            <div>
+              <div class="testi-slide-name">Quang Nguyễn</div>
+              <div class="testi-slide-role">Founder, Vert Hunter System</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Anh/chị/bạn nào dù có hay chưa biết Quang thì hãy cẩn thận khi tham gia khoá học S-PEAK vì <b>kỹ năng nói chuyện sẽ tăng một cách chóng mặt.</b> Với một môi trường thân thiện, siêu nâng đỡ, đây sẽ vừa là khoá học mà cũng vừa là sân chơi để mọi người có thể áp dụng những kiến thức đã học và thực sự chuyển hoá thành kỹ năng sống của bản thân."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/jade-bich-phung.jpg" alt="Chị Jade Bích Phùng">
+            <div>
+              <div class="testi-slide-name">Chị Jade Bích Phùng</div>
+              <div class="testi-slide-role">Peak Performance Coach</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"S-PEAK không chú trọng giúp bạn phô diễn kỹ thuật vào giọng nói, điệu bộ để thu hút người nghe, S-PEAK giúp bạn <b>quay vào bên trong để hiểu mình:</b> hiểu giá trị cốt lõi, phong cách cá nhân và điểm mạnh trong giao tiếp của chính bản thân mình. Khi nói với sự tự nhiên nhất, thoải mái nhất, tự tin nhất, bạn tất yếu sẽ truyền cảm hứng mạnh mẽ và để lại ấn tượng khó phai đến mọi đối tượng người nghe. Với S-PEAK, muốn nói hay, hãy nói thật."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/placeholder-han.jpg" alt="Chị Hân">
+            <div>
+              <div class="testi-slide-name">Chị Hân</div>
+              <div class="testi-slide-role">Chuyên gia Tài chính Cá nhân</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Mình bắt đầu tin rằng: mình hoàn toàn có khả năng giải quyết vấn đề của chính mình. Lớp học này không chỉ giúp mình học thêm kiến thức mới, mà còn cho mình thêm công cụ, có thêm định hướng rõ ràng để mình <b>vững tin hơn trên hành trình thực hiện mục tiêu.</b>"</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/placeholder-lavie.jpg" alt="Chị Lavie">
+            <div>
+              <div class="testi-slide-name">Chị Lavie</div>
+              <div class="testi-slide-role">Giám đốc Nhân sự</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Trước đây mình nói trước đám đông theo bản năng. Sau khóa học, mình <b>tự tin, mạch lạc và kết nối sâu sắc hơn</b> với khán giả. Điều tuyệt vời nhất ở S-PEAK là môi trường học an toàn, nâng đỡ và khích lệ, giúp mỗi người bứt phá từng ngày. Đây là nơi không chỉ rèn kỹ năng, mà còn giúp bạn tìm lại niềm tin vào chính mình."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/placeholder-toan.jpg" alt="Anh Toàn">
+            <div>
+              <div class="testi-slide-name">Anh Toàn</div>
+              <div class="testi-slide-role">Người đi tìm lại chính mình</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Tôi từng mất phương hướng, không biết làm sao bắt đầu lại ước mơ. S-PEAK đã giúp tôi thực hiện ước mơ ấy và <b>tìm lại con người thật của mình.</b> Nếu bạn đang lạc lối, khóa học này sẽ là điểm khởi đầu."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/placeholder-diem.jpg" alt="Chị Diễm">
+            <div>
+              <div class="testi-slide-name">Chị Diễm</div>
+              <div class="testi-slide-role">Chuyên gia Khai vấn</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Trước đây, mình có thể kết nối rất sâu với bản thân, nhưng khi đứng trên sân khấu lại đánh mất năng lượng để truyền cho khán giả. Sau S-PEAK, mình đã <b>làm chủ được điều đó</b> — biết khi nào kết nối vào trong, khi nào lan tỏa ra ngoài. Đây là bước ngoặt giúp mình tự tin và hiệu quả hơn."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
+        </div>
+        <div class="testi-slide">
+          <div class="testi-slide-head">
+            <img class="testi-avatar" src="images/testimonials/placeholder-thao-truong.jpg" alt="Chị Thảo Trương">
+            <div>
+              <div class="testi-slide-name">Chị Thảo Trương</div>
+              <div class="testi-slide-role">Quản lý Marketing</div>
+            </div>
+          </div>
+          <p class="testi-slide-quote">"Lúc mới vào lớp, mình thấy lạc lõng vì xung quanh quá nhiều người giỏi. Nhưng không ngờ, mình đã học được rất nhiều — cả kiến thức và trải nghiệm. Có buổi <b>mình được Coach và mình bật khóc trong vô thức.</b> Mình không ngờ nó có thể "chạm" đến sâu như vậy."</p>
+          <button type="button" class="testi-toggle">Xem thêm</button>
         </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-thumb"><span class="play-badge">▶</span></div>
-        <div class="meta">
-          <div class="name">Nguyễn Ngọc Trâm</div>
-          <div class="role">Creative Director, Umedia</div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-thumb"><span class="play-badge">▶</span></div>
+      <button type="button" class="testi-nav prev" aria-label="Trước">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button type="button" class="testi-nav next" aria-label="Sau">
+        <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="testi-dots" id="testiDots"></div>
+
+    <p class="testi-video-label">Chia sẻ qua video</p>
+    <div class="testi-video-grid">
+      <div class="testi-video-card">
+        <div class="testi-video-thumb"><span class="play-badge">▶</span></div>
         <div class="meta">
           <div class="name">Trần Diệu Linh</div>
           <div class="role">Founder &amp; CEO, 3AMD Spa &amp; Skin Coaching Academy</div>
         </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-thumb"><span class="play-badge">▶</span></div>
+      <div class="testi-video-card">
+        <div class="testi-video-thumb"><span class="play-badge">▶</span></div>
         <div class="meta">
           <div class="name">Nguyễn Vũ Thùy Linh</div>
           <div class="role">CEO, Lumia Academy</div>
         </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-thumb"><span class="play-badge">▶</span></div>
+      <div class="testi-video-card">
+        <div class="testi-video-thumb"><span class="play-badge">▶</span></div>
         <div class="meta">
           <div class="name">Phan Tuyết Trinh</div>
           <div class="role">Financial Coach, GĐ Tài chính Khối KD, Ngân hàng ACB</div>
         </div>
       </div>
-      <div class="testi-card">
-        <div class="testi-thumb"><span class="play-badge">▶</span></div>
+      <div class="testi-video-card">
+        <div class="testi-video-thumb"><span class="play-badge">▶</span></div>
         <div class="meta">
           <div class="name">Hoàng Phương Trang</div>
           <div class="role">Quản lý cấp cao, Trường Quốc tế BVIS Hà Nội</div>
@@ -1206,13 +1391,25 @@
         <p class="lead">Để lại thông tin, đội ngũ S-PEAK sẽ liên hệ trao đổi trực tiếp về hiện trạng và lộ trình phù hợp với bạn, trước khi bạn quyết định bất cứ điều gì.</p>
       </div>
       <form class="form-card" id="leadForm" novalidate>
-        <div class="field">
-          <label for="f-name">Họ tên</label>
-          <input type="text" id="f-name" name="name" required autocomplete="name">
+        <div class="field-row">
+          <div class="field">
+            <label for="f-lastname">Họ và tên lót</label>
+            <input type="text" id="f-lastname" name="lastName" required autocomplete="family-name" placeholder="Nguyễn Hoàng">
+          </div>
+          <div class="field">
+            <label for="f-firstname">Tên</label>
+            <input type="text" id="f-firstname" name="firstName" required autocomplete="given-name" placeholder="Nam">
+          </div>
         </div>
-        <div class="field">
-          <label for="f-phone">Số điện thoại / Zalo</label>
-          <input type="tel" id="f-phone" name="phone" required autocomplete="tel">
+        <div class="field-row">
+          <div class="field">
+            <label for="f-phone">Số điện thoại / Zalo</label>
+            <input type="tel" id="f-phone" name="phone" required autocomplete="tel">
+          </div>
+          <div class="field">
+            <label for="f-email">Email</label>
+            <input type="email" id="f-email" name="email" required autocomplete="email">
+          </div>
         </div>
         <div class="field">
           <label for="f-note">Bạn đang gặp khó khăn gì nhất khi thuyết trình, pitch hoặc chia sẻ trước đám đông? <span style="font-weight:400;color:var(--slate);">(không bắt buộc)</span></label>
@@ -1302,13 +1499,23 @@ window.SPEAK_CONFIG = {
     statusEl.className = 'form-status';
     statusEl.textContent = '';
 
-    var name = document.getElementById('f-name').value.trim();
+    var lastName = document.getElementById('f-lastname').value.trim();
+    var firstName = document.getElementById('f-firstname').value.trim();
     var phone = document.getElementById('f-phone').value.trim();
+    var email = document.getElementById('f-email').value.trim();
     var note = document.getElementById('f-note').value.trim();
+    var name = (lastName + ' ' + firstName).trim();
 
-    if (!name || !phone) {
+    if (!lastName || !firstName || !phone || !email) {
       statusEl.className = 'form-status err';
-      statusEl.textContent = 'Vui lòng điền Họ tên và Số điện thoại/Zalo.';
+      statusEl.textContent = 'Vui lòng điền đầy đủ Họ và tên lót, Tên, Số điện thoại/Zalo và Email.';
+      return;
+    }
+
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      statusEl.className = 'form-status err';
+      statusEl.textContent = 'Email chưa đúng định dạng, vui lòng kiểm tra lại.';
       return;
     }
 
@@ -1325,7 +1532,7 @@ window.SPEAK_CONFIG = {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name: name, phone: phone, note: note, source: 'daretospeak.vn/s-peak', ts: new Date().toISOString() })
+      body: JSON.stringify({ name: name, lastName: lastName, firstName: firstName, phone: phone, email: email, note: note, source: 'daretospeak.vn/s-peak', ts: new Date().toISOString() })
     }).then(function () {
       statusEl.className = 'form-status ok';
       statusEl.textContent = 'Cảm ơn bạn! Đội ngũ S-PEAK sẽ liên hệ trong thời gian sớm nhất.';
@@ -1359,6 +1566,103 @@ window.SPEAK_CONFIG = {
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<script>
+(function () {
+  var toggles = document.querySelectorAll('.testi-slide .testi-toggle');
+  toggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var card = btn.closest('.testi-slide');
+      var expanded = card.classList.toggle('expanded');
+      btn.textContent = expanded ? 'Thu gọn' : 'Xem thêm';
+    });
+  });
+})();
+</script>
+<script>
+(function () {
+  var track = document.getElementById('testiTrack');
+  var dotsWrap = document.getElementById('testiDots');
+  if (!track || !dotsWrap) return;
+  var slides = Array.prototype.slice.call(track.children);
+  if (!slides.length) return;
+
+  // build dots
+  var dots = slides.map(function (_, i) {
+    var dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'testi-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Xem học viên ' + (i + 1));
+    dot.addEventListener('click', function () {
+      slides[i].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    });
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
+  function setActiveDot(index) {
+    dots.forEach(function (d, i) { d.classList.toggle('active', i === index); });
+  }
+
+  function closestSlideIndex() {
+    var trackLeft = track.scrollLeft;
+    var best = 0, bestDist = Infinity;
+    slides.forEach(function (s, i) {
+      var dist = Math.abs(s.offsetLeft - track.offsetLeft - trackLeft);
+      if (dist < bestDist) { bestDist = dist; best = i; }
+    });
+    return best;
+  }
+
+  var scrollTimer = null;
+  track.addEventListener('scroll', function () {
+    if (scrollTimer) clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(function () {
+      setActiveDot(closestSlideIndex());
+    }, 80);
+  });
+
+  // prev/next nav
+  var prevBtn = document.querySelector('.testi-nav.prev');
+  var nextBtn = document.querySelector('.testi-nav.next');
+  function goTo(delta) {
+    var idx = closestSlideIndex() + delta;
+    idx = Math.max(0, Math.min(slides.length - 1, idx));
+    slides[idx].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+  }
+  if (prevBtn) prevBtn.addEventListener('click', function () { goTo(-1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { goTo(1); });
+
+  // pointer drag-to-scroll
+  var isDown = false, startX = 0, startScroll = 0, moved = false;
+  track.addEventListener('pointerdown', function (e) {
+    if (e.target.closest('.testi-toggle')) return;
+    isDown = true; moved = false;
+    startX = e.clientX;
+    startScroll = track.scrollLeft;
+    track.classList.add('dragging');
+    track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener('pointermove', function (e) {
+    if (!isDown) return;
+    var dx = e.clientX - startX;
+    if (Math.abs(dx) > 4) moved = true;
+    track.scrollLeft = startScroll - dx;
+  });
+  function endDrag(e) {
+    if (!isDown) return;
+    isDown = false;
+    track.classList.remove('dragging');
+    setTimeout(function () {
+      slides[closestSlideIndex()].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    }, 30);
+  }
+  track.addEventListener('pointerup', endDrag);
+  track.addEventListener('pointerleave', function () { if (isDown) endDrag(); });
+  track.addEventListener('click', function (e) {
+    if (moved) { e.preventDefault(); e.stopPropagation(); }
+  }, true);
 })();
 </script>
 <script>
