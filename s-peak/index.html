@@ -412,6 +412,62 @@
   }
   .moment-card h3{color:#fff;font-size:16px;font-weight:700;line-height:1.35;}
 
+  /* ============ VIDEO RECAP ============ */
+  .recap-video{background:var(--navy-gradient);padding-top:0;}
+  .recap-head{max-width:680px;margin:0 auto 36px;text-align:center;}
+  .recap-head h2{color:#fff;font-size:26px;}
+  @media(min-width:640px){.recap-head h2{font-size:32px;}}
+  .recap-desc{color:var(--body-on-navy);font-size:15px;line-height:1.6;margin-top:14px;}
+  .recap-player{
+    position:relative;max-width:860px;margin:0 auto;border-radius:12px;overflow:hidden;
+    cursor:pointer;border:1px solid var(--card-border);
+    background:linear-gradient(160deg, #1f1f1f 0%, #141414 100%);
+  }
+  .recap-player img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block;transition:opacity .2s ease;}
+  .recap-player:hover img{opacity:.85;}
+  .recap-play-overlay{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.35) 100%);
+  }
+  .recap-play-btn{
+    width:72px;height:72px;border-radius:50%;
+    background:rgba(255,255,255,.15);backdrop-filter:blur(4px);
+    border:1.5px solid rgba(255,255,255,.6);
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .2s ease, background .2s ease;
+  }
+  @media(min-width:640px){.recap-play-btn{width:86px;height:86px;}}
+  .recap-player:hover .recap-play-btn{transform:scale(1.06);background:var(--amber);border-color:var(--amber);}
+  .recap-play-btn svg{width:26px;height:26px;fill:#fff;margin-left:4px;}
+  @media(min-width:640px){.recap-play-btn svg{width:30px;height:30px;}}
+  .recap-duration{
+    position:absolute;bottom:14px;right:14px;
+    background:rgba(0,0,0,.65);color:#fff;font-family:'Arial',sans-serif;
+    font-size:12px;font-weight:700;padding:4px 9px;border-radius:5px;letter-spacing:.02em;
+  }
+  .recap-stats{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+    max-width:860px;margin:22px auto 0;
+  }
+  .recap-chip{
+    font-family:'Arial',sans-serif;font-size:12.5px;font-weight:600;color:var(--body-on-navy);
+    border:1px solid var(--card-border);border-radius:999px;padding:7px 16px;
+  }
+  .recap-modal{
+    position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;
+    background:rgba(0,0,0,.9);padding:20px;
+  }
+  .recap-modal.is-open{display:flex;}
+  .recap-modal-inner{position:relative;width:100%;max-width:1000px;}
+  .recap-modal video{width:100%;max-height:82vh;border-radius:8px;display:block;background:#000;}
+  .recap-modal-close{
+    position:absolute;top:-44px;right:0;width:36px;height:36px;border-radius:50%;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);color:#fff;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;line-height:1;
+  }
+  .recap-modal-close:hover{background:var(--amber);border-color:var(--amber);}
+  @media(max-width:640px){.recap-modal-close{top:-40px;}}
+
   /* ============ OFFER ============ */
   .offer{background:var(--navy-gradient);color:var(--ink-on-navy);padding-block:0 64px;}
   @media(min-width:900px){.offer{padding-block:0 112px;}}
@@ -967,6 +1023,40 @@
     </div>
   </div>
 </section>
+
+<!-- ============ VIDEO RECAP ============ -->
+<section class="section recap-video">
+  <div class="container">
+    <div class="recap-head reveal">
+      <p class="eyebrow">Không khí lớp học</p>
+      <h2>Một buổi học S-PEAK trông như thế nào?</h2>
+      <p class="recap-desc">Xem lại vài khoảnh khắc từ một khóa S-PEAK gần đây — cách học viên luyện tập, nhận feedback trực tiếp và tự tin đứng nói trước lớp.</p>
+    </div>
+    <div class="recap-player reveal" id="recapPlayer" role="button" tabindex="0" aria-label="Xem video recap lớp học S-PEAK">
+      <img src="images/recap/recap-poster.jpg" alt="Video recap một buổi học S-PEAK" loading="lazy">
+      <div class="recap-play-overlay">
+        <div class="recap-play-btn">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <span class="recap-duration">1:09</span>
+    </div>
+    <div class="recap-stats reveal">
+      <span class="recap-chip">Lớp học thực tế</span>
+      <span class="recap-chip">Thực hành trực tiếp</span>
+      <span class="recap-chip">Feedback 1-1 tại chỗ</span>
+    </div>
+  </div>
+</section>
+
+<div class="recap-modal" id="recapModal" aria-hidden="true">
+  <div class="recap-modal-inner">
+    <button type="button" class="recap-modal-close" id="recapModalClose" aria-label="Đóng video">✕</button>
+    <video id="recapVideo" controls playsinline poster="images/recap/recap-poster.jpg">
+      <source src="images/recap/s-peak-recap.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
 
 <!-- ============ 5. OFFER & DELIVERABLES ============ -->
 <section class="section offer" id="offer">
@@ -1566,6 +1656,41 @@ window.SPEAK_CONFIG = {
     });
   }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
   els.forEach(function (el) { io.observe(el); });
+})();
+</script>
+<script>
+(function () {
+  var player = document.getElementById('recapPlayer');
+  var modal = document.getElementById('recapModal');
+  var video = document.getElementById('recapVideo');
+  var closeBtn = document.getElementById('recapModalClose');
+  if (!player || !modal || !video || !closeBtn) return;
+
+  function openModal() {
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    video.play().catch(function () {});
+  }
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    video.pause();
+    video.currentTime = 0;
+  }
+
+  player.addEventListener('click', openModal);
+  player.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+  });
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
 })();
 </script>
 <script>
