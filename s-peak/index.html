@@ -468,6 +468,25 @@
   .recap-modal-close:hover{background:var(--amber);border-color:var(--amber);}
   @media(max-width:640px){.recap-modal-close{top:-40px;}}
 
+  /* --- generic testimonial video lightbox (portrait clips) --- */
+  .tv-modal{
+    position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;
+    background:rgba(0,0,0,.9);padding:20px;
+  }
+  .tv-modal.is-open{display:flex;}
+  .tv-modal-inner{position:relative;max-width:92vw;}
+  .tv-modal video{
+    display:block;max-height:85vh;max-width:92vw;width:auto;height:85vh;
+    border-radius:8px;background:#000;margin:0 auto;
+  }
+  .tv-modal-close{
+    position:absolute;top:-44px;right:0;width:36px;height:36px;border-radius:50%;
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);color:#fff;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;line-height:1;
+  }
+  .tv-modal-close:hover{background:var(--amber);border-color:var(--amber);}
+  @media(max-width:640px){.tv-modal-close{top:-40px;}.tv-modal video{height:auto;max-height:78vh;width:100%;}}
+
   /* ============ OFFER ============ */
   .offer{background:var(--navy-gradient);color:var(--ink-on-navy);padding-block:0 64px;}
   @media(min-width:900px){.offer{padding-block:0 112px;}}
@@ -709,14 +728,29 @@
     background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;
   }
   .testi-video-thumb{
-    aspect-ratio:4/3;background:var(--navy-gradient);
+    position:relative;aspect-ratio:3/4;background:var(--navy-gradient);
     display:flex;align-items:center;justify-content:center;color:var(--muted-on-navy);
+    overflow:hidden;
+  }
+  .testi-video-card[data-video] .testi-video-thumb{cursor:pointer;}
+  .testi-video-thumb img{
+    width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
+    transition:opacity .2s ease;
+  }
+  .testi-video-card[data-video]:hover .testi-video-thumb img{opacity:.85;}
+  .testi-video-thumb .play-badge{position:relative;z-index:1;}
+  .testi-video-card[data-video] .testi-video-thumb::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.3) 100%);
   }
   .play-badge{
     width:38px;height:38px;border-radius:50%;
     border:1.5px solid rgba(255,255,255,.4);color:#fff;
     display:flex;align-items:center;justify-content:center;font-size:13px;
+    background:rgba(255,255,255,.1);backdrop-filter:blur(2px);
+    transition:transform .2s ease, background .2s ease;
   }
+  .testi-video-card[data-video]:hover .play-badge{transform:scale(1.08);background:var(--amber);border-color:var(--amber);}
   .testi-video-card .meta{padding:11px 12px;}
   .testi-video-card .name{font-weight:700;font-size:12px;color:var(--ink);}
   .testi-video-card .role{
@@ -1058,6 +1092,13 @@
   </div>
 </div>
 
+<div class="tv-modal" id="tvModal" aria-hidden="true">
+  <div class="tv-modal-inner">
+    <button type="button" class="tv-modal-close" id="tvModalClose" aria-label="Đóng video">✕</button>
+    <video id="tvModalVideo" controls playsinline></video>
+  </div>
+</div>
+
 <!-- ============ 5. OFFER & DELIVERABLES ============ -->
 <section class="section offer" id="offer">
   <div class="offer-hero-banner">
@@ -1396,15 +1437,21 @@
 
     <p class="testi-video-label">Chia sẻ qua video</p>
     <div class="testi-video-grid">
-      <div class="testi-video-card">
-        <div class="testi-video-thumb"><span class="play-badge">▶</span></div>
+      <div class="testi-video-card" data-video="images/testimonial-videos/tran-dieu-linh.mp4" data-poster="images/testimonial-videos/tran-dieu-linh-poster.jpg">
+        <div class="testi-video-thumb">
+          <img src="images/testimonial-videos/tran-dieu-linh-poster.jpg" alt="Video chia sẻ của Trần Diệu Linh" loading="lazy">
+          <span class="play-badge">▶</span>
+        </div>
         <div class="meta">
           <div class="name">Trần Diệu Linh</div>
           <div class="role">Founder &amp; CEO, 3AMD Spa &amp; Skin Coaching Academy</div>
         </div>
       </div>
-      <div class="testi-video-card">
-        <div class="testi-video-thumb"><span class="play-badge">▶</span></div>
+      <div class="testi-video-card" data-video="images/testimonial-videos/nguyen-vu-thuy-linh.mp4" data-poster="images/testimonial-videos/nguyen-vu-thuy-linh-poster.jpg">
+        <div class="testi-video-thumb">
+          <img src="images/testimonial-videos/nguyen-vu-thuy-linh-poster.jpg" alt="Video chia sẻ của Nguyễn Vũ Thùy Linh" loading="lazy">
+          <span class="play-badge">▶</span>
+        </div>
         <div class="meta">
           <div class="name">Nguyễn Vũ Thùy Linh</div>
           <div class="role">CEO, Lumia Academy</div>
@@ -1417,8 +1464,11 @@
           <div class="role">Financial Coach, GĐ Tài chính Khối KD, Ngân hàng ACB</div>
         </div>
       </div>
-      <div class="testi-video-card">
-        <div class="testi-video-thumb"><span class="play-badge">▶</span></div>
+      <div class="testi-video-card" data-video="images/testimonial-videos/hoang-phuong-trang.mp4" data-poster="images/testimonial-videos/hoang-phuong-trang-poster.jpg">
+        <div class="testi-video-thumb">
+          <img src="images/testimonial-videos/hoang-phuong-trang-poster.jpg" alt="Video chia sẻ của Hoàng Phương Trang" loading="lazy">
+          <span class="play-badge">▶</span>
+        </div>
         <div class="meta">
           <div class="name">Hoàng Phương Trang</div>
           <div class="role">Quản lý cấp cao, Trường Quốc tế BVIS Hà Nội</div>
@@ -1683,6 +1733,45 @@ window.SPEAK_CONFIG = {
   player.addEventListener('click', openModal);
   player.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); }
+  });
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function (e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+})();
+</script>
+<script>
+(function () {
+  var cards = document.querySelectorAll('.testi-video-card[data-video]');
+  var modal = document.getElementById('tvModal');
+  var video = document.getElementById('tvModalVideo');
+  var closeBtn = document.getElementById('tvModalClose');
+  if (!cards.length || !modal || !video || !closeBtn) return;
+
+  function openModal(src, poster) {
+    video.setAttribute('poster', poster || '');
+    video.src = src;
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    video.play().catch(function () {});
+  }
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    video.pause();
+    video.removeAttribute('src');
+    video.load();
+  }
+
+  cards.forEach(function (card) {
+    card.querySelector('.testi-video-thumb').addEventListener('click', function () {
+      openModal(card.getAttribute('data-video'), card.getAttribute('data-poster'));
+    });
   });
   closeBtn.addEventListener('click', closeModal);
   modal.addEventListener('click', function (e) {
