@@ -68,50 +68,6 @@
      the CTA bar. clip contains the full-bleed image without that side effect. */
   body{overflow-x:clip;}
 
-  /* --- cross-fade utilities: soften hard section-color seams ---
-     eased opacity curve (not linear) + more height = a slower,
-     gentler blend instead of an abrupt snap. */
-  .fade-top-paper,.fade-bottom-paper{position:relative;}
-  .fade-top-paper::before,.fade-bottom-paper::after{
-    content:'';position:absolute;left:0;right:0;height:180px;
-    pointer-events:none;z-index:2;
-  }
-  .fade-top-paper::before{
-    top:0;
-    background:linear-gradient(to bottom,
-      rgba(248,250,252,1) 0%,
-      rgba(248,250,252,.855) 12%,
-      rgba(248,250,252,.738) 19%,
-      rgba(248,250,252,.541) 34%,
-      rgba(248,250,252,.382) 47%,
-      rgba(248,250,252,.278) 56.5%,
-      rgba(248,250,252,.194) 65%,
-      rgba(248,250,252,.126) 73%,
-      rgba(248,250,252,.075) 80.9%,
-      rgba(248,250,252,.037) 88%,
-      rgba(248,250,252,0) 100%
-    );
-  }
-  .fade-bottom-paper::after{
-    bottom:0;
-    background:linear-gradient(to top,
-      rgba(248,250,252,1) 0%,
-      rgba(248,250,252,.855) 12%,
-      rgba(248,250,252,.738) 19%,
-      rgba(248,250,252,.541) 34%,
-      rgba(248,250,252,.382) 47%,
-      rgba(248,250,252,.278) 56.5%,
-      rgba(248,250,252,.194) 65%,
-      rgba(248,250,252,.126) 73%,
-      rgba(248,250,252,.075) 80.9%,
-      rgba(248,250,252,.037) 88%,
-      rgba(248,250,252,0) 100%
-    );
-  }
-  @media(max-width:600px){
-    .fade-top-paper::before,.fade-bottom-paper::after{height:110px;}
-  }
-
   .container{max-width:1200px;margin:0 auto;padding-inline:24px;}
   @media(min-width:640px){.container{padding-inline:40px;}}
   @media(min-width:1024px){.container{padding-inline:64px;}}
@@ -1038,7 +994,7 @@
 </section>
 
 <!-- ============ 2. VẤN ĐỀ ============ -->
-<section class="section problem fade-bottom-paper">
+<section class="section problem">
   <div class="problem-media-bleed">
     <img src="images/problem-backstage.jpg" alt="Khoảnh khắc lặng lẽ trước khi bước lên sân khấu" loading="lazy">
     <div class="problem-media-fade"></div>
@@ -1073,7 +1029,7 @@
 </section>
 
 <!-- CLIENT LOGOS -->
-<section id="client-logos" class="fade-top-paper fade-bottom-paper" aria-label="Các tổ chức Nam Nguyễn từng đào tạo">
+<section id="client-logos" aria-label="Các tổ chức Nam Nguyễn từng đào tạo">
   <div class="client-logos-header">
     <p class="client-logos-label">Các tổ chức Nam Nguyễn từng đào tạo</p>
     <div class="client-logos-rule"></div>
@@ -1180,7 +1136,7 @@
 </section>
 
 <!-- ============ MOMENTS GALLERY ============ -->
-<section class="section moments fade-top-paper">
+<section class="section moments">
   <div class="container">
     <div class="moments-head reveal">
       <p class="eyebrow">Khoảnh khắc S-PEAK</p>
@@ -1257,7 +1213,7 @@
 </div>
 
 <!-- ============ 5. OFFER & DELIVERABLES ============ -->
-<section class="section offer fade-bottom-paper" id="offer">
+<section class="section offer" id="offer">
   <div class="offer-hero-banner">
     <img src="images/offer-training-qa.jpg" alt="Buổi live training S-PEAK" loading="lazy">
     <div class="offer-hero-banner-text container">
@@ -1674,7 +1630,7 @@
 </section>
 
 <!-- ============ K08 SCHEDULE ============ -->
-<section class="section k08 fade-top-paper fade-bottom-paper" id="k08">
+<section class="section k08" id="k08">
   <div class="container">
     <div class="k08-head reveal">
       <p class="eyebrow">Khóa học tiếp theo</p>
@@ -1747,7 +1703,7 @@
 </section>
 
 <!-- ============ 9. FORM / CTA CUỐI ============ -->
-<section class="section cta-final fade-top-paper" id="form">
+<section class="section cta-final" id="form">
   <div class="container">
     <div class="form-wrap">
       <div>
@@ -1819,7 +1775,7 @@
 window.SPEAK_CONFIG = {
   // URL Web App của Google Apps Script (Extensions > Apps Script > Deploy > Web app)
   // dùng để form gửi dữ liệu thẳng vào Google Sheet. Để trống thì form sẽ báo lỗi thân thiện.
-  GOOGLE_APPS_SCRIPT_URL: "",
+  GOOGLE_APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbw69T1LuJSePjj7Vfbi4b63y1KrE88euoCvGDjzEAdpvx08G_JwhrrmhLDaOlbikrht/exec",
 
   // Facebook Pixel ID (dạng chuỗi số, ví dụ "1234567890123456"). Để trống nếu chưa có.
   FACEBOOK_PIXEL_ID: "",
