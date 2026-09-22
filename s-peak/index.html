@@ -620,6 +620,11 @@
   }
   .tv-modal-close:hover{background:var(--amber);border-color:var(--amber);}
   @media(max-width:640px){.tv-modal-close{top:-40px;}.tv-modal video{height:auto;max-height:78vh;width:100%;}}
+  .tv-modal-iframe-wrap{
+    position:relative;width:min(92vw,960px);aspect-ratio:16/9;
+    border-radius:8px;overflow:hidden;background:#000;margin:0 auto;
+  }
+  .tv-modal-iframe-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
 
   /* ============ OFFER ============ */
   .offer{background:var(--navy-gradient);color:var(--ink-on-navy);padding-block:0 64px;}
@@ -867,14 +872,17 @@
     display:flex;align-items:center;justify-content:center;color:var(--muted-on-navy);
     overflow:hidden;
   }
-  .testi-video-card[data-video] .testi-video-thumb{cursor:pointer;}
+  .testi-video-card[data-video] .testi-video-thumb,
+  .testi-video-card[data-youtube] .testi-video-thumb{cursor:pointer;}
   .testi-video-thumb img{
     width:100%;height:100%;object-fit:cover;position:absolute;inset:0;
     transition:opacity .2s ease;
   }
-  .testi-video-card[data-video]:hover .testi-video-thumb img{opacity:.85;}
+  .testi-video-card[data-video]:hover .testi-video-thumb img,
+  .testi-video-card[data-youtube]:hover .testi-video-thumb img{opacity:.85;}
   .testi-video-thumb .play-badge{position:relative;z-index:1;}
-  .testi-video-card[data-video] .testi-video-thumb::before{
+  .testi-video-card[data-video] .testi-video-thumb::before,
+  .testi-video-card[data-youtube] .testi-video-thumb::before{
     content:'';position:absolute;inset:0;
     background:linear-gradient(180deg, rgba(0,0,0,.05) 0%, rgba(0,0,0,.3) 100%);
   }
@@ -885,7 +893,8 @@
     background:rgba(255,255,255,.1);backdrop-filter:blur(2px);
     transition:transform .2s ease, background .2s ease;
   }
-  .testi-video-card[data-video]:hover .play-badge{transform:scale(1.08);background:var(--amber);border-color:var(--amber);}
+  .testi-video-card[data-video]:hover .play-badge,
+  .testi-video-card[data-youtube]:hover .play-badge{transform:scale(1.08);background:var(--amber);border-color:var(--amber);}
   .testi-video-card .meta{padding:11px 12px;}
   .testi-video-card .name{font-weight:700;font-size:12px;color:var(--ink);}
   .testi-video-card .role{
@@ -1241,6 +1250,9 @@
   <div class="tv-modal-inner">
     <button type="button" class="tv-modal-close" id="tvModalClose" aria-label="Đóng video">✕</button>
     <video id="tvModalVideo" controls playsinline preload="none"></video>
+    <div class="tv-modal-iframe-wrap" id="tvModalIframeWrap" style="display:none;">
+      <iframe id="tvModalIframe" src="" title="Video testimonial" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </div>
 </div>
 
@@ -1602,8 +1614,11 @@
           <div class="role">CEO, Lumia Academy</div>
         </div>
       </div>
-      <div class="testi-video-card">
-        <div class="testi-video-thumb"><span class="play-badge">▶</span></div>
+      <div class="testi-video-card" data-youtube="1DLEfNnwdys" data-poster="https://i.ytimg.com/vi/1DLEfNnwdys/hqdefault.jpg">
+        <div class="testi-video-thumb">
+          <img src="https://i.ytimg.com/vi/1DLEfNnwdys/hqdefault.jpg" alt="Video chia sẻ của Phan Tuyết Trinh" loading="lazy">
+          <span class="play-badge">▶</span>
+        </div>
         <div class="meta">
           <div class="name">Phan Tuyết Trinh</div>
           <div class="role">Financial Coach, GĐ Tài chính Khối KD, Ngân hàng ACB</div>
@@ -1954,19 +1969,32 @@ window.SPEAK_CONFIG = {
 </script>
 <script>
 (function () {
-  var cards = document.querySelectorAll('.testi-video-card[data-video]');
+  var cards = document.querySelectorAll('.testi-video-card[data-video], .testi-video-card[data-youtube]');
   var modal = document.getElementById('tvModal');
   var video = document.getElementById('tvModalVideo');
   var closeBtn = document.getElementById('tvModalClose');
+  var iframeWrap = document.getElementById('tvModalIframeWrap');
+  var iframe = document.getElementById('tvModalIframe');
   if (!cards.length || !modal || !video || !closeBtn) return;
 
-  function openModal(src, poster) {
-    video.setAttribute('poster', poster || '');
-    video.src = src;
+  function openModal(card) {
+    var youtubeId = card.getAttribute('data-youtube');
+    if (youtubeId) {
+      video.style.display = 'none';
+      if (iframeWrap && iframe) {
+        iframeWrap.style.display = 'block';
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + youtubeId + '?autoplay=1&rel=0&modestbranding=1';
+      }
+    } else {
+      if (iframeWrap) iframeWrap.style.display = 'none';
+      video.style.display = 'block';
+      video.setAttribute('poster', card.getAttribute('data-poster') || '');
+      video.src = card.getAttribute('data-video');
+      video.play().catch(function () {});
+    }
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-    video.play().catch(function () {});
   }
   function closeModal() {
     modal.classList.remove('is-open');
@@ -1975,11 +2003,14 @@ window.SPEAK_CONFIG = {
     video.pause();
     video.removeAttribute('src');
     video.load();
+    if (iframe) iframe.src = '';
+    if (iframeWrap) iframeWrap.style.display = 'none';
+    video.style.display = 'block';
   }
 
   cards.forEach(function (card) {
     card.querySelector('.testi-video-thumb').addEventListener('click', function () {
-      openModal(card.getAttribute('data-video'), card.getAttribute('data-poster'));
+      openModal(card);
     });
   });
   closeBtn.addEventListener('click', closeModal);
