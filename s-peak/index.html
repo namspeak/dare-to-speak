@@ -456,6 +456,79 @@
   }
   .mech-close strong{color:var(--amber);font-weight:800;}
 
+  /* ============ INSTRUCTOR ============ */
+  .instructor{background:var(--paper-gradient);}
+  .instructor-grid{display:grid;gap:36px;align-items:start;}
+  @media(min-width:900px){
+    .instructor-grid{grid-template-columns:0.82fr 1.18fr;gap:56px;align-items:center;}
+  }
+  .instructor-photo{
+    position:relative;border-radius:18px;overflow:hidden;
+    aspect-ratio:3/4;max-width:420px;margin-inline:auto;
+    box-shadow:0 28px 52px -30px rgba(30,41,59,.32);
+  }
+  @media(min-width:900px){.instructor-photo{margin-inline:0;}}
+  .instructor-photo img{width:100%;height:100%;object-fit:cover;object-position:center 15%;}
+  .instructor-copy .eyebrow{display:block;margin-bottom:12px;}
+  .instructor-copy h2{
+    font-family:'Playfair Display',Georgia,serif;
+    font-weight:800;font-size:32px;color:var(--ink);margin:0 0 8px;line-height:1.1;
+  }
+  @media(min-width:640px){.instructor-copy h2{font-size:42px;}}
+  .instructor-role{
+    font-family:'Be Vietnam Pro',sans-serif;font-weight:700;font-size:12.5px;
+    letter-spacing:.09em;text-transform:uppercase;color:var(--amber);margin-bottom:22px;
+  }
+  .instructor-copy p{color:var(--body-on-paper);font-size:16px;line-height:1.65;margin-bottom:16px;}
+  .instructor-quote{
+    font-family:'Playfair Display',Georgia,serif;font-style:italic;font-weight:700;
+    font-size:19px;color:var(--ink);border-left:4px solid var(--amber);
+    padding:6px 0 6px 22px;margin:22px 0;line-height:1.5;
+  }
+  @media(min-width:640px){.instructor-quote{font-size:21px;}}
+  .instructor-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px;}
+  .instructor-stat{
+    border:1px solid var(--line);border-radius:14px;padding:18px 10px;
+    text-align:center;background:#FFFFFF;
+    box-shadow:0 14px 28px -22px rgba(30,41,59,.18);
+  }
+  .instructor-stat .num{
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:26px;color:var(--amber);
+    display:block;letter-spacing:-0.5px;
+  }
+  @media(min-width:640px){.instructor-stat .num{font-size:30px;}}
+  .instructor-stat .label{font-size:12px;color:var(--slate);margin-top:4px;display:block;}
+  .instructor-credentials{margin-top:22px;font-size:13px;color:var(--slate);line-height:1.6;}
+
+  /* ============ K08 SCHEDULE ============ */
+  .k08{background:var(--navy-gradient);color:var(--ink-on-navy);}
+  .k08-head{max-width:680px;margin:0 auto 44px;text-align:center;}
+  .k08-head h2{color:#fff;font-size:26px;margin:10px 0 14px;}
+  @media(min-width:640px){.k08-head h2{font-size:32px;}}
+  .k08-head p{color:var(--body-on-navy);font-size:16px;}
+  .k08-modules{display:grid;gap:18px;}
+  @media(min-width:860px){.k08-modules{grid-template-columns:repeat(3,1fr);gap:20px;}}
+  .k08-module{
+    background:rgba(255,255,255,.04);border:1px solid var(--card-border);
+    border-radius:16px;padding:26px 24px;
+  }
+  .k08-module .k08-num{
+    font-family:'Montserrat',sans-serif;font-weight:900;font-size:13px;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--amber);display:block;margin-bottom:10px;
+  }
+  .k08-module h3{font-size:18px;font-weight:700;color:#fff;margin:0 0 8px;}
+  .k08-module p{color:var(--body-on-navy);font-size:14.5px;margin:0;}
+  .k08-deadline{
+    max-width:640px;margin:36px auto 0;text-align:center;
+    background:rgba(217,119,6,.12);border:1px solid rgba(217,119,6,.4);
+    border-radius:14px;padding:18px 22px;
+  }
+  .k08-deadline p{
+    margin:0;color:#fff;font-size:15.5px;font-weight:600;
+  }
+  .k08-deadline strong{color:var(--amber);}
+  .k08-cta{display:flex;justify-content:center;margin-top:28px;}
+
   /* ============ MOMENTS GALLERY ============ */
   .moments{background:var(--navy-gradient);}
   .moments-head{max-width:680px;margin:0 auto 48px;text-align:center;}
@@ -1548,10 +1621,74 @@
       </div>
     </div>
 
-    <div class="org-row">
-      <span>DDI World</span><span>Cegos APAC</span><span>Talentvis</span><span>OCB</span><span>LSP</span>
+  </div>
+</section>
+
+<!-- ============ INSTRUCTOR ============ -->
+<section class="section instructor" id="instructor">
+  <div class="container">
+    <div class="instructor-grid">
+      <div class="instructor-photo reveal">
+        <img src="images/hero.jpg" alt="Nam Nguyễn" loading="lazy">
+      </div>
+      <div class="instructor-copy reveal">
+        <span class="eyebrow">Người thiết kế và trực tiếp hướng dẫn</span>
+        <h2>Nam Nguyễn</h2>
+        <p class="instructor-role">Speaking Coach · Facilitator · Nhà sáng lập S-PEAK</p>
+        <p>S-PEAK Keynote Masterclass được thiết kế để bạn không chỉ biết mình cần nói gì, mà còn biết cách biến chuyên môn đang có thành một bài nói có cấu trúc, có sức ảnh hưởng, và một cách xuất hiện đúng với đẳng cấp chuyên gia của mình.</p>
+        <p>Chương trình được đúc kết từ hơn 15 năm huấn luyện chuyên gia, lãnh đạo và đội ngũ tại các tổ chức trong và ngoài nước — với hơn 11.000 giờ đào tạo và 1.200 giờ coaching 1-1. Mỗi nội dung trong S-PEAK đều đi cùng tình huống thật, được kiểm chứng qua thực hành trực tiếp và phản hồi tức thời, để học viên điều chỉnh ngay trong quá trình học chứ không chỉ mang lý thuyết về nhà.</p>
+        <p class="instructor-quote">"Một bài nói tốt không chỉ giúp bạn nói hay hơn. Nó giúp bạn nói rõ hơn điều mình biết, và được nhìn nhận đúng với giá trị chuyên gia mà mình xứng đáng có."</p>
+        <div class="instructor-stats">
+          <div class="instructor-stat">
+            <span class="num">15+</span>
+            <span class="label">Năm kinh nghiệm</span>
+          </div>
+          <div class="instructor-stat">
+            <span class="num">11.000+</span>
+            <span class="label">Giờ đào tạo</span>
+          </div>
+          <div class="instructor-stat">
+            <span class="num">1.200+</span>
+            <span class="label">Giờ coaching 1-1</span>
+          </div>
+        </div>
+        <p class="instructor-credentials">CoachVille Professional Certified Coach · CCA Certified Coach · DDI World Certified Professional Facilitator</p>
+      </div>
     </div>
-    <p class="credentials">CoachVille Professional Certified Coach · CCA Certified Coach · 1.200+ giờ coaching · DDI World Certified Professional Facilitator · 11.000+ giờ điều phối</p>
+  </div>
+</section>
+
+<!-- ============ K08 SCHEDULE ============ -->
+<section class="section k08 fade-top-paper fade-bottom-paper" id="k08">
+  <div class="container">
+    <div class="k08-head reveal">
+      <p class="eyebrow">Khóa học tiếp theo</p>
+      <h2>S-PEAK K08 — Lịch khai giảng</h2>
+      <p>Giữ lại lịch học để chủ động sắp xếp thời gian tham gia cùng Nam Nguyễn.</p>
+    </div>
+    <div class="k08-modules">
+      <div class="k08-module reveal">
+        <span class="k08-num">Module 1 · Offline tại TP.HCM</span>
+        <h3>30–31/10 và 01/11/2026</h3>
+        <p>3 ngày offline xây nền tảng, thực hành trực tiếp cùng Nam Nguyễn.</p>
+      </div>
+      <div class="k08-module reveal">
+        <span class="k08-num">Module 2 · Online</span>
+        <h3>02–27/11/2026</h3>
+        <p>Thực hành online, kết hợp 4 buổi group coaching trực tuyến.</p>
+      </div>
+      <div class="k08-module reveal">
+        <span class="k08-num">Module 3 · Offline tại TP.HCM</span>
+        <h3>28–29/11/2026</h3>
+        <p>2 ngày offline hoàn thiện, diễn tập trực tiếp trên sân khấu.</p>
+      </div>
+    </div>
+    <div class="k08-deadline">
+      <p>Hạn chót đăng ký: <strong>20/10/2026</strong></p>
+    </div>
+    <div class="k08-cta">
+      <a href="#form" class="btn">Đăng ký giữ chỗ K08</a>
+    </div>
   </div>
 </section>
 
