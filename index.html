@@ -2278,6 +2278,16 @@
     #trainer .trainer-content > *,
     #trainer .creds-grid,
     #trainer .cred-item { min-width: 0; max-width: 100%; }
+    #trainer .trainer-inner {
+      width: 100%;
+      grid-template-columns: minmax(0, 1fr) !important;
+    }
+    #trainer .trainer-content,
+    #trainer .trainer-content > * {
+      box-sizing: border-box;
+      min-width: 0;
+      max-width: 100%;
+    }
     #trainer .trainer-content > p,
     #trainer .trainer-roleline,
     #trainer .cred-item span,
@@ -2289,13 +2299,20 @@
       overflow-wrap: normal;
       word-break: normal;
     }
+    #trainer .trainer-content > p,
+    #trainer .trainer-roleline,
+    #trainer .trainer-content .section-label {
+      white-space: normal !important;
+      overflow-wrap: anywhere;
+      word-break: normal;
+    }
     #trainer .trainer-roleline {
       margin-top: 12px;
-      font-size: 0.72rem;
-      letter-spacing: 0.035em;
+      font-size: clamp(0.64rem, 2.6vw, 0.75rem);
+      letter-spacing: 0.01em;
       line-height: 1.45;
     }
-    #trainer .trainer-content > p { overflow-wrap: normal; }
+    #trainer .trainer-content > p { overflow-wrap: anywhere; }
     #trainer .trainer-content > p:first-of-type { margin-top: 22px; }
     #trainer .trainer-content > p:nth-of-type(2) { margin-top: 16px; }
     #trainer .trainer-content > p:nth-of-type(3) {
