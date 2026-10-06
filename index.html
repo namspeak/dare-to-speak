@@ -1680,6 +1680,7 @@
   .hero-event-price { margin-top: 4px; color: rgba(23,23,23,0.64); font-size: 0.84rem; }
   .hero-event-price strong { color: #171717; }
   .hero-event-price [data-pricing-status] { display: block; margin-top: 3px; font-size: 0.78rem; }
+  .hero-event-price [data-pricing-status][hidden] { display: none; }
   .pricing-deal-note { margin: 10px 0 0; color: rgba(255,255,255,0.66); font-size: 0.82rem; line-height: 1.55; }
   .hero-ctas { margin-top: 0; }
   .hero-ctas .btn { min-height: 54px; }
@@ -2909,7 +2910,7 @@
       <p class="hero-desc">DARE TO S-PEAK giúp bạn sắp xếp thông điệp, luyện cách nói và xây sự tự tin để xuất hiện rõ ràng trước khách hàng, học viên và đội ngũ.</p>
       <div class="hero-event-info">
         <div class="hero-event-date">20, 21 &amp; 22/10/2026 · 20g00–22g00 · Online qua Zoom</div>
-        <div class="hero-event-price"><span>Khoản đầu tư </span><strong data-registration-price>500.000 VND</strong><span data-pricing-status>· Early Bird đến hết 14/10/2026</span></div>
+        <div class="hero-event-price"><span>Khoản đầu tư </span><strong data-registration-price>500.000 VND</strong><span data-pricing-status hidden>· Early Bird trước 15/10: 500.000 VND</span></div>
       </div>
       <div class="hero-countdown" data-countdown data-countdown-target="2026-10-20T20:00:00+07:00" aria-label="Đếm ngược đến buổi học đầu tiên">
         <div class="hero-countdown-label">ĐẾM NGƯỢC ĐẾN BUỔI HỌC ĐẦU TIÊN</div>
@@ -3268,7 +3269,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
         <div class="pricing-program">DARE TO S-PEAK K09 · 3 ngày</div>
         <div class="price-big"><span data-registration-price-number>500.000</span></div>
         <div style="color:rgba(255,255,255,0.4);font-size:0.9rem;margin-top:4px;">VND / học viên</div>
-        <p class="pricing-deal-note" data-pricing-details>Early Bird 500.000 VND khi đăng ký trước 15/10/2026. Từ 15/10: 1.000.000 VND. Mã DTS50: 500.000 VND · DTS100: miễn phí.</p>
+        <p class="pricing-deal-note" data-early-bird-message hidden>Early Bird trước 15/10: 500.000 VND.</p>
         <div class="pricing-perks">
           <div class="perk"><div class="perk-check">✓</div>3 buổi học tập chuyên sâu cùng bài tập thực hành</div>
           <div class="perk"><div class="perk-check">✓</div>Phản hồi trực tiếp trên tình huống thực tế</div>
@@ -3400,7 +3401,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     <div id="registration-form-view">
       <div class="section-label">Đăng ký DARE TO S-PEAK K09</div>
       <h2 id="registration-title">Giữ chỗ trong chương trình</h2>
-      <p class="registration-intro">Điền thông tin để giữ chỗ. Đăng ký trước 15/10/2026 được Early Bird 500.000 VND; từ 15/10 học phí là 1.000.000 VND. Nhập DTS50 để còn 500.000 VND hoặc DTS100 để được miễn phí.</p>
+      <p class="registration-intro" data-early-bird-message hidden>Early Bird trước 15/10: 500.000 VND.</p>
 
       <form id="registration-form" class="registration-form" action="https://script.google.com/macros/s/AKfycby8AB_KUr9iI7muyNMy61GB0iJscc6UhElTOHnFM-wZCsLNB1K5sJeT7cHQEx_1Igo/exec" method="POST" novalidate>
         <div class="registration-honeypot" aria-hidden="true">
@@ -3500,9 +3501,12 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       node.textContent = formattedPublicPrice;
     });
     document.querySelectorAll('[data-pricing-status]').forEach(node => {
-      node.textContent = isEarlyBird
-        ? '· Early Bird đến hết 14/10/2026'
-        : '· Giá áp dụng từ 15/10/2026';
+      node.hidden = !isEarlyBird;
+      node.textContent = '· Early Bird trước 15/10: 500.000 VND';
+    });
+    document.querySelectorAll('[data-early-bird-message]').forEach(node => {
+      node.hidden = !isEarlyBird;
+      node.textContent = 'Early Bird trước 15/10: 500.000 VND.';
     });
   };
   updatePublicPrice();
