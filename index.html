@@ -2914,7 +2914,7 @@
       <p class="hero-desc">DARE TO S-PEAK giúp bạn sắp xếp thông điệp, luyện cách nói và xây sự tự tin để xuất hiện rõ ràng trước khách hàng, học viên và đội ngũ.</p>
       <div class="hero-event-info">
         <div class="hero-event-date">20, 21 &amp; 22/10/2026 · 20g00–22g00 · Online qua Zoom</div>
-        <div class="hero-event-price"><span>Khoản đầu tư </span><strong data-registration-price>500.000 VND</strong><span data-pricing-status hidden>· Early Bird trước 15/10: 500.000 VND</span></div>
+        <div class="hero-event-price"><span>Học phí gốc </span><strong>1.000.000 VND</strong><span data-pricing-status hidden>· Early Bird trước 15/10: 500.000 VND</span></div>
       </div>
       <div class="hero-countdown" data-countdown data-countdown-target="2026-10-20T20:00:00+07:00" aria-label="Đếm ngược đến buổi học đầu tiên">
         <div class="hero-countdown-label">ĐẾM NGƯỢC ĐẾN BUỔI HỌC ĐẦU TIÊN</div>
@@ -3125,7 +3125,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       <div class="section-label" style="font-size: 25px">03 BUỔI · 06 GIỜ LÀM VIỆC SÂU</div>
       <h2>Không chỉ nghe. Bạn sẽ làm, nhận phản hồi và tinh chỉnh.</h2>
       <p>Mỗi buổi là một lần bạn đưa chuyên môn của mình vào thực hành, nhận phản hồi trực tiếp và chỉnh lại để có thể ứng dụng ngay sau chương trình.</p>
-      <a href="#registration-modal" data-registration-trigger class="btn btn-outline curriculum-cta">GIỮ CHỖ VỚI <span data-registration-price>500.000 VND</span> →</a>
+      <a href="#registration-modal" data-registration-trigger class="btn btn-outline curriculum-cta">GIỮ CHỖ VỚI <span data-early-bird-price-prefix hidden>Early Bird </span><span data-registration-price>500.000 VND</span> →</a>
     </div>
     <div class="curriculum-grid">
       <details class="day-card" open>
@@ -3271,9 +3271,9 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       <div class="pricing-card">
         <div class="pricing-title" style="font-size: 25px">DARE TO S-PEAK</div>
         <div class="pricing-program">DARE TO S-PEAK K09 · 3 ngày</div>
-        <div class="price-big"><span data-registration-price-number>500.000</span></div>
+        <div class="price-big"><span>1.000.000</span></div>
         <div style="color:rgba(255,255,255,0.4);font-size:0.9rem;margin-top:4px;">VND / học viên</div>
-        <p class="pricing-deal-note" data-early-bird-message hidden>Early Bird trước 15/10: 500.000 VND.</p>
+        <p class="pricing-deal-note" data-early-bird-message hidden>Học phí gốc 1.000.000 VND · Early Bird trước 15/10: 500.000 VND.</p>
         <div class="pricing-perks">
           <div class="perk"><div class="perk-check">✓</div>3 buổi học tập chuyên sâu cùng bài tập thực hành</div>
           <div class="perk"><div class="perk-check">✓</div>Phản hồi trực tiếp trên tình huống thực tế</div>
@@ -3394,7 +3394,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
 
 <a class="mobile-sticky-cta" href="#registration-modal" data-registration-trigger>
   <span>Đăng ký chương trình</span>
-  <strong><span data-registration-price>500.000 VND</span> →</strong>
+  <strong><span data-early-bird-price-prefix hidden>Early Bird </span><span data-registration-price>500.000 VND</span> →</strong>
 </a>
 
 <!-- Custom registration is activated after payment credentials are configured in production. -->
@@ -3405,7 +3405,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     <div id="registration-form-view">
       <div class="section-label">Đăng ký DARE TO S-PEAK K09</div>
       <h2 id="registration-title">Giữ chỗ trong chương trình</h2>
-      <p class="registration-intro" data-early-bird-message hidden>Early Bird trước 15/10: 500.000 VND.</p>
+      <p class="registration-intro" data-early-bird-message hidden>Học phí gốc 1.000.000 VND · Early Bird trước 15/10: 500.000 VND.</p>
 
       <form id="registration-form" class="registration-form" action="https://script.google.com/macros/s/AKfycby8AB_KUr9iI7muyNMy61GB0iJscc6UhElTOHnFM-wZCsLNB1K5sJeT7cHQEx_1Igo/exec" method="POST" novalidate>
         <div class="registration-honeypot" aria-hidden="true">
@@ -3451,7 +3451,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
       <div class="section-label">Bước cuối</div>
       <h2>Quét QR để hoàn tất đăng ký</h2>
       <div class="payment-summary">
-        <p>Khoản đầu tư</p>
+        <p>Số tiền cần thanh toán</p>
         <div id="payment-amount" class="payment-amount">500.000 VND</div>
         <p>Vui lòng giữ nguyên nội dung chuyển khoản để hệ thống xác nhận tự động.</p>
       </div>
@@ -3501,8 +3501,8 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     document.querySelectorAll('[data-registration-price]').forEach(node => {
       node.textContent = `${formattedPublicPrice} VND`;
     });
-    document.querySelectorAll('[data-registration-price-number]').forEach(node => {
-      node.textContent = formattedPublicPrice;
+    document.querySelectorAll('[data-early-bird-price-prefix]').forEach(node => {
+      node.hidden = !isEarlyBird;
     });
     document.querySelectorAll('[data-pricing-status]').forEach(node => {
       node.hidden = !isEarlyBird;
@@ -3510,7 +3510,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     });
     document.querySelectorAll('[data-early-bird-message]').forEach(node => {
       node.hidden = !isEarlyBird;
-      node.textContent = 'Early Bird trước 15/10: 500.000 VND.';
+      node.textContent = 'Học phí gốc 1.000.000 VND · Early Bird trước 15/10: 500.000 VND.';
     });
   };
   updatePublicPrice();
