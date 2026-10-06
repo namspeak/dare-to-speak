@@ -54,7 +54,8 @@ module.exports = async function sepayWebhook(req, res) {
 
     const previousTransactionId = String(registration.row[10] || "");
     const notificationSentAt = String(registration.row[13] || "");
-    const amountMatches = Number(payment.transferAmount) === config.amount;
+    const expectedAmount = Number(registration.row[6] || config.amount);
+    const amountMatches = Number(payment.transferAmount) === expectedAmount;
 
     if (!amountMatches) {
       if (previousTransactionId !== String(payment.id)) {
@@ -65,7 +66,7 @@ module.exports = async function sepayWebhook(req, res) {
           transactionDate: payment.transactionDate,
           transferAmount: payment.transferAmount,
           status: "Lệch số tiền",
-          note: `SePay #${payment.id}: nhận ${Number(payment.transferAmount).toLocaleString("vi-VN")} VND, cần ${config.amount.toLocaleString("vi-VN")} VND.`,
+          note: `SePay #${payment.id}: nhận ${Number(payment.transferAmount).toLocaleString("vi-VN")} VND, cần ${expectedAmount.toLocaleString("vi-VN")} VND.`,
         });
       }
       return json(res, 200, { success: true });

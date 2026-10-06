@@ -12,7 +12,7 @@ function escapeHtml(value) {
 async function sendPaymentNotification({ registration, payment }) {
   const config = getConfig();
   const [createdAt, code, name, email, phone, role] = registration.row;
-  const subject = `[S-PEAK K09] Đã thanh toán 1.000.000 VND — ${name || code}`;
+  const subject = `[S-PEAK K09] Đã thanh toán ${Number(payment.transferAmount).toLocaleString("vi-VN")} VND — ${name || code}`;
   const rows = [
     ["Học viên", name],
     ["Email", email],

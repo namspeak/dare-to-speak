@@ -1,6 +1,7 @@
 const { missingEnv, REQUIRED_REGISTRATION_ENV, getConfig } = require("./_lib/config");
 const { json, setCors, handleOptions, readRawBody } = require("./_lib/http");
 const { reserveRegistration, createPaymentQrUrl } = require("./_lib/registration");
+const { calculateRegistrationPrice } = require("./_lib/pricing");
 
 module.exports.config = { api: { bodyParser: false } };
 
@@ -33,19 +34,25 @@ module.exports = async function register(req, res) {
     const email = cleanText(body.email, 120).toLowerCase();
     const phone = cleanText(body.phone, 30);
     const role = cleanText(body.role, 60);
+    const pricing = calculateRegistrationPrice({ promoCode: cleanText(body.promoCode, 30), regularPrice: getConfig().amount });
 
     if (name.length < 2 || !isValidEmail(email) || phone.length < 8 || !role) {
       return json(res, 422, { success: false, message: "Vui lòng kiểm tra lại họ tên, email, số điện thoại và vai trò." });
     }
 
-    const registration = await reserveRegistration({ name, email, phone, role });
+    if (!pricing.valid) {
+      return json(res, 422, { success: false, message: "Mã ưu đãi không hợp lệ. Vui lòng kiểm tra DTS50 hoặc DTS100." });
+    }
+
+    const registration = await reserveRegistration({ name, email, phone, role, amount: pricing.amount, promoCode: pricing.promoCode });
     const config = getConfig();
 
     return json(res, 201, {
       success: true,
       paymentCode: registration.code,
-      amount: config.amount,
-      qrUrl: createPaymentQrUrl(registration.code),
+      amount: pricing.amount,
+      qrUrl: createPaymentQrUrl(registration.code, pricing.amount),
+      pricingReason: pricing.reason,
       bankName: config.bankName,
       accountNumber: config.accountNumber,
     });

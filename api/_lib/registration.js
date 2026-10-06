@@ -41,8 +41,9 @@ async function getRegistrationRows() {
   return response.data.values || [];
 }
 
-async function reserveRegistration({ name, email, phone, role }) {
+async function reserveRegistration({ name, email, phone, role, amount = null }) {
   const config = getConfig();
+  const registrationAmount = amount === null ? config.amount : Number(amount);
   const sheets = createSheetsClient();
   const rows = await getRegistrationRows();
   const usedCodes = new Set(rows.map((row) => String(row[1] || "").toUpperCase()));
@@ -66,7 +67,7 @@ async function reserveRegistration({ name, email, phone, role }) {
     safeCellText(email),
     safeCellText(phone),
     safeCellText(role),
-    config.amount,
+    registrationAmount,
     "Chờ thanh toán",
     "",
     "",
@@ -87,7 +88,7 @@ async function reserveRegistration({ name, email, phone, role }) {
   const updatedRange = response.data.updates?.updatedRange || "";
   const rowMatch = updatedRange.match(/!(?:[A-Z]+)(\d+):/);
 
-  return { code, rowNumber: rowMatch ? Number(rowMatch[1]) : null };
+  return { code, rowNumber: rowMatch ? Number(rowMatch[1]) : null, amount: registrationAmount };
 }
 
 async function findRegistrationByCode(code) {
@@ -132,12 +133,13 @@ async function markNotificationSent(rowNumber, existingRow) {
   });
 }
 
-function createPaymentQrUrl(code) {
+function createPaymentQrUrl(code, amount = null) {
   const config = getConfig();
+  const paymentAmount = amount === null ? config.amount : Number(amount);
   const query = new URLSearchParams({
     acc: config.accountNumber,
     bank: config.bankCode,
-    amount: String(config.amount),
+    amount: String(paymentAmount),
     des: code,
     template: "compact",
     showinfo: "true",
