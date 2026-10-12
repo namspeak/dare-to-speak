@@ -2890,6 +2890,173 @@
     .payment-qr-wrap img { width: min(100%, 250px); }
   }
 
+  /* ── WELCOME VIDEO HERO ── */
+  #hero {
+    min-height: 0;
+    padding: 116px 0 64px;
+    background:
+      radial-gradient(ellipse at 10% 35%, rgba(255,138,53,0.10), transparent 48%),
+      linear-gradient(135deg, #fffaf5, #f7f1eb);
+  }
+  #hero::before,
+  #hero::after { display: none; }
+  #hero .hero-inner { display: block; max-width: 1184px; padding: 0 32px; }
+  #hero .hero-left { max-width: none; margin: 0 auto 34px; text-align: center; }
+  #hero .hero-title {
+    max-width: 1120px;
+    margin: 0 auto 18px;
+    font-size: clamp(2.8rem, 4.6vw, 4.1rem);
+    line-height: 1.06;
+    letter-spacing: -0.018em;
+    word-spacing: 0.06em;
+    text-wrap: balance;
+  }
+  #hero .hero-title .line1 { white-space: normal; }
+  #hero .hero-title .line2 { font-size: inherit; line-height: inherit; letter-spacing: inherit; }
+  #hero .hero-title-phrase { white-space: nowrap; }
+  #hero .hero-desc { max-width: 790px; margin: 0 auto; font-size: 1.05rem; }
+  .hero-welcome-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+    gap: 28px;
+    align-items: start;
+  }
+  .hero-welcome-grid > * { min-width: 0; }
+  .welcome-video-card {
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(23,23,23,0.10);
+    border-radius: 22px;
+    background: #fff;
+    box-shadow: 0 14px 36px rgba(58,36,25,0.09);
+  }
+  .welcome-video-trigger {
+    position: relative;
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    padding: 0;
+    border: 0;
+    background: #24323b;
+    color: #fff;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  .welcome-video-trigger:disabled { cursor: default; }
+  .welcome-video-trigger::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(8,18,26,0.10), transparent 45%, rgba(8,18,26,0.68));
+    pointer-events: none;
+  }
+  .welcome-video-trigger img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
+  .welcome-video-label {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 22px;
+    padding: 7px 10px;
+    border: 1px solid rgba(255,255,255,0.32);
+    border-radius: 6px;
+    background: rgba(8,18,26,0.48);
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+  }
+  .welcome-video-play {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    border: 3px solid rgba(255,255,255,0.9);
+    border-radius: 50%;
+    background: var(--grad);
+    box-shadow: 0 0 0 9px rgba(255,255,255,0.20), 0 8px 26px rgba(0,0,0,0.18);
+    transform: translate(-50%, -50%);
+    transition: transform 180ms ease;
+  }
+  .welcome-video-play svg { width: 28px; height: 28px; margin-left: 4px; fill: currentColor; }
+  .welcome-video-trigger:not(:disabled):hover .welcome-video-play { transform: translate(-50%, -50%) scale(1.08); }
+  .welcome-video-trigger:focus-visible { outline: 3px solid #f36a2e; outline-offset: -3px; }
+  .welcome-video-action { position: absolute; z-index: 1; right: 22px; bottom: 20px; left: 22px; font-size: 0.9rem; font-weight: 750; }
+  .welcome-video-card figcaption { padding: 22px 24px; }
+  .welcome-video-card h2 { color: #171717; font-size: 1.25rem; line-height: 1.35; letter-spacing: -0.035em; }
+  .hero-welcome-brand { display: inline-block; white-space: nowrap; }
+  .welcome-video-card figcaption p { margin-top: 8px; color: #6e6863; font-size: 0.88rem; line-height: 1.6; }
+  .hero-registration-card {
+    padding: 28px;
+    border: 1px solid rgba(217,85,37,0.16);
+    border-radius: 22px;
+    background: rgba(255,255,255,0.92);
+    box-shadow: 0 14px 36px rgba(58,36,25,0.07);
+  }
+  .hero-registration-card > .section-label { margin-bottom: 12px; font-size: 0.72rem; letter-spacing: 0.10em; }
+  .hero-registration-card > h2 { color: #171717; font-size: 1.8rem; line-height: 1.2; text-wrap: balance; }
+  .hero-offer-program { display: block; margin-top: 4px; font-size: clamp(1.22rem, 2.4vw, 1.75rem); white-space: nowrap; }
+  #hero .hero-event-info { width: 100%; margin: 20px 0; padding: 14px 16px; background: #fff7f1; box-shadow: none; }
+  #hero .hero-event-date { font-size: 0.88rem; }
+  #hero .hero-event-price { font-size: 0.85rem; }
+  #hero .hero-countdown { margin-bottom: 20px; padding: 0; border: 0; background: transparent; box-shadow: none; }
+  #hero .hero-countdown-unit { background: #fbf8f5; }
+  #hero .hero-countdown-unit strong { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+  #hero .hero-ctas .btn { width: 100%; justify-content: center; padding: 16px 12px; font-size: 0.88rem; }
+  #hero .hero-program-link { display: block; text-align: center; font-size: 0.88rem; }
+  #hero .hero-form-note { text-align: center; font-size: 0.75rem; }
+  body.welcome-video-open { overflow: hidden; }
+  .welcome-video-dialog {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    width: min(960px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    overflow: auto;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 18px;
+    background: #171717;
+    color: #fff;
+  }
+  .welcome-video-dialog::backdrop { background: rgba(8,12,16,0.78); backdrop-filter: blur(6px); }
+  .welcome-video-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 14px; }
+  .welcome-video-dialog-header h2 { font-size: 1rem; line-height: 1.4; }
+  .welcome-video-close { flex: 0 0 36px; height: 36px; border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; background: transparent; color: #fff; font: 1.6rem/1 Arial, sans-serif; cursor: pointer; }
+  .welcome-video-player { aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #000; }
+  .welcome-video-player > iframe,
+  .welcome-video-player > video { display: block; width: 100%; height: 100%; border: 0; }
+  @media (max-width: 800px) {
+    .hero-welcome-grid { grid-template-columns: minmax(0, 1fr); max-width: 620px; margin: 0 auto; gap: 22px; }
+  }
+  @media (max-width: 600px) {
+    #hero { padding: 94px 0 42px; }
+    #hero .hero-inner { padding: 0 18px; }
+    #hero .hero-left { margin-bottom: 24px; }
+    #hero .hero-title { font-size: clamp(2.05rem, 8.8vw, 3rem); line-height: 1.08; letter-spacing: -0.018em; }
+    #hero .hero-desc { font-size: 0.94rem; line-height: 1.6; }
+    .welcome-video-card,
+    .hero-registration-card { border-radius: 16px; }
+    .welcome-video-label { top: 14px; left: 14px; font-size: 0.55rem; letter-spacing: 0.06em; }
+    .welcome-video-play { width: 58px; height: 58px; border-width: 2px; box-shadow: 0 0 0 6px rgba(255,255,255,0.20); }
+    .welcome-video-play svg { width: 22px; height: 22px; }
+    .welcome-video-action { right: 14px; bottom: 14px; left: 14px; font-size: 0.77rem; }
+    .welcome-video-card figcaption { padding: 18px; }
+    .welcome-video-card h2 { font-size: 1.12rem; }
+    .hero-registration-card { padding: 22px 18px; }
+    .hero-registration-card > h2 { font-size: 1.55rem; }
+    .hero-offer-program { font-size: clamp(1.05rem, 5.2vw, 1.5rem); }
+    #hero .hero-ctas .btn { font-size: 0.79rem; }
+    .welcome-video-dialog { padding: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .welcome-video-play { transition: none; }
+  }
 </style>
 <template id="__bundler_thumbnail">
 <svg viewBox="0 0 120 80" xmlns="http://www.w3.org/2000/svg">
@@ -2925,32 +3092,58 @@
     <div class="hero-left">
       <div class="hero-kicker">DARE TO S-PEAK K09 · 3 BUỔI ONLINE QUA ZOOM</div>
       <h1 class="hero-title">
-        <span class="line1">Chuyên môn chỉ tạo</span>
-        <span class="line2">ảnh hưởng khi người khác hiểu và nhớ.</span>
+        <span class="line1"><span class="hero-title-phrase">Chuyên môn</span> <span class="hero-title-phrase">chỉ tạo</span></span>
+        <span class="line2"><span class="hero-title-phrase">ảnh hưởng khi</span> <span class="hero-title-phrase">người khác</span> <span class="hero-title-phrase">hiểu và nhớ.</span></span>
       </h1>
       <p class="hero-desc">DARE TO S-PEAK giúp bạn sắp xếp thông điệp, luyện cách nói và xây sự tự tin để xuất hiện rõ ràng trước khách hàng, học viên và đội ngũ.</p>
-      <div class="hero-event-info">
-        <div class="hero-event-date">20, 21 &amp; 22/10/2026 · 20g00–22g00 · Online qua Zoom</div>
-        <div class="hero-event-price"><span>Học phí gốc </span><strong>1.000.000 VND</strong><span data-pricing-status hidden>· Early Bird trước 15/10: 500.000 VND</span></div>
-      </div>
-      <div class="hero-countdown" data-countdown data-countdown-target="2026-10-20T20:00:00+07:00" aria-label="Đếm ngược đến buổi học đầu tiên">
-        <div class="hero-countdown-label">ĐẾM NGƯỢC ĐẾN BUỔI HỌC ĐẦU TIÊN</div>
-        <div class="hero-countdown-grid">
-          <div class="hero-countdown-unit"><strong data-countdown-days>00</strong><span>NGÀY</span></div>
-          <div class="hero-countdown-unit"><strong data-countdown-hours>00</strong><span>GIỜ</span></div>
-          <div class="hero-countdown-unit"><strong data-countdown-minutes>00</strong><span>PHÚT</span></div>
-          <div class="hero-countdown-unit"><strong data-countdown-seconds>00</strong><span>GIÂY</span></div>
-        </div>
-      </div>
-      <div class="hero-ctas">
-        <a href="#registration-modal" data-registration-trigger class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
-      </div>
-      <a class="hero-program-link" href="#curriculum">Xem lộ trình 3 ngày ↓</a>
-      <p class="hero-form-note">Điền form đăng ký trong khoảng 1 phút.</p>
     </div>
-
+    <div class="hero-welcome-grid">
+      <figure class="welcome-video-card">
+        <!-- WELCOME VIDEO: paste a YouTube/Vimeo link or MP4/WebM path into data-video-src. Leave empty until ready. -->
+        <button id="welcome-video-trigger" class="welcome-video-trigger" type="button" data-video-src="https://youtu.be/XEcMKc6SMe8" disabled aria-label="Xem video chào mừng DARE TO S-PEAK" aria-haspopup="dialog" aria-controls="welcome-video-dialog">
+          <img src="assets/team/nam-nguyen-facilitator.webp" width="1122" height="1402" alt="" fetchpriority="high" decoding="async">
+          <span class="welcome-video-label">LỜI CHÀO TỪ NAM NGUYỄN</span>
+          <span class="welcome-video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l14-8z"/></svg></span>
+          <span class="welcome-video-action" id="welcome-video-action">Xem video chào mừng</span>
+        </button>
+        <figcaption>
+          <h2>Chào mừng bạn đến với <span class="hero-welcome-brand">DARE TO S-PEAK</span></h2>
+          <p>Một lời chào trước khi chúng ta bắt đầu hành trình cùng nhau.</p>
+        </figcaption>
+      </figure>
+      <div class="hero-registration-card">
+        <div class="section-label">GIỮ CHỖ TRONG CHƯƠNG TRÌNH</div>
+        <h2>Bắt đầu cùng <span class="hero-offer-program">DARE TO S-PEAK K09</span></h2>
+        <div class="hero-event-info">
+          <div class="hero-event-date">20, 21 &amp; 22/10/2026 · 20g00–22g00 · Online qua Zoom</div>
+          <div class="hero-event-price"><span>Học phí gốc </span><strong>1.000.000 VND</strong><span data-pricing-status hidden>· Early Bird trước 15/10: 500.000 VND</span></div>
+        </div>
+        <div class="hero-countdown" data-countdown data-countdown-target="2026-10-20T20:00:00+07:00" aria-label="Đếm ngược đến buổi học đầu tiên">
+          <div class="hero-countdown-label">ĐẾM NGƯỢC ĐẾN BUỔI HỌC ĐẦU TIÊN</div>
+          <div class="hero-countdown-grid">
+            <div class="hero-countdown-unit"><strong data-countdown-days>00</strong><span>NGÀY</span></div>
+            <div class="hero-countdown-unit"><strong data-countdown-hours>00</strong><span>GIỜ</span></div>
+            <div class="hero-countdown-unit"><strong data-countdown-minutes>00</strong><span>PHÚT</span></div>
+            <div class="hero-countdown-unit"><strong data-countdown-seconds>00</strong><span>GIÂY</span></div>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#registration-modal" data-registration-trigger class="btn btn-primary">ĐĂNG KÝ DARE TO S-PEAK K09 →</a>
+        </div>
+        <a class="hero-program-link" href="#curriculum">Xem lộ trình 3 ngày ↓</a>
+        <p class="hero-form-note">Điền form đăng ký trong khoảng 1 phút.</p>
+      </div>
+    </div>
   </div>
 </section>
+
+<dialog id="welcome-video-dialog" class="welcome-video-dialog" aria-labelledby="welcome-video-title">
+  <div class="welcome-video-dialog-header">
+    <h2 id="welcome-video-title">Chào mừng bạn đến với DARE TO S-PEAK</h2>
+    <button class="welcome-video-close" type="button" aria-label="Đóng video">×</button>
+  </div>
+  <div id="welcome-video-player" class="welcome-video-player"></div>
+</dialog>
 
 <!-- TRUST BAR -->
 <section id="trust-bar" aria-label="Kinh nghiệm của Nam Nguyễn">
@@ -3502,6 +3695,91 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
 </footer>
 
 <script>
+  // The welcome video is loaded only after the visitor presses play.
+  (() => {
+    const trigger = document.querySelector('#welcome-video-trigger');
+    const dialog = document.querySelector('#welcome-video-dialog');
+    const player = document.querySelector('#welcome-video-player');
+    const action = document.querySelector('#welcome-video-action');
+    const resolveSource = value => {
+      if (!value) return null;
+      let url;
+      try { url = new URL(value, document.baseURI); } catch { return null; }
+      if (!['http:', 'https:', 'file:'].includes(url.protocol)) return null;
+      const host = url.hostname.toLowerCase();
+      if (['youtube.com', 'www.youtube.com', 'm.youtube.com', 'youtu.be', 'www.youtube-nocookie.com'].includes(host)) {
+        const id = host === 'youtu.be' ? url.pathname.split('/')[1]
+          : url.searchParams.get('v') || url.pathname.match(/^\/(?:embed|shorts)\/([^/]+)/)?.[1];
+        if (!/^[\w-]{11}$/.test(id || '')) return null;
+        return { type: 'embed', src: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1`, original: url.href };
+      }
+      if (['vimeo.com', 'www.vimeo.com', 'player.vimeo.com'].includes(host)) {
+        const match = url.pathname.match(/\/(?:video\/)?(\d+)(?:\/([\w]+))?\/?$/);
+        if (!match) return null;
+        const embed = new URL(`https://player.vimeo.com/video/${match[1]}`);
+        embed.searchParams.set('autoplay', '1');
+        const hash = url.searchParams.get('h') || match[2];
+        if (hash) embed.searchParams.set('h', hash);
+        return { type: 'embed', src: embed.href, original: url.href };
+      }
+      if (/\.(mp4|webm|ogg)$/i.test(url.pathname)) return { type: 'video', src: url.href, original: url.href };
+      return null;
+    };
+    const source = resolveSource(trigger?.dataset.videoSrc?.trim());
+    if (!source || !dialog || !player) return;
+    trigger.disabled = false;
+    trigger.setAttribute('aria-label', 'Xem video chào mừng DARE TO S-PEAK');
+    action.textContent = 'Xem video chào mừng';
+    const stopPlayback = () => {
+      player.querySelector('video')?.pause();
+      player.replaceChildren();
+      document.body.classList.remove('welcome-video-open');
+    };
+    dialog.addEventListener('close', stopPlayback);
+    const closeWelcomeVideo = () => {
+      if (typeof dialog.close === 'function') dialog.close();
+      else {
+        dialog.removeAttribute('open');
+        stopPlayback();
+        trigger.focus();
+      }
+    };
+    dialog.querySelector('.welcome-video-close').addEventListener('click', closeWelcomeVideo);
+    dialog.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && typeof dialog.close !== 'function') closeWelcomeVideo();
+    });
+    dialog.addEventListener('click', event => {
+      const bounds = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) closeWelcomeVideo();
+    });
+    trigger.addEventListener('click', () => {
+      const media = document.createElement(source.type === 'embed' ? 'iframe' : 'video');
+      if (source.type === 'embed') {
+        media.title = 'Video chào mừng DARE TO S-PEAK';
+        media.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+        media.allowFullscreen = true;
+        media.referrerPolicy = 'strict-origin-when-cross-origin';
+      } else {
+        media.controls = true;
+        media.playsInline = true;
+        media.setAttribute('playsinline', '');
+        media.preload = 'metadata';
+        media.autoplay = true;
+        media.poster = trigger.querySelector('img').src;
+      }
+      media.src = source.src;
+      player.replaceChildren(media);
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else {
+        dialog.setAttribute('open', '');
+        dialog.setAttribute('aria-modal', 'true');
+      }
+      document.body.classList.add('welcome-video-open');
+      dialog.querySelector('.welcome-video-close').focus();
+      if (source.type === 'video') media.play().catch(() => {});
+    });
+  })();
+
   // Publish the current public price using Vietnam calendar dates; payment is recalculated server-side.
   const earlyBirdDeadline = 20261015;
   const earlyBirdDeadlineInstant = Date.parse('2026-10-15T00:00:00+07:00');
