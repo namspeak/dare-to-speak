@@ -14,4 +14,4 @@ Trong `index.html`, tìm nút có `id="welcome-video-trigger"` và điền link 
 
 Nút play tự bật khi có nguồn video hợp lệ. Video chỉ tải khi khách bấm xem, mở trong popup và dừng khi popup đóng. Khi chưa gắn video, ảnh bìa hiện “Sắp ra mắt”.
 
-Ảnh bìa hiện dùng `assets/team/nam-nguyen-facilitator.webp`; có thể thay `src` của ảnh nằm trong nút video bằng ảnh bìa thực tế.
+Ảnh bìa hiện dùng `assets/hero/welcome-thumbnail-v2.webp` (1200 × 675, khoảng 62 KB) và bản mobile `assets/hero/welcome-thumbnail-v2-mobile.webp` (640 × 360, khoảng 26 KB). Ảnh được tạo bằng công cụ tạo ảnh, dựa trên ảnh chân dung thật của Nam Nguyễn. Khi thay ảnh, cập nhật cả `src` và `srcset` của ảnh nằm trong nút video.

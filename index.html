@@ -2938,54 +2938,35 @@
     overflow: hidden;
     padding: 0;
     border: 0;
-    background: #24323b;
-    color: #fff;
+    background: #fff7ee;
+    color: #242424;
     font: inherit;
     text-align: left;
     cursor: pointer;
   }
   .welcome-video-trigger:disabled { cursor: default; }
-  .welcome-video-trigger::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(8,18,26,0.10), transparent 45%, rgba(8,18,26,0.68));
-    pointer-events: none;
-  }
-  .welcome-video-trigger img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
-  .welcome-video-label {
-    position: absolute;
-    z-index: 1;
-    top: 20px;
-    left: 22px;
-    padding: 7px 10px;
-    border: 1px solid rgba(255,255,255,0.32);
-    border-radius: 6px;
-    background: rgba(8,18,26,0.48);
-    font-size: 0.65rem;
-    font-weight: 800;
-    letter-spacing: 0.10em;
-  }
+  .welcome-video-trigger img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
   .welcome-video-play {
     position: absolute;
     z-index: 1;
-    top: 50%;
-    left: 50%;
+    top: 79%;
+    left: 13%;
     display: grid;
     place-items: center;
-    width: 76px;
-    height: 76px;
-    border: 3px solid rgba(255,255,255,0.9);
+    width: 64px;
+    height: 64px;
+    border: 2px solid rgba(255,255,255,0.9);
     border-radius: 50%;
     background: var(--grad);
-    box-shadow: 0 0 0 9px rgba(255,255,255,0.20), 0 8px 26px rgba(0,0,0,0.18);
+    color: #fff;
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.70), 0 6px 18px rgba(211,91,38,0.18);
     transform: translate(-50%, -50%);
     transition: transform 180ms ease;
   }
   .welcome-video-play svg { width: 28px; height: 28px; margin-left: 4px; fill: currentColor; }
   .welcome-video-trigger:not(:disabled):hover .welcome-video-play { transform: translate(-50%, -50%) scale(1.08); }
   .welcome-video-trigger:focus-visible { outline: 3px solid #f36a2e; outline-offset: -3px; }
-  .welcome-video-action { position: absolute; z-index: 1; right: 22px; bottom: 20px; left: 22px; font-size: 0.9rem; font-weight: 750; }
+  .welcome-video-action { position: absolute; z-index: 1; top: 79%; left: 23%; transform: translateY(-50%); font-size: 0.9rem; font-weight: 750; white-space: nowrap; }
   .welcome-video-card figcaption { padding: 22px 24px; }
   .welcome-video-card h2 { color: #171717; font-size: 1.25rem; line-height: 1.35; letter-spacing: -0.035em; }
   .hero-welcome-brand { display: inline-block; white-space: nowrap; }
@@ -3042,10 +3023,9 @@
     #hero .hero-desc { font-size: 0.94rem; line-height: 1.6; }
     .welcome-video-card,
     .hero-registration-card { border-radius: 16px; }
-    .welcome-video-label { top: 14px; left: 14px; font-size: 0.55rem; letter-spacing: 0.06em; }
-    .welcome-video-play { width: 58px; height: 58px; border-width: 2px; box-shadow: 0 0 0 6px rgba(255,255,255,0.20); }
-    .welcome-video-play svg { width: 22px; height: 22px; }
-    .welcome-video-action { right: 14px; bottom: 14px; left: 14px; font-size: 0.77rem; }
+    .welcome-video-play { width: 44px; height: 44px; box-shadow: 0 0 0 4px rgba(255,255,255,0.70); }
+    .welcome-video-play svg { width: 20px; height: 20px; }
+    .welcome-video-action { left: 25%; font-size: 0.75rem; }
     .welcome-video-card figcaption { padding: 18px; }
     .welcome-video-card h2 { font-size: 1.12rem; }
     .hero-registration-card { padding: 22px 18px; }
@@ -3101,10 +3081,9 @@
       <figure class="welcome-video-card">
         <!-- WELCOME VIDEO: paste a YouTube/Vimeo link or MP4/WebM path into data-video-src. Leave empty until ready. -->
         <button id="welcome-video-trigger" class="welcome-video-trigger" type="button" data-video-src="https://youtu.be/XEcMKc6SMe8" disabled aria-label="Xem video chào mừng DARE TO S-PEAK" aria-haspopup="dialog" aria-controls="welcome-video-dialog">
-          <img src="assets/team/nam-nguyen-facilitator.webp" width="1122" height="1402" alt="" fetchpriority="high" decoding="async">
-          <span class="welcome-video-label">LỜI CHÀO TỪ NAM NGUYỄN</span>
+          <img src="assets/hero/welcome-thumbnail-v2.webp" srcset="assets/hero/welcome-thumbnail-v2-mobile.webp 640w, assets/hero/welcome-thumbnail-v2.webp 1200w" sizes="(max-width: 600px) calc(100vw - 36px), (max-width: 800px) 620px, 590px" width="1200" height="675" alt="" fetchpriority="high" decoding="async">
           <span class="welcome-video-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4v16l14-8z"/></svg></span>
-          <span class="welcome-video-action" id="welcome-video-action">Xem video chào mừng</span>
+          <span class="welcome-video-action" id="welcome-video-action">Xem lời chào</span>
         </button>
         <figcaption>
           <h2>Chào mừng bạn đến với <span class="hero-welcome-brand">DARE TO S-PEAK</span></h2>
@@ -3729,7 +3708,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
     if (!source || !dialog || !player) return;
     trigger.disabled = false;
     trigger.setAttribute('aria-label', 'Xem video chào mừng DARE TO S-PEAK');
-    action.textContent = 'Xem video chào mừng';
+    action.textContent = 'Xem lời chào';
     const stopPlayback = () => {
       player.querySelector('video')?.pause();
       player.replaceChildren();
