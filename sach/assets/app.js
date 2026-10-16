@@ -1,6 +1,6 @@
 (function () {
   'use strict';
-  var PRICE = 150000;
+  var PRICE = 189000;
   var D = window.SPEAK_DEMO || { toc: [], sample: [], readerNotice: '' };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var money = function (n) { return n.toLocaleString('vi-VN') + 'đ'; };
@@ -32,13 +32,19 @@
   /* Mục lục demo */
   var toc = $('#table-of-contents');
   if (toc) {
-    D.toc.forEach(function (it) {
-      var row = document.createElement('div'); row.className = 'toc-item';
-      var part = document.createElement('span'); part.className = 'toc-part'; part.textContent = it.part;
-      var box = document.createElement('div');
-      var h = document.createElement('h3'); h.textContent = it.title;
-      var p = document.createElement('p'); p.textContent = it.desc;
-      box.appendChild(h); box.appendChild(p); row.appendChild(part); row.appendChild(box); toc.appendChild(row);
+    D.toc.forEach(function (g) {
+      var head = document.createElement('div'); head.className = 'toc-group';
+      var hp = document.createElement('span'); hp.textContent = g.part;
+      var ht = document.createElement('b'); ht.textContent = g.title;
+      head.appendChild(hp); head.appendChild(ht); toc.appendChild(head);
+      g.chapters.forEach(function (c) {
+        var row = document.createElement('div'); row.className = 'toc-item';
+        var part = document.createElement('span'); part.className = 'toc-part'; part.textContent = c[0];
+        var box = document.createElement('div');
+        var h = document.createElement('h3'); h.textContent = c[1];
+        var p = document.createElement('p'); p.textContent = c[2];
+        box.appendChild(h); box.appendChild(p); row.appendChild(part); row.appendChild(box); toc.appendChild(row);
+      });
     });
   }
 
@@ -56,7 +62,7 @@
     pf.addEventListener('submit', function (e) {
       e.preventDefault();
       if (!pe.checkValidity()) { ps.className = 'form-status'; ps.textContent = 'Vui lòng nhập email hợp lệ.'; pe.focus(); return; }
-      ps.className = 'form-status ok'; ps.textContent = 'Đang mở bản đọc thử demo…';
+      ps.className = 'form-status ok'; ps.textContent = 'Đang mở bản đọc thử…';
       openDialog('reading-dialog');
     });
   }
