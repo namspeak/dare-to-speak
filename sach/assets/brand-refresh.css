@@ -1,0 +1,8 @@
+/* Brand layer — S-PEAK! (cam #FF8A35 · đỏ #FF2B1E · tím #8B2FC9 · đen #0D0D0D)
+   Chỉnh màu/nhấn thương hiệu tại đây mà không đụng layout trong styles.css */
+:root{--brand-gradient:linear-gradient(135deg,#FF8A35 0%,#FF2B1E 100%)}
+.button-primary{background:var(--brand-gradient);color:#fff;border-color:transparent}
+.button-primary:hover{background:var(--brand-gradient);filter:brightness(1.08)}
+.hero{background:radial-gradient(900px 500px at 85% 20%,rgba(255,43,30,.28),transparent 60%),radial-gradient(700px 400px at 10% 90%,rgba(139,47,201,.18),transparent 60%),var(--ink)}
+.demo-label{background:var(--ink);color:var(--orange)}
+.paper-corner{background:linear-gradient(225deg,var(--paper) 50%,var(--purple) 50%)}
