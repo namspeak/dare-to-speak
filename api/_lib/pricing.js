@@ -1,6 +1,6 @@
 const REGULAR_PRICE = 1000000;
 const EARLY_BIRD_PRICE = 500000;
-const EARLY_BIRD_DEADLINE = Date.parse("2026-10-15T00:00:00+07:00");
+const EARLY_BIRD_DEADLINE = Date.parse("2026-11-08T00:00:00+07:00");
 const PROMO_CODES = Object.freeze({ DTS50: 500000, DTS100: 0 });
 
 function calculateRegistrationPrice({ promoCode = "", now = new Date(), regularPrice = REGULAR_PRICE } = {}) {
