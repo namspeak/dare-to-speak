@@ -12,7 +12,7 @@ function escapeHtml(value) {
 async function sendPaymentNotification({ registration, payment }) {
   const config = getConfig();
   const [createdAt, code, name, email, phone, role] = registration.row;
-  const subject = `[S-PEAK K09] Đã thanh toán ${Number(payment.transferAmount).toLocaleString("vi-VN")} VND — ${name || code}`;
+  const subject = `[S-PEAK K10] Đã thanh toán ${Number(payment.transferAmount).toLocaleString("vi-VN")} VND — ${name || code}`;
   const rows = [
     ["Học viên", name],
     ["Email", email],
@@ -36,7 +36,7 @@ async function sendPaymentNotification({ registration, payment }) {
       from: config.resendFromEmail,
       to: [config.notificationEmail],
       subject,
-      html: `<div style="font-family:Arial,sans-serif;color:#111827"><h2>Khách hàng đã thanh toán</h2><p>Khoản thanh toán cho DARE TO S-PEAK K09 đã được xác nhận tự động qua SePay.</p><table style="border-collapse:collapse">${htmlRows}</table></div>`,
+      html: `<div style="font-family:Arial,sans-serif;color:#111827"><h2>Khách hàng đã thanh toán</h2><p>Khoản thanh toán cho DARE TO S-PEAK K10 đã được xác nhận tự động qua SePay.</p><table style="border-collapse:collapse">${htmlRows}</table></div>`,
     }),
   });
 
