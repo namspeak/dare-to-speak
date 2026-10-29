@@ -109,7 +109,14 @@
     border-bottom: 1px solid rgba(255,255,255,0.06);
     transition: padding 0.3s;
   }
-  nav img { height: 44px; width: auto; }
+  nav img {
+    display: block;
+    height: 44px;
+    width: auto;
+    border-radius: 4px;
+    background: #fff;
+    object-fit: contain;
+  }
   .nav-links {
     display: flex;
     align-items: center;
@@ -932,7 +939,14 @@
     gap: 24px;
     flex-wrap: wrap;
   }
-  footer img { height: 36px; }
+  footer img {
+    display: block;
+    height: 38px;
+    width: auto;
+    border-radius: 4px;
+    background: #fff;
+    object-fit: contain;
+  }
   .footer-links {
     display: flex;
     gap: 24px;
@@ -3056,7 +3070,7 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero"><img src="assets/speak-logo.png" alt="S-PEAK with Nam Nguyen"></a>
+  <a href="#hero" aria-label="DARE TO S-PEAK"><img src="assets/dare-to-speak-logo.png" alt="Logo DARE TO S-PEAK" width="1774" height="887" fetchpriority="high"></a>
   <div class="nav-links">
     <a href="#pain">Dành cho ai?</a>
     <a href="#curriculum">Chương trình</a>
@@ -3662,7 +3676,7 @@ tạo niềm tin sâu sắc và dẫn dắt khán giả đến hành động.</p
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <a href="#hero"><img src="assets/speak-logo.png" alt="S-PEAK"></a>
+      <a href="#hero" aria-label="DARE TO S-PEAK"><img src="assets/dare-to-speak-logo.png" alt="Logo DARE TO S-PEAK" width="1774" height="887"></a>
       <span class="footer-copy">© 2026 S-PEAK with Nam Nguyễn · Biến chuyên môn thành tầm ảnh hưởng</span>
       <div class="footer-social">
         <a href="https://web.facebook.com/HuHaNa1508/" target="_blank" title="Facebook">f</a>
